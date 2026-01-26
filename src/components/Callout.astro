@@ -1,0 +1,91 @@
+---
+interface Props {
+  type: 'tip' | 'warning' | 'efficiency' | 'casual' | 'hcim';
+  title?: string;
+}
+
+const { type, title } = Astro.props;
+
+const defaultTitles: Record<string, string> = {
+  tip: 'Tip',
+  warning: 'Warning',
+  efficiency: 'Efficiency',
+  casual: 'Casual',
+  hcim: 'HCIM',
+};
+
+const displayTitle = title || defaultTitles[type];
+
+const icons: Record<string, string> = {
+  tip: '💡',
+  warning: '⚠️',
+  efficiency: '⚡',
+  casual: '🎮',
+  hcim: '💀',
+};
+---
+
+<aside class:list={['callout', `callout-${type}`]} role="note">
+  <div class="callout-header">
+    <span class="callout-icon" aria-hidden="true">{icons[type]}</span>
+    <span class="callout-title">{displayTitle}</span>
+  </div>
+  <div class="callout-content">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    border-radius: 0.5rem;
+    padding: var(--space-md);
+    margin: var(--space-lg) 0;
+    border-left: 4px solid;
+  }
+
+  .callout-tip {
+    background-color: var(--color-tip-bg);
+    border-color: var(--color-tip-border);
+  }
+
+  .callout-warning,
+  .callout-hcim {
+    background-color: var(--color-warning-bg);
+    border-color: var(--color-warning-border);
+  }
+
+  .callout-efficiency {
+    background-color: var(--color-efficiency-bg);
+    border-color: var(--color-efficiency-border);
+  }
+
+  .callout-casual {
+    background-color: var(--color-casual-bg);
+    border-color: var(--color-casual-border);
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  .callout-tip .callout-header { color: var(--color-tip-border); }
+  .callout-warning .callout-header,
+  .callout-hcim .callout-header { color: var(--color-warning-border); }
+  .callout-efficiency .callout-header { color: var(--color-efficiency-border); }
+  .callout-casual .callout-header { color: var(--color-casual-border); }
+
+  .callout-content {
+    font-size: 0.9375rem;
+  }
+
+  .callout-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

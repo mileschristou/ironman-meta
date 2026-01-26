@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import { getCollection } from 'astro:content';
+
+const allGuides = await getCollection('skilling', ({ data }) => !data.draft);
+const sortedGuides = allGuides.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const subcategories = {
+  'resource': {
+    title: 'Resource Skills',
+    description: 'Gathering raw materials: Mining, Fishing, Woodcutting, Farming, Hunter',
+    skills: ['Mining', 'Fishing', 'Woodcutting', 'Farming', 'Hunter']
+  },
+  'production': {
+    title: 'Production Skills',
+    description: 'Turning materials into products: Crafting, Smithing, Fletching, Herblore, Cooking, Runecraft',
+    skills: ['Crafting', 'Smithing', 'Fletching', 'Herblore', 'Cooking', 'Runecraft']
+  },
+  'support': {
+    title: 'Support Skills',
+    description: 'Utility skills that support other content: Agility, Thieving, Prayer, Construction',
+    skills: ['Agility', 'Thieving', 'Prayer', 'Construction']
+  },
+  'combat': {
+    title: 'Combat Skills',
+    description: 'Combat training and Slayer: Attack, Strength, Defence, Magic, Ranged, Slayer',
+    skills: ['Attack', 'Strength', 'Defence', 'Magic', 'Ranged', 'Slayer']
+  },
+};
+---
+
+<BaseLayout
+  title="Ironman Skilling Guides"
+  description="Skill training guides optimised for OSRS Ironmen. Practical methods that work without the GE, from early game to 99."
+>
+  <div class="pillar-page">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Skilling' }]} />
+
+      <header class="pillar-header">
+        <h1>Skilling Guides</h1>
+        <p class="pillar-intro">
+          Skill training methods that actually work for ironmen. No GE shortcuts — just practical approaches to getting the levels you need.
+        </p>
+      </header>
+
+      <section class="subcategories">
+        {Object.entries(subcategories).map(([slug, { title, description }]) => (
+          <div class="subcategory">
+            <h2>{title}</h2>
+            <p class="subcategory-description">{description}</p>
+            {sortedGuides.filter(g => g.data.subcategory === slug).length > 0 ? (
+              <div class="guide-grid">
+                {sortedGuides
+                  .filter(g => g.data.subcategory === slug)
+                  .map((guide) => (
+                    <GuideCard
+                      title={guide.data.title}
+                      description={guide.data.description}
+                      href={`/skilling/${guide.slug}/`}
+                    />
+                  ))}
+              </div>
+            ) : (
+              <p class="coming-soon">Guides coming soon.</p>
+            )}
+          </div>
+        ))}
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .pillar-page {
+    padding: var(--space-xl) 0;
+  }
+
+  .pillar-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .pillar-header h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .pillar-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 40rem;
+    line-height: 1.6;
+  }
+
+  .subcategories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .subcategory h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+  }
+
+  .subcategory-description {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .coming-soon {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

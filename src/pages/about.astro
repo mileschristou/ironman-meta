@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="About Ironman Guide - a practical OSRS resource for Standard Ironman players."
+>
+  <div class="about-page">
+    <div class="container">
+      <div class="content">
+        <Breadcrumbs items={[{ label: 'About' }]} />
+
+        <h1>About Ironman Guide</h1>
+
+        <section class="about-section">
+          <h2>What this site is</h2>
+          <p>
+            Ironman Guide is a curated resource for OSRS Ironman players. We focus on practical, opinionated guidance that tells you <strong>what to do and when</strong> — not a wiki-style data dump of every possible option.
+          </p>
+          <p>
+            The site is primarily aimed at <strong>Standard Ironman</strong> accounts, with Hardcore safety notes included where relevant. UIM and GIM content may come in the future.
+          </p>
+        </section>
+
+        <section class="about-section">
+          <h2>Our approach</h2>
+          <ul>
+            <li><strong>Opinionated:</strong> We make recommendations rather than listing every alternative without guidance.</li>
+            <li><strong>Practical:</strong> Methods that actually work, written like advice from a mate who's done the grind.</li>
+            <li><strong>Current:</strong> Guides are updated for game changes. We link out to the wiki and YouTube for raw data and visuals.</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>What this site isn't</h2>
+          <ul>
+            <li>A wiki competitor — we link to the wiki for drop tables and raw data</li>
+            <li>A video platform — we link to creators for visual guides</li>
+            <li>A generic gaming blog</li>
+          </ul>
+        </section>
+
+        <section class="about-section">
+          <h2>Who's behind this</h2>
+          <p>
+            Just an ironman who wanted a better reference than scattered Reddit threads and outdated YouTube videos. If you have feedback or spot something wrong, the best way to help is to let us know.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding: var(--space-xl) 0;
+  }
+
+  h1 {
+    margin-bottom: var(--space-xl);
+  }
+
+  .about-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .about-section h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  .about-section ul {
+    padding-left: var(--space-lg);
+  }
+
+  .about-section li {
+    margin-bottom: var(--space-sm);
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import { getCollection } from 'astro:content';
+
+const allGuides = await getCollection('progression', ({ data }) => !data.draft);
+const sortedGuides = allGuides.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const subcategories = {
+  'early-game': { title: 'Early Game', description: 'From Tutorial Island through your first 50-100 hours' },
+  'mid-game': { title: 'Mid Game', description: 'Building your account from base 50s to quest cape' },
+  'late-game': { title: 'Late Game', description: 'End-game grinds, BIS gear, and bossing' },
+};
+---
+
+<BaseLayout
+  title="Ironman Progression Guides"
+  description="Complete progression guides for OSRS Ironmen. From early game roadmaps to late-game goals, know exactly what to focus on at every stage."
+>
+  <div class="pillar-page">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Progression' }]} />
+
+      <header class="pillar-header">
+        <h1>Progression Guides</h1>
+        <p class="pillar-intro">
+          The backbone of your ironman journey. These guides tell you what to do next at every stage of your account — from fresh off Tutorial Island to grinding BIS gear.
+        </p>
+      </header>
+
+      <section class="subcategories">
+        {Object.entries(subcategories).map(([slug, { title, description }]) => (
+          <div class="subcategory">
+            <h2>{title}</h2>
+            <p class="subcategory-description">{description}</p>
+            {sortedGuides.filter(g => g.data.subcategory === slug).length > 0 ? (
+              <div class="guide-grid">
+                {sortedGuides
+                  .filter(g => g.data.subcategory === slug)
+                  .map((guide) => (
+                    <GuideCard
+                      title={guide.data.title}
+                      description={guide.data.description}
+                      href={`/progression/${guide.slug}/`}
+                    />
+                  ))}
+              </div>
+            ) : (
+              <p class="coming-soon">Guides coming soon.</p>
+            )}
+          </div>
+        ))}
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .pillar-page {
+    padding: var(--space-xl) 0;
+  }
+
+  .pillar-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .pillar-header h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .pillar-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 40rem;
+    line-height: 1.6;
+  }
+
+  .subcategories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .subcategory h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+  }
+
+  .subcategory-description {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .coming-soon {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

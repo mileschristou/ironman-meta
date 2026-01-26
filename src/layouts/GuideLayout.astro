@@ -1,0 +1,133 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuickAnswer from '../components/QuickAnswer.astro';
+import type { CollectionEntry } from 'astro:content';
+
+type GuideEntry = CollectionEntry<'progression'> | CollectionEntry<'skilling'> | CollectionEntry<'supplies'> | CollectionEntry<'guides'>;
+
+interface Props {
+  entry: GuideEntry;
+}
+
+const { entry } = Astro.props;
+const { title, description, publishDate, updatedDate, category, subcategory, quickAnswer } = entry.data;
+
+// Build breadcrumb path
+const categoryLabels: Record<string, string> = {
+  progression: 'Progression',
+  skilling: 'Skilling',
+  supplies: 'Supplies',
+  guides: 'Guides',
+};
+
+const breadcrumbs = [
+  { label: categoryLabels[category], href: `/${category}/` },
+  { label: title },
+];
+
+// Format dates
+const formatDate = (date: Date) => date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+// Calculate reading time (rough estimate: 200 words per minute)
+const content = await entry.render();
+const wordCount = entry.body?.split(/\s+/).length || 0;
+const readingTime = Math.ceil(wordCount / 200);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  articleDate={publishDate.toISOString()}
+  articleModified={updatedDate?.toISOString()}
+>
+  <article class="guide-article">
+    <div class="container">
+      <div class="content">
+        <Breadcrumbs items={breadcrumbs} />
+
+        <header class="guide-header">
+          <h1>{title}</h1>
+          <div class="guide-meta">
+            <span>Updated {formatDate(updatedDate || publishDate)}</span>
+            <span class="separator">·</span>
+            <span>{readingTime} min read</span>
+          </div>
+        </header>
+
+        {quickAnswer && <QuickAnswer answer={quickAnswer} />}
+
+        <div class="guide-content">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .guide-article {
+    padding: var(--space-xl) 0;
+  }
+
+  .guide-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .guide-header h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .guide-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .guide-meta .separator {
+    margin: 0 var(--space-sm);
+  }
+
+  .guide-content {
+    line-height: 1.7;
+  }
+
+  /* Prose styles for markdown content */
+  .guide-content :global(h2) {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-bg-elevated);
+  }
+
+  .guide-content :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .guide-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: var(--space-lg) 0;
+  }
+
+  /* Related guides section styling */
+  .guide-content :global(.related-guides) {
+    background-color: var(--color-bg-secondary);
+    border-radius: 0.5rem;
+    padding: var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+
+  .guide-content :global(.related-guides h2) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    font-size: 1.125rem;
+  }
+</style>

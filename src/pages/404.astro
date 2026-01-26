@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist."
+>
+  <div class="error-page">
+    <div class="container">
+      <h1>404</h1>
+      <p class="error-message">This page doesn't exist — maybe it was moved or never written.</p>
+      <div class="error-links">
+        <a href="/" class="error-btn">Back to Homepage</a>
+        <p class="error-or">or browse:</p>
+        <ul class="error-nav">
+          <li><a href="/progression/">Progression</a></li>
+          <li><a href="/skilling/">Skilling</a></li>
+          <li><a href="/supplies/">Supplies</a></li>
+          <li><a href="/guides/">Guides</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .error-page {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 6rem;
+    color: var(--color-accent);
+    margin: 0;
+    line-height: 1;
+  }
+
+  .error-message {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin: var(--space-md) 0 var(--space-xl);
+  }
+
+  .error-btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color var(--transition-fast);
+  }
+
+  .error-btn:hover {
+    background-color: var(--color-accent-hover);
+    text-decoration: none;
+  }
+
+  .error-or {
+    color: var(--color-text-muted);
+    margin: var(--space-lg) 0 var(--space-sm);
+    font-size: 0.875rem;
+  }
+
+  .error-nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .error-nav a {
+    color: var(--color-link);
+  }
+</style>

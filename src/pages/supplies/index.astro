@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import { getCollection } from 'astro:content';
+
+const allGuides = await getCollection('supplies', ({ data }) => !data.draft);
+const sortedGuides = allGuides.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+const subcategories = {
+  'money-making': {
+    title: 'GP Methods',
+    description: 'How to make gold at every stage of your account',
+  },
+  'consumables': {
+    title: 'Food & Potions',
+    description: 'Sustainable supplies for PvM and skilling',
+  },
+  'gear': {
+    title: 'Gear Acquisition',
+    description: 'Where to get upgrades and how to progress your equipment',
+  },
+};
+---
+
+<BaseLayout
+  title="Ironman Supplies & Money Making"
+  description="Money making and supply guides for OSRS Ironmen. GP methods, food sources, and gear acquisition without the GE."
+>
+  <div class="pillar-page">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Supplies' }]} />
+
+      <header class="pillar-header">
+        <h1>Supplies & Money Making</h1>
+        <p class="pillar-intro">
+          The ironman economy — getting what you need without the GE. GP methods, sustainable food sources, and where to find your gear upgrades.
+        </p>
+      </header>
+
+      <section class="subcategories">
+        {Object.entries(subcategories).map(([slug, { title, description }]) => (
+          <div class="subcategory">
+            <h2>{title}</h2>
+            <p class="subcategory-description">{description}</p>
+            {sortedGuides.filter(g => g.data.subcategory === slug).length > 0 ? (
+              <div class="guide-grid">
+                {sortedGuides
+                  .filter(g => g.data.subcategory === slug)
+                  .map((guide) => (
+                    <GuideCard
+                      title={guide.data.title}
+                      description={guide.data.description}
+                      href={`/supplies/${guide.slug}/`}
+                    />
+                  ))}
+              </div>
+            ) : (
+              <p class="coming-soon">Guides coming soon.</p>
+            )}
+          </div>
+        ))}
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .pillar-page {
+    padding: var(--space-xl) 0;
+  }
+
+  .pillar-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .pillar-header h1 {
+    margin-bottom: var(--space-md);
+  }
+
+  .pillar-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 40rem;
+    line-height: 1.6;
+  }
+
+  .subcategories {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .subcategory h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
+  }
+
+  .subcategory-description {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .coming-soon {
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+</style>

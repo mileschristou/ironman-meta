@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuideCard from '../components/GuideCard.astro';
+
+const pillars = [
+  {
+    title: 'Progression',
+    description: 'What to do at every stage of your account — from Tutorial Island to end-game goals.',
+    href: '/progression/',
+    icon: '📈',
+  },
+  {
+    title: 'Skilling',
+    description: 'Training methods that work without the GE. Practical guides for every skill.',
+    href: '/skilling/',
+    icon: '⚒️',
+  },
+  {
+    title: 'Supplies',
+    description: 'GP methods, food sources, and gear acquisition. The ironman economy explained.',
+    href: '/supplies/',
+    icon: '💰',
+  },
+  {
+    title: 'Guides',
+    description: 'Deep dives into regions, activities, and unlocks. Varlamore, Giants Foundry, and more.',
+    href: '/guides/',
+    icon: '📖',
+  },
+];
+---
+
+<BaseLayout
+  title="Ironman Guide"
+  description="Practical OSRS Ironman guides. Opinionated progression advice, skilling methods, and everything you need to know — without the wiki data dump."
+>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">
+        OSRS Ironman guides that tell you <span class="highlight">what to do</span>
+      </h1>
+      <p class="hero-subtitle">
+        Practical, opinionated guides for Standard Ironman. No wiki-style data dumps — just clear advice on what to focus on and when.
+      </p>
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="container">
+      <h2 class="section-title">Browse by Category</h2>
+      <div class="pillar-grid">
+        {pillars.map((pillar) => (
+          <a href={pillar.href} class="pillar-card">
+            <span class="pillar-icon">{pillar.icon}</span>
+            <h3 class="pillar-title">{pillar.title}</h3>
+            <p class="pillar-description">{pillar.description}</p>
+            <span class="pillar-link">Explore {pillar.title} →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="value-prop">
+    <div class="container">
+      <h2 class="section-title">Not another wiki</h2>
+      <div class="value-grid">
+        <div class="value-item">
+          <h3>Opinionated</h3>
+          <p>We make recommendations. You get clear guidance, not endless lists of "it depends".</p>
+        </div>
+        <div class="value-item">
+          <h3>Practical</h3>
+          <p>Methods that actually work for ironmen, written by someone who's done the grinds.</p>
+        </div>
+        <div class="value-item">
+          <h3>Updated</h3>
+          <p>Guides are maintained and updated for game changes. No 2019 advice here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    max-width: 36rem;
+    margin: 0 auto var(--space-lg);
+    line-height: 1.2;
+  }
+
+  .highlight {
+    color: var(--color-accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .section-title {
+    margin-bottom: var(--space-xl);
+  }
+
+  .pillars {
+    padding: var(--space-2xl) 0;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .pillar-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-bg-elevated);
+    border-radius: 0.75rem;
+    padding: var(--space-xl);
+    text-decoration: none;
+    transition: border-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .pillar-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+    text-decoration: none;
+  }
+
+  .pillar-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .pillar-title {
+    color: var(--color-text-bright);
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .pillar-description {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    margin: 0 0 var(--space-md);
+    flex-grow: 1;
+    line-height: 1.5;
+  }
+
+  .pillar-link {
+    color: var(--color-link);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .pillar-card:hover .pillar-link {
+    color: var(--color-accent);
+  }
+
+  .value-prop {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .value-item h3 {
+    color: var(--color-accent);
+    font-size: 1.125rem;
+    margin: 0 0 var(--space-sm);
+  }
+
+  .value-item p {
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>
