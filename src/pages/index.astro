@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GuideCard from '../components/GuideCard.astro';
 
 const pillars = [
   {
@@ -31,49 +30,116 @@ const pillars = [
 ---
 
 <BaseLayout
-  title="Ironman Guide"
+  title="Ironman Meta"
   description="Practical OSRS Ironman guides. Opinionated progression advice, skilling methods, and everything you need to know — without the wiki data dump."
 >
+  <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-glow"></div>
     <div class="container">
-      <h1 class="hero-title">
-        OSRS Ironman guides that tell you <span class="highlight">what to do</span>
-      </h1>
-      <p class="hero-subtitle">
-        Practical, opinionated guides for Standard Ironman. No wiki-style data dumps — just clear advice on what to focus on and when.
-      </p>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg class="badge-ornament left" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M2 16L8 10V22L2 16Z M8 10L16 2L16 30L8 22V10Z" fill="currentColor" opacity="0.3"/>
+          </svg>
+          <span>Ironman Meta</span>
+          <svg class="badge-ornament right" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M30 16L24 22V10L30 16Z M24 22L16 30L16 2L24 10V22Z" fill="currentColor" opacity="0.3"/>
+          </svg>
+        </div>
+
+        <h1 class="hero-title">
+          OSRS guides that tell you<br>
+          <span class="highlight">what to do</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Practical, opinionated guides for Standard Ironman.<br>
+          No wiki-style data dumps — just clear advice on what to focus on and when.
+        </p>
+      </div>
     </div>
   </section>
 
+  <!-- Pillars Section -->
   <section class="pillars">
     <div class="container">
-      <h2 class="section-title">Browse by Category</h2>
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        Browse by Category
+        <span class="title-line"></span>
+      </h2>
+
       <div class="pillar-grid">
-        {pillars.map((pillar) => (
-          <a href={pillar.href} class="pillar-card">
-            <span class="pillar-icon">{pillar.icon}</span>
-            <h3 class="pillar-title">{pillar.title}</h3>
-            <p class="pillar-description">{pillar.description}</p>
-            <span class="pillar-link">Explore {pillar.title} →</span>
+        {pillars.map((pillar, index) => (
+          <a
+            href={pillar.href}
+            class="pillar-card"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="card-corner top-left"></div>
+            <div class="card-corner top-right"></div>
+            <div class="card-corner bottom-left"></div>
+            <div class="card-corner bottom-right"></div>
+
+            <div class="card-glow"></div>
+
+            <div class="card-content">
+              <div class="pillar-icon-wrapper">
+                <span class="pillar-icon">{pillar.icon}</span>
+              </div>
+              <h3 class="pillar-title">{pillar.title}</h3>
+              <p class="pillar-description">{pillar.description}</p>
+              <span class="pillar-link">
+                <span>Explore {pillar.title}</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- Value Proposition Section -->
   <section class="value-prop">
     <div class="container">
-      <h2 class="section-title">Not another wiki</h2>
+      <h2 class="section-title">
+        <span class="title-line"></span>
+        Not another wiki
+        <span class="title-line"></span>
+      </h2>
+
       <div class="value-grid">
-        <div class="value-item">
+        <div class="value-item" style="animation-delay: 0ms">
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M20 4L24 16L36 20L24 24L20 36L16 24L4 20L16 16L20 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3>Opinionated</h3>
           <p>We make recommendations. You get clear guidance, not endless lists of "it depends".</p>
         </div>
-        <div class="value-item">
+
+        <div class="value-item" style="animation-delay: 100ms">
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/>
+              <path d="M20 10V20L26 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>Practical</h3>
           <p>Methods that actually work for ironmen, written by someone who's done the grinds.</p>
         </div>
-        <div class="value-item">
+
+        <div class="value-item" style="animation-delay: 200ms">
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <path d="M8 20L16 28L32 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3>Updated</h3>
           <p>Guides are maintained and updated for game changes. No 2019 advice here.</p>
         </div>
@@ -83,111 +149,399 @@ const pillars = [
 </BaseLayout>
 
 <style>
+  /* Hero Section */
   .hero {
-    padding: var(--space-3xl) 0;
+    position: relative;
+    padding: var(--space-3xl) 0 var(--space-2xl);
     text-align: center;
-    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 50% at 50% 40%, rgba(212, 165, 116, 0.06), transparent),
+                linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg) 100%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.5; transform: translateX(-50%) scale(1.1); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    background: rgba(212, 165, 116, 0.05);
+  }
+
+  .badge-ornament {
+    color: var(--color-accent-dim);
   }
 
   .hero-title {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-    max-width: 36rem;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    max-width: 48rem;
     margin: 0 auto var(--space-lg);
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    color: var(--color-text-bright);
   }
 
   .highlight {
-    color: var(--color-accent);
+    position: relative;
+    color: var(--color-accent-bright);
+    text-shadow: 0 0 40px var(--color-accent-glow);
   }
 
   .hero-subtitle {
     font-size: 1.125rem;
     color: var(--color-text-muted);
-    max-width: 32rem;
+    max-width: 36rem;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
+  /* Section Title */
   .section-title {
-    margin-bottom: var(--space-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+    color: var(--color-text-bright);
+    letter-spacing: 0.02em;
   }
 
+  .title-line {
+    flex: 0 0 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border-strong), transparent);
+  }
+
+  /* Pillars Section */
   .pillars {
     padding: var(--space-2xl) 0;
+    position: relative;
   }
 
   .pillar-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-lg);
+    gap: var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .pillar-card {
+    position: relative;
     display: flex;
     flex-direction: column;
-    background-color: var(--color-bg-secondary);
-    border: 1px solid var(--color-bg-elevated);
-    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--color-bg-card) 0%, rgba(15, 13, 10, 0.7) 100%);
+    border: 1px solid var(--color-border);
     padding: var(--space-xl);
     text-decoration: none;
-    transition: border-color var(--transition-fast), transform var(--transition-fast);
+    transition: all var(--transition-slow);
+    animation: fadeInScale 0.6s ease-out backwards;
+    overflow: hidden;
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Corner decorations */
+  .card-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-slow);
+  }
+
+  .card-corner.top-left {
+    top: 12px;
+    left: 12px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .card-corner.top-right {
+    top: 12px;
+    right: 12px;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  .card-corner.bottom-left {
+    bottom: 12px;
+    left: 12px;
+    border-right: none;
+    border-top: none;
+  }
+
+  .card-corner.bottom-right {
+    bottom: 12px;
+    right: 12px;
+    border-left: none;
+    border-top: none;
+  }
+
+  .card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, var(--color-accent-glow), transparent 60%);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    pointer-events: none;
   }
 
   .pillar-card:hover {
     border-color: var(--color-accent);
     transform: translateY(-4px);
-    text-decoration: none;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(212, 165, 116, 0.1) inset,
+                0 0 30px rgba(212, 165, 116, 0.15);
+  }
+
+  .pillar-card:hover .card-corner {
+    border-color: var(--color-accent);
+    width: 28px;
+    height: 28px;
+  }
+
+  .pillar-card:hover .card-glow {
+    opacity: 0.4;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .pillar-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--space-lg);
+    border: 1px solid var(--color-border);
+    background: rgba(212, 165, 116, 0.03);
+    transition: all var(--transition-normal);
+  }
+
+  .pillar-card:hover .pillar-icon-wrapper {
+    border-color: var(--color-accent);
+    background: rgba(212, 165, 116, 0.08);
+    transform: scale(1.05);
   }
 
   .pillar-icon {
     font-size: 2rem;
-    margin-bottom: var(--space-md);
+    filter: grayscale(0.2);
+    transition: filter var(--transition-normal);
+  }
+
+  .pillar-card:hover .pillar-icon {
+    filter: grayscale(0);
   }
 
   .pillar-title {
+    font-family: var(--font-display);
     color: var(--color-text-bright);
-    font-size: 1.25rem;
-    margin: 0 0 var(--space-sm);
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-md);
+    letter-spacing: 0.02em;
+    transition: color var(--transition-normal);
+  }
+
+  .pillar-card:hover .pillar-title {
+    color: var(--color-accent-bright);
   }
 
   .pillar-description {
     color: var(--color-text-muted);
     font-size: 0.9375rem;
-    margin: 0 0 var(--space-md);
+    margin: 0 0 var(--space-lg);
     flex-grow: 1;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .pillar-link {
-    color: var(--color-link);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-accent);
+    font-family: var(--font-display);
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-normal);
+  }
+
+  .pillar-link svg {
+    transition: transform var(--transition-normal);
   }
 
   .pillar-card:hover .pillar-link {
-    color: var(--color-accent);
+    color: var(--color-accent-bright);
+    gap: var(--space-sm);
   }
 
+  .pillar-card:hover .pillar-link svg {
+    transform: translateX(4px);
+  }
+
+  /* Value Prop Section */
   .value-prop {
-    padding: var(--space-2xl) 0;
-    background-color: var(--color-bg-secondary);
+    padding: var(--space-2xl) 0 var(--space-3xl);
+    background: radial-gradient(ellipse 100% 50% at 50% 50%, rgba(212, 165, 116, 0.03), transparent),
+                var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
   }
 
   .value-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-2xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .value-item {
+    text-align: center;
+    padding: var(--space-xl);
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
+
+  .value-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-lg);
+    color: var(--color-accent);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(212, 165, 116, 0.02));
+    transition: all var(--transition-slow);
+  }
+
+  .value-item:hover .value-icon {
+    border-color: var(--color-accent);
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 30px var(--color-accent-glow);
   }
 
   .value-item h3 {
+    font-family: var(--font-display);
     color: var(--color-accent);
-    font-size: 1.125rem;
-    margin: 0 0 var(--space-sm);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-md);
+    letter-spacing: 0.02em;
+    transition: color var(--transition-normal);
+  }
+
+  .value-item:hover h3 {
+    color: var(--color-accent-bright);
   }
 
   .value-item p {
     color: var(--color-text-muted);
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+    }
+
+    .title-line {
+      flex: 0 0 30px;
+    }
+
+    .pillar-grid,
+    .value-grid {
+      gap: var(--space-lg);
+    }
+
+    .value-icon {
+      width: 64px;
+      height: 64px;
+    }
+
+    .value-icon svg {
+      width: 32px;
+      height: 32px;
+    }
   }
 </style>
