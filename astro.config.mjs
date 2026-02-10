@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://ironman.guide', // Placeholder - update when domain decided
+  site: 'https://ironmanmeta.com',
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
