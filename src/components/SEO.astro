@@ -19,7 +19,7 @@ const {
   type = 'website',
 } = Astro.props;
 
-const siteName = 'Ironman Guide';
+const siteName = 'Ironman Meta';
 const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 
 // Schema.org structured data
@@ -35,11 +35,11 @@ const schemaOrg = {
     dateModified: articleModified || articleDate,
     author: {
       '@type': 'Person',
-      name: 'Ironman Guide',
+      name: 'Ironman Meta',
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Ironman Guide',
+      name: 'Ironman Meta',
     },
   }),
 };
