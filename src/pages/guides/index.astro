@@ -32,10 +32,21 @@ const subcategories = {
       <Breadcrumbs items={[{ label: 'Guides' }]} />
 
       <header class="pillar-header">
-        <h1>Content Guides</h1>
+        <h1>OSRS Ironman Content Guides</h1>
         <p class="pillar-intro">
-          Deep dives into specific regions, activities, and unlocks. Everything that doesn't fit neatly into progression or skilling.
+          Comprehensive guides for OSRS ironman accounts covering region unlocks, efficient minigame strategies, and critical quest chains. Each guide focuses on ironman-specific methods, timesaving strategies, and long-term account progression.
         </p>
+
+        <div class="guide-benefits">
+          <h2>Why These Guides Matter</h2>
+          <p>Unlike general OSRS guides, these are written specifically for ironman restrictions. We cover:</p>
+          <ul>
+            <li><strong>Self-sufficient strategies</strong> - No Grand Exchange shortcuts, only ironman-viable methods</li>
+            <li><strong>Efficient unlock orders</strong> - What to prioritize and when based on your account stage</li>
+            <li><strong>Time-saving techniques</strong> - Skip the inefficient methods mains use</li>
+            <li><strong>Long-term planning</strong> - How each unlock benefits your account for hundreds of hours</li>
+          </ul>
+        </div>
       </header>
 
       <section class="subcategories">
@@ -110,5 +121,39 @@ const subcategories = {
   .coming-soon {
     color: var(--color-text-muted);
     font-style: italic;
+  }
+
+  .guide-benefits {
+    background: linear-gradient(135deg, #2d2419 0%, #1a1612 100%);
+    border: 2px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: var(--space-xl);
+    margin: var(--space-xl) 0;
+  }
+
+  .guide-benefits h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+  }
+
+  .guide-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0 0 0;
+  }
+
+  .guide-benefits li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-md);
+    position: relative;
+  }
+
+  .guide-benefits li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
   }
 </style>
