@@ -11,6 +11,46 @@ quickAnswer: "Start with quests (1-40 for free), then Superglass Make with giant
 
 import Callout from '../../components/Callout.astro';
 import SuperglassMakeCalculator from '../../components/SuperglassMakeCalculator.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What's the fastest way to 99 Crafting?", "acceptedAnswer": {"@type": "Answer", "text": "Black d'hide bodies (84-99) at 425-500k XP/hr. But it costs 200M+ GP. For ironmen, Dorgesh-Kaan lamps (87-99) are faster considering gathering time."}},
+    {"@type": "Question", "name": "Is Superglass Make worth it?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. It's profitable, sustainable, and builds a glass stockpile you'll use for Construction and more Crafting later. Every ironman should use this method."}},
+    {"@type": "Question", "name": "How much does 99 Crafting cost?", "acceptedAnswer": {"@type": "Answer", "text": "Depends on method: Superglass Make (40-99) is actually profitable. Dorgesh-Kaan lamps (87-99) cost near zero. Mix of methods costs 20-50M GP. Black d'hide bodies only costs 200M+ GP loss."}},
+    {"@type": "Question", "name": "When should I start farming giant seaweed?", "acceptedAnswer": {"@type": "Answer", "text": "As soon as you complete Bone Voyage to unlock Fossil Island. Giant seaweed is essential for Superglass Make and grows in 40 minutes. Start early and build a stockpile."}},
+    {"@type": "Question", "name": "Should I do Varrock diaries for battlestaves?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Even Easy diary (15 battlestaves/day) is worth it. Elite diary (120/day) is a long-term goal but gives 16.5k daily Crafting XP for 2 minutes of work."}},
+    {"@type": "Question", "name": "What's the cheapest method to 99?", "acceptedAnswer": {"@type": "Answer", "text": "Superglass Make from 40-99. It's actually profitable (700k+ GP/hr) while giving decent XP (108-153k/hr). Or use Dorgesh-Kaan lamps from 87-99 for near-zero cost."}},
+    {"@type": "Question", "name": "When should I make my first glory amulet?", "acceptedAnswer": {"@type": "Answer", "text": "As soon as you hit 80 Crafting and 68 Magic. Glory teleports save hundreds of hours. Get dragonstones from Tzhaar shop or gem rocks."}}
+  ]
+};
+
+export const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Train Crafting with Superglass Make in OSRS",
+  "description": "Complete guide to using Superglass Make for efficient Crafting training on an ironman account",
+  "image": "https://www.ironmanmeta.com/og-default.png",
+  "totalTime": "PT2H",
+  "estimatedCost": {"@type": "MonetaryAmount", "currency": "GP", "value": "0"},
+  "supply": [
+    {"@type": "HowToSupply", "name": "Giant Seaweed (cooked)"},
+    {"@type": "HowToSupply", "name": "Buckets of Sand"},
+    {"@type": "HowToSupply", "name": "Astral Runes"},
+    {"@type": "HowToSupply", "name": "Fire Runes"}
+  ],
+  "tool": [{"@type": "HowToTool", "name": "Lunar Spellbook (requires Lunar Diplomacy quest)"}],
+  "step": [
+    {"@type": "HowToStep", "name": "Farm Giant Seaweed", "text": "Complete Bone Voyage quest to unlock Fossil Island. Plant seaweed spores in underwater seaweed patches (2 patches available). Use ultracompost for best yield. Wait 40 minutes and harvest 15-34 giant seaweed per patch. Cook the giant seaweed to use with Superglass Make.", "url": "https://www.ironmanmeta.com/skilling/crafting/#giant-seaweed-farming-fossil-island"},
+    {"@type": "HowToStep", "name": "Gather Buckets of Sand", "text": "Mine sandstone at Bandit Camp Quarry (requires 35 Mining) and deposit in the Sandstorm grinder. Collect buckets of sand from Drew for 50 coins each. Alternatively, buy from charter ship traders by world hopping. You need 18 buckets of sand per cast.", "url": "https://www.ironmanmeta.com/skilling/crafting/#buckets-of-sand-three-methods"},
+    {"@type": "HowToStep", "name": "Complete Lunar Diplomacy Quest", "text": "Complete the Lunar Diplomacy quest to unlock the Lunar spellbook and access to Superglass Make spell. This requires 65 Magic, 61 Crafting, 40 Defence, and 49 Firemaking.", "url": "https://oldschool.runescape.wiki/w/Lunar_Diplomacy"},
+    {"@type": "HowToStep", "name": "Cast Superglass Make", "text": "Use 3 giant seaweed and 18 buckets of sand in your inventory. Cast Superglass Make spell from the Lunar spellbook. This creates approximately 27-30 molten glass (1.6x multiplier) and gives 180 Crafting XP plus 78 Magic XP per cast.", "url": "https://www.ironmanmeta.com/skilling/crafting/#superglass-make-setup-detailed"},
+    {"@type": "HowToStep", "name": "Bank and Repeat", "text": "Bank the molten glass at Lunar Isle or use a portable fairy ring or house teleport. Repeat the process with more giant seaweed and buckets of sand. Aim for 600-850 casts per hour for 108-153k Crafting XP/hour.", "url": "https://www.ironmanmeta.com/skilling/crafting/#superglass-make-setup-detailed"},
+    {"@type": "HowToStep", "name": "Glassblow the Molten Glass (Optional)", "text": "Once you have molten glass stockpiled, blow it into items like lantern lenses, empty light orbs, or other glassware for additional Crafting XP. Glassbowing provides up to 120k XP/hour.", "url": "https://www.ironmanmeta.com/skilling/crafting/#glassbowing-after-superglass-make"}
+  ]
+};
 
 Crafting on an ironman is all about resource management. Here's how to train it efficiently without burning your entire bank.
 
@@ -552,3 +592,5 @@ As soon as you hit 80 Crafting and 68 Magic. Glory teleports save hundreds of ho
 - [Farming Guide](/skilling/farming/) — Giant seaweed farming for Superglass Make
 - [Mining Guide](/skilling/mining/) — Sandstone grinding for buckets of sand
 - [Smithing Guide](/skilling/smithing/) — Gold bars for jewellery crafting
+
+<Schema schema={[faqSchema, howToSchema]} />
