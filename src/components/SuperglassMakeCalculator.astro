@@ -1,0 +1,694 @@
+---
+// Superglass Make Calculator - Modal Version
+---
+
+<!-- Trigger Button -->
+<button class="calculator-trigger" id="openCalculator">
+  🧪 Open Superglass Make Calculator
+</button>
+
+<!-- Modal Overlay -->
+<div class="modal-overlay" id="calculatorModal">
+  <div class="modal-container">
+    <!-- Close Button -->
+    <button class="modal-close" id="closeCalculator" aria-label="Close calculator">
+      ×
+    </button>
+
+    <!-- Calculator Content -->
+    <div class="calculator-header">
+      <span class="calculator-icon">🧪</span>
+      <h3>Superglass Make Calculator</h3>
+    </div>
+
+    <div class="calculator-body">
+      <!-- Mode Selector -->
+      <div class="mode-selector">
+        <button class="mode-btn active" data-mode="materials">
+          I have materials
+        </button>
+        <button class="mode-btn" data-mode="xp">
+          I need XP
+        </button>
+        <button class="mode-btn" data-mode="glass">
+          I need molten glass
+        </button>
+      </div>
+
+      <!-- Input Section (Materials Mode) -->
+      <div class="input-group" id="materials-input">
+        <div class="input-section">
+          <label for="giantSeaweed">
+            <span class="label-text">Giant Seaweed</span>
+          </label>
+          <input
+            type="number"
+            id="giantSeaweed"
+            min="0"
+            value="300"
+            placeholder="300"
+          />
+        </div>
+      </div>
+
+      <!-- Input Section (XP Mode) -->
+      <div class="input-group hidden" id="xp-input">
+        <div class="input-section">
+          <label for="targetXP">
+            <span class="label-text">Target Crafting XP</span>
+          </label>
+          <input
+            type="number"
+            id="targetXP"
+            min="0"
+            value="50000"
+            placeholder="50000"
+          />
+        </div>
+      </div>
+
+      <!-- Input Section (Glass Mode) -->
+      <div class="input-group hidden" id="glass-input">
+        <div class="input-section">
+          <label for="targetGlass">
+            <span class="label-text">Molten Glass Needed</span>
+          </label>
+          <input
+            type="number"
+            id="targetGlass"
+            min="0"
+            value="1000"
+            placeholder="1000"
+          />
+        </div>
+      </div>
+
+      <!-- Strategy Toggle -->
+      <div class="strategy-toggle">
+        <span class="strategy-label">Strategy:</span>
+        <button class="strategy-btn active" data-strategy="3-18">
+          3 seaweed + 18 sand (Standard)
+        </button>
+        <button class="strategy-btn" data-strategy="2-12">
+          2 seaweed + 12 sand
+        </button>
+      </div>
+
+      <!-- Results Grid -->
+      <div class="results-section">
+        <h4 class="results-title">Results</h4>
+        <div class="results-grid">
+          <div class="result-item">
+            <div class="result-label">Giant Seaweed</div>
+            <div class="result-value" id="result-seaweed">300</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-label">Buckets of Sand</div>
+            <div class="result-value" id="result-sand">1,800</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-label">Casts</div>
+            <div class="result-value" id="result-casts">100</div>
+          </div>
+
+          <div class="result-item highlight">
+            <div class="result-label">Molten Glass</div>
+            <div class="result-value" id="result-glass">2,700-3,000</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-label">Crafting XP</div>
+            <div class="result-value" id="result-crafting">18,000</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-label">Magic XP</div>
+            <div class="result-value" id="result-magic">7,800</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-label">Time Estimate</div>
+            <div class="result-value" id="result-time">7-10 mins</div>
+          </div>
+
+          <div class="result-item">
+            <div class="result-label">Glass per Seaweed</div>
+            <div class="result-value" id="result-efficiency">9-10</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calculator-note">
+        💡 <span id="strategy-note">3 seaweed + 18 sand: ~1.6x multiplier (27-30 glass per cast)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Trigger Button */
+  .calculator-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: linear-gradient(135deg, #d4a574 0%, #c9a76a 100%);
+    border: none;
+    border-radius: 0.5rem;
+    color: #1a1612;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .calculator-trigger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(212, 165, 116, 0.4);
+    background: linear-gradient(135deg, #f4a460 0%, #d4a574 100%);
+  }
+
+  .calculator-trigger:active {
+    transform: translateY(0);
+  }
+
+  /* Modal Overlay */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    padding: 1rem;
+    overflow-y: auto;
+    animation: fadeIn 0.2s ease;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Modal Container */
+  .modal-container {
+    position: relative;
+    background: linear-gradient(135deg, #2d2419 0%, #1a1612 100%);
+    border: 2px solid #d4a574;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Close Button */
+  .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #3d2f1f;
+    border: 1px solid #d4a574;
+    border-radius: 50%;
+    color: #d4a574;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-close:hover {
+    background-color: #d4a574;
+    color: #1a1612;
+    transform: rotate(90deg);
+  }
+
+  /* Calculator Header */
+  .calculator-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #3d2f1f;
+  }
+
+  .calculator-icon {
+    font-size: 1.75rem;
+  }
+
+  .calculator-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #d4a574;
+    font-weight: 600;
+  }
+
+  .calculator-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Mode Selector */
+  .mode-selector {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .mode-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.75rem 1rem;
+    background-color: #1a1612;
+    border: 2px solid #3d2f1f;
+    border-radius: 0.5rem;
+    color: #b8986f;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mode-btn:hover {
+    border-color: #d4a574;
+    color: #d4a574;
+  }
+
+  .mode-btn.active {
+    background: linear-gradient(135deg, #3d2f1f 0%, #2d2419 100%);
+    border-color: #d4a574;
+    color: #d4a574;
+  }
+
+  /* Strategy Toggle */
+  .strategy-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .strategy-label {
+    font-size: 0.9rem;
+    color: #b8986f;
+    font-weight: 600;
+  }
+
+  .strategy-btn {
+    padding: 0.5rem 1rem;
+    background-color: #1a1612;
+    border: 1px solid #3d2f1f;
+    border-radius: 0.375rem;
+    color: #8a7a6a;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .strategy-btn:hover {
+    border-color: #c9a76a;
+    color: #c9a76a;
+  }
+
+  .strategy-btn.active {
+    background-color: #2d2419;
+    border-color: #d4a574;
+    color: #d4a574;
+    font-weight: 600;
+  }
+
+  /* Input Groups */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .input-group.hidden {
+    display: none;
+  }
+
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .input-section label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .label-text {
+    font-weight: 600;
+    color: #d4a574;
+    font-size: 0.95rem;
+  }
+
+  .input-section input {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    background-color: #1a1612;
+    border: 2px solid #3d2f1f;
+    border-radius: 0.5rem;
+    color: #e5d5c0;
+    transition: all 0.2s ease;
+  }
+
+  .input-section input:focus {
+    outline: none;
+    border-color: #d4a574;
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+  }
+
+  .input-section input:hover {
+    border-color: #c9a76a;
+  }
+
+  /* Results Section */
+  .results-section {
+    background-color: #1a1612;
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    border: 1px solid #3d2f1f;
+  }
+
+  .results-title {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: #d4a574;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .result-item {
+    background-color: #2d2419;
+    border: 1px solid #3d2f1f;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+
+  .result-item:hover {
+    transform: translateY(-2px);
+    border-color: #d4a574;
+  }
+
+  .result-item.highlight {
+    background: linear-gradient(135deg, #3d2f1f 0%, #2d2419 100%);
+    border-color: #d4a574;
+  }
+
+  .result-label {
+    font-size: 0.75rem;
+    color: #b8986f;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .result-value {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #d4a574;
+  }
+
+  .highlight .result-value {
+    color: #f4a460;
+  }
+
+  .calculator-note {
+    background-color: #2d2419;
+    border-left: 3px solid #d4a574;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    color: #b8986f;
+  }
+
+  @media (max-width: 768px) {
+    .modal-container {
+      padding: 1.5rem;
+      max-height: 95vh;
+    }
+
+    .calculator-header h3 {
+      font-size: 1.25rem;
+    }
+
+    .mode-selector {
+      flex-direction: column;
+    }
+
+    .mode-btn {
+      min-width: unset;
+    }
+
+    .strategy-toggle {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-value {
+      font-size: 1.125rem;
+    }
+  }
+</style>
+
+<script>
+  // State
+  let currentMode = 'materials';
+  let currentStrategy = '3-18';
+
+  // Strategy configurations
+  const strategies = {
+    '3-18': {
+      seaweedPerCast: 3,
+      sandPerCast: 18,
+      glassMin: 27,
+      glassMax: 30,
+      multiplier: 1.6,
+      craftingXP: 180,
+      magicXP: 78,
+      note: '3 seaweed + 18 sand: ~1.6x multiplier (27-30 glass per cast)'
+    },
+    '2-12': {
+      seaweedPerCast: 2,
+      sandPerCast: 12,
+      glassMin: 18,
+      glassMax: 20,
+      multiplier: 1.5,
+      craftingXP: 120,
+      magicXP: 78,
+      note: '2 seaweed + 12 sand: ~1.5x multiplier (18-20 glass per cast)'
+    }
+  };
+
+  function calculate() {
+    const strategy = strategies[currentStrategy];
+    let seaweed, casts, sand, glassMin, glassMax, craftingXP, magicXP;
+
+    if (currentMode === 'materials') {
+      const input = document.getElementById('giantSeaweed') as HTMLInputElement;
+      seaweed = parseInt(input.value) || 0;
+      casts = Math.floor(seaweed / strategy.seaweedPerCast);
+      sand = casts * strategy.sandPerCast;
+      glassMin = casts * strategy.glassMin;
+      glassMax = casts * strategy.glassMax;
+      craftingXP = casts * strategy.craftingXP;
+      magicXP = casts * strategy.magicXP;
+    } else if (currentMode === 'xp') {
+      const input = document.getElementById('targetXP') as HTMLInputElement;
+      const targetXP = parseInt(input.value) || 0;
+      casts = Math.ceil(targetXP / strategy.craftingXP);
+      seaweed = casts * strategy.seaweedPerCast;
+      sand = casts * strategy.sandPerCast;
+      glassMin = casts * strategy.glassMin;
+      glassMax = casts * strategy.glassMax;
+      craftingXP = casts * strategy.craftingXP;
+      magicXP = casts * strategy.magicXP;
+    } else if (currentMode === 'glass') {
+      const input = document.getElementById('targetGlass') as HTMLInputElement;
+      const targetGlass = parseInt(input.value) || 0;
+      const avgGlass = (strategy.glassMin + strategy.glassMax) / 2;
+      casts = Math.ceil(targetGlass / avgGlass);
+      seaweed = casts * strategy.seaweedPerCast;
+      sand = casts * strategy.sandPerCast;
+      glassMin = casts * strategy.glassMin;
+      glassMax = casts * strategy.glassMax;
+      craftingXP = casts * strategy.craftingXP;
+      magicXP = casts * strategy.magicXP;
+    }
+
+    // Calculate efficiency
+    const efficiencyMin = seaweed > 0 ? (glassMin / seaweed).toFixed(1) : 0;
+    const efficiencyMax = seaweed > 0 ? (glassMax / seaweed).toFixed(1) : 0;
+
+    // Time estimate
+    const minMinutes = Math.round((casts / 850) * 60);
+    const maxMinutes = Math.round((casts / 600) * 60);
+
+    let timeEstimate;
+    if (casts === 0) {
+      timeEstimate = '0 mins';
+    } else if (maxMinutes < 60) {
+      timeEstimate = `${minMinutes}-${maxMinutes} mins`;
+    } else {
+      const minHours = Math.floor(minMinutes / 60);
+      const minMins = minMinutes % 60;
+      const maxHours = Math.floor(maxMinutes / 60);
+      const maxMins = maxMinutes % 60;
+
+      if (minHours === maxHours) {
+        timeEstimate = `${minHours}h ${minMins}-${maxMins}m`;
+      } else {
+        timeEstimate = `${minHours}h ${minMins}m - ${maxHours}h ${maxMins}m`;
+      }
+    }
+
+    // Update DOM
+    document.getElementById('result-seaweed')!.textContent = seaweed.toLocaleString();
+    document.getElementById('result-sand')!.textContent = sand.toLocaleString();
+    document.getElementById('result-casts')!.textContent = casts.toLocaleString();
+    document.getElementById('result-glass')!.textContent =
+      `${glassMin.toLocaleString()}-${glassMax.toLocaleString()}`;
+    document.getElementById('result-crafting')!.textContent = craftingXP.toLocaleString();
+    document.getElementById('result-magic')!.textContent = magicXP.toLocaleString();
+    document.getElementById('result-time')!.textContent = timeEstimate;
+    document.getElementById('result-efficiency')!.textContent =
+      seaweed > 0 ? `${efficiencyMin}-${efficiencyMax}` : '0';
+    document.getElementById('strategy-note')!.textContent = strategy.note;
+  }
+
+  function switchMode(mode: string) {
+    currentMode = mode;
+
+    document.querySelectorAll('.mode-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+    });
+
+    document.getElementById('materials-input')!.classList.toggle('hidden', mode !== 'materials');
+    document.getElementById('xp-input')!.classList.toggle('hidden', mode !== 'xp');
+    document.getElementById('glass-input')!.classList.toggle('hidden', mode !== 'glass');
+
+    calculate();
+  }
+
+  function switchStrategy(strategy: string) {
+    currentStrategy = strategy;
+
+    document.querySelectorAll('.strategy-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-strategy') === strategy);
+    });
+
+    calculate();
+  }
+
+  // Modal controls
+  const modal = document.getElementById('calculatorModal');
+  const openBtn = document.getElementById('openCalculator');
+  const closeBtn = document.getElementById('closeCalculator');
+
+  openBtn?.addEventListener('click', () => {
+    modal?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Close on overlay click
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Initial calculation
+  calculate();
+
+  // Event listeners
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const mode = (e.target as HTMLElement).getAttribute('data-mode')!;
+      switchMode(mode);
+    });
+  });
+
+  document.querySelectorAll('.strategy-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const strategy = (e.target as HTMLElement).getAttribute('data-strategy')!;
+      switchStrategy(strategy);
+    });
+  });
+
+  document.getElementById('giantSeaweed')?.addEventListener('input', calculate);
+  document.getElementById('targetXP')?.addEventListener('input', calculate);
+  document.getElementById('targetGlass')?.addEventListener('input', calculate);
+</script>
