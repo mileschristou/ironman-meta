@@ -1,0 +1,993 @@
+---
+title: "OSRS Ironman Herblore Guide 1-99: Mastering Mixology & Fast Methods"
+description: "Complete OSRS ironman herblore guide (1-99). Master Mastering Mixology (105k XP/hr), surge potions, efficient herb farming, and the fastest path to 99. Updated for 2026."
+publishDate: 2026-02-15
+updatedDate: 2026-02-15
+category: skilling
+subcategory: production
+tags: ["herblore", "mastering mixology", "herb farming", "prayer potions", "stamina potions", "surge potions", "varlamore"]
+quickAnswer: "Quest to 26 (free XP), farm herbs constantly, unlock Mastering Mixology at 60 (105k XP/hr + essential rewards), make prayer potions until 77, stamina potions until 81, then Sara brews. Prescription goggles (10% secondary save) and alchemist's amulet are must-haves. 80-120 hours to 99."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the fastest way to 99 Herblore?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Extended super antifire 1-ticking (98-99) at 800k XP/hr is the fastest method. Realistically for ironmen, expect 80-120 hours total using a mix of super combats (90+) and Mastering Mixology depending on herb supply."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Mastering Mixology worth it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely YES for ironmen. Mastering Mixology provides 3-4x more XP per herb than traditional methods and requires no secondaries. The rewards (prescription goggles and alchemist's amulet) save millions long-term through secondary preservation and extra potion doses."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many herb runs should I do per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Minimum 2-3 herb runs per day (morning/evening). Ideally every 80 minutes during active play time. Consistency matters more than quantity - even casual runs add up to thousands of herbs over weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What herbs should I prioritise farming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ranarr (prayer potions - priority #1), Toadflax (Sara brews, cheap), Snapdragon (super restores, expensive), and Torstol (super combat, highest level). Focus on what you need most for your current content."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I start making stamina potions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As soon as you hit 77 Herblore and have amylase crystals from Rooftop Agility. Don't wait - you'll use staminas forever. Make them as you get amylase from agility training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are surge potions worth making?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YES - surge potions are essential for PvM meta. The 25% spec attack restore is huge for bossing. Since demonic tallow is rare, stockpile it and make surge potions in batches."
+      }
+    }
+  ]
+};
+
+export const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Train Herblore 1-99 in OSRS (Ironman Guide)",
+  "description": "Complete guide to training Herblore from level 1 to 99 on an OSRS ironman account, including Mastering Mixology, herb farming, and efficient potion-making methods.",
+  "totalTime": "PT100H",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "GP",
+    "value": "50000000"
+  },
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Prescription Goggles"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Alchemist's Amulet"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Magic Secateurs"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Potion Storage"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Quest to Level 26",
+      "text": "Complete all Herblore quest XP rewards including Druidic Ritual (required to start), Jungle Potion, Recruitment Drive, The Depths of Despair, and Shades of Mort'ton. Use Achievement Diary lamps on Herblore. This takes 2-3 hours and gives free level 26.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Early Potions (26-38)",
+      "text": "Clean herbs from farming and make Attack potions and Energy potions. Set up Kingdom of Miscellania with 5 workers on herbs. Start herb runs every 80 minutes. This takes 5-10 hours to reach level 38.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Prayer Potions (38-60)",
+      "text": "Farm Ranarr seeds from Master Farmers and Farming Contracts. Farm Snape grass (61 Farming required). Make lots of prayer potions as you'll use them forever. Takes 20-30 hours to reach level 60.",
+      "position": 3
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Mastering Mixology (60-77)",
+      "text": "Complete Children of the Sun quest and unlock Mastering Mixology minigame. Earn Prescription Goggles and Alchemist's Amulet FIRST (essential rewards). Mix Mixology training with traditional potion-making. Make Super Attacks and Super Strength for future super combats. Takes 20-30 hours to reach level 77.",
+      "position": 4
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Stamina Potions (77-81)",
+      "text": "Make Stamina potions as you get amylase from Rooftop Agility (160k+ XP/hr). Continue Mixology for pure XP. Make useful potions as needed. Takes 10-15 hours to reach level 81.",
+      "position": 5
+    },
+    {
+      "@type": "HowToStep",
+      "name": "High-Level Potions (81-90)",
+      "text": "Make Saradomin Brews and stockpile for raids. Make Surge Potions for spec attack restore. Continue Mixology. Make Super Restores and Anti-venoms as needed. Takes 15-20 hours to reach level 90.",
+      "position": 6
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Endgame Push (90-99)",
+      "text": "Mix Mixology with useful potions (105-160k XP/hr). Make super combats as you get supplies. Optional: Extended Super Antifire 1-ticking at level 98 for 800k XP/hr. Takes 25-35 hours to reach level 99.",
+      "position": 7
+    }
+  ]
+};
+
+Herblore is non-negotiable for ironmen. You can't buy potions, so you make them yourself. Here's how to train efficiently with 2026's new methods.
+
+**At a glance:**
+- **Best new method:** Mastering Mixology (60+) - 105k XP/hr, no secondaries needed
+- **Essential potions:** Prayer (38), stamina (77), Sara brews (81), super combat (90)
+- **Key unlocks:** Prescription goggles (10% secondary save), potion storage (248 bank spaces)
+- **Fastest method:** Extended super antifire 1-ticking (98+) - 800k XP/hr
+
+---
+
+## Why Herblore Matters
+
+**Unique requirement:**
+- Only skill in the game requiring a quest to start ([Druidic Ritual](https://oldschool.runescape.wiki/w/Druidic_Ritual))
+- Cannot be trained until quest completion
+
+**Essential for ironmen:**
+- Prayer potions (PvM survival)
+- Stamina potions (everything)
+- Combat potions (DPS)
+- Saradomin brews (high-level bossing)
+- Anti-venoms (Zulrah, raids)
+
+**Quest/Diary requirements:**
+- 70 Herblore for [Song of the Elves](https://oldschool.runescape.wiki/w/Song_of_the_Elves) (cannot boost)
+- 90 for Elite Varrock diary (can boost with +5 spicy stew)
+- 78 for raids overload potions
+
+---
+
+## Mastering Mixology (2024 Update) — THE GAME-CHANGER
+
+The biggest herblore update for ironmen ever. This Varlamore minigame completely changes the meta.
+
+### What Is It?
+
+**Herblore minigame in Aldarin, Varlamore**
+- **105-110k XP/hr** at efficient levels
+- **3-4x more XP per herb** than traditional potion-making
+- **No secondaries required** - the minigame provides everything
+- Rewards are essential for all ironmen
+
+**Requirements:**
+- 60 Herblore (not boostable)
+- Completion of [Children of the Sun](https://oldschool.runescape.wiki/w/Children_of_the_Sun) quest
+- All recipes unlocked at 81 Herblore
+
+**Location:**
+- Aldarin island, Varlamore
+- Fairy ring code: **CKQ**
+- Or charter ship from Varlamore
+
+### How It Works
+
+You fill potion orders using three reagents: **Mox** (purple), **Aga** (red), and **Lye** (green).
+
+**Process:**
+1. Add clean herbs or unfinished potions to the refiner → Get paste (Mox/Aga/Lye)
+2. Deposit up to 3,000 of each paste type in the hopper
+3. Check potion orders (top-left corner) - shows which potions to make
+4. Pull three levers to select paste combination (order doesn't matter)
+5. Click beaker to create potion
+6. Process potions at machines (agitator/crystallizer/concentrator)
+7. Submit completed potions on conveyor belt → Big XP drop!
+
+**Machine types:**
+- **Agitator (V icon):** Click once, click again when sparkles appear
+- **Crystallizer (beaker icon):** Click, wait for 5 pumps, click again (listen for sound)
+- **Concentrator (cauldron icon):** Spam click - no timing needed
+
+**The Digweed:**
+- Purple plant spawns randomly in corners
+- Pick it immediately (despawns after ~10 seconds)
+- Add to any potion before/after processing
+- **Doubles XP and points** for that potion
+
+<Callout type="efficiency">
+Use the **"Mastering Mixology" RuneLite plugin** (Plugin Hub). It highlights machines, tells you what to make, and shows Digweed spawns. Essential for efficiency.
+</Callout>
+
+### Essential Rewards (Must-Haves!)
+
+| Reward | Cost (Mox/Aga/Lye) | Why You Need It |
+|--------|---------------------|-----------------|
+| **Prescription Goggles** | 8,600 / 7,000 / 9,350 | **10% chance to save secondaries** — massive long-term savings |
+| **Alchemist's Amulet** | 6,900 / 5,650 / 7,400 | Stores 5,000 charges, **15% chance for 4-dose potions** |
+| **Potion Storage** | 17,250 / 14,000 / 18,600 | **Saves 248 bank spaces** for potions/unfinished potions |
+| **Reagent Pouch** | 10,350 / 8,400 / 11,160 | Stores 26 of each secondary in 1 inventory space |
+| **Chugging Barrel** | 20,700 / 16,800 / 22,320 | Drink up to 5 potions simultaneously when banking |
+| **Alchinium** | 690 / 565 / 740 each | Secondary for gout tuber + prayer regen potions |
+
+**Priority order for ironmen:**
+1. Prescription Goggles (10% secondary save is huge)
+2. Alchemist's Amulet (15% 4-dose chance)
+3. Potion Storage (bank space)
+4. Reagent Pouch (convenience)
+5. Chugging Barrel (PvM QoL)
+
+<Callout type="tip">
+Get the rewards FIRST, then decide how to train. The goggles alone save millions of GP worth of secondaries over your account's lifetime.
+</Callout>
+
+### When to Use Mixology
+
+**Use Mixology when:**
+- You have lots of herbs but no secondaries
+- You want pure XP for level goals
+- You need Mixology reward currency
+- Training 60-81 for recipe unlocks
+
+**Use traditional potion-making when:**
+- You need specific potions for PvM (prayer pots, staminas, brews)
+- You have both herbs and secondaries available
+- You're making immediately useful potions
+
+**Ironman strategy:**
+- Get Mixology rewards first (goggles + amulet)
+- Use Mixology for herbs where secondaries are hard to obtain
+- Make traditional potions for useful ones (prayer, stamina, combat)
+
+---
+
+## Quest XP Rewards (1-26 Free!)
+
+Skip the early grind entirely with quests. **Total: 9,350 Herblore XP** (levels 1 → 26)
+
+| Quest | Herblore XP | Requirements | Notes |
+|-------|-------------|--------------|-------|
+| [Druidic Ritual](https://oldschool.runescape.wiki/w/Druidic_Ritual) | 250 | None | **Unlocks Herblore skill** (1→3) |
+| [Recruitment Drive](https://oldschool.runescape.wiki/w/Recruitment_Drive) | 1,000 | Black Knights' Fortress | 3→10 |
+| [The Dig Site](https://oldschool.runescape.wiki/w/The_Dig_Site) | 2,000 | 10 Agility, 25 Thieving | 10→17 |
+| [Jungle Potion](https://oldschool.runescape.wiki/w/Jungle_Potion) | 775 | None | 17→19 |
+| [Eadgar's Ruse](https://oldschool.runescape.wiki/w/Eadgar%27s_Ruse) | 11,000 | 31 Herblore | 31→36 (do later) |
+| [My Arm's Big Adventure](https://oldschool.runescape.wiki/w/My_Arm%27s_Big_Adventure) | 10,000 | Eadgar's Ruse, Feud, more | Disease-free herb patch! |
+| [Grim Tales](https://oldschool.runescape.wiki/w/Grim_Tales) | 15,000 | Witches' House, more | Huge XP reward |
+
+**Also use Achievement Diary lamps on Herblore** - it's slow to train early on.
+
+<Callout type="efficiency">
+Do Druidic Ritual, Recruitment Drive, The Dig Site, and Jungle Potion immediately. This takes 1-2 hours and gets you to level 19 without touching a single herb.
+</Callout>
+
+---
+
+## Herb Gathering (Critical for Ironmen)
+
+Herblore is only as fast as your herb supply. Here's how to get them:
+
+### 1. Farming (Primary Method) — DO HERB RUNS EVERY 80 MINUTES
+
+**This is your main herb source.** Consistent runs = consistent XP.
+
+**Disease-Free Patches (prioritise these!):**
+1. **Troll Stronghold** - [My Arm's Big Adventure](https://oldschool.runescape.wiki/w/My_Arm%27s_Big_Adventure) quest
+2. **Weiss** - [Making Friends with My Arm](https://oldschool.runescape.wiki/w/Making_Friends_with_My_Arm) quest
+3. **Hosidius** - 75% Hosidius favour
+4. **Varlamore** - NEW! 16,000 Colosseum glory (Champion rank)
+
+**Other patches:**
+- Falador Park
+- Ardougne (north of zoo)
+- Catherby (near bank)
+- Port Phasmatys
+- Farming Guild (85 Farming)
+- Harmony Island (elite Morytania diary)
+- Troll Stronghold protected
+
+**Total: 10+ patches available**
+
+**Efficient Herb Run Strategy:**
+
+**Inventory:**
+- Magic secateurs (equipped or inventory) - **+10% herb yield**
+- Ultracompost (apply to every patch)
+- Herb seeds (highest level you can afford)
+- Teleports (Ectophial, Ardougne cloak, Explorer's ring, etc.)
+- Seed dibber, spade
+- Herb sack (if you have it from Tithe Farm)
+
+**Ultracompost creation:**
+- Buy pineapples from charter ships → Compost bin
+- OR harvest watermelons → Compost bin
+- Add 25 volcanic ash (from Fossil Island) to turn super → ultra
+- Alternative: Use Compost potion (22 Herblore) on compost bin
+
+**What herbs to plant:**
+
+**Early game (low Farming):**
+- Whatever seeds you get from contracts/master farmers
+- Focus on **Ranarr** for prayer potions
+
+**Mid game (65+ Farming):**
+- **Ranarr** (prayer potions - priority #1!)
+- **Toadflax** (Sara brews later, cheap)
+- **Avantoe** (super energy → stamina potions)
+
+**Late game (75+ Farming):**
+- **Ranarr** (always useful)
+- **Snapdragon** (super restores, expensive)
+- **Torstol** (super combat, highest level)
+
+**Time investment:**
+- 5-10 minutes per run
+- Every 80 minutes (herb growth time)
+- ~6-8 runs per day if efficient
+
+<Callout type="tip">
+Set RuneLite timers for herb runs. Even 3 runs per day (morning/afternoon/evening) gives consistent herb income. This is how you sustain Herblore long-term.
+</Callout>
+
+### 2. Farming Contracts (Best Seed Source!)
+
+**Available at Farming Guild (45+ Farming required)**
+
+Currently the **best way to obtain herb and tree seeds** for ironmen.
+
+**Contract tiers:**
+- Easy (45 Farming)
+- Medium (65 Farming)
+- Hard (85 Farming)
+
+**Strategy:**
+- Complete contracts for seed packs containing herb seeds
+- Pre-plant certain crops to complete multiple contracts quickly
+- Don't harvest pre-grown crops - wait for contract assignment
+- Replace contracts as you complete them for maximum efficiency
+
+**This is how you get Ranarr, Snapdragon, and Torstol seeds consistently.**
+
+### 3. Kingdom of Miscellania (Passive Income)
+
+**Essential for ironmen** - set this up ASAP!
+
+**Requirements:**
+- Completion of [Throne of Miscellania](https://oldschool.runescape.wiki/w/Throne_of_Miscellania)
+- [Royal Trouble](https://oldschool.runescape.wiki/w/Royal_Trouble) quest unlocks more workers
+
+**Optimal setup:**
+- Maximum GP in coffer (750k+ recommended)
+- 10 workers on Maple Logs
+- **5 workers on Herbs** (for endgame potion supply)
+- Keep approval rating at 100% (check every few days)
+
+**Maintaining approval:**
+- Talk to Advisor Ghrim to check rating
+- Help citizens with skilling tasks until they say "Thanks!"
+- Rating falls 2.5% daily (1% with Royal Trouble)
+
+**Yields:**
+- 50+ herbs daily at high approval
+- Passive, efficient long-term strategy
+- Set it and forget it (check weekly)
+
+### 4. Master Farmer Pickpocketing (Ranarr Seeds)
+
+**Fastest method for Ranarr seeds** specifically.
+
+**Requirements:**
+- 38 Thieving minimum
+- 85 Thieving for better seed rates (Snapdragon, Torstol)
+- **94 Thieving + Hard Ardougne Diary** = stop failing
+- **99 Thieving + Thieving cape** = never fail
+
+**Strategy:**
+- Focus on this specifically for Ranarr seeds
+- Yields various herb, allotment, and flower seeds
+- Can be tedious but very effective
+- Master Farmers in Draynor Village, Hosidius, Farming Guild
+
+### 5. Slayer Drops (Passive Collection)
+
+**Best monsters for herb drops:**
+- **Aberrant Spectres** - Good herb drops
+- **Nechryaels** - Bulk herb/seed drops when bursting
+- **Kurasks** - Consistent herb drops
+- **Chaos Druids** (early game) - Level 13 combat, common herbs
+  - Locations: Edgeville Dungeon, Taverley Dungeon
+  - Drop expensive herbs: Lantadyme, Avantoe, Dwarf Weed, Ranarr
+- **Spitting Wyverns** - 4-dose prayer potions, ranarr seeds/weeds
+
+### 6. Herbiboar Hunting (Hybrid Method)
+
+**Requirements:**
+- 80 Hunter
+- 31 Herblore minimum (higher = better herbs)
+- Stamina potions + Herb sack recommended
+
+**XP rates:**
+- 115-130k Hunter XP/hr
+- Passive Herblore resource gathering
+
+**Herb quality:**
+- Determined by your Herblore level
+- Low-level herbs disappear from drop table at certain levels
+- **Recommended: 80+ Herblore** for high-quality herbs only
+
+**Is it worth it?**
+- **YES** if you need herbs and can support it with staminas
+- Excellent alternative to chinchompas
+- Good for alching/making broad arrows while hunting
+- Equip or carry Magic Secateurs for extra herb per harvest
+
+### 7. Other Sources
+
+- **Zulrah** - Snape grass, herbs, scales (all useful!)
+- **Vorkath** - Blue dragon scales
+- **Chambers of Xeric** - Herb drops from rooms
+
+---
+
+## Secondary Ingredient Sources
+
+You need secondaries to make potions. Here's where to get each one:
+
+### Snape Grass (Prayer Potions — Level 38)
+
+**Best Method: Farming**
+- Level 61 Farming with snape grass seeds
+- Grown in allotment patches
+- Can be noted at Tool Leprechaun
+- ~30-40 per patch with ultracompost
+
+**Alternative:** Zulrah drops
+
+### Red Spider Eggs (Super Restores — Level 63)
+
+**Best Method: Spidines**
+- Requires [Tower of Life](https://oldschool.runescape.wiki/w/Tower_of_Life) quest + Medium Ardougne Diary
+- Spidines drop 3-6 **noted** eggs per kill
+- Much faster than collecting spawns
+
+**Alternative:** Various spider locations (Varrock sewers, etc.)
+
+### Limpwurt Roots (Super Strength — Level 55)
+
+**Best Method: Farming**
+- Level 26 Farming
+- Grown in flower patches
+- **Only 20 minutes to grow** - very fast!
+- Can obtain large quantities quickly
+- Plant during herb runs
+
+### Dragon Scales (Antifire, Anti-venom)
+
+**Best Method: Blue Dragons**
+- Myth's Guild: 950-1,000 scales/hr
+- Taverley Dungeon: 850-950/hr
+- **Only collect when you need antifires** - otherwise use potato cactus
+
+**Alternative:** Vorkath for blue dragon scale drops
+
+### Potato Cactus (Magic Potions)
+
+**Best Methods:**
+
+**1. Farming** (Level 64 Farming)
+- Potato cactus seeds
+- ~70 minutes to grow
+- Protect with 8 snape grass
+- Farm at Farming Guild
+
+**2. Kalphite Lair Spawns**
+- 10 total spawns (3 in SW room with Kalphite Soldiers)
+- Collect and world hop
+
+**3. Al Kharid**
+- Harvest and wait for respawn
+
+### Other Important Secondaries
+
+| Secondary | Source | Used For |
+|-----------|--------|----------|
+| **Eyes of Newt** | Buy in packs of 100 from Betty's Magic Emporium (Port Sarim) | Attack potions |
+| **Chocolate Dust** | Buy chocolate bars, use pestle & mortar OR use NPC (Hard Desert diary) | Energy potions |
+| **Mort Myre Fungi** | Nature Spirit quest area | Prayer restores |
+| **Crushed Nests** | Bird nests from Kingdom, Woodcutting (use pestle & mortar) | Sara brews |
+| **Zulrah's Scales** | Kill Zulrah | Anti-venom |
+| **Unicorn Horn Dust** | Kill unicorns, use pestle & mortar | Antipoison |
+| **Amylase Crystals** | Rooftop Agility courses | **Stamina potions** |
+| **Demonic Tallow** | Demonic creatures (NEW 2024) | **Surge potions** |
+
+<Callout type="tip">
+**Hard Desert Diary unlocks:** Zahur makes unfinished potions (200 coins each) and Wesley crushes items (50 coins) in Nardah. Massive QoL for bulk potion-making!
+</Callout>
+
+---
+
+## Training Methods by Level
+
+### Early Game (1-50)
+
+**Levels 1-19: QUESTS**
+- See quest section above
+- Druidic Ritual → Recruitment Drive → Dig Site → Jungle Potion
+- Free 9,350 XP
+
+**Levels 19-26: Strength Potions**
+- Tarromin + Limpwurt root
+- 95 potions needed
+- Limpwurts farm fast (20 mins)
+
+**Levels 26-38: Energy Potions**
+- Harralander + Chocolate dust
+- 322 potions needed
+- Buy chocolate bars from charter ships
+
+**Level 38-50: PRAYER POTIONS**
+- Ranarr + Snape grass
+- **Most important potion for ironmen**
+- Extremely useful forever
+- Focus herb runs on Ranarr seeds
+
+**XP rates:**
+- Making potions: 50-100k XP/hr
+- Cleaning herbs: 60-88k XP/hr (auto-clean update helps)
+
+**Key Milestone:** Level 38 unlocks Prayer Potions!
+
+### Mid Game (50-77)
+
+**Level 45-50: Super Attack**
+- Irit leaf + Eyes of newt
+- Required for super combat potions later
+
+**Level 55: Super Strength**
+- Kwuarm + Limpwurt roots
+- Required for super combat potions
+
+**Level 60: MASTERING MIXOLOGY UNLOCKS!**
+- **105-110k XP/hr**
+- No herbs/secondaries needed
+- Get rewards ASAP (goggles + amulet)
+
+**Level 63: Super Restore**
+- Snapdragon + Red spiders' eggs
+- Very useful for PvM
+
+**Level 66-77: Mixed Training**
+- Continue Mixology for XP
+- Make prayer potions as you get herbs
+- Make super restores for PvM
+- Stockpile for next milestone
+
+**XP rates:**
+- Standard potions: 80-120k XP/hr
+- Mastering Mixology: 105-110k XP/hr
+
+**Key Milestones:**
+- 60 = Mastering Mixology
+- 63 = Super Restores
+- 77 = Stamina Potions (huge!)
+
+### Late Game (77-99)
+
+**Level 77: STAMINA POTIONS — MAJOR MILESTONE**
+- Super energy + Amylase crystals
+- **160k+ XP/hr**
+- 25.5 XP per dose, requires 1 amylase crystal
+- Essential for all content
+- Get amylase from Rooftop Agility
+
+**Level 81: Saradomin Brews**
+- Toadflax + Crushed nest
+- Essential for high-level PvM
+- Raises Hitpoints +15% +2, Defence +20% +2
+- Stockpile for raids
+
+**Level 81: SURGE POTIONS (NEW 2024!)**
+- Torstol (unf) + Demonic tallow
+- **185 XP per potion**
+- Restores 25% spec attack (5 min cooldown)
+- **Essential for PvM/PvP**
+- Untradeable - must make yourself
+
+**Level 87: Anti-venom**
+- Zulrah's scales + Antidote++
+- Cures venom/poison instantly
+- Immunity: 12 min poison, 36-54 sec venom
+
+**Level 90: SUPER COMBAT POTIONS**
+- Torstol + Super attack/str/def (4 dose each)
+- **150 XP per potion**
+- **320-500k XP/hr** (very expensive!)
+- Best combat boost in game
+- Costs 200-300M+ GP to 99 (main account method)
+
+**Level 97: Divine Super Combat**
+- Crystal dust + Super combat
+- Boosts Attack/Str/Def by 5 + 15% for 5 minutes
+- Stats don't drain during duration
+
+**Level 98: Extended Super Antifire (1-Ticking)**
+- **800k XP/hr** (fastest in game!)
+- Very click-intensive
+- Hold space bar + click each potion
+- Low cost, insane XP
+- Final push to 99
+
+**XP rates:**
+- Stamina potions (77+): 160k XP/hr
+- Sara brews: 150-200k XP/hr
+- Super combat (90+): 320-500k XP/hr
+- Extended super antifire (98+): 800k XP/hr (1-ticking)
+- Mastering Mixology: 105-110k XP/hr (still viable!)
+
+---
+
+## Advanced Methods (Faster XP)
+
+### 1-Tick Method (Stackable Ingredients)
+
+Certain potions have **stackable secondaries**, letting you abuse game mechanics for insane XP rates.
+
+**How it works:**
+1. Put a large stack of secondary in inventory (e.g., 10,000 amylase crystals)
+2. Take 27 potions needed (e.g., super energy for staminas)
+3. Hold **SPACE BAR** on keyboard
+4. Click secondary on each potion rapidly
+5. You'll make 1 potion per tick = insane XP/hr
+
+**Stackable ingredient potions:**
+- **Stamina potions (77):** ~530k XP/hr
+- **Anti-venom (87):** ~600k XP/hr
+- **Extended super antifire (98):** ~800k XP/hr
+
+**Downsides:**
+- Extremely click-intensive
+- Only works for specific potions
+- Can be expensive
+
+<Callout type="warning">
+The 1-tick method is exhausting. Only use for final push to 99 or when you want Herblore done ASAP. Most ironmen mix methods instead.
+</Callout>
+
+### Cleaning Herbs (AFK Profit)
+
+**Auto-cleaning (very AFK):**
+- Put grimy herbs in inventory
+- Click one herb
+- Character auto-cleans slowly
+- 60-70k XP/hr
+
+**Manual cleaning:**
+- Click each herb as fast as you can
+- 80-88k XP/hr
+- More profit than auto-clean
+
+**"Grime" Spell (Arceuus Spellbook):**
+- 70 Magic required
+- [A Kingdom Divided](https://oldschool.runescape.wiki/w/A_Kingdom_Divided) quest
+- Full inventory of grimy herbs
+- Cast spell → cleans all at once
+- **Best profit per hour** for cleaning
+- Very click-intensive
+
+**Is cleaning worth it?**
+- Good for ironmen with excess herbs and no secondaries
+- Profitable (clean herbs > grimy herbs)
+- Can do while AFKing other activities
+
+---
+
+## Important Potion Unlocks
+
+| Level | Potion | Ingredients | Why Important |
+|-------|--------|-------------|---------------|
+| 38 | **Prayer Potion** | Ranarr + Snape grass | Essential for all PvM |
+| 45 | Super Attack | Irit + Eyes of newt | Needed for super combat |
+| 55 | Super Strength | Kwuarm + Limpwurt | Needed for super combat |
+| 63 | Super Restore | Snapdragon + Red spiders' eggs | Restores prayer + stats |
+| 77 | **Stamina Potion** | Super energy + Amylase | **Essential for everything** |
+| 81 | **Saradomin Brew** | Toadflax + Crushed nest | High-level PvM, raids |
+| 81 | **Surge Potion** | Torstol (unf) + Demonic tallow | Spec attack restore (NEW 2024) |
+| 87 | Anti-venom | Zulrah's scales + Antidote++ | Venom immunity |
+| 90 | **Super Combat** | Torstol + Super att/str/def | Best combat boost |
+| 97 | Divine Super Combat | Crystal dust + Super combat | Extended boosted stats |
+
+---
+
+## Recommended Training Path (1-99)
+
+### Phase 1: Quest Rush (1→26)
+- Complete all Herblore quest XP rewards
+- Use Achievement Diary lamps on Herblore
+- **Time:** 2-3 hours
+- **Result:** Level 26+
+
+### Phase 2: Early Potions (26→38)
+- Clean herbs from farming
+- Make Attack potions, Energy potions
+- **Set up Kingdom of Miscellania** (5 workers on herbs)
+- **Start herb runs every 80 minutes**
+- **Time:** 5-10 hours
+- **Result:** Level 38
+
+### Phase 3: Prayer Potions (38→60)
+- Farm Ranarr seeds (Master Farmers + Farming Contracts)
+- Farm Snape grass (61 Farming)
+- Make LOTS of prayer potions (you'll use them forever)
+- **Time:** 20-30 hours
+- **Result:** Level 60
+
+### Phase 4: Mastering Mixology (60→77)
+- Complete [Children of the Sun](https://oldschool.runescape.wiki/w/Children_of_the_Sun) quest
+- Start Mastering Mixology
+- **Earn Prescription Goggles + Alchemist's Amulet FIRST**
+- Mix Mixology with traditional potion-making
+- Make Super Attacks, Super Strength (for future super combats)
+- **Time:** 20-30 hours
+- **Result:** Level 77
+
+### Phase 5: Stamina Potions (77→81)
+- Make Stamina potions as you get amylase (from Rooftop Agility)
+- Continue Mixology for pure XP
+- Make useful potions as needed
+- **Time:** 10-15 hours
+- **Result:** Level 81
+
+### Phase 6: High-Level Potions (81→90)
+- Make Saradomin Brews (stockpile for raids)
+- Make Surge Potions (spec attack restore)
+- Continue Mixology
+- Make Super Restores, Anti-venoms as needed
+- **Time:** 15-20 hours
+- **Result:** Level 90
+
+### Phase 7: Endgame Push (90→99)
+
+**Option A (Balanced for Ironmen):**
+- Mix of Mixology + useful potions
+- 105-160k XP/hr
+- ~25-35 hours
+- Make super combats as you get supplies
+
+**Option B (Speed - Main Accounts):**
+- Make Super Combat potions
+- Need LOTS of Super Attack/Strength/Defence + Torstol
+- 320-500k XP/hr
+- ~15-20 hours
+- Very expensive (200-300M GP)
+
+**Option C (Final Push at 98):**
+- Extended Super Antifire (1-ticking)
+- 800k XP/hr
+- Very click-intensive
+- ~5-10 hours from 98→99
+
+**Total Realistic Time for Ironman 1-99:**
+- **Efficient route:** 80-100 hours
+- **Casual route:** 100-150 hours
+- **Ultra-efficient (late-game resources):** 60-80 hours
+
+---
+
+## Bank Space Management
+
+**Herblore takes MASSIVE bank space!** Here's how to manage:
+
+### Must-Have Solutions:
+
+**1. Potion Storage (from Mixology)**
+- Extra bank area for unfinished/finished potions
+- **Saves up to 248 bank spaces!**
+- Absolute must-have for ironmen
+
+**2. Reagent Pouch (from Mixology)**
+- Stores 26 of EACH secondary in 1 inventory space
+- Massive bank space saver
+- Can make 26 potions per inventory instead of 14
+
+**3. Seed Vault (Farming Guild)**
+- Stores all seeds without using bank space
+- Free up bank for herbs/secondaries
+
+### Organisation Tips:
+
+- Dedicated Herblore bank tab
+- Decide: clean herbs immediately or store grimy?
+- Keep specific spots for secondaries
+- Decant potions to 4-dose for space (use Bob Barter in GE)
+- Use POH storage units for specific items
+
+**Storage Priority:**
+1. Get Seed Vault ASAP (45 Farming)
+2. Get Potion Storage from Mixology (essential!)
+3. Get Reagent Pouch from Mixology
+4. Organise dedicated herb/secondary tab
+
+---
+
+## When to Make Potions vs Stockpile
+
+**Ironman philosophy:**
+
+**Make useful potions immediately:**
+- Prayer potions - always needed
+- Stamina potions - make as you get amylase
+- Combat potions - make as needed for bossing
+- Saradomin brews - stockpile for raids
+
+**Stockpile herbs you can't process:**
+- No secondaries available yet
+- Waiting for higher Herblore level
+
+**Don't grind specifically for herbs:**
+- Gather passively through slayer, farming, bossing
+- Let Kingdom of Miscellania accumulate
+- Do consistent herb runs (main source)
+
+**When to use Mastering Mixology:**
+- Lots of herbs but no secondaries
+- Want pure XP for level goals
+- Need Mixology reward currency
+
+**When to make traditional potions:**
+- Need specific potions for PvM
+- Have both herbs and secondaries available
+- Want immediately useful items
+
+---
+
+## Achievement Diary Requirements
+
+| Diary | Tier | Level | Reward/Notes |
+|-------|------|-------|--------------|
+| Varrock | Medium | 10 | Easy requirement |
+| Varrock | Elite | 90 | High requirement (can boost +5) |
+| Western Provinces | Hard | 81 | Unlocks elite void |
+| Karamja | Elite | 90 | High requirement |
+| Desert | Elite | 84 | High requirement |
+| Ardougne | Elite | 10 | Surprisingly low |
+
+**Useful Diary Rewards:**
+- **Hard Ardougne Diary:** Stop failing Master Farmers at 94 Thieving, better Spidine drops
+- **Hard Desert Diary:** Zahur makes unfinished potions (200 coins), Wesley crushes items (50 coins)
+
+---
+
+## XP Rate Comparison (2026 Meta)
+
+| Method | Level Req | XP/Hour | Cost/Notes |
+|--------|-----------|---------|------------|
+| Cleaning herbs | 1+ | 60-88k | Profit, very AFK |
+| Making basic potions | Varies | 50-120k | Depends on potion |
+| **Mastering Mixology** | 60 | **105-110k** | **Profit possible, best for irons** |
+| Stamina potions | 77 | 160k+ | Need amylase from agility |
+| Sara brews | 81 | 150-200k | Moderate cost |
+| Super combat | 90 | 320-500k | Very expensive (200M+ to 99) |
+| **Extended super antifire (1-tick)** | 98 | **800k** | **Low cost, very intensive** |
+
+**Total Time to 99:**
+- Fastest route (1-ticking): ~35 hours (exhausting!)
+- Main account route (super combats): 50-60 hours, 200M+ GP
+- **Ironman realistic:** 80-120 hours depending on herb supply
+
+---
+
+## 2024-2026 Meta Summary
+
+**What's New:**
+
+1. **Mastering Mixology is the META** for ironman herblore
+   - 3-4x more XP per herb than traditional methods
+   - Essential rewards (goggles save millions long-term)
+   - No secondaries required
+
+2. **Surge Potions** (2024) add new endgame content
+   - 25% spec attack restore (5-min cooldown)
+   - Essential for PvM strategies
+   - Untradeable - must make yourself
+
+3. **Varlamore herb patch** adds disease-free farming location
+   - Requires 16k Colosseum glory
+   - Optimises herb run efficiency
+
+4. **Quality of Life improvements:**
+   - Auto-clean herbs update (faster cleaning)
+   - Prescription goggles (10% secondary save)
+   - Alchemist's amulet (15% 4-dose chance)
+   - Potion storage (248 bank spaces saved)
+   - Reagent pouch (26 of each secondary in 1 slot)
+
+**Current Recommended Approach:**
+
+1. Quest to 26 (free!)
+2. Traditional potions to 60 (focus on prayer potions)
+3. Mastering Mixology 60+ for rewards + XP
+4. Mix Mixology with useful potion-making
+5. Stamina potions at 77 (as you get amylase)
+6. Sara brews + Surge potions at 81
+7. Super combats at 90 (if you have resources)
+8. Extended super antifire at 98 for final push (optional)
+
+---
+
+## Common Mistakes
+
+- **Not doing herb runs** — Consistency is key. Even 2-3 runs per day adds up.
+- **Skipping Mastering Mixology rewards** — Goggles + amulet save millions long-term
+- **Not using ultracompost** — Massive yield difference on expensive herbs
+- **Forgetting disease-free patches** — Use these for Ranarr/Snapdragon/Torstol
+- **Not setting up Kingdom of Miscellania** — Free passive herbs
+- **Making useless potions** — Focus on prayer, stamina, combat, brews
+- **Ignoring Magic Secateurs** — +10% herb yield is huge
+- **Not farming limpwurts** — They grow in 20 mins! Easy super strength secondaries
+- **Hoarding too many herbs** — Bank space nightmare. Make potions or use Mixology.
+
+---
+
+## FAQ
+
+### What's the fastest way to 99 Herblore?
+
+Extended super antifire 1-ticking (98-99) at 800k XP/hr. But realistically: mix of super combats (90+) and Mixology. For ironmen, 80-120 hours total depending on herb supply.
+
+### Is Mastering Mixology worth it?
+
+**Absolutely YES** for ironmen. Get the rewards first (especially goggles + amulet), then decide how to train. 3-4x more XP per herb than traditional methods, and rewards save millions long-term.
+
+### How many herb runs should I do per day?
+
+Minimum 2-3 per day (morning/evening). Ideal is every 80 minutes during active play time. Consistency > quantity. Even casual runs add up to thousands of herbs over weeks.
+
+### What herbs should I prioritise farming?
+
+**Ranarr** (prayer potions - priority #1), **Toadflax** (Sara brews, cheap), **Snapdragon** (super restores, expensive), **Torstol** (super combat, highest level). Focus on what you need most.
+
+### Should I clean herbs or leave them grimy?
+
+Clean immediately to save bank space. Grimy herbs take twice as much space and cleaning is fast (auto-clean update). Exception: if you want AFK XP later, stockpile grimy.
+
+### When should I start making stamina potions?
+
+As soon as you hit 77 Herblore and have amylase crystals from Rooftop Agility. Don't wait - you'll use staminas forever. Make them as you get amylase.
+
+### Are surge potions worth making?
+
+**YES** - essential for PvM meta. 25% spec attack restore is huge for bossing. Demonic tallow is rare though, so stockpile it and make surge potions in batches.
+
+---
+
+## Related Guides
+
+- [Farming Guide](/skilling/farming/) — Herb runs, contracts, Kingdom of Miscellania
+- [Slayer Guide](/skilling/slayer/) — Herb drops from monsters
+- [Secondaries Guide](/skilling/secondaries/) — All secondary ingredient sources
+- [Varlamore Guide](/guides/varlamore/) — Mastering Mixology location and access
+
+<Schema schema={[faqSchema, howToSchema]} />
