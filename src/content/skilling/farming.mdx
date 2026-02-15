@@ -1,0 +1,839 @@
+---
+title: "OSRS Ironman Farming Guide 1-99: Contracts, Herb Runs & Tithe Farm"
+description: "Complete OSRS ironman farming guide (1-99). Master farming contracts, efficient herb runs, tree runs, and Tithe Farm rewards. Quest to 38, then optimize with pre-planting strategies. Updated for 2026."
+publishDate: 2026-02-15
+updatedDate: 2026-02-15
+category: skilling
+subcategory: production
+tags: ["farming", "farming contracts", "herb runs", "tree runs", "tithe farm", "hespori", "ultracompost", "magic secateurs"]
+quickAnswer: "Quest to 38 (free XP), do Tithe Farm to 62 for essential rewards (auto-weed, seed box, herb sack), then farming contracts + daily tree runs to 99. Herb runs every 80 minutes for herblore supplies. Bottomless bucket from Hespori is essential. Pre-plant for instant contract completions. 3-4 months to 99 with consistency."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the fastest way to train farming on an ironman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Quest to level 38 (10 hours), do Tithe Farm to 62 for essential rewards (15-20 hours), then farming contracts with pre-planting plus daily tree runs. This gets you to 99 in 3-4 months with 15-30 minutes of daily effort. Tree runs provide massive XP for minimal time investment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I protect my trees or use ultracompost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always protect trees (regular, fruit, hardwood) if you can afford the payment items - protection guarantees 100% survival and trees have long growth times. Use ultracompost only on herbs and crops where protection isn't available. For ironmen, the time cost of replanting failed trees outweighs the cost of protection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I pre-plant for farming contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pre-plant slow-growing crops that appear frequently: magic trees, dragonfruit trees, redwood trees, mahogany hardwoods, calquats, and celastrus. Don't harvest or check health - when assigned that contract, instantly complete it. This allows multiple contracts per day instead of waiting for growth times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many herb runs should I do per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aim for 2-4 herb runs per day since herbs grow in 80 minutes. Each run takes 10-15 minutes with all 10 patches and provides valuable herbs for herblore plus 5,000-8,000 farming XP. More important than the XP is building your herb stockpile for prayer potions, staminas, and combat potions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What Tithe Farm rewards should I prioritize?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Priority order: 1) Auto-weed (50 points) - prevents weeds on all patches forever, 2) Seed box (250 points) - essential for farming runs, 3) Herb sack (250 points) - stores 30 of each herb type, 4) Farmer's outfit (400 points) - 2.5% XP boost. Total 950 points needed for essentials, which takes about 10-12 hours at Tithe Farm."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get seeds as an ironman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Farming contracts are the best source for tree/fruit tree seeds. Do birdhouse runs every 50 minutes for passive tree seeds. Pickpocket Master Farmers (38+ Thieving) for herb seeds. Slayer and Wintertodt provide supplementary seeds. Contracts become self-sustaining once you start pre-planting."
+      }
+    }
+  ]
+};
+
+export const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Train Farming 1-99 in OSRS (Ironman Guide)",
+  "description": "Complete guide to training Farming from level 1 to 99 on an OSRS ironman account, including quest XP, Tithe Farm rewards, farming contracts, and efficient daily runs.",
+  "totalTime": "PT120H",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "GP",
+    "value": "10000000"
+  },
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Magic Secateurs"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Bottomless Compost Bucket"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Seed Box"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Herb Sack"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Quest to Level 38",
+      "text": "Complete Fairytale I (get magic secateurs), Goblin Generals, Forgettable Tale, Garden of Death, Garden of Tranquillity, Enlightened Journey, and My Arm's Big Adventure for 32,500 total Farming XP. This skips early levels entirely and takes 6-10 hours.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Tithe Farm (34-62)",
+      "text": "Do Tithe Farm minigame in Hosidius to unlock essential rewards: auto-weed (50 points), seed box (250 points), herb sack (250 points), and farmer's outfit (400 points). This takes 15-20 hours and gets you to level 62.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Start Daily Herb Runs",
+      "text": "Begin herb runs at 32+ Farming. Do 2-4 runs per day (herbs grow in 80 minutes). Plant ranarr for prayer potions, use ultracompost, prioritize disease-free patches (Troll Stronghold, Weiss, Harmony Island). Each run takes 10-15 minutes.",
+      "position": 3
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Daily Tree Runs",
+      "text": "Do daily tree runs with the highest-level trees you can afford to protect. At 75+, plant magic trees (7 patches). At 57+, plant papaya fruit trees. Protection payments guarantee survival. Takes 10-15 minutes daily for 150,000-250,000+ XP.",
+      "position": 4
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Unlock Farming Contracts (65+)",
+      "text": "Enter Farming Guild at 65 Farming and start farming contracts. Begin pre-planting slow-growing crops (magic trees, dragonfruit, hardwoods). Don't check health - when assigned that contract, instantly complete it. Contracts are the best seed source.",
+      "position": 5
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Fight Hespori Repeatedly",
+      "text": "Plant hespori seeds in Farming Guild and fight the boss every 22-32 hours. Goal: obtain bottomless compost bucket (1/35 drop) and anima seeds (Attas for yield, Iasor for disease protection).",
+      "position": 6
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Optimize to 99 (85+)",
+      "text": "Do hard farming contracts with extensive pre-planting. Maintain daily tree runs (magic, dragonfruit, redwood) and herb runs. Use Attas seed in anima patch for increased yields. Reach 99 in 3-4 months with consistent 15-30 minutes daily.",
+      "position": 7
+    }
+  ]
+};
+
+Farming is essential for ironmen. You can't buy seeds or herbs from the Grand Exchange, so efficient farming provides critical resources for herblore and consistent XP with minimal time investment.
+
+**At a glance:**
+- **Best early method:** Quest to 38 (10 hours, free XP)
+- **Essential unlocks:** Magic secateurs (+10% yield), auto-weed, bottomless bucket
+- **Core training:** Tithe Farm to 62, then farming contracts + tree runs to 99
+- **Time to 99:** 3-4 months with 15-30 minutes daily effort
+
+---
+
+## Why Farming Matters
+
+**Resource generation:**
+- Herb runs provide ranarr (prayer potions), snapdragon (super restores), torstol (super combats)
+- Consistent herb supply is essential for all PvM content
+- Cannot be skipped on ironman accounts
+
+**Efficient XP:**
+- Tree runs: 150,000-250,000+ XP per day in 10-15 minutes
+- Most time-efficient skill in OSRS (XP per active hour)
+- Passive growth while you do other activities
+
+**Quest/Diary requirements:**
+- 70 Farming for Song of the Elves (cannot boost)
+- 85 for Farming Guild advanced tier (fruit tree patch, contracts)
+- 90 for Elite Ardougne diary (can boost with +6 garden pie)
+
+---
+
+## Quest Route (1→38): Skip Early Levels
+
+The most efficient start is completing quests for 32,500 Farming XP, reaching level 38 without training.
+
+### Optimal Quest Order
+
+| Quest | Farming XP | Level Req | Key Reward |
+|-------|-----------|-----------|------------|
+| **Fairytale I** | 3,500 | None | **Magic secateurs (+10% yield)** |
+| Goblin Generals (RFD) | 1,000 | None | — |
+| Forgettable Tale | 5,000 | 17 | Keldagrim access |
+| **Garden of Death** | 10,000 | 20 | Huge XP boost |
+| Garden of Tranquillity | 5,000 | 25 | Queen of Thieves access |
+| Enlightened Journey | 3,000 | 30 | Balloon transport |
+| **My Arm's Big Adventure** | 5,000 | 29 | Disease-free herb patch |
+
+**Total: 32,500 XP → Level 38**
+
+<Callout type="tip">
+Fairytale I rewards **magic secateurs** which give +10% yield on all crops. This is mandatory for ironmen - never do farming without them in your inventory or equipped.
+</Callout>
+
+### Additional Worthwhile Quests
+
+- **Making Friends with My Arm** (15,000 XP, 66 Farming) - Unlocks Weiss disease-free herb patch
+- **Recipe for Disaster** full completion - Access to culinaromancer's chest for supplies
+
+---
+
+## Tithe Farm (34→62): Essential Unlocks
+
+After questing to 38, do Tithe Farm to unlock critical rewards and reach level 62.
+
+### Location and Requirements
+
+- **Location:** Hosidius, Zeah (requires 100% favour or Architectural Alliance miniquest)
+- **Minimum level:** 34 Farming (Golovanova seeds)
+- **Better seeds:** 54 (Bologano), 74 (Logavano)
+
+### How It Works
+
+Plant seeds in 20 available patches, water them before each growth stage (3 times over 3 minutes), harvest, and deposit fruits in sacks for points. Plants wilt if not watered on time.
+
+### XP Rates
+
+- **Golovanova** (34+): 6 XP per fruit
+- **Bologano** (54+): 14 XP per fruit
+- **Logavano** (74+): 23 XP per fruit
+- **Overall:** 90,000-100,000 XP/hour at 74+
+
+### Essential Rewards (Priority Order)
+
+| Reward | Cost | Priority | Why You Need It |
+|--------|------|----------|-----------------|
+| **Auto-weed** | 50 | **1st** | **Prevents weeds on ALL patches forever** |
+| **Seed box** | 250 | **2nd** | Stores 6 seed types, essential for runs |
+| **Herb sack** | 250 | **3rd** | Stores 30 of each herb type |
+| Farmer's outfit | 400 total | 4th | 2.5% Farming XP boost |
+| Gricoller's can | 200 | Optional | Holds 1,000 water (convenience) |
+
+**Total for essentials:** 950 points = ~10-12 hours at Tithe Farm
+
+<Callout type="efficiency">
+Auto-weed is game-changing. Once unlocked, you never need a rake again. Patches stay clear of weeds permanently. Get this first, even before the XP boost outfit.
+</Callout>
+
+---
+
+## Farming Contracts (65→99): The Meta
+
+Farming contracts are the core of efficient ironman farming training from 65-99.
+
+### How They Work
+
+1. Enter Farming Guild (65 Farming for intermediate tier, 85 for advanced)
+2. Talk to Guildmaster Jane to receive a contract
+3. Grow the assigned crop within the Farming Guild patches
+4. Check health or harvest to complete
+5. Receive seed pack reward + XP
+
+**Key detail:** The same crop won't be assigned twice in a row.
+
+### Difficulty Tiers
+
+| Tier | Level | Patches Available | Can Downgrade? |
+|------|-------|-------------------|----------------|
+| Easy | 45 | Limited | No |
+| Medium | 65 | More variety | Yes (to easy) |
+| **Hard** | **85** | **All patches** | Yes (to medium) |
+
+**Always do hard contracts** (85+) for the best seed rewards.
+
+### Pre-Planting Strategy (Critical!)
+
+Pre-plant slow-growing crops **before** accepting contracts. When assigned that crop, instantly complete it instead of waiting for growth.
+
+**What to Pre-Plant:**
+- **Magic trees** (8 hours growth) - Very common contract
+- **Dragonfruit trees** (16 hours) - Common hard contract
+- **Redwood trees** (4.5 days) - Highest XP contract
+- **Mahogany hardwoods** (3 days) - Good hard contract
+- **Calquat trees** (21 hours) - Medium frequency
+- **Celastrus** (13 hours) - Occasional contract
+
+**Don't Pre-Plant:**
+- Herbs (too fast, 80 minutes)
+- Allotments/flowers (fast growth)
+- Bushes (already have designated patches)
+
+**How It Works:** Plant a magic tree, DON'T check its health. When assigned "magic tree" contract, immediately check health for instant completion, then plant another magic tree for next time.
+
+<Callout type="warning">
+Contracts are self-sustaining. Seed pack rewards give you more seeds than you use. Pre-planting lets you complete 5-10 contracts per day instead of waiting for each crop to grow.
+</Callout>
+
+### Contract Rewards
+
+- **Seed packs:** Contain tree seeds, fruit tree seeds, herb seeds, hespori seeds
+- **XP:** 10,000-20,000+ depending on crop tier
+- **Best seed source** for ironmen (better than birdhouses, slayer, Wintertodt combined)
+
+---
+
+## Tree Runs: Massive XP for Minimal Time
+
+Tree runs are the foundation of efficient farming. They provide 150,000-250,000+ XP per day in 10-15 minutes of active time.
+
+### Regular Trees (7 Patches)
+
+| Tree | Level | XP | Growth Time | Protection |
+|------|-------|----|-----------|-----------|
+| Willow | 30 | 1,481.5 | 4 hours | Apples(5) |
+| Maple | 45 | 3,448.4 | 5.3 hours | Oranges(5) |
+| Yew | 60 | 7,150.9 | 6.7 hours | Cactus spine(10) |
+| **Magic** | **75** | **13,913.8** | **8 hours** | **Coconut(25)** |
+
+**All 7 patches with magic trees:** ~97,000 XP per run
+
+### Fruit Trees (7 Patches)
+
+| Tree | Level | XP | Growth Time | Protection |
+|------|-------|----|-----------|-----------|
+| Pineapple | 51 | 4,791.7 | 16 hours | Watermelon(10) |
+| **Papaya** | **57** | **6,146.4** | **16 hours** | **Pineapple(10)** |
+| Palm | 68 | 10,150.1 | 16 hours | Papaya(15) |
+| **Dragonfruit** | **81** | **17,825** | **16 hours** | **Coconut(15)** |
+
+**All 7 patches with dragonfruit:** ~125,000 XP per run
+
+### Hardwood Trees (3 Patches)
+
+| Tree | Level | XP | Growth Time | Protection |
+|------|-------|----|-----------|-----------|
+| Teak | 35 | 7,325 | 3 days | Limpwurt root(15) |
+| **Mahogany** | **55** | **15,783** | **3 days** | **Yanillian hops(25)** |
+
+**All 3 patches with mahogany:** ~47,000 XP per run (every 3 days)
+
+### Special Trees
+
+| Tree | Level | XP | Patches | Growth | Protection |
+|------|-------|----|---------| -------|-----------|
+| **Calquat** | **72** | **12,516.5** | **3** | **21 hours** | **Poison ivy berries(8)** |
+| Celastrus | 85 | 14,404.5 | 1 | 13.3 hours | Potato cactus(8) |
+| **Redwood** | **90** | **22,680** | **2** | **4.5 days** | **Dragonfruit(6)** |
+
+### Protection vs Ultracompost
+
+**Always protect trees if you can afford payment.**
+
+- Protection guarantees 100% survival
+- Trees have long growth times (4-96 hours)
+- Time cost of replanting failed trees outweighs payment cost
+
+**Use ultracompost** only if:
+- You don't have payment items
+- You're willing to risk failure
+- It's a low-value tree (oak, willow)
+
+<Callout type="tip">
+Get coconuts from Tai Bwo Wannai Cleanup (trading sticks) or farming contracts. You'll need hundreds for protecting magic/dragonfruit trees.
+</Callout>
+
+---
+
+## Regular Tree Patch Locations
+
+All 7 patches with fastest teleports:
+
+| Location | Teleport | Notes |
+|----------|----------|-------|
+| **Lumbridge** | Lumbridge teleport | Very accessible |
+| **Varrock** | Varrock teleport | Very accessible |
+| **Falador Park** | Ring of wealth | Disease-free with Elite Falador Diary |
+| **Taverley** | POH portal / Taverley tablet | Quick access |
+| **Gnome Stronghold** | Slayer ring (Stronghold Cave) | Near spirit tree |
+| **Farming Guild** | Skills necklace / Farming cape | Requires 65 Farming |
+| **Nemus Retreat** (Varlamore) | Pendant of ates / Quetzal whistle | Newest patch (2024) |
+
+---
+
+## Fruit Tree Patch Locations
+
+All 7 patches:
+
+| Location | Teleport | Requirements |
+|----------|----------|--------------|
+| **Gnome Stronghold** | Spirit tree / Slayer ring | None |
+| **Catherby** | Catherby teleport (Lunar) | None |
+| **Tree Gnome Village** | Spirit tree / Fairy ring CIQ | None |
+| **Brimhaven** | POH portal / Fairy ring BJR | None |
+| **Lletya** | Teleport crystal | Mourning's End Part I |
+| **Farming Guild** | Skills necklace / Farming cape | 85 Farming (advanced tier) |
+| **Kastori** (Varlamore) | Pendant of ates / Quetzal whistle | Children of the Sun quest |
+
+---
+
+## Herb Runs: Critical for Herblore
+
+Herb runs are essential for building your herblore supplies. More important than the Farming XP is accumulating ranarr, snapdragon, and torstol for potions.
+
+### All Herb Patch Locations (10 Total)
+
+| Patch | Teleport | Requirements | Disease-Free? |
+|-------|----------|--------------|---------------|
+| **Falador** | Explorer's ring 2/3/4 | None | No |
+| **Ardougne** | Ardougne cloak 2/3/4 | None | No |
+| **Catherby** | Catherby teleport (Lunar) | None | No |
+| **Port Phasmatys** | Ectophial | Ghosts Ahoy | No |
+| **Hosidius** | Xeric's talisman (Glade) | None | No |
+| **Troll Stronghold** | Stony basalt | My Arm's Big Adventure | **Yes** |
+| **Weiss** | Icy basalt | Making Friends with My Arm | **Yes** |
+| **Harmony Island** | Harmony tablet | Elite Morytania Diary | **Yes** |
+| **Farming Guild** | Skills necklace | 65 Farming | No |
+| **Civitas illa Fortis** | Civitas teleport | 16k Colosseum Glory | **Yes** |
+
+### Disease-Free Patches (Priority Planting)
+
+Four patches **never become diseased**:
+1. **Troll Stronghold** (My Arm's Big Adventure)
+2. **Weiss** (Making Friends with My Arm)
+3. **Harmony Island** (Elite Morytania Diary)
+4. **Civitas illa Fortis** (Champion rank, 16,000 Glory)
+
+**Strategy:** Plant your most valuable seeds (snapdragon, torstol) in disease-free patches. Use ultracompost on all others.
+
+### Optimal Herb Run Route (Endgame)
+
+1. **Farming Guild** (make ultracompost, check contracts)
+2. **Ardougne** (Ardougne cloak)
+3. **Catherby** (Catherby teleport)
+4. **Falador** (Explorer's ring)
+5. **Hosidius** (Xeric's talisman)
+6. **Port Phasmatys** (Ectophial)
+7. **Troll Stronghold** (Stony basalt) - disease-free
+8. **Weiss** (Icy basalt) - disease-free
+9. **Harmony Island** (Harmony tablet) - disease-free
+10. **Civitas illa Fortis** (Civitas teleport) - disease-free
+
+**Time:** 10-15 minutes per run
+**Frequency:** Every 80 minutes (herb growth time)
+**XP:** 5,000-8,000 per run
+**Yields:** 60-100+ herbs per run with magic secateurs + ultracompost
+
+### Herb Run Essentials
+
+**Inventory:**
+- 10× herb seeds (ranarr, snapdragon, torstol)
+- Magic secateurs (+10% yield)
+- Bottomless compost bucket (ultracompost)
+- Seed dibber, rake (or just seed dibber with auto-weed)
+- Herb sack (stores 30 of each herb type)
+- Teleports (rune pouch, jewelry, house tablets)
+
+**What to Plant:**
+- **Early:** Ranarr (prayer potions - priority #1)
+- **Mid:** Snapdragon (super restores), toadflax (Sara brews)
+- **Late:** Torstol (super combats), kwuarm (super strength)
+
+<Callout type="efficiency">
+Do 2-4 herb runs per day minimum. Each run takes 10-15 minutes and provides critical herbs for [herblore](/skilling/herblore/). Consistency over months builds massive stockpiles.
+</Callout>
+
+---
+
+## Ultracompost: Essential for Ironmen
+
+Ultracompost reduces disease chance to ~10% per growth stage and increases herb/allotment yields.
+
+### How to Make Ultracompost
+
+**Method 1: Volcanic Ash on Supercompost**
+- Use 2 volcanic ash on bucket of supercompost
+- Grants 1.1 Farming XP per bucket
+
+**Method 2: Big Compost Bin (Recommended)**
+- Requires 45 Farming
+- Fill bin with supercompost (or compost ingredients)
+- Add 50 volcanic ash
+- Collect 30 buckets of ultracompost
+- **Most efficient method**
+
+**Method 3: Fertile Soil Spell**
+- Requires 83 Magic, Lunar spellbook, ash covered tome
+- Cast on patch with 2 volcanic ash in inventory
+- Applies ultracompost without needing buckets
+- Costs ~500-600 gp per cast
+
+### Volcanic Ash Sources
+
+1. **Mining ash piles** (Fossil Island Volcano)
+   - Requires 22 Mining
+   - Yields: 1 ash at 22 Mining → 6 ash at 97+
+   - Rates: 6,500+ ash per hour at high levels
+2. **Volcanic Mine** rewards (for ash covered tome)
+3. **Wyvern Cave monsters** (Fossil Island)
+
+### Supercompost Sources
+
+- **Pineapples** - Buy from charter ships (20 gp each)
+- **Watermelons** - Grow at allotments (47 Farming)
+- **White lilies** - Harvest from flower patches
+- **Moons of Peril** - Reward chest gives supercompost
+
+### Bottomless Compost Bucket
+
+**How to Obtain:** 1/35 drop from Hespori boss (65 Farming required)
+
+**Benefits:**
+- Holds 10,000 uses of one compost type
+- Each bucket added gives 2 charges (doubles efficiency)
+- Saves massive inventory space during runs
+- **Essential endgame item**
+
+**Strategy:** Fill with 2,500 buckets of ultracompost = 5,000 uses. Tool leprechauns can store one.
+
+---
+
+## Hespori: Critical Ironman Boss
+
+Hespori is a solo farming boss in the Farming Guild that drops the bottomless bucket and anima seeds.
+
+### How to Fight
+
+1. Plant hespori seed in Hespori patch (west wing of Farming Guild)
+2. Wait 22-32 hours for growth
+3. Use spade on patch to enter fight
+
+### Combat Strategy
+
+- **HP:** 300
+- **Weakness:** Fire spells (100%), slash weapons
+- **Minimum stats:** 60+ melee with dragon scimitar, OR 59+ Magic with Fire Blast
+- **Mechanics:**
+  - Spawns 4 invulnerability flowers at 100%, 66%, 33% HP - kill with ranged/magic
+  - Vine entanglement - spam click to escape within 6 seconds or take 40+ damage
+
+### Critical Drops
+
+**Anima Seeds (guaranteed, 1/3 each):**
+- **Attas seed** - Increases yield on all patches worldwide
+- **Iasor seed** - Decreases disease chance on all patches worldwide
+- **Kronos seed** - Chance to skip growth stages on all patches worldwide
+
+**Important Drops:**
+- **Bottomless compost bucket** (1/35) - Essential item, keep trying until you get it
+- Various herb/tree seeds
+- Tangleroot pet (1/5,375 to 1/4,525)
+
+**Frequency:** No cooldown - fight as often as you get hespori seeds (from farming contracts)
+
+<Callout type="warning">
+Keep fighting Hespori until you get the bottomless bucket. It saves thousands of inventory slots over your account's lifetime. This is non-negotiable for efficient farming.
+</Callout>
+
+---
+
+## Anima Seeds: Worldwide Farming Buffs
+
+Plant anima seeds in the anima patch (Farming Guild, 76 Farming) for global benefits.
+
+### The Three Seeds
+
+| Seed | Effect | Best Use |
+|------|--------|----------|
+| **Attas** | Increases crop yield | **Best overall** - more herbs, more resources |
+| **Iasor** | Reduces disease chance | Good early if no bottomless bucket |
+| **Kronos** | Skip growth stages | Marginal benefit (speeds trees slightly) |
+
+**Key Details:**
+- Growth time: ~85 hours (3.5 days)
+- **Effects activate immediately upon planting**
+- Effects increase as plant grows
+- Immune to disease
+- 100 XP upon planting
+
+**Priority:** Iasor first (if no ultracompost) → Attas (maximum yields) → Kronos (minimal benefit)
+
+**Endgame Strategy:** Keep Attas planted permanently for increased yields on all herb/tree runs.
+
+---
+
+## Seed Sources for Ironmen
+
+### 1. Farming Contracts (Primary Source)
+
+**Best for:** Tree seeds, fruit tree seeds, hespori seeds, celastrus seeds
+
+- Do hard contracts (85+) for best rewards
+- Pre-plant extensively for instant completions
+- Self-sustaining once established
+
+### 2. Birdhouse Runs (Passive Tree Seeds)
+
+**Best for:** All tree/fruit tree seeds passively
+
+- Requires Hunter skill, Crafting to make birdhouses
+- Place 4 birdhouses on Fossil Island with any seeds
+- Collect after 50 minutes for seed nests
+- **Excellent passive method** - do between farm runs
+
+### 3. Master Farmer Pickpocketing (Herb Seeds)
+
+**Best for:** Ranarr, snapdragon, torstol herb seeds
+
+- Requires 38 Thieving (94+ for 100% success with Hard Ardougne Diary)
+- **Cannot obtain tree/fruit tree seeds**
+- Rates: ~60 high-level herb seeds per hour
+- Locations: Farming Guild (3 spawns), Hosidius, Draynor
+
+### 4. Slayer (Supplementary)
+
+- Nechryaels, turoths, kurasks drop herb seeds
+- Dagannoths drop various seeds
+- Slayer bosses drop high-level tree seeds
+
+### 5. Wintertodt (Early-Game Only)
+
+- Supply crate rewards scale with Farming level
+- Good for early herb/tree seeds
+- Not efficient long-term (contracts are better)
+
+### 6. Kingdom of Miscellania
+
+- Allocate workers to herb gathering
+- Passive seed accumulation
+- Better for herbs than seeds
+
+---
+
+## Important Unlocks
+
+### Seed Vault
+
+- **Location:** Farming Guild (45 Farming to enter)
+- **Function:** Stores up to 104 different seed/sapling types
+- **Benefits:** Massive bank space saver, seeds from Miscellania auto-transfer
+- **Essential for ironmen**
+
+### Farming Guild Access
+
+| Tier | Level | Areas | Key Features |
+|------|-------|-------|--------------|
+| Beginner | 45 | East wing | Cactus, allotments, bush, bank, seed vault |
+| **Intermediate** | **65** | **West wing** | **Herb patch, tree patch, Hespori, anima** |
+| Advanced | 85 | North wing | Fruit tree, celastrus, redwood (90 to plant) |
+
+**Unlocks farming contracts** - the core of efficient training.
+
+### Achievement Diary Farming Rewards
+
+**Most Important:**
+
+1. **Kourend & Kebos** - Farming Guild access
+2. **Falador Elite** - Falador Park tree patch becomes disease-free
+3. **Morytania Elite** - Harmony Island disease-free herb patch
+4. **Ardougne Hard** - +10% pickpocket success on Master Farmers
+5. **Fremennik Hard** - Stony basalt teleports to Troll Stronghold roof
+
+---
+
+## Strategic Advice for Ironmen
+
+### What Crops to Prioritise
+
+**Herbs** (for [Herblore](/skilling/herblore/)):
+- **Ranarr** - Prayer potions (priority #1)
+- **Snapdragon** - Super restores (expensive, essential)
+- **Torstol** - Super combats (endgame)
+- **Toadflax** - Saradomin brews (raids essential)
+- **Kwuarm** - Super strength (combat)
+
+**Trees** (for XP):
+- **Magic trees** (75+) - 13,913.8 XP per tree × 7 patches
+- **Dragonfruit** (81+) - 17,825 XP per tree × 7 patches
+- **Redwood** (90+) - 22,680 XP per tree × 2 patches
+
+**Bushes** (for Herblore secondaries):
+- **Limpwurt roots** - Super strength potions (thousands needed)
+- **Poison ivy berries** - Protect calquat trees
+
+### Inventory Setup for Efficient Runs
+
+**Tree Run:**
+- All saplings (7-14 items depending on tree types)
+- Payment items for protection
+- Teleports (house tablets, jewelry, runes)
+- Bottomless bucket (if not protecting)
+- Spade, rake
+
+**Herb Run:**
+- 10× herb seeds (ranarr, snapdragon, torstol)
+- Magic secateurs (+10% yield - mandatory)
+- Bottomless compost bucket (ultracompost)
+- Seed dibber (rake not needed with auto-weed)
+- Herb sack (stores 30 of each herb)
+- Teleports in rune pouch or jewelry
+- Weight-reducing gear or farmer's outfit
+
+### Pre-Planting for Contracts
+
+**Always Keep Pre-Planted:**
+- Magic trees (very common contract)
+- Dragonfruit trees (common hard contract)
+- Redwood trees (highest XP)
+- Mahogany hardwoods (good hard contract)
+- Calquat trees (frequent contract)
+- Celastrus (occasional contract)
+
+**Don't check health** on pre-plants - save them for instant contract completions.
+
+---
+
+## Varlamore Farming Updates (2024-2026)
+
+### New Patches
+
+**Civitas illa Fortis (Ortus Farm):**
+- **Herb patch** - Disease-free with Champion rank (16,000 Colosseum Glory)
+- **Flower patch**
+- **2× allotment patches**
+- Teleport: Civitas teleport (54 Magic), Quetzal whistle, Fairy ring AJP
+
+**Nemus Retreat:**
+- **Regular tree patch**
+- Teleport: Pendant of ates, Quetzal whistle
+
+**Kastori:**
+- **Fruit tree patch**
+- **Calquat patch** (3 total calquat patches now)
+- Teleport: Pendant of ates
+
+**Locus Oasis:**
+- **Hardwood patch** (requires The Ribbiting Tale quest)
+- Teleport: Quetzal whistle, Fairy ring AJP
+
+### Varlamore Transport
+
+- **Pendant of ates** - Convenient teleports to farming locations
+- **Quetzal Transport System** - Fast travel (unlocked via Hunter rumours)
+
+---
+
+## Training Methods 1-99 with XP Rates
+
+### Level 1-38: Quests (6-10 hours)
+
+Complete all Farming quest XP rewards:
+- Fairytale I, Goblin Generals, Forgettable Tale, Garden of Death, Garden of Tranquillity, Enlightened Journey, My Arm's Big Adventure
+- **Total: 32,500 XP → Level 38**
+
+### Level 34-62: Tithe Farm (15-20 hours)
+
+- **XP Rate:** 90,000-100,000 XP/hour at 74+
+- Plant Golovanova (34+), Bologano (54+), Logavano (74+)
+- **Goal:** Unlock auto-weed, seed box, herb sack, farmer's outfit
+- **Time to 62:** ~15-20 hours including rewards
+
+### Level 62-99: Farming Contracts + Daily Runs (3-4 months)
+
+**Daily Tree Runs:**
+- 7× magic trees: ~97,000 XP
+- 7× dragonfruit trees: ~125,000 XP
+- 3× mahogany hardwoods (every 3 days): ~47,000 XP
+- 2× redwoods (every 4.5 days): ~45,000 XP
+- **Total per day:** 150,000-250,000+ XP
+- **Active time:** 10-15 minutes
+
+**Farming Contracts:**
+- Do hard contracts (85+) with extensive pre-planting
+- **XP per contract:** 10,000-20,000+ depending on crop
+- **Frequency:** Multiple per day with pre-planting
+- **Active time:** 2-5 minutes per contract
+
+**Herb Runs (Supplementary):**
+- 10× herb patches: 5,000-8,000 XP per run
+- Do 2-4 times per day
+- **Active time:** 10-15 minutes per run
+
+**Combined Daily Effort:**
+- 15-30 minutes total active time
+- 170,000-300,000+ XP per day
+- **Level 62-99 time:** 2-3 months with consistency
+
+**Total 1-99 Time:** 3-4 months with daily runs
+
+---
+
+## Common Mistakes
+
+- **Not doing Fairytale I immediately** — Magic secateurs are mandatory (+10% yield)
+- **Skipping Tithe Farm rewards** — Auto-weed is essential, seed box/herb sack critical
+- **Not protecting trees** — Time cost of replanting outweighs payment cost
+- **Ignoring farming contracts** — Best seed source, self-sustaining with pre-planting
+- **Not fighting Hespori** — Bottomless bucket saves thousands of inventory slots
+- **Using ultracompost on protected trees** — Waste of ash, protection already guarantees survival
+- **Not pre-planting for contracts** — Waiting for growth is massively inefficient
+- **Forgetting herb runs** — Herbs are more important than Farming XP for ironmen
+- **Planting valuable seeds in non-disease-free patches** — Use Troll/Weiss/Harmony/Fortis for snapdragon/torstol
+
+---
+
+## FAQ
+
+### What's the fastest way to train farming on an ironman?
+
+Quest to 38 (10 hours), Tithe Farm to 62 for rewards (15-20 hours), then farming contracts with pre-planting plus daily tree runs. Reach 99 in 3-4 months with 15-30 minutes daily.
+
+### Should I protect my trees or use ultracompost?
+
+Always protect trees if you can afford payment items. Protection guarantees 100% survival, trees have long growth times, and replanting failed trees wastes more time than the protection cost.
+
+### What should I pre-plant for farming contracts?
+
+Pre-plant slow-growing crops: magic trees, dragonfruit trees, redwoods, mahogany hardwoods, calquats, celastrus. Don't check health - when assigned that contract, instantly complete it.
+
+### How many herb runs should I do per day?
+
+Aim for 2-4 herb runs daily (herbs grow in 80 minutes). Each run takes 10-15 minutes and provides critical herbs for herblore. The herb stockpile is more valuable than the Farming XP.
+
+### What Tithe Farm rewards should I prioritize?
+
+1) Auto-weed (50 points), 2) Seed box (250 points), 3) Herb sack (250 points), 4) Farmer's outfit (400 points). Total 950 points = ~10-12 hours.
+
+### How do I get seeds as an ironman?
+
+Farming contracts (best for tree seeds), birdhouse runs (passive tree seeds), Master Farmer pickpocketing (herb seeds), slayer (supplementary). Contracts become self-sustaining with pre-planting.
+
+### When should I use Attas vs Iasor vs Kronos seeds?
+
+Use Iasor first if you don't have reliable ultracompost. Once you have bottomless bucket, switch to Attas permanently for maximum yields. Kronos has minimal benefit.
+
+### Is the bottomless compost bucket worth it?
+
+Absolutely essential. Fight Hespori repeatedly until you get it (1/35 drop). Saves thousands of inventory slots over your account's lifetime and makes ultracompost sustainable.
+
+---
+
+## Related Guides
+
+- [Herblore Guide](/skilling/herblore/) — What to do with all those herbs from herb runs
+- [Crafting Guide](/skilling/crafting/) — Giant seaweed farming for Superglass Make
+- [Varlamore Guide](/guides/varlamore/) — Disease-free herb patch, new farming locations
+- [Hunter Guide](/skilling/hunter/) — Birdhouse runs for passive tree seeds
+
+<Schema schema={[faqSchema, howToSchema]} />
