@@ -262,9 +262,9 @@ const pillars = [
 
   .pillar-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xl);
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
   }
 
@@ -523,7 +523,11 @@ const pillars = [
       flex: 0 0 30px;
     }
 
-    .pillar-grid,
+    .pillar-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
     .value-grid {
       gap: var(--space-lg);
     }
