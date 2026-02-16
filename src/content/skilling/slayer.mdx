@@ -10,6 +10,78 @@ quickAnswer: "Block metal dragons immediately (14 weight, highest in game). Get 
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Should I block metal dragons?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, on every master. 14 weight means ~14% of all tasks. This is mandatory unless you specifically want to farm rune dragons for money.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Why do I need separate block lists for each master?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Different masters have different task weightings. What\'s efficient for Duradel (XP focus) isn\'t efficient for Konar (hydra farming) or Turael (point boosting). Set up each master\'s blocks separately.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I rush 58 slayer for the black mask?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. The 16.67% damage and accuracy boost affects every task after that. It\'s one of the biggest upgrades you can get early and requires no slayer points — just the drop.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I stop Turael boosting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Once you have superiors (50 points), slayer helm (400 points), and 3-4 blocks (300-400 points). After ~1,200 total points spent, normal slaying is more efficient.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I block or skip black demons?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'If you still need zenyte shards from Demonic Gorillas, skip instead of block. Blocking permanently removes the task until you unblock. Once you have 4+ zenytes, then block.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Konar worth using as a main master?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No — her forced locations hurt XP rates significantly. Only use for every 10th/50th/100th task (milestone points) or hydra farming if you\'re 95+ slayer. Otherwise, Duradel is better.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I use the Skilling Discord spreadsheet?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, especially if you\'re optimising for specific goals (pets, money, XP). It calculates the mathematically perfect block list for your situation.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I cannon every task?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Prioritise: 1) Burst dust devils and nechryaels (200-300k magic XP/hour), 2) Cannon dagannoths, kalphites, bloodvelds when you have spare balls, 3) Melee everything else. Bursting > Cannoning > Melee for efficiency.'
+      }
+    }
+  ]
+};
 
 Slayer is how you gear your ironman. The whip, trident, occult, zenyte shards — they all come from slayer. Here's how to do it efficiently.
 
@@ -665,3 +737,5 @@ Bursting > Cannoning > Melee for efficiency.
 - [Prayer Guide](/skilling/prayer/) — 70+ Prayer for Piety makes a huge difference
 - [Smithing Guide](/skilling/smithing/) — Cannonballs via Giants' Foundry
 - [Food Guide](/supplies/food/) — What to bring to tasks
+
+<Schema schema={faqSchema} />

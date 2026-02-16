@@ -10,6 +10,78 @@ quickAnswer: "Focus on three pillars: (1) Quest cape or near-completion, (2) Sla
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Should I get 99s in mid-game?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Don\'t push for 99 Cooking, Fletching, or Firemaking in mid-game. Focus on unlocks, not levels. These 99s provide minimal benefit compared to progressing toward quest cape, Slayer milestones, and gear upgrades.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much should I farm Zulrah before starting raids?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Don\'t camp Zulrah for 1,000 KC before starting raids. Zulrah is good for scales and GP, but get your first ToA KC, then return to Zulrah if you need more scales. Starting raids earlier helps you learn mechanics.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I delay quest cape for later?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Every month you delay quest cape costs you fairy rings, teleports, and diary progress. Quest cape should be your default answer to "what do I work on next?" The unlocks compound over time.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What if I go dry at Corrupted Gauntlet?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'If you\'re 500+ KC dry on enhanced seed, take a break. Do some Slayer and come back later. Burnout isn\'t worth it - the game is meant to be enjoyed, and you can progress with other content.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I prioritize Construction and Herblore?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. While these buyables feel expensive, 83 Construction (jewelry box, ornate pool) and 78 Herblore (super combat potions) are game-changers. Don\'t delay them forever - they unlock huge quality-of-life improvements.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I start raids?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'You don\'t need BiS gear for entry-mode ToA. Start raids once you have trident (87 Slayer), whip (85 Slayer), and at least one zenyte. Don\'t wait too long - learning mechanics is part of progression.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Corrupted Gauntlet mandatory?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. If CG makes you miserable, skip it. The corrupted bowfa is an incredible upgrade, but the game is long - enjoy it. You can succeed with alternative ranged setups and come back to CG later if you want.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I ignore Varlamore content?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Blessed bone shards make prayer training accessible without the Wilderness, and mixed hide armour from Moons of Peril is excellent mid-game gear. Varlamore content is low-effort with high impact.'
+      }
+    }
+  ]
+};
 
 You've finished the [early game grind](/progression/early-game-roadmap/). You have graceful, fairy rings, and base 50s in combat. You've done the essential quests. Now what?
 
@@ -323,3 +395,5 @@ You're transitioning when:
 - [Early Ironman Money Making](/supplies/early-money/) - Funding your buyables
 - [Varlamore Guide](/guides/varlamore/) - Blessed shards, Moons of Peril, and more
 - [Early Ironman Food Guide](/supplies/food/) - Sustainable food for PvM
+
+<Schema schema={faqSchema} />

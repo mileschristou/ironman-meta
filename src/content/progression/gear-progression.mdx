@@ -4,12 +4,76 @@ description: "Complete gear progression guide for OSRS Ironmen. Every upgrade fo
 publishDate: 2025-02-10
 updatedDate: 2025-02-10
 category: progression
-subcategory: gear
+subcategory: mid-game
 tags: ["gear progression", "equipment", "melee", "ranged", "magic", "bandos", "bowfa", "oathplate", "zenytes", "royal titans", "moons of peril"]
 quickAnswer: "Early game: quest rewards and Fighter Torso. Mid-game: Moons of Peril armour, Royal Titans prayers (Dead Eye/Mystic Vigor), Slayer drops (whip, trident, zenytes), and corrupted bowfa. Late game: raid drops (fang, shadow, twisted bow). Oathplate from Yama makes Bandos skippable."
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Should I grind Bandos or get Oathplate instead?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Get Oathplate from Yama (Royal Titans boss). It has the same strength bonuses as Bandos and is much easier to obtain. Skip Bandos until you need it for completion.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Fighter Torso worth getting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, absolutely. Fighter Torso is free from Barbarian Assault, storable in your POH, and has the same +4 strength as Bandos chestplate. Get it early - you\'ll use it for hundreds of hours.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I farm zenyte jewelry?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start grinding demonic gorillas as soon as you complete Monkey Madness II. All 4 zenyte jewelry pieces (torture, anguish, tormented bracelet, ring of suffering) are essential upgrades.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I do Barrows before getting trident?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Don\'t camp Barrows before you have trident (87 Slayer). It\'s painfully slow with Iban\'s staff. Get trident first, then Barrows becomes much more efficient.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Varlamore gear worth getting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Moons of Peril has better rates than Barrows and provides useful mid-game gear. Blood Moon armour is excellent for Slayer, and Oathplate from Yama is BiS strength gear outside of Torva.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long should I grind Corrupted Gauntlet?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'If you\'re 500+ KC dry on enhanced seed, take a break. Do some Slayer and come back later. Burnout isn\'t worth it, and you can progress with other gear options while taking breaks.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Are primordial boots worth grinding for?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Primordial boots give +5 strength over dragon boots, which is a significant DPS increase. Get to 91 Slayer and farm Cerberus - they\'re essential for late-game content.'
+      }
+    }
+  ]
+};
 
 Gear progression is different for ironmen. No Grand Exchange means every upgrade requires a specific grind. Some items you'll camp for hundreds of hours. Others you'll skip entirely.
 
@@ -454,3 +518,5 @@ Glory → Fury → **Zenytes** (torture/anguish/bracelet) → Hold until DT2 rin
 - [Ironman Prayer Training](/skilling/prayer/) - Getting to 70 for Piety
 - [Varlamore Guide](/guides/varlamore/) - Oathplate, moon armour, and blessed shards
 - [Early Ironman Money Making](/supplies/early-money/) - Funding gear upgrades
+
+<Schema schema={faqSchema} />
