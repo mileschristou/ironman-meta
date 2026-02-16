@@ -1,0 +1,559 @@
+---
+title: "OSRS Ironman Construction Guide 1-99"
+description: "Complete OSRS ironman construction guide. Auburnvale sawmill (closest to bank), Mahogany Homes efficiency, Miscellania passive planks, boosting to 91 from 83. Everything you need for a maxed POH."
+publishDate: 2026-02-16
+updatedDate: 2026-02-16
+category: skilling
+subcategory: production
+tags: ["construction", "mahogany homes", "auburnvale", "miscellania", "crystal saw", "ornate pool", "jewelry box", "portal nexus", "varlamore"]
+quickAnswer: "Quest to 25, set up Miscellania for passive mahogany/teak logs, use Auburnvale sawmill (Varlamore - closest to bank in game). Train via Mahogany Homes (30-40% fewer planks than traditional methods). Get to 83 Construction, boost with Crystal Saw + Spicy Stew (+8 total) to build level 91 items. Ornate Jewelry Box and maxed pool are game-changers."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the Auburnvale sawmill and why is it better than the butler method?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Auburnvale sawmill in Varlamore is the closest sawmill to a bank in the entire game - less than half the distance of any other sawmill. You can process ~6,000 planks per hour with simple bank runs using noted logs, with no butler cost. It completely replaces the old Camelot bank + demon butler loop for converting logs to planks.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should ironmen use Mahogany Homes or traditional training?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mahogany Homes is significantly better for ironmen. It uses 30-40% fewer planks per XP compared to oak larders or mahogany tables. Since planks are your bottleneck as an ironman, Mahogany Homes is the most efficient use of your limited resources. You also earn the Plank Sack and Carpenter\'s Outfit as rewards.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best passive plank source for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Kingdom of Miscellania is the best passive source. With maximum workers on hardwoods, you get 223 mahogany logs per day or 301 teak logs per day. Over 45-60 days, this provides enough logs for 70-83 Construction via Mahogany Homes. Complete Throne of Miscellania and Royal Trouble as early as possible.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I build level 91 items without getting 91 Construction?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. At 83 Construction, you can boost with Crystal Saw (+3 invisible boost) and Spicy Stew (+5 visible boost) for +8 total. This lets you build anything requiring up to level 91, including the Ornate Jewelry Box. Complete The Eyes of Glouphrie and Recipe for Disaster (Evil Dave) before your training push.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I start training Construction?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Don\'t rush Construction early. The rewards are front-loaded (ornate pool, jewelry box, portal nexus), so it\'s better to stockpile 6-12 months of Miscellania logs first, then burst train to 83 in one go. Starting Construction without banked planks wastes time and resources.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are Sawmill Vouchers and should I use them?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sawmill Vouchers are obtained from Forestry events. When redeemed at any sawmill, they give 2 planks per log instead of 1 - effectively halving your plank costs. Stockpile these and redeem them at Auburnvale sawmill for maximum efficiency.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What level do I need for an ornate rejuvenation pool?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Ornate Rejuvenation Pool requires 90 Construction and fully restores HP, prayer, run energy, special attack, and cures disease. However, the Fancy Rejuvenation Pool at 82 Construction does almost the same (restores spec, run, and HP). Both can be built at lower levels with boosts.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I get the Plank Sack from Mahogany Homes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, it\'s the first reward you should unlock (350 points). The Plank Sack stores 28 planks in one inventory slot, which is a massive quality-of-life improvement for both Mahogany Homes contracts and traditional training methods.'
+      }
+    }
+  ]
+};
+
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'OSRS Ironman Construction Training Guide',
+  description: 'Complete guide to training Construction from 1-99 as an OSRS Ironman, using Mahogany Homes and the Auburnvale sawmill.',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: 'Complete foundation quests',
+      text: 'Complete Daddy\'s Home miniquest for 944 free Construction XP and supplies. Complete Throne of Miscellania and Royal Trouble to unlock passive log income. Complete The Eyes of Glouphrie for the Crystal Saw (+3 boost). Complete Recipe for Disaster (Evil Dave) for Spicy Stew access (+5 boost).'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Set up Miscellania for passive logs',
+      text: 'Assign all 10 workers to hardwood trees. Choose mahogany logs for best XP per plank, or teak logs for faster collection. Maintain 100% approval and keep coffer funded at 750,000 gp minimum for maximum daily returns (223 mahogany or 301 teak logs per day).'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Quest to level 25',
+      text: 'Complete Daddy\'s Home (level 8), Tower of Life (level 12), Enlightened Journey, and other quests offering Construction XP. Quest XP gets you to approximately level 25 without using any planks.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Stockpile planks passively',
+      text: 'Let Miscellania collect logs for 6-12 months while you train other skills. When ready to train, convert all logs to planks at the Auburnvale sawmill in Varlamore (closest sawmill to bank, ~6,000 planks per hour). Use Sawmill Vouchers from Forestry for double planks.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Train via Mahogany Homes (25-83)',
+      text: 'Start Mahogany Homes contracts. First reward priority: Plank Sack (350 points), then Carpenter\'s Outfit (+2.5% XP). Use NPC Contact spell (Lunar spellbook) to get new contracts without travelling. Mahogany Homes uses 30-40% fewer planks than traditional methods - essential for ironmen.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Boost to build level 91 items at 83 Construction',
+      text: 'At 83 Construction, use Crystal Saw (+3 invisible boost) and Spicy Stew with 3 orange spice doses (+5 visible boost) for +8 total boost. This allows building Ornate Jewelry Box (level 91 requirement) and other high-level furniture. Bank all required materials before boosting.'
+    }
+  ],
+  totalTime: 'PT80H',
+  tool: [
+    {
+      '@type': 'HowToTool',
+      name: 'Crystal Saw'
+    },
+    {
+      '@type': 'HowToTool',
+      name: 'Spicy Stew (orange spice)'
+    },
+    {
+      '@type': 'HowToTool',
+      name: 'Plank Sack'
+    }
+  ],
+  supply: [
+    {
+      '@type': 'HowToSupply',
+      name: 'Mahogany logs from Miscellania'
+    },
+    {
+      '@type': 'HowToSupply',
+      name: 'Teak logs from Miscellania'
+    },
+    {
+      '@type': 'HowToSupply',
+      name: 'Sawmill Vouchers from Forestry'
+    }
+  ]
+};
+
+Construction unlocks some of the most impactful quality-of-life improvements in OSRS. An ornate rejuvenation pool, ornate jewelry box, and portal nexus in your POH save thousands of hours over the life of your account.
+
+The challenge for ironmen isn't the training itself — it's sourcing the planks. This guide focuses on passive plank collection via Miscellania, efficient conversion at the Auburnvale sawmill (Varlamore), and training via Mahogany Homes to minimise plank waste.
+
+**At a glance:**
+- **Quest to 25** — Free XP from Daddy's Home, Tower of Life, Enlightened Journey
+- **Passive plank source** — Miscellania (223 mahogany logs/day, 301 teak logs/day)
+- **Plank conversion** — Auburnvale sawmill (Varlamore, closest to bank in game)
+- **Training method** — Mahogany Homes (30-40% fewer planks than traditional methods)
+- **Target level** — 83 Construction, boost to 91 with Crystal Saw + Spicy Stew
+
+---
+
+## Key Milestones
+
+| Level | Unlock | Why It Matters |
+|-------|--------|----------------|
+| 25 | Oak Larders available | Traditional training begins |
+| 33 | Oak Larder (Kitchen) | First efficient training method |
+| 47 | Mounted Mythical Cape | Best use of teak planks (requires DS2) |
+| 50 | Portal Chamber | POH teleportation rooms |
+| 52 | Mahogany Table | Fastest traditional XP method |
+| 65 | Restoration Pool | Special attack restore |
+| 72 | Portal Nexus | Multiple teleports in one portal |
+| 82 | Fancy Rejuvenation Pool | Full restore (spec + run + HP) |
+| **83** | **Max house (boosted)** | Crystal Saw + Spicy Stew = +8 boost |
+| 84 | Ornate Jewelry Box (boosted) | All jewelry teleports (requires 91, boost from 83) |
+| 85 | Fairy Ring (Superior Garden) | Fairy ring in POH |
+| 90 | Ornate Rejuvenation Pool | Ultimate pool (HP + prayer + spec + run + cure) |
+| 90 | Occult Altar | All three spellbook swapping |
+| 91 | Ornate Jewelry Box (unboosted) | BiS jewelry storage |
+
+<Callout type="efficiency">
+**83 Construction is the ironman target.** With Crystal Saw (+3) and Spicy Stew (+5), you can build anything requiring up to level 91. This covers the Ornate Jewelry Box and most essential POH upgrades. Don't train past 83 unless you're going for 99.
+</Callout>
+
+---
+
+## Quest XP Route (1-25)
+
+Questing is the most efficient way to skip the early, painful Construction levels. You can reach approximately level 25 without building a single piece of furniture.
+
+### Essential Quests
+
+| Quest | Construction XP | Requirements |
+|-------|----------------|--------------|
+| **Daddy's Home** (miniquest) | 944 | None |
+| **Tower of Life** | 1,000 | 10 Construction |
+| **Enlightened Journey** | 4,000 | 20 Crafting, 30 Farming, 36 Firemaking |
+| **Icthlarin's Little Helper** | 1,000 | Gertrude's Cat |
+| **A Tail of Two Cats** | 2,500 | Icthlarin's Little Helper |
+
+**Total from these quests:** ~9,500 XP (gets you to approximately level 24-25)
+
+<Callout type="tip">
+**Start with Daddy's Home.** This miniquest takes 10 minutes and gives 944 XP plus free supplies: 25 planks, 10 oak planks, 50 mithril nails, 8 bolts of cloth, and house teleport tabs. It's the best XP-per-minute in the game for Construction.
+</Callout>
+
+### After Quests (25-33)
+
+If you're a few levels short of 33 (Oak Larders), build:
+- **Wooden bookcases** (Parlour) with regular planks to level 15
+- **Oak dining tables** (Dining Room) with oak planks to level 31
+- **Carved oak tables** to level 33
+
+At 33, you unlock Oak Larders and can begin traditional training or start Mahogany Homes.
+
+---
+
+## Auburnvale Sawmill — The Varlamore Revolution
+
+Before Varlamore, ironmen had to choose between:
+1. The **demon butler method** — teleport to Camelot bank, get logs, teleport to POH, give logs to butler, butler walks to sawmill and returns. ~5,000-7,000 planks per hour, 10,000 gp cost per 8 butler trips.
+2. The **Woodcutting Guild sawmill** — long walk to bank, inefficient.
+
+Varlamore changed everything with the **Auburnvale sawmill** — the closest sawmill to a bank in the entire game.
+
+### What is Auburnvale?
+
+**Location:** Auburnvale, north of the Auburn Pub in Varlamore
+**NPC:** Sawmill Operator
+**Distance to bank:** Less than half the distance of any other sawmill in the game
+
+### How to Get There
+
+- **Quetzal Transport System** to Auburnvale (fastest)
+- **Fairy ring code AIS** → run northwest
+- **Pendant of Ates** to Nemus Retreat → run north
+
+### How It Works
+
+1. Bank all your logs (noted) in Auburnvale
+2. Withdraw noted logs + coins for sawmill fees
+3. Use noted logs on the Sawmill Operator
+4. Pay the fee (100 gp for regular, 250 gp for oak, 500 gp for teak, 1,500 gp for mahogany)
+5. Receive planks directly into inventory
+6. Bank planks, repeat
+
+**Planks per hour:** ~6,000 with simple bank runs
+**Cost:** Standard sawmill rates (no butler fee)
+**Requirements:** Varlamore access (Children of the Sun quest)
+
+<Callout type="tip">
+**Sawmill Vouchers from Forestry events double your planks.** When you redeem a voucher at any sawmill, you receive 2 planks per log instead of 1. Stockpile these from Forestry and use them at Auburnvale for maximum efficiency.
+</Callout>
+
+### Why Auburnvale is Better Than Butler
+
+| Method | Planks/Hour | Cost | Requirements |
+|--------|------------|------|--------------|
+| Auburnvale sawmill | ~6,000 | Sawmill fee only | Varlamore access |
+| Demon butler | ~5,000-7,000 | Sawmill fee + 10k gp per 8 trips | 50 Construction, butler hired |
+| Plank Make spell | ~960 | 70% of sawmill fee | 86 Magic, Lunar Diplomacy |
+
+Auburnvale is faster, cheaper, and doesn't require maintaining a butler. It's the new standard for ironmen.
+
+---
+
+## Plank Sources for Ironmen
+
+Construction is bottlenecked by plank availability. Here's where to get them, ranked by efficiency.
+
+### 1. Kingdom of Miscellania (Best Passive Source)
+
+**Requirements:** Throne of Miscellania + Royal Trouble
+**How it works:** Assign up to 10 workers to hardwood trees, maintain 100% approval, keep coffer funded
+
+**Output at maximum efficiency:**
+- **Mahogany logs:** 223 per day
+- **Teak logs:** 301 per day
+- **Mixed (both):** ~121 of each per day
+
+**Cost:** 75,000 gp per day (minimum 750,000 gp in coffer for max daily investment)
+
+<Callout type="efficiency">
+At 223 mahogany logs per day, it takes **45-60 days** of passive collection to gather enough logs for 70-83 Construction via Mahogany Homes. Set this up early and let it run while you train other skills.
+</Callout>
+
+**Approval maintenance:**
+- Rake weeds in the herb patch or flower patch (northeast of castle)
+- Chop maple trees outside the castle gates
+- Mine coal rocks near the south gate
+- Approval decays ~1% per day, so check in every few days
+
+### 2. Auburnvale Sawmill (Best Active Conversion)
+
+Convert your Miscellania logs into planks here. ~6,000 planks per hour processing.
+
+### 3. Plank Make Spell (86 Magic, Lunar Spellbook)
+
+**Requirements:** Lunar Diplomacy + Dream Mentor, 86 Magic
+**Cost:** 70% of sawmill cost (saves 30%)
+**Bonus:** 90,000 Magic XP per hour while converting planks
+
+Can convert ~960 logs per hour. Good for ironmen who need to level Magic anyway.
+
+### 4. Wintertodt Supply Crates
+
+Supply crates from Wintertodt contain random logs and planks based on your Woodcutting level. Higher WC = better logs. Not a primary source, but a good passive supplement if you've done Wintertodt.
+
+### 5. Tempoross Rewards
+
+Rewards caskets include regular planks and oak planks. Useful for early-game ironmen.
+
+### 6. Fossil Island Hardwood Trees
+
+**Requirements:** Bone Voyage quest, 35 Farming (teak) or 55 Farming (mahogany)
+
+Plant teak or mahogany trees on Fossil Island and bank via the cave. Slower than Miscellania but another passive option.
+
+### 7. Barbarian Outpost / Port Khazard Plank Spawns
+
+Free regular planks spawn on the ground near banks at both locations. World-hopping can net ~600 regular planks per hour. Only useful for levels 1-16.
+
+---
+
+## Training Methods Compared
+
+### Mahogany Homes (Recommended for Ironmen)
+
+**Requirements:** None (can start at level 1)
+**How it works:** Complete construction contracts for NPCs in Falador, Varrock, Ardougne, Hosidius
+
+**XP rates by tier:**
+- **Novice (1-19):** 20-40k XP/hr
+- **Apprentice (20-49):** 50-80k XP/hr
+- **Journeyman (50-69):** 80-120k XP/hr
+- **Expert (70+):** 150-175k XP/hr
+
+**Why it's best for ironmen:**
+- **Uses 30-40% fewer planks per XP** compared to oak larders or mahogany tables
+- Teak planks in contracts give over 100 XP per plank vs. standard 90 XP
+- Mahogany planks in contracts give significantly more XP than mahogany tables
+- Rewards include Plank Sack (28 planks in 1 inventory slot) and Carpenter's Outfit (+2.5% XP boost)
+
+**How to start:**
+1. Speak to Amy in Falador (north of the park)
+2. Choose your tier (Novice if you're under level 20)
+3. Get a contract and teleport to the house
+4. Repair the requested furniture
+5. Return to Amy for reward
+
+**Optimisation tips:**
+- **Get the Plank Sack first** (350 points) — stores 28 planks in one inventory slot
+- **Use NPC Contact** (Lunar spellbook) to get new contracts without travelling back to Amy
+- **Rimmington POH location** — Phials (outside Rimmington portal) will un-note planks for 5 gp each
+- **Carpenter's Outfit** (2,500 points total) gives +2.5% XP boost
+
+<Callout type="efficiency">
+The 2024 update made the Carpenter's Outfit bonus apply to contract completion XP as well as building XP. Get the outfit early if you're doing Mahogany Homes to 83+.
+</Callout>
+
+### Oak Larders (Level 33+, Traditional Method)
+
+**Materials:** 8 oak planks per larder
+**XP:** 480 XP per build (60 XP per oak plank)
+**XP/hour:** ~480,000 with demon butler
+
+Still viable for ironmen with excess oak planks, but **Mahogany Homes is more efficient** plank-for-plank.
+
+### Mounted Mythical Cape (Level 47+, Requires DS2)
+
+**Materials:** 3 teak planks + 1 Mythical Cape (cape is reusable, not consumed)
+**XP:** 370 XP per build (123 XP per teak plank vs. standard 90 XP)
+**XP/hour:** ~430,000
+
+**Why it matters:** Best use of teak planks if you're not doing Mahogany Homes. The cape is reusable, so you only need 1 cape and an infinite supply of teak planks.
+
+### Mahogany Tables (Level 52+, Fast but Expensive)
+
+**Materials:** 6 mahogany planks per table
+**XP:** 840 XP per build
+**XP/hour:** ~900,000 (fastest method in game with demon butler)
+
+**Ironman verdict:** Fastest XP but mahogany planks are extremely hard to source. Only viable if you have a massive mahogany stockpile from months of Miscellania. **Mahogany Homes uses mahogany planks more efficiently.**
+
+---
+
+## Boosting Strategies (83 → 91)
+
+At 83 Construction, you can build anything requiring up to level 91 by combining two boosts.
+
+### Crystal Saw (+3 Invisible Boost)
+
+**Requirements:** Complete The Eyes of Glouphrie quest
+**How to get:** Search the northeastern cupboard in Brimstail's cave (south of the Grand Tree)
+**Charges:** 28 uses (56 with medium Western Provinces Diary)
+**How it works:** Gives an invisible +3 Construction boost. Does not show in your stats interface but works for all Construction activities. One charge consumed per boosted build.
+
+### Spicy Stew (+5 Visible Boost)
+
+**Requirements:** Complete Recipe for Disaster (Freeing Evil Dave subquest)
+**How to get:** Make stew with 3 doses of orange spice (from Hell-Rats in Evil Dave's basement)
+**How it works:** Random boost from -5 to +5. Use 3 doses for best chance of +5. Lasts ~1 minute.
+
+**Stew boost mechanics:**
+- 1 dose: -1 to +3 range
+- 2 doses: -2 to +4 range
+- 3 doses: -5 to +5 range (best chance of +5)
+
+<Callout type="tip">
+**Bank all materials before boosting.** Have everything ready (limestone, gold leaf, bolt of cloth, etc.) in your bank. When you get the +5 stew boost, immediately build while the Crystal Saw is equipped. The stew boost lasts ~1 minute, so work fast.
+</Callout>
+
+### Trimmed Cup of Tea (Reliable +3 Alternative)
+
+If you can't get the +5 stew boost after many attempts, use a **Cup of Tea (4)** from the Varrock Tea Stall (requires 20 Construction to build a kitchen). Trimmed tea gives a guaranteed +3 visible boost. Combined with Crystal Saw (+3 invisible), that's a reliable +6 boost — enough to build level 89 items at 83.
+
+### What Can You Build at 83 With +8 Boost?
+
+| Item | Base Requirement | Buildable at 83? |
+|------|-----------------|------------------|
+| Ornate Jewelry Box | 91 | ✅ Yes (+8 boost) |
+| Occult Altar | 90 | ✅ Yes (+8 boost) |
+| Ornate Rejuvenation Pool | 90 | ✅ Yes (+8 boost) |
+| Fairy Ring (Superior Garden) | 85 | ✅ Yes (no boost needed) |
+
+At 83 Construction + full boosts, you can build a completely maxed POH except for the Crystalline Portal Nexus (requires 92, need 84 base with +8).
+
+---
+
+## Recommended Ironman Construction Roadmap
+
+### Phase 1: Foundation (Before Training)
+
+**Complete these before you start training:**
+
+1. **Daddy's Home miniquest** — Free 944 XP + supplies
+2. **Throne of Miscellania + Royal Trouble** — Unlocks passive log income
+3. **The Eyes of Glouphrie** — Crystal Saw (+3 boost)
+4. **Recipe for Disaster (Evil Dave)** — Spicy Stew (+5 boost)
+5. **Set up Miscellania** — All 10 workers on mahogany logs, max coffer, maintain approval
+
+**Let Miscellania run for 6-12 months** while you train other skills. You need approximately 45-60 days of passive collection for 70-83 Construction.
+
+### Phase 2: Quest to 25
+
+Complete:
+- Daddy's Home (level 8)
+- Tower of Life (level 12)
+- Enlightened Journey (bonus XP)
+- Other Construction-granting quests
+
+**Result:** Level 25 without using any planks.
+
+### Phase 3: Stockpile Planks
+
+When you have 6-12 months of Miscellania logs banked:
+
+1. Withdraw all logs from Miscellania (noted)
+2. Teleport to Auburnvale (Quetzal Transport)
+3. Convert all logs to planks at the sawmill (~6,000 planks per hour)
+4. Use Sawmill Vouchers from Forestry for double planks
+5. Bank all planks
+
+### Phase 4: Train via Mahogany Homes (25-83)
+
+1. Start Mahogany Homes contracts (speak to Amy in Falador)
+2. **First reward:** Plank Sack (350 points) — 28 planks in 1 inventory slot
+3. **Second reward:** Carpenter's Outfit (2,500 points) — +2.5% XP boost
+4. Use NPC Contact (Lunar) to get contracts without travelling
+5. Train to 83 Construction
+
+**Plank estimate for 25-83 via Mahogany Homes:** ~18,000-22,000 teak planks or ~10,000-14,000 mahogany planks (or a mix)
+
+### Phase 5: Boost to Build Level 91 Items (83+)
+
+1. Bank all materials for Ornate Jewelry Box, Ornate Pool, Occult Altar, etc.
+2. Ensure Crystal Saw has charges (28 uses before recharge)
+3. Make Spicy Stew with 3 orange spice doses
+4. Drink stew, wait for +5 boost
+5. Equip Crystal Saw (+3 invisible boost)
+6. Build high-level furniture (you now have effective level 91)
+
+**Result:** Maxed POH at 83 Construction.
+
+---
+
+## Common Mistakes
+
+- **Training too early without planks banked** — Construction rewards are front-loaded. Wait until you have enough planks for 70-83, then burst train.
+- **Not doing Mahogany Homes from the start** — Every oak, teak, and mahogany plank is scarce for ironmen. Mahogany Homes gives 30-40% more XP per plank than traditional methods.
+- **Not getting Crystal Saw + Spicy Stew ready** — At 83, you need both boosts to access level 91 items. Do Eyes of Glouphrie and Recipe for Disaster before your training push.
+- **Using mahogany planks on traditional training instead of Mahogany Homes** — Mahogany tables are fast but wasteful. Mahogany Homes uses mahogany planks far more efficiently.
+- **Not setting up Miscellania early** — Every day without Royal Trouble completed and workers assigned to hardwood is a day of lost passive logs. Set it up as early as possible.
+- **Not taking advantage of Auburnvale sawmill** — Many ironmen still use the old Camelot + butler loop when Auburnvale is strictly better.
+- **Ignoring Sawmill Vouchers from Forestry** — These effectively halve your sawmill costs and should be stockpiled.
+- **Training Construction before having a plan for boosts** — If your target is a maxed house at 83 boosted, you need Eyes of Glouphrie and Recipe for Disaster (Evil Dave) done before training.
+- **Forgetting Phials at Rimmington** — If your POH is in Rimmington, Phials can un-note planks for 5 gp each. Moving POH costs 25,000 gp — worth considering for Mahogany Homes training.
+
+---
+
+## FAQ
+
+### How many planks do I need for 83 Construction?
+
+Via Mahogany Homes (recommended): **~18,000-22,000 teak planks** or **~10,000-14,000 mahogany planks** (or a mix).
+
+Via traditional methods: **~25,000-28,000 oak planks** for oak larders only, or **~30,000-33,000 mahogany planks** for mahogany tables.
+
+Mahogany Homes uses 30-40% fewer planks, making it far better for ironmen.
+
+### Should I use teak or mahogany logs from Miscellania?
+
+**Mahogany logs** give more XP per plank but take longer to collect (223/day vs 301 teak/day).
+
+**Teak logs** are faster to gather and work well with the Mounted Mythical Cape method (123 XP per teak plank).
+
+**Recommendation:** Use mahogany if you're doing Mahogany Homes and can wait the extra time. Use teak if you want to train sooner or don't have Dragon Slayer II completed yet.
+
+### Can I split workers between teak and mahogany?
+
+Yes. You can assign 5 workers to teak and 5 to mahogany for ~121 of each per day. This hedges your bets and gives you both plank types.
+
+### How long does 1-83 Construction take?
+
+**Via Mahogany Homes:** 80-120 hours of active training (spread across weeks/months depending on plank availability)
+
+**Via traditional methods:** 50-80 hours of active training but requires significantly more planks
+
+**Bottleneck:** Gathering the planks takes 6-12 months of passive Miscellania collection. The actual training is quick once you have planks banked.
+
+### Do I need to hire a butler?
+
+No. The Auburnvale sawmill method doesn't require a butler. If you're doing Mahogany Homes, you carry planks with you via the Plank Sack.
+
+Butlers are only useful for traditional training methods (oak larders, mahogany tables) where you build in your POH. Even then, Auburnvale is a better plank conversion method.
+
+### Should I move my POH to Rimmington?
+
+If you're doing heavy Mahogany Homes training, **yes**. Phials (outside the Rimmington portal) will un-note planks for 5 gp each, making it easy to restock during contracts.
+
+Moving your POH costs 25,000 gp via the estate agent. You can move it back later if needed.
+
+---
+
+## Related Guides
+
+- [Ironman Herblore Guide](/skilling/herblore/) — Prayer potions and stamina potions
+- [Ironman Farming Guide](/skilling/farming/) — Passive herb/tree farming
+- [Ironman Prayer Training](/skilling/prayer/) — Getting to 70 for Piety
+- [Mid-Game Ironman Goals](/progression/mid-game-goals/) — When to prioritise Construction
+- [Varlamore Guide](/guides/varlamore/) — Unlocking Varlamore content
+
+<Schema schema={faqSchema} />
+<Schema schema={howToSchema} />
