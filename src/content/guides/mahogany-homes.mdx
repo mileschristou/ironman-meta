@@ -1,0 +1,637 @@
+---
+title: "Mahogany Homes OSRS Ironman Guide: Chill & Max Efficiency Methods"
+description: "Complete Mahogany Homes guide for OSRS ironmen. NPC Contact max efficiency method (220-280k XP/hr), reward priorities (Plank Sack first!), teleport optimization, and why this minigame is mandatory for ironman Construction training."
+publishDate: 2026-02-16
+updatedDate: 2026-02-16
+category: guides
+subcategory: activities
+tags: ["mahogany homes", "construction", "npc contact", "plank sack", "carpenter outfit", "lunar spellbook", "expert contracts", "amy"]
+quickAnswer: "Mahogany Homes gives 2.5-3x more XP per plank than traditional POH training - mandatory for ironmen. Get Plank Sack first (350 points, ~1.5 hours). Use NPC Contact spell (Dream Mentor, 67 Magic) for max efficiency (220-280k XP/hr at Expert). Oak/teak/mahogany planks give 200/287/346 XP per plank vs 60/90/140 in POH."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Why is Mahogany Homes better than traditional Construction training for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mahogany Homes gives 2.5-3x more XP per plank than traditional POH methods. Oak planks give 200 XP in Mahogany Homes vs 60 XP in oak larders. Mahogany planks give 346 XP vs 140 XP in mahogany tables. Since ironmen can\'t buy planks and must gather every single one, this 30-40% reduction in total planks needed is transformative.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I buy first from the Mahogany Homes reward shop?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Plank Sack (350 points) is mandatory first purchase. It stores 28 planks in one inventory slot, effectively doubling how many planks you can carry per trip. This dramatically reduces banking frequency and is the single biggest efficiency unlock. Get this before anything else, including the Carpenter\'s Outfit.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is NPC Contact and why does it matter?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'NPC Contact is a Lunar spellbook spell (requires Dream Mentor quest and 67 Magic) that lets you talk to Amy remotely after completing each contract. Instead of walking back to Falador between every single contract, you cast NPC Contact and get your next assignment instantly. This adds 20-30% efficiency, increasing XP rates from 165-190k/hr to 220-280k/hr at Expert tier.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I cancel a Mahogany Homes contract once I accept it?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Contracts cannot be cancelled or declined once accepted. The contract stays active until you complete it. This is important for boost strategies - if you boost to 70 Construction for Expert contracts and your boost expires mid-contract, you\'re stuck completing it at a lower level.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should ironmen get the Carpenter\'s Outfit?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, but get Plank Sack first. The Carpenter\'s Outfit costs 2,000 points total and gives +2.5% XP boost. Since the June 2024 update, this bonus applies to both building XP and contract completion XP. It takes about 8 hours of Expert contracts to earn after getting the Plank Sack, and the 2.5% boost compounds significantly over the grind to 83+ Construction.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which contract tier should I do?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Always do the highest tier your level allows. Expert contracts (70+) give the best XP per hour (220-280k) and the best points per hour (250). However, many ironmen stay at Adept tier (50-69, teak planks) even after 70 because teak planks are easier to source than mahogany from Miscellania.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to get the Plank Sack?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'At Expert tier with max efficiency (NPC Contact), approximately 1.5 hours (70 contracts at 5 points each). At Novice tier, approximately 2.5 hours (117 contracts at 3 points each). The Plank Sack should be your first priority regardless of which tier you\'re doing.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What teleports do I need for Mahogany Homes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Best setup: Ring of Wealth (Falador Park teleport - fastest for Falador), Varrock teleport tablet, Ardougne cloak or teleport tablet, and Xeric\'s Talisman for Hosidius (Glade option). Advanced: Set up Portal Nexus in your POH for all four cities to eliminate tablet costs entirely.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need steel bars for Mahogany Homes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, always carry 4 steel bars. They\'re occasionally needed for repairing ranges, sinks, bathtubs, and grandfather clocks. If you run out mid-contract, you can\'t complete it. Nails are NOT required for any tier.'
+      }
+    }
+  ]
+};
+
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'OSRS Mahogany Homes Max Efficiency Guide',
+  description: 'Complete guide to training Construction via Mahogany Homes using the NPC Contact max efficiency method for 220-280k XP per hour.',
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: 'Unlock NPC Contact',
+      text: 'Complete Dream Mentor quest and reach 67 Magic. This unlocks the NPC Contact spell on the Lunar spellbook, which lets you talk to Amy remotely instead of walking to Falador between every contract.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Get your first contract',
+      text: 'Speak to Amy in Falador (north of the park). Select your contract tier based on your Construction level: Beginner (1-19), Novice (20-49), Adept (50-69), or Expert (70+). You\'ll be assigned a random house in one of four cities.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Teleport to the contract house',
+      text: 'Use the appropriate teleport for the assigned city: Ring of Wealth for Falador, Varrock teleport for Varrock, Ardougne cloak/teleport for Ardougne, or Xeric\'s Talisman (Glade) for Hosidius. Navigate to the specific NPC\'s house.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Repair all furniture',
+      text: 'Enter the house and repair/replace all damaged furniture. The RuneLite Mahogany Homes plugin highlights which furniture needs repairs. Use planks from your inventory or Plank Sack - the game automatically uses them. Steel bars are needed for some repairs.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Hand in the contract',
+      text: 'Speak to the NPC after all furniture is repaired. You\'ll receive contract completion XP (500/1,250/2,250/2,750 depending on tier) and carpenter points (2/3/4/5 per tier). The NPC offers tea that restores run energy to 100%.'
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Get next contract via NPC Contact',
+      text: 'Immediately cast NPC Contact (2 air + 1 cosmic + 1 astral rune). Select Amy from the list. Choose your contract tier again. You\'ll receive your next assignment without travelling back to Falador. Repeat from step 3.'
+    }
+  ],
+  totalTime: 'PT10H',
+  tool: [
+    {
+      '@type': 'HowToTool',
+      name: 'Plank Sack'
+    },
+    {
+      '@type': 'HowToTool',
+      name: 'Amy\'s Saw'
+    },
+    {
+      '@type': 'HowToTool',
+      name: 'NPC Contact spell (Lunar spellbook)'
+    }
+  ],
+  supply: [
+    {
+      '@type': 'HowToSupply',
+      name: 'Oak/Teak/Mahogany planks'
+    },
+    {
+      '@type': 'HowToSupply',
+      name: 'Steel bars'
+    },
+    {
+      '@type': 'HowToSupply',
+      name: 'Astral/Cosmic/Air runes'
+    }
+  ]
+};
+
+Mahogany Homes is a Construction training minigame where you complete furniture repair contracts for NPCs across four cities. For ironmen, this isn't just an alternative to traditional POH training — it's **mandatory**.
+
+The reason is simple: every plank goes 2.5-3x further in Mahogany Homes compared to building oak larders or mahogany tables in your POH. Since ironmen can't buy planks and must gather every single one from Kingdom of Miscellania, Wintertodt, or other slow sources, using 30-40% fewer total planks to reach 83 Construction is transformative.
+
+This guide covers both the chill method (walk to Amy between contracts) and the max efficiency method (NPC Contact spell), plus reward priorities, teleport optimization, and ironman-specific strategies.
+
+**At a glance:**
+- **XP per plank:** 2.5-3x better than POH methods (oak: 200 vs 60, mahogany: 346 vs 140)
+- **XP rates:** 220-280k XP/hr at Expert tier with max efficiency
+- **First reward:** Plank Sack (350 points, ~1.5 hours) — stores 28 planks in 1 slot
+- **Max efficiency unlock:** NPC Contact spell (Dream Mentor, 67 Magic, Lunar spellbook)
+- **Plank savings:** 30-40% fewer total planks needed for 1-83 Construction
+
+---
+
+## How Contracts Work
+
+### The Basic Loop
+
+1. **Get a contract** from Amy (Falador), Marlo (Varrock), Ellie (Ardougne), or Angelo (Hosidius)
+2. **Travel to the assigned house** (one of 12 possible NPCs across the four cities)
+3. **Repair all furniture** inside the house (3-6 pieces per contract)
+4. **Hand in the contract** by speaking to the NPC for completion XP + carpenter points
+5. **Get a new contract** and repeat
+
+### Contract Assignment
+
+- **Random assignment** — You cannot choose which city or which specific NPC
+- **One contract at a time** — You cannot hold multiple contracts simultaneously
+- **Cannot be cancelled** — Once accepted, the contract persists until completed
+
+<Callout type="warning">
+**Contracts cannot be cancelled.** This matters for boosting strategies. If you boost to 70 Construction for Expert contracts and your boost expires mid-contract, you're stuck completing it. Always complete a contract before your boost runs out, or don't start one if you're close to expiry.
+</Callout>
+
+### What You Actually Do
+
+Each house has 3-6 damaged furniture pieces (tables, beds, drawers, bookcases, ranges, grandfather clocks, etc.). You right-click the furniture, select "Repair" or "Build", and the game uses planks from your inventory or Plank Sack automatically.
+
+**Materials needed:**
+- **Planks:** Regular/oak/teak/mahogany depending on tier
+- **Steel bars:** ~0.5 per contract on average (for ranges, sinks, bathtubs, grandfather clocks)
+- **No nails required** — This is a key difference from POH training
+
+**Tea mechanic:** After handing in a contract, the NPC offers tea that restores your run energy to 100%. As of August 2024, there's no delay — the tea drinking is instant and seamless.
+
+---
+
+## Contract Tiers Breakdown
+
+| Tier | Level Required | Plank Type | Avg Planks/Contract | XP/Contract | Completion XP | Points/Contract |
+|------|---------------|------------|--------------------|---------|--------------|--------------------|
+| Beginner | 1-19 | Regular | ~10 | ~379 | 500 | 2 |
+| Novice | 20-49 | Oak | ~10 | ~644 | 1,250 | 3 |
+| Adept | 50-69 | Teak | ~12 | ~1,010 | 2,250 | 4 |
+| **Expert** | **70+** | **Mahogany** | **~13** | **~1,629** | **2,750** | **5** |
+
+**Total XP per contract = Build XP (from repairs) + Completion XP (fixed bonus)**
+
+### XP Per Plank Comparison
+
+| Plank Type | POH Method XP | Mahogany Homes XP | Improvement |
+|-----------|--------------|-------------------|-------------|
+| Regular | 29 | ~93.7 | **3.2x better** |
+| Oak | 60 | ~200 | **3.3x better** |
+| Teak | 90 | ~287.9 | **3.2x better** |
+| Mahogany | 140 | ~346.1 | **2.5x better** |
+
+<Callout type="efficiency">
+**This is why Mahogany Homes is mandatory for ironmen.** An oak plank giving 200 XP instead of 60 XP means you need 3x fewer oak planks to reach the same Construction level. Since gathering planks is your bottleneck, this efficiency gain is non-negotiable.
+</Callout>
+
+---
+
+## Methods Compared: Chill vs Max Efficiency
+
+### Chill Method (Standard)
+
+**How it works:**
+1. Walk to Amy in Falador
+2. Get a contract
+3. Teleport to the house
+4. Complete repairs
+5. Hand in contract
+6. Walk back to Amy
+7. Repeat
+
+**XP rates:**
+- Novice: 65-75k XP/hr
+- Adept: 110-130k XP/hr
+- Expert: 165-190k XP/hr
+
+**Pros:**
+- No special requirements
+- Can start immediately at any level
+- Relaxed, no spell management
+
+**Cons:**
+- Walking to Amy between every contract wastes 20-30% of potential XP
+- Lower XP/hr and points/hr
+
+---
+
+### Max Efficiency Method (NPC Contact)
+
+**How it works:**
+1. Get your first contract from Amy (one-time setup)
+2. Teleport to the house
+3. Complete repairs
+4. Hand in contract
+5. **Cast NPC Contact spell immediately**
+6. Talk to Amy remotely, get next contract
+7. Repeat from step 2 — never walk back to Amy
+
+**Requirements:**
+- **Dream Mentor quest** (unlocks NPC Contact's full functionality)
+- **67 Magic**
+- **Lunar spellbook**
+- **Runes:** 2 Air + 1 Cosmic + 1 Astral per cast (~50 casts per hour)
+
+**XP rates:**
+- Novice: 85-95k XP/hr
+- Adept: 150-175k XP/hr
+- **Expert: 220-280k XP/hr**
+
+**With Carpenter's Outfit (+2.5% XP):**
+- Expert: 225-287k XP/hr
+
+**Pros:**
+- **20-30% more XP** by eliminating travel time
+- 250 points per hour at Expert (vs ~175 with standard method)
+- Seamless workflow
+
+**Cons:**
+- Requires Dream Mentor completion
+- Requires 67 Magic and Lunar spellbook access
+- Rune cost (negligible — ~100 air, 50 cosmic, 50 astral per hour)
+
+<Callout type="tip">
+**Always do max efficiency if you can.** The Dream Mentor requirement is worth it. The difference between 165k XP/hr and 280k XP/hr is massive over the hundreds of hours needed for 83+ Construction.
+</Callout>
+
+---
+
+## NPC Contact Spell Guide
+
+### Unlocking NPC Contact
+
+1. Complete **Lunar Diplomacy** (unlocks Lunar spellbook)
+2. Complete **Dream Mentor** (unlocks full NPC Contact functionality)
+3. Reach **67 Magic**
+
+Without Dream Mentor, NPC Contact only has a "Random" option that contacts a random NPC. Dream Mentor adds specific NPCs including Amy, which is what you need.
+
+### How to Use NPC Contact for Mahogany Homes
+
+**After completing a contract:**
+1. Open your spellbook (Lunar)
+2. Cast **NPC Contact** (2 air, 1 cosmic, 1 astral rune)
+3. Select **Amy** from the list
+4. Choose your contract tier (Beginner/Novice/Adept/Expert)
+5. Amy assigns you a new contract remotely
+6. Teleport to the house and continue
+
+**Rune pouch setup:** Store air, cosmic, and astral runes in a Rune Pouch. One inventory slot holds enough runes for 40+ casts (8+ hours of training).
+
+### Rune Costs Per Hour
+
+At ~50 contracts per hour (max efficiency):
+- **100 Air runes**
+- **50 Cosmic runes**
+- **50 Astral runes**
+
+**Total cost:** Negligible for ironmen. Cosmics from Slayer, astrals from Lunar Isle or Moons of Peril.
+
+---
+
+## Reward Shop Priority
+
+### All Rewards and Costs
+
+| Item | Cost (Points) | Priority |
+|------|--------------|----------|
+| **Plank Sack** | **350** | **1st - MANDATORY** |
+| **Amy's Saw** | **500** | **2nd** |
+| Carpenter's boots | 200 | 3rd |
+| Carpenter's helmet | 400 | 4th |
+| Carpenter's trousers | 600 | 5th |
+| Carpenter's shirt | 800 | 6th |
+| Supply crate | 25 | Low priority |
+| Hosidius blueprints | 2,000 | Cosmetic only |
+
+### Priority #1: Plank Sack (350 points)
+
+**What it does:** Stores 28 planks in one inventory slot
+
+**Why it's mandatory:**
+- Effectively doubles your plank capacity (28 in sack + ~20 in inventory = 48+ planks per trip)
+- Reduces banking frequency from every 8-10 planks to every 3-4 contracts
+- Single biggest efficiency unlock in the entire minigame
+
+**Time to get:**
+- Expert (5 pts/contract): **70 contracts = ~1.5 hours**
+- Adept (4 pts/contract): 88 contracts = ~1.75 hours
+- Novice (3 pts/contract): 117 contracts = ~2.5 hours
+
+<Callout type="efficiency">
+Get Plank Sack first. Not the outfit, not supply crates — **Plank Sack**. Nothing else matters until you have this.
+</Callout>
+
+### Priority #2: Amy's Saw (500 points)
+
+**What it does:** Equipable saw that acts as a regular saw
+
+**Why it's good:** Frees one inventory slot for an extra plank or steel bar
+
+**Time to get:**
+- Expert: 100 contracts = ~2 hours (after Plank Sack)
+
+### Priority #3-6: Carpenter's Outfit (2,000 points total)
+
+**XP boost:** +2.5% to ALL Construction XP (building + completion XP since June 2024 buff)
+
+**Individual pieces:**
+- Boots (200 pts): +0.2%
+- Helmet (400 pts): +0.4%
+- Trousers (600 pts): +0.6%
+- Shirt (800 pts): +0.8%
+- Full set bonus: +0.5%
+
+**Strategy:** Get cheapest pieces first (boots → helmet → trousers → shirt) to accumulate the XP boost gradually.
+
+**Time to get full outfit (after Plank Sack):**
+- Expert: 400 contracts = **~8 hours**
+- Adept: 500 contracts = ~10 hours
+- Novice: 667 contracts = ~13.5 hours
+
+**Is it worth it?** Yes, eventually. The 2.5% boost applies to hundreds of thousands of XP over the grind to 83+ Construction. At 280k XP/hr, the outfit adds ~7k XP/hr. Over 80 hours of training, that's 560k free XP.
+
+---
+
+## Teleport Optimization
+
+### Best Teleports for Each City
+
+**Falador (Contractor: Amy)**
+- **Best:** Ring of Wealth → Falador Park (approximately 6 seconds faster than standard Falador teleport)
+- **Alternative:** Falador teleport (tablet or standard spellbook)
+
+**Varrock (Contractor: Marlo)**
+- **Best:** Varrock teleport tablet or standard Varrock teleport
+- **Alternative:** Chronicle (Champions' Guild, close to Varrock)
+
+**East Ardougne (Contractor: Ellie)**
+- **Best:** Ardougne cloak (Achievement Diary reward) — teleports directly to south Ardougne
+- **Alternative:** Ardougne teleport tablet
+
+**Hosidius (Contractor: Angelo)**
+- **Best:** Xeric's Talisman (Glade option) — close to all three Hosidius NPCs
+- **Alternative:** Kourend Castle teleport + run south, or POH in Hosidius
+
+### Advanced Setup: Portal Nexus
+
+At 72 Construction (boostable from 69), you can build a Portal Nexus in your POH that holds multiple teleports.
+
+**Strategy:**
+1. Configure Portal Nexus with Varrock, Ardougne, and Falador
+2. Set POH location to Hosidius
+3. Use **Teleport to House** spell or house teleport tablet
+4. Navigate to Portal Nexus for city teleports, or exit portal for Hosidius
+
+**Benefit:** Eliminates all teleport tablet costs. One house teleport tablet covers all four cities.
+
+---
+
+## Inventory Setups
+
+### Standard Method (No NPC Contact)
+
+- Hammer
+- Saw (or Amy's Saw equipped)
+- Plank Sack (filled with 28 planks)
+- 18-20 planks (inventory)
+- 4 steel bars
+- Falador teleport tablet (to return to Amy)
+- Varrock teleport
+- Ardougne teleport
+- Xeric's Talisman (for Hosidius)
+
+**Planks per trip:** ~46-48
+
+---
+
+### Max Efficiency Setup (NPC Contact)
+
+- **Amy's Saw** (equipped - saves 1 inventory slot)
+- **Hammer** (or Imcando Hammer equipped to save slot)
+- **Plank Sack** (filled with 28 planks)
+- **20+ planks** (inventory)
+- **4 steel bars**
+- **Rune Pouch** (loaded with Air/Cosmic/Astral runes for ~40+ casts)
+- **Ring of Wealth** (equipped for Falador Park teleport)
+- **Varrock teleport tablet**
+- **Ardougne cloak or teleport tablet**
+- **Xeric's Talisman** (equipped or inventory for Hosidius)
+
+**Planks per trip:** 50+ (enough for 3-4 contracts before banking)
+
+<Callout type="tip">
+**Imcando Hammer + Amy's Saw both equipped** frees two inventory slots for extra planks or steel bars. Get the Imcando Hammer from the Sleeping Giants quest or buy the upgraded version for 1,250,000 gp from Nails.
+</Callout>
+
+---
+
+## Ironman Plank Sourcing
+
+### Oak Planks (Novice Tier, 20-49)
+
+**Sources:**
+- Oak trees (everywhere — Woodcutting Guild, Varrock, Draynor, etc.)
+- Kingdom of Miscellania (not recommended for oak — use for teak/mahogany instead)
+- Plank Make spell (86 Magic, Lunar) — converts logs at 70% sawmill cost
+
+**Recommendation:** Oak logs are easy to obtain. Cut oaks manually or use the Woodcutting Guild. Convert at [Auburnvale sawmill](/skilling/construction/#auburnvale-sawmill) (Varlamore — closest to bank).
+
+---
+
+### Teak Planks (Adept Tier, 50-69)
+
+**Sources:**
+- **Kingdom of Miscellania** (best passive source) — 301 teak logs/day with 10 workers on hardwood
+- **Fossil Island teak trees** — bankable via the mushtree/boat
+- **Plank Make spell** (86 Magic, Lunar)
+
+**Recommendation:** Set up Miscellania for teak logs. Over 2-3 months, you'll accumulate 20,000+ teak logs passively. Convert at Auburnvale sawmill.
+
+Many ironmen **stay at Adept tier (teak) even after reaching 70 Construction** because teak planks are easier to source than mahogany.
+
+---
+
+### Mahogany Planks (Expert Tier, 70+)
+
+**Sources:**
+- **Kingdom of Miscellania** (best passive source) — 223 mahogany logs/day with 10 workers on hardwood
+- **Fossil Island mahogany trees** — bankable via the mushtree/boat
+- **Plank Make spell** (86 Magic, Lunar)
+
+**Recommendation:** Mahogany logs are slower to gather than teak. If you're stockpiling for the 70-83 Construction push, allocate Miscellania to mahogany and wait 6-12 months.
+
+**Alternative:** Use Adept tier (teak) contracts even at 70+ Construction if mahogany is your bottleneck. Teak contracts still give excellent XP rates (150-175k XP/hr with max efficiency).
+
+---
+
+## When to Start Mahogany Homes
+
+**Answer: Immediately at level 1, or after questing to 20+.**
+
+Unlike traditional POH training where you need 33 Construction for oak larders, Mahogany Homes is viable from level 1 onwards.
+
+**Recommended paths:**
+
+### Path 1: Start at Level 1 (Beginner Contracts)
+- Use regular planks (easy to obtain)
+- Beginner contracts give 30-45k XP/hr
+- Get Plank Sack after ~3.5 hours (175 contracts)
+
+### Path 2: Quest to 20-25, Start at Novice
+- Complete Daddy's Home, Tower of Life, Enlightened Journey for free XP
+- Start at Novice tier (oak planks, 85-95k XP/hr with max efficiency)
+- Get Plank Sack after ~2.5 hours (117 contracts)
+
+**Most ironmen choose Path 2** because oak planks are far easier to source than regular planks in bulk, and the XP rates are significantly better.
+
+---
+
+## Common Mistakes
+
+- **Not getting Plank Sack first** — Some players spend points on supply crates or outfit pieces before 350. The Plank Sack is the single best efficiency unlock.
+- **Not unlocking NPC Contact** — Walking to Amy between every contract wastes 20-30% of potential XP. Dream Mentor + 67 Magic is mandatory for max efficiency.
+- **Using mahogany planks on non-Expert contracts** — Mahogany planks are scarce for ironmen. If you have mahogany, use them on Expert contracts only (346 XP per plank vs ~287 for Adept).
+- **Wrong POH location** — For advanced setups, POH in Hosidius with Portal Nexus configured for the other three cities eliminates all teleport costs.
+- **Accepting boosted contracts without a plan** — Contracts can't be cancelled. If you boost to Expert (70) but your boost expires mid-contract, you're stuck finishing it.
+- **Forgetting steel bars** — Always carry 4 steel bars. Some furniture repairs require them. Running out mid-contract means you can't complete it.
+- **Not using RuneLite plugin** — The Mahogany Homes plugin shows contract requirements, highlights damaged furniture, and tracks points. It's mandatory for efficiency.
+- **Banking too often without Plank Sack** — Without the sack, you can only carry ~20 planks per trip. Get it as soon as possible.
+
+---
+
+## XP Rates Summary
+
+| Tier | Level | Method | XP/Hour | Points/Hour |
+|------|-------|--------|---------|-------------|
+| Novice | 20-49 | Chill (walk to Amy) | 65-75k | ~100 |
+| Novice | 20-49 | Max efficiency (NPC Contact) | 85-95k | ~150 |
+| Adept | 50-69 | Chill | 110-130k | ~135 |
+| Adept | 50-69 | Max efficiency | 150-175k | ~200 |
+| **Expert** | **70+** | **Chill** | **165-190k** | **~175** |
+| **Expert** | **70+** | **Max efficiency** | **220-280k** | **~250** |
+| **Expert** | **70+** | **Max eff + Carpenter Outfit** | **225-287k** | **~250** |
+
+<Callout type="efficiency">
+**Expert tier with NPC Contact is 70% faster than chill Novice contracts.** The difference compounds over time. If it takes 80 hours to reach 83 Construction with max efficiency, it would take 120+ hours with chill Novice — that's 40 hours saved.
+</Callout>
+
+---
+
+## Plank Requirements for 1-83 Construction
+
+Via Mahogany Homes (using 30-40% fewer planks than traditional methods):
+
+**Oak planks only (Novice tier):**
+- Approximately 18,000-22,000 oak planks for 1-83
+
+**Teak planks only (Adept tier):**
+- Approximately 10,000-14,000 teak planks for 50-83 (after questing to 50)
+
+**Mahogany planks only (Expert tier):**
+- Approximately 8,000-11,000 mahogany planks for 70-83 (after questing/training to 70)
+
+**Mixed approach (most common for ironmen):**
+- Novice (20-50): ~6,000 oak planks
+- Adept (50-70): ~5,000 teak planks
+- Expert (70-83): ~4,000 mahogany planks
+
+Compare this to **traditional POH training** which requires 25,000-28,000 oak planks for oak larders or 30,000+ mahogany planks for mahogany tables. Mahogany Homes saves you thousands of planks.
+
+---
+
+## FAQ
+
+### Can I choose which city I visit?
+
+No. Contract assignments are random. You have no control over which city or which specific NPC you're assigned to.
+
+### Can I decline a contract I don't want?
+
+No. Contracts cannot be declined or cancelled once accepted. The contract stays active until you complete it.
+
+### Do I need to bring nails?
+
+No. Nails are not required for any tier. You only need planks and steel bars.
+
+### How many furniture pieces per contract?
+
+Varies by house layout. Each NPC has 2-4 possible layouts. On average, 3-6 furniture pieces per contract.
+
+### Can I have multiple contracts active at once?
+
+No. You can only hold one contract at a time.
+
+### Should I stay at Adept tier (teak) even after 70 Construction?
+
+Yes, if mahogany planks are your bottleneck. Adept contracts give 150-175k XP/hr with max efficiency, which is still excellent. Many ironmen prefer Adept because teak logs are easier to source from Miscellania (301/day vs 223 mahogany/day).
+
+### Does the Carpenter's Outfit boost apply to contract completion XP?
+
+Yes. As of the June 2024 update, the outfit's 2.5% XP boost applies to BOTH building XP (from repairs) and contract completion XP (the fixed 500/1,250/2,250/2,750 bonus). This was a significant buff.
+
+### What's the best city for contracts?
+
+Falador and Hosidius are generally fastest due to tight NPC clustering relative to teleport landing points. However, contract assignment is random — you can't choose.
+
+### Should I move my POH to Rimmington?
+
+Not specifically for Mahogany Homes. The Rimmington strategy (Phials un-noting planks for 5 gp each) is more useful for traditional POH training (oak larders, mahogany tables). For Mahogany Homes, the Plank Sack serves a similar purpose.
+
+---
+
+## Related Guides
+
+- [Ironman Construction Guide](/skilling/construction/) — Full 1-99 Construction training guide with Auburnvale sawmill, Miscellania, and boosting strategies
+- [Mid-Game Ironman Goals](/progression/mid-game-goals/) — When to prioritise Construction in your account progression
+- [Varlamore Guide](/guides/varlamore/) — Unlocking Varlamore content and the Auburnvale sawmill
+
+<Schema schema={faqSchema} />
+<Schema schema={howToSchema} />
