@@ -1,0 +1,738 @@
+---
+title: "OSRS Ironman Hunter Guide 1-99: Birdhouses, Chinchompas & Herbiboar"
+description: "Complete OSRS ironman hunter guide (1-99). Master birdhouses for passive XP and nests, hunt chinchompas for Ranged training, and use Herbiboar for herbs. Updated for 2026."
+publishDate: 2026-02-15
+updatedDate: 2026-02-15
+category: skilling
+subcategory: gathering
+tags: ["hunter", "birdhouses", "chinchompas", "herbiboar", "bird nests", "hunter rumours"]
+quickAnswer: "Start birdhouses at 5 Hunter (do runs every 50 minutes forever - essential for nests). Quest to 27 for Eagles' Peak (unlocks box traps). Train via birds → salamanders → red chinchompas (63+). At 80+, do Herbiboar for herbs or continue chinchompas for Ranged ammunition. Total time: 75-80 hours to 99."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the fastest way to train Hunter on an ironman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Do birdhouse runs every 50 minutes from level 5 onwards for passive XP. For active training: birds to 27, complete Eagles' Peak, salamanders 47-67, red chinchompas 63-80, then Herbiboar (80+) for herbs or continue chinchompas for Ranged ammunition. Total time to 99: 75-80 hours of active training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I do birdhouse runs at high levels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely YES. While the XP becomes less significant at 80+ Hunter (active methods are faster), bird nests remain essential for ironmen throughout. Crushed nests are required for Saradomin brews (81 Herblore), and tree seeds are vital for Farming. Always do birdhouse runs every 50 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many chinchompas do I need for Ranged training?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Starting chinning at 70+ Ranged is recommended. At 80 Hunter with 5 traps, you'll catch 400-560+ red chinchompas per hour. Most ironmen stockpile thousands for efficient Ranged training at locations like the Maniacal Monkey cave or Slayer tasks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I do Herbiboar or continue chinchompas at 80 Hunter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your needs. Herbiboar (80+) provides 115-128k Hunter XP/hour plus valuable herbs for Herblore training. Red chinchompas provide 130-180k XP/hour plus ammunition for Ranged training. Most ironmen do Herbiboar for herbs, then switch to chinchompas to stockpile for Ranged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Eagles' Peak quest required for Hunter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Eagles' Peak is mandatory for box trap hunting, which is required for catching chinchompas, ferrets, and other box trap creatures. Complete it at 27 Hunter (gives 2,500 XP) to unlock box traps. You cannot hunt chinchompas without completing this quest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the Hunter pets and how do I get them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There are three Hunter pets: Baby chinchompa (1/95,898 from red chinchompas at 99 Hunter), Herbi (1/6,500 from Herbiboar), and Quetzin (from Hunter Rumours loot sacks, 15x more common at 200m XP). Herbi is the most realistic to obtain during normal training."
+      }
+    }
+  ]
+};
+
+export const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Train Hunter 1-99 in OSRS (Ironman Guide)",
+  "description": "Complete guide to training Hunter from level 1 to 99 on an OSRS ironman account, including birdhouses, chinchompas, Herbiboar, and optimal training methods.",
+  "totalTime": "PT80H",
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Birdhouses"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Box Traps"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Magic Secateurs"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Graceful Outfit"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Start Birdhouse Runs",
+      "text": "At 5 Hunter (and 5 Crafting), complete Bone Voyage quest to access Fossil Island. Begin birdhouse runs every 50 minutes. Place 4 birdhouses with cheap seeds (barley, hammerstone hops). This provides passive Hunter XP and critical bird nests for Saradomin brews. Continue birdhouse runs forever - even at 99 Hunter, nests remain essential.",
+      "position": 1
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Train to Level 27",
+      "text": "Hunt birds (crimson swifts, copper longtails, tropical wagtails) using bird snares. Complete Museum Natural History Quiz for 1,000 XP. Train to 27 Hunter while doing birdhouse runs every 50 minutes. Takes 3-5 hours.",
+      "position": 2
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Complete Eagles' Peak Quest",
+      "text": "At 27 Hunter, complete Eagles' Peak quest (rewards 2,500 XP). This quest is MANDATORY - it unlocks box trap functionality required for chinchompas and other valuable creatures. Without this quest, you cannot progress efficiently.",
+      "position": 3
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Train to 63 (Salamanders)",
+      "text": "Hunt spotted kebbits via falconry (43-47), orange salamanders (47-59), and red salamanders (59-63). Red salamanders provide 100-110k XP/hour. Continue birdhouse runs throughout. Takes 10-15 hours to reach 63.",
+      "position": 4
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Hunt Red Chinchompas (63-80)",
+      "text": "Start hunting red chinchompas at 63 Hunter (130-180k XP/hour). Best location: private red chinchompa hunting ground (requires Hard Western Provinces Diary) or Feldip Hills. Stockpile chinchompas for future Ranged training. At 80 Hunter with 5 traps, catch 400-560+ per hour. Takes 15-20 hours to reach 80.",
+      "position": 5
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Choose Endgame Method (80-99)",
+      "text": "At 80 Hunter, choose based on your needs: Herbiboar (115-128k XP/hr + herbs for Herblore) if you need herb supply, or continue red chinchompas (130-180k XP/hr) to stockpile thousands for Ranged training. Both are excellent for ironmen. Takes 25-35 hours to reach 99.",
+      "position": 6
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Never Stop Birdhouse Runs",
+      "text": "Continue birdhouse runs every 50 minutes even at 99 Hunter. While XP becomes less significant at high levels, bird nests remain essential for crushed nests (Saradomin brews) and tree seeds (Farming training). This is a lifelong habit for ironmen.",
+      "position": 7
+    }
+  ]
+};
+
+Hunter is essential for ironmen. You can't buy chinchompas, bird nests, or herbs from the Grand Exchange, so efficient Hunter training provides critical resources for Ranged, Herblore, and Farming.
+
+**At a glance:**
+- **Essential method:** Birdhouse runs every 50 minutes from level 5 (passive XP + nests forever)
+- **Key unlock:** Eagles' Peak at 27 (mandatory for box traps and chinchompas)
+- **Core training:** Birds → salamanders → red chinchompas → Herbiboar (or continue chins)
+- **Time to 99:** 75-80 hours active training + passive birdhouses
+
+---
+
+## Why Hunter Matters
+
+**Resource generation:**
+- **Bird nests** from birdhouses (crushed nests for Saradomin brews at 81 Herblore)
+- **Chinchompas** for efficient Ranged training (best AoE Ranged weapon)
+- **Herbs** from Herbiboar (80+) for Herblore supplies
+- **Tree seeds** from birdhouse nests for Farming XP
+
+**Efficient training:**
+- Birdhouse runs: 90 seconds every 50 minutes for 40-50k XP/hour of active time
+- Most time-efficient passive skill in OSRS
+- Active methods (chinchompas) provide 130-180k XP/hour
+
+**Quest/Diary requirements:**
+- Eagles' Peak (27 Hunter) - **MANDATORY** for box traps
+- Western Provinces Hard Diary - Private red chinchompa hunting ground
+- Various diary requirements (59, 55, 41 Hunter for different tiers)
+
+---
+
+## Birdhouses: The Foundation (Level 5+)
+
+Birdhouse runs are the most important Hunter training method for ironmen. Do these every 50 minutes from level 5 to 99 and beyond.
+
+### How They Work
+
+1. Craft 4 birdhouses (regular, oak, willow, teak, mahogany, redwood)
+2. Travel to Fossil Island (requires Bone Voyage quest)
+3. Place birdhouses in 4 locations with 10 cheap seeds each
+4. Wait 50 minutes
+5. Return, collect bird nests + Hunter XP, replace birdhouses
+6. **Repeat forever**
+
+### Birdhouse Types and XP
+
+| Type | Crafting | Hunter | XP per House | Nests per House (avg) |
+|------|----------|--------|--------------|---------------------|
+| Regular | 5 | 5 | ~280 | 0.5 |
+| Oak | 15 | 14 | 420 | 0.75 |
+| Willow | 25 | 24 | 560 | 1.0 |
+| Teak | 35 | 34 | 700 | 1.25 |
+| Mahogany | 50 | 49 | 960 | 1.75 |
+| Redwood | 90 | 89 | 1,200 | 2.5 |
+
+**Total per run (4 birdhouses):**
+- Regular: ~1,120 XP, ~2 nests
+- Mahogany: ~3,840 XP, ~7 nests
+- Redwood: ~4,800 XP, ~10 nests
+
+### Seeds to Use
+
+**Low-level seeds** (10 per birdhouse): Barley, Hammerstone, Asgarnian, Jute, Yanillian, Krandorian hop seeds
+
+**High-level seeds** (5 per birdhouse): Wildblood, Ranarr, Toadflax, Irit, Avantoe, Kwuarm, Snapdragon, Cadantine, Lantadyme, Dwarf weed, Torstol
+
+<Callout type="tip">
+All seeds give the same rewards. Use the cheapest available (usually Hammerstone hops at 2-3 GP each, or Wildblood seeds at 10-15 GP for 5 seeds). High-level seeds just use fewer per birdhouse.
+</Callout>
+
+### Locations and Route
+
+**Four birdhouse spots on Fossil Island:**
+1. Verdant Valley (north) - South of Museum Camp
+2. Verdant Valley (south) - South of Museum Camp
+3. Mushroom Forest - West of ancient shroom
+4. Tar Swamp - By the entrance
+
+**Optimal route (70-90 seconds):**
+1. Teleport to Fossil Island (Digsite pendant)
+2. Magic mushtree to Verdant Valley
+3. Check both northern and southern birdhouses
+4. Mushtree to Mushroom Meadow
+5. Check north birdhouse
+6. Run south to Tar Swamp for final birdhouse
+
+### XP Rates
+
+- **40,000-50,000 XP per hour** of active time
+- One run takes 70-90 seconds
+- Do every 50 minutes (herbs grow in 80 minutes, so pair with herb runs)
+
+### Bird Nest Rewards
+
+**Seed nests:**
+- Allotment seeds, herb seeds
+- **Tree seeds** (oak, willow, maple, yew, magic)
+- **Fruit tree seeds** (apple, banana, orange, curry, pineapple, papaya, palm)
+- Critical for [Farming](/skilling/farming/) training
+
+**Ring nests:**
+- Gold, sapphire, emerald, ruby, diamond rings
+- High alchemy value
+
+**Crushed nests:**
+- Grind empty nests with pestle and mortar
+- **Required for Saradomin brews** (81 [Herblore](/skilling/herblore/))
+- Primary source for ironmen
+
+<Callout type="efficiency">
+**Critical for ironmen:** Birdhouse runs are non-negotiable. Even at 80+ Hunter where the XP becomes less significant compared to active methods (chinchompas give 130k+ XP/hr vs birdhouses' ~4-5k XP per run), the **bird nests remain essential**. Crushed nests are required for Saradomin brews, and tree seeds are vital for Farming. Do runs every 50 minutes for your entire account's lifetime.
+</Callout>
+
+---
+
+## Quest XP Route (1→56 Possible)
+
+Skip early levels with quest XP rewards.
+
+### Quests That Give Hunter XP
+
+| Quest | Hunter XP | Level Req | Notes |
+|-------|-----------|-----------|-------|
+| Museum Natural History Quiz | 1,000 | None | Complete museum downstairs |
+| **Eagles' Peak** | **2,500** | **27** | **MANDATORY - unlocks box traps** |
+| Monkey Madness II | 50,000 | High | Grandmaster quest |
+| Song of the Elves | 40,000 | High | Grandmaster quest |
+
+**Total: 93,500 XP → Level 56**
+
+### Optimal Quest Order
+
+1. **Museum Natural History Quiz** (1,000 XP) - Do early for free levels
+2. Train to 27 using birdhouses + birds
+3. **Eagles' Peak** (2,500 XP) - Unlock box traps at 27
+4. Save Monkey Madness II and Song of the Elves for later (high requirements)
+
+<Callout type="warning">
+**Eagles' Peak is MANDATORY.** You cannot use box traps (required for chinchompas, ferrets, etc.) without completing this quest. Complete it at 27 Hunter before progressing further.
+</Callout>
+
+---
+
+## Training Methods by Level
+
+### Levels 1-9: Crimson Swifts
+
+- **Location:** South-east of Feldip Hills
+- **Method:** Bird snare
+- **XP:** 34 per catch
+- **XP Rate:** 20,000-28,000/hour
+- **Notes:** Starting method, very simple
+
+### Levels 9-19: Copper Longtails
+
+- **Location:** Piscatoris Hunter area
+- **Method:** Bird snare
+- **XP:** 61.2 per catch
+- **XP Rate:** 20,000-28,000/hour
+- **Notes:** Slightly better than crimson swifts
+
+### Levels 19-27: Tropical Wagtails
+
+- **Location:** Tropical regions (Feldip Hills)
+- **Method:** Bird snare
+- **XP:** ~95 per catch
+- **XP Rate:** 28,000-35,000/hour
+- **Notes:** Train here until 27, then do Eagles' Peak
+
+### Levels 27-43: Continue Birds or Deadfall Traps
+
+**Option A:** Continue tropical wagtails (simple, consistent)
+
+**Option B:** Wild Kebbits (23+) with deadfall traps
+- Requires knife + logs
+- 128 XP per catch
+- 40,000-50,000/hour
+- More effort but better XP
+
+### Levels 43-47: Spotted Kebbits (Falconry)
+
+- **Location:** Piscatoris Falconry area
+- **Method:** Borrow gyr falcon from Matthias (500 GP)
+- **XP:** 104 per catch
+- **XP Rate:** 60,000/hour
+- **Requirements:** Both hands free (no weapon, shield, gloves)
+- **Notes:** Good mid-level training
+
+### Levels 47-59: Orange Salamanders
+
+- **Location:** Uzer Hunter area (near Desert)
+- **Method:** Net trap + rope
+- **XP:** 224 per catch
+- **XP Rate:** ~70,000/hour (with 3 traps)
+- **Notes:** Easy to hunt, straightforward
+
+### Levels 59-67: Red Salamanders
+
+- **Location:** ZMI altar area
+- **Method:** Net trap + rope
+- **XP:** 272 per catch
+- **XP Rate:** 100,000-110,000/hour
+- **Notes:** Best method 59-67 without Wilderness
+
+### Levels 67-73: Black Salamanders
+
+- **Location:** Wilderness (south of Lava Maze)
+- **Method:** Net trap + rope
+- **XP:** 319.2 per catch
+- **XP Rate:** 100,000-115,000/hour
+- **Notes:** Best XP pre-73, some PK risk
+
+**Alternative:** Continue red salamanders if avoiding Wilderness (slightly lower XP but safe)
+
+### Levels 63-99: Red Chinchompas (Primary Method)
+
+- **Location:** Red chinchompa hunting ground (Feldip Hills)
+- **Method:** Box trap (requires Eagles' Peak)
+- **XP:** 265 per catch
+- **XP Rate:** 130,000-180,000/hour (140k without tick manipulation, 195k with)
+- **Catches:** 400-560+ per hour at 80+ Hunter
+- **Success Rate:** 6/255 at level 1 → 268/255 at level 99
+
+**Why Red Chinchompas:**
+- Excellent XP rates (second only to black chins)
+- Safe location (private area with Hard Western Provinces Diary)
+- **Chinchompas used for Ranged training** (explosive AoE weapon)
+- Stockpile thousands for efficient Ranged XP
+- Baby chinchompa pet chance (1/95,898 at 99)
+
+<Callout type="tip">
+**Hard Western Provinces Diary** unlocks a private red chinchompa hunting ground with better spawns and no competition. Highly recommended for ironmen planning to chinchompa long-term.
+</Callout>
+
+### Levels 73-99: Black Chinchompas (Fastest XP)
+
+- **Location:** Wilderness (south-east of Lava Maze, level 32-34 Wilderness)
+- **Method:** Box trap
+- **XP:** 315 per catch
+- **XP Rate:** 140,000-250,000/hour (up to 300k with tick manipulation)
+- **Catches:** 350-800/hour depending on technique
+- **Notes:** **FASTEST XP** but high PK risk
+
+**Should you do black chins?**
+- Only if comfortable with Wilderness PK risk
+- Requires tanking gear (Dinh's bulwark, Karil's armour)
+- Significantly faster than red chins
+- Not necessary for ironmen (red chins are safer and still give great XP)
+
+### Levels 80-99: Herbiboar (Herb Supply Method)
+
+- **Location:** Fossil Island
+- **Method:** Tracking (follow footsteps, kick burrows, harvest)
+- **XP:** 1,950 base at 80 (+30 per level until 94) → 2,461 at high levels
+- **XP Rate:** 115,000-128,000 Hunter XP/hour
+- **Herblore XP:** 20,000-30,000/hour (with magic secateurs)
+- **Catches:** 59-66 per hour with stamina potions
+- **Requirements:** 80 Hunter, 31 Herblore, Bone Voyage
+
+**Why Herbiboar:**
+- **Excellent for ironmen** - provides herbs scaling with Herblore level
+- Yields 1-3 herbs per catch (2-4 with magic secateurs)
+- Herbs range from guam to torstol depending on Herblore level
+- Herbi pet chance (1/6,500 per catch)
+- More AFK than chinchompas
+
+**Herbiboar Strategy:**
+- Use magic secateurs for +1 herb per catch
+- Bring stamina potions (essential for tracking)
+- Wear weight-reducing gear (graceful outfit)
+- Recommended for ironmen needing herbs for [Herblore](/skilling/herblore/) training
+
+---
+
+## Optimal Training Path (1-99)
+
+**Fastest Route to 99 (~75-80 hours active):**
+
+| Level | Method | XP/Hour | Time | Notes |
+|-------|--------|---------|------|-------|
+| 1-9 | Crimson swifts + birdhouses | 20-28k | 1 hour | Start birdhouses at 5 |
+| 9-27 | Birds + birdhouses | 28-35k | 3-4 hours | Train to Eagles' Peak req |
+| **27** | **Eagles' Peak quest** | **+2,500 XP** | **1 hour** | **MANDATORY** |
+| 27-43 | Birds/kebbits + birdhouses | 30-50k | 3-4 hours | Box traps now available |
+| 43-59 | Falconry → orange salamanders | 60-70k | 4-6 hours | Switch at 47 |
+| 59-67 | Red salamanders | 100-110k | 2-3 hours | Safe, good XP |
+| 67-73 | Black salamanders OR red sals | 100-115k | 2-3 hours | Wilderness or safe |
+| 73-80 | Red chinchompas | 130-180k | 6-8 hours | Start stockpiling for Ranged |
+| 80-99 | **Herbiboar OR red chins** | **115-180k** | **30-40 hours** | **Herbs vs Ranged ammo** |
+
+**Ironman-Recommended Route:**
+
+Focus on **birdhouses every 50 minutes forever** + active training:
+1. **1-27:** Birds + birdhouses + Museum quiz
+2. **27:** Complete Eagles' Peak (MANDATORY)
+3. **27-63:** Falconry → salamanders → reach red chinchompas
+4. **63-80:** Red chinchompas (stockpile for Ranged training)
+5. **80-99:** **Herbiboar** (if need herbs) OR red chinchompas (if need Ranged ammo)
+
+<Callout type="efficiency">
+Most ironmen split their time: do Herbiboar until herb supply is comfortable, then switch to red chinchompas to stockpile thousands for efficient Ranged training. Both methods are excellent at 80+.
+</Callout>
+
+---
+
+## Hunter Equipment
+
+### Guild Hunter Outfit
+
+**How to Obtain:** 1/50 drop from hunters' loot sacks (Hunter Rumours in Varlamore, requires 46 Hunter)
+
+**Pieces:** Headwear, top, legs, boots (received in order)
+
+**Benefits:**
+- **Full set:** +2.5% catch rate for all Hunter creatures
+- **Full set:** +5% chance of rare creature parts (Hunter Rumours)
+- Cosmetic for collection log
+
+**Worth getting?** Optional - small bonus, only accessible via [Hunter Rumours](/skilling/hunter-rumours/).
+
+### Graceful Outfit
+
+**How to Obtain:** 260 marks of grace from Rooftop Agility
+
+**Benefits:**
+- **Weight reduction:** -25 kg total
+- **Run energy recharge:** +30% (20% from pieces + 10% set bonus)
+
+**When to use:** Essential for Herbiboar tracking (requires constant running). Helpful for moving between trap locations.
+
+### Hunter Tools
+
+| Tool | Use | Purchase Location |
+|------|-----|-------------------|
+| **Bird snare** | Catching birds (1+) | Hunter shops (Nardah, Yanille) |
+| **Box trap** | Chinchompas (requires Eagles' Peak) | Hunter shops |
+| Butterfly net | Butterflies, implings | Hunter shops |
+| Noose wand | Kebbits | Hunter shops |
+| Net trap + rope | Salamanders | Hunter shops |
+
+**Hunter Kit Spell:** 71 Magic + Dream Mentor completion (Lunar spellbook) - provides all basic tools
+
+### Stamina Potions
+
+- **Requirements:** 77 [Herblore](/skilling/herblore/) to make
+- **Use:** Reduces run energy depletion by 70% for 2 minutes
+- **Critical for:** Herbiboar tracking, long hunting sessions
+
+### Hunter Cape (99 Hunter)
+
+**Cost:** 99,000 coins from Hunting expert (Feldip Hills)
+
+**Teleports:**
+- **5 teleports per day** to carnivorous chinchompas (Feldip Hills) or black chinchompas (Wilderness)
+- **Unlimited teleports** to Hunter Guild (speak to Guildmaster Apatura)
+
+**Stats:** +9 all defensive stats, +4 prayer (trimmed)
+
+---
+
+## Ironman-Specific Strategies
+
+### How Many Chinchompas Do I Need?
+
+**Chinchompas for Ranged Training:**
+- **Grey chinchompas:** Level 55 Ranged (inferior to red)
+- **Red chinchompas:** Level 55 Ranged (recommended for ironmen)
+- **Black chinchompas:** Level 65 Ranged (risky to hunt)
+
+**How Many to Stockpile:**
+- Starting chinning at **70 Ranged:** Decent efficiency
+- Starting at **80+ Ranged:** Recommended for best efficiency
+- Most ironmen stockpile **thousands** of red chinchompas
+
+**Hunting Rates:**
+- At 80 Hunter (5 traps): 400-560+ red chins per hour
+- Takes ~10-20 hours to stockpile enough for significant Ranged gains
+
+### Herbiboar for Herbs
+
+**Why Herbiboar is Essential:**
+- Herb quality scales with Herblore level (higher = better herbs like ranarr, snapdragon, torstol)
+- Yields 1-3 herbs per catch (2-4 with magic secateurs)
+- Provides 20,000-30,000 Herblore XP/hour
+- Excellent for sustaining [Herblore](/skilling/herblore/) training
+
+**Strategy:**
+- Start at 80 Hunter
+- Train Herblore alongside to improve herb drops
+- Use magic secateurs (+10% yield)
+- Do until herb supply is comfortable, then switch to chinchompas
+
+### Birdhouse Runs for Nests
+
+**Why Essential:**
+- **Primary source** of bird nests for ironmen
+- Crushed nests required for Saradomin brews (81 Herblore)
+- Tree seeds vital for Farming XP
+- Ring nests for alchs
+
+**Nest Drop Rates (per birdhouse):**
+- Mahogany: 1.75 nests (~7 per run)
+- Redwood: 2.5 nests (~10 per run)
+
+**Strategy:** Do runs every 50 minutes from level 5 to 99 and beyond. Never stop.
+
+### When to Prioritise Hunter
+
+**Early Game (1-50):**
+- **Priority:** Low
+- Do birdhouses passively, don't actively grind
+
+**Mid Game (50-80):**
+- **Priority:** Medium
+- Continue birdhouses, start collecting chinchompas if planning Ranged training
+
+**Late Game (80-99):**
+- **Priority:** High if you need herbs or chinchompas
+- Herbiboar for herb supply
+- Red chinchompas for Ranged ammunition
+- Hunter Rumours for guild outfit + Quetzin pet
+
+**When Hunter Becomes Important:**
+1. Before Ranged training (63+ for red chins)
+2. For [Herblore](/skilling/herblore/) (80+ for Herbiboar herbs)
+3. For Saradomin brews (birdhouses for crushed nests)
+4. For [Farming](/skilling/farming/) (birdhouses for tree seeds)
+
+---
+
+## Hunter Pets
+
+### Baby Chinchompa
+
+**How to Obtain:** Catching any chinchompa (grey, red, black)
+
+**Drop Rates at 99 Hunter:**
+- Grey: 1/128,920
+- Red: 1/95,898
+- Black: 1/80,283
+
+**Special Feature:** 1/10,000 chance to be gold colour
+
+**Formula:** 1 in (Base - (Level × 25))
+
+### Herbi
+
+**How to Obtain:** Hunting Herbiboar on Fossil Island
+
+**Drop Rate:** 1/6,500 per successful hunt
+
+**Likelihood:** ~70% chance by 99 if you train 80-99 via Herbiboar (~4,531 catches)
+
+**Requirements:** 80 Hunter, 31 Herblore, Bone Voyage
+
+### Quetzin
+
+**How to Obtain:** Opening hunters' loot sacks from Hunter Rumours (Varlamore)
+
+**Drop Rate:** Base rate unknown, 15x more common at 200m Hunter XP
+
+**Requirements:** 46 Hunter, access to Hunter Guild
+
+---
+
+## Important Unlocks
+
+### Eagles' Peak Quest
+
+- **Requirements:** 27 Hunter
+- **Rewards:** 2,500 Hunter XP, **box trap functionality unlocked**
+- **Why Critical:** **MANDATORY** for catching chinchompas, ferrets, and all box trap creatures
+- **When:** Complete immediately at 27 Hunter
+
+### Bone Voyage Quest
+
+- **Requirements:** 100 kudos (Varrock Museum), The Dig Site
+- **Unlocks:** Fossil Island access
+- **Why Critical:** Required for birdhouses (passive XP + nests) and Herbiboar (80+)
+
+### Western Provinces Hard Diary
+
+- **Hunter Requirement:** None for completion (but 69 Hunter recommended for some tasks)
+- **Reward:** Private red chinchompa hunting ground (south of Feldip Hills)
+- **Benefits:** Better spawns, no competition, safer hunting
+
+### Varlamore Access (Hunter Guild)
+
+- **Requirements:** Children of the Sun quest, 46 Hunter, 30 Herblore, 27 Construction
+- **Unlocks:** Hunter Rumours, guild hunter outfit, Quetzin pet
+- **See:** [Hunter Rumours Guide](/skilling/hunter-rumours/) for detailed strategies
+
+---
+
+## Achievement Diary Requirements
+
+### Diaries Requiring Hunter Levels
+
+| Diary | Tier | Hunter Req | Notes |
+|-------|------|-----------|-------|
+| Western Provinces | Easy | 9 | Low requirement |
+| Fremennik | Easy | 35 | Mid-low requirement |
+| Karamja | Easy | 41 | Mid requirement |
+| Fremennik | Hard | 55 | Mid-high requirement |
+| Ardougne | Hard | 59 | High requirement |
+
+**Most Important Diary Reward:**
+- **Western Provinces Hard** - Private red chinchompa hunting ground (massive quality of life for chinning)
+
+---
+
+## Advanced Methods
+
+### Tick Manipulation (3-Tick Hunter)
+
+**What is it?**
+- Default trap laying: 4 ticks
+- With tick manipulation: 3 ticks
+- Method: Perform 3-tick action (herb tar, fletching, kebbit claws) after picking up trap
+
+**3-Tick Actions:**
+- Swamp tar on low-level herb
+- Fletching mahogany/teak logs
+- Kebbit claws on vambraces
+
+**XP Increase:**
+- Red chinchompas: 140k/hr → 195k/hr (+55k)
+- Black chinchompas: 180k/hr → 300k/hr (+120k)
+
+**Recommended?** Only for experienced players seeking maximum XP rates. Not necessary for ironmen.
+
+### Maniacal Monkeys (60+)
+
+- **Location:** Kruk's Dungeon (Ape Atoll)
+- **Method:** Deadfall trap with banana bait, requires Kruk greegree
+- **XP:** 1,000 per catch
+- **XP Rate:** 60-120k/hour (scales with level)
+- **Requirements:** Monkey Madness II completion
+- **Notes:** Very AFK (25-30 seconds per interaction)
+
+**Worth doing?** Niche - very AFK but lower XP than chinchompas. Only if you want AFK Hunter training.
+
+---
+
+## Common Mistakes
+
+- **Not doing birdhouse runs** — Do every 50 minutes from level 5 onwards, even at 99
+- **Skipping Eagles' Peak quest** — Mandatory for box traps, can't catch chinchompas without it
+- **Training past 63 without chinchompas** — Red chins are the primary method 63-99
+- **Forgetting magic secateurs for Herbiboar** — Reduces herb yield significantly
+- **Not using stamina potions at Herbiboar** — Makes tracking much slower
+- **Hunting black chins without Wilderness experience** — High PK risk, red chins are safer
+- **Thinking birdhouses become useless at high levels** — XP becomes less important, but **nests remain essential for brews**
+
+---
+
+## FAQ
+
+### What's the fastest way to train Hunter on an ironman?
+
+Do birdhouse runs every 50 minutes from level 5 onwards. For active training: birds to 27, complete Eagles' Peak, salamanders 47-67, red chinchompas 63-99. Herbiboar at 80+ if you need herbs. Total time: 75-80 hours.
+
+### Should I do birdhouse runs at high levels?
+
+Absolutely YES. While XP becomes less significant at 80+ (active methods are faster), bird nests remain essential. Crushed nests are required for Saradomin brews, and tree seeds are vital for Farming. Always do birdhouse runs.
+
+### How many chinchompas do I need for Ranged training?
+
+Most ironmen stockpile thousands. At 80 Hunter with 5 traps, you'll catch 400-560+ red chinchompas per hour. Starting chinning at 70+ Ranged is recommended for efficiency.
+
+### Should I do Herbiboar or continue chinchompas at 80 Hunter?
+
+Depends on your needs. Herbiboar provides herbs for Herblore (115-128k Hunter XP/hr). Red chinchompas provide Ranged ammunition (130-180k XP/hr). Most ironmen do Herbiboar until herb supply is good, then switch to chinchompas.
+
+### Is Eagles' Peak quest required for Hunter?
+
+Yes, it's MANDATORY. You cannot use box traps (required for chinchompas, ferrets) without completing this quest. Complete at 27 Hunter (gives 2,500 XP).
+
+### What are the Hunter pets and how do I get them?
+
+Baby chinchompa (1/95,898 from red chins at 99), Herbi (1/6,500 from Herbiboar), and Quetzin (from Hunter Rumours loot sacks). Herbi is most realistic during normal training.
+
+### When should I start hunting chinchompas?
+
+Start red chinchompas at 63 Hunter. They provide excellent XP (130-180k/hr) and are used for Ranged training. Stockpile thousands over your account's lifetime.
+
+### Are black chinchompas worth the risk?
+
+Only if comfortable with Wilderness PK risk. They give faster XP (140-250k/hr) but require tanking gear and Wilderness experience. Red chinchompas are safer and still give great XP (130-180k/hr).
+
+---
+
+## Related Guides
+
+- [Hunter Rumours Guide](/skilling/hunter-rumours/) — Block lists, optimal strategies, loot sacks
+- [Herblore Guide](/skilling/herblore/) — Use herbs from Herbiboar, crushed nests for brews
+- [Farming Guide](/skilling/farming/) — Tree seeds from birdhouse nests
+- [Varlamore Guide](/guides/varlamore/) — Hunter Guild, blessed bone shards, Quetzin pet
+
+<Schema schema={[faqSchema, howToSchema]} />
