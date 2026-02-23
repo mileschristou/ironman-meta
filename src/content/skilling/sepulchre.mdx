@@ -1,0 +1,795 @@
+---
+title: "OSRS Hallowed Sepulchre: Complete Floor-by-Floor Strategy Guide"
+description: "Specialist Hallowed Sepulchre guide for Ironmen. Mechanics, floor-by-floor strategies, learning progression, profit analysis, gear setup, and Ring of Endurance farming. 52-99 strategy with 2024-2025 updates."
+publishDate: 2026-02-23
+updatedDate: 2026-02-23
+category: skilling
+subcategory: minigame
+tags: ["sepulchre", "agility", "hallowed marks", "ring of endurance", "mechanics", "floors", "strategy"]
+quickAnswer: "Sepulchre is a 5-floor mechanical minigame. 52 minimum to start; 70+ recommended. Floor 3 is hardest learning (50-100 hours to master). XP rates: 30-40k (52), 60-70k (72), 85-100k (92+). Profit: 35k-3M GP/hr depending on floor and Ring drops. All floors viable for Ironmen. Ring of Endurance on Floor 5 is 1/200 drop (63M value)."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the minimum Agility level to start Sepulchre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '52 Agility + Sins of the Father quest. Technically doable at 52, but 70-75 Agility recommended for better survivability and less frustration. Starting too low = extended learning on trivial floors.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does it take to learn Sepulchre?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Floors 1-2: 50-100 runs (~3-5 hours). Floor 3: 100-300 runs (the hard one, 50-100 hours). Floor 4: 100-200 runs. Floor 5: 100+ runs. Total: 200-300 hours to master all floors, but you\'ll reach 99 in 145-165 hours first.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I loot vs skip?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Floors 1-3 (52-72): Skip looting, focus on learning. Floors 4-5 (82+): Loot everything for marks and supplies. Grand Coffin on Floor 5 = must loot (Ring of Endurance drops here). Selective looting keeps XP rates near max while doubling mark income.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the Ring of Endurance worth hunting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: '1/200 drop from Grand Coffin, 63M value. For pure XP: not worth delaying other content. For long-term account: nice eventual drop. Ironman should not specifically hunt (opportunity cost). But loot it if it appears during 92-99 grind.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Why is Floor 3 so hard?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Skill spike: obstacles are significantly harder than Floors 1-2. Final obstacle requires memorizing precise tile patterns. No shortcut around it. Expect 50-100 hours here. Most players struggle on Floor 3; this is normal.'
+      }
+    }
+  ]
+};
+
+Hallowed Sepulchre isn't just agility training—it's a **mechanical puzzle game** disguised as a minigame. Unlike rooftop courses where you can semi-AFK, Sepulchre demands precision, pattern recognition, and quick decisions. This makes it either incredibly engaging or frustratingly difficult, depending on your playstyle.
+
+**Key distinction from [Agility](/skilling/agility/):** Sepulchre is a specialist activity. The main [Agility guide](/skilling/agility/) covers the full 1-99 path; this guide dives deep into Sepulchre mechanics, floor strategies, and learning progression.
+
+---
+
+## What is Hallowed Sepulchre?
+
+Sepulchre is a 5-floor minigame in Darkmeyer requiring progressively higher Agility to unlock. Each floor contains:
+- **Timed challenges** (2 minutes base, +2 per floor)
+- **Skill-based obstacles** (failed click = damage + knockback)
+- **Optional coffin looting** (trade XP/time for Hallowed Marks + supplies)
+- **Scalable difficulty** (patterns repeat but get harder on deeper floors)
+
+**Why It Matters:**
+- 30-50% faster than rooftop courses at endgame
+- Supplies valuable items (potions, runes, seeds for Ironmen)
+- Hallowed Marks unlock cosmetic gear and utility items
+- Ring of Endurance is rare, valuable drop (only source)
+
+**Playstyle Note:** This is active, mechanical training. **You cannot AFK.** Expect full attention for entire sessions. Most engaging agility option but also most demanding.
+
+---
+
+## Unlocks & Requirements
+
+### Entry Requirements
+- **Minimum Agility**: 52 Agility
+- **Quest**: Sins of the Father (completion)
+- **Location**: Hallowed Sepulchre in Darkmeyer
+- **Cost**: Free entry; marks earned through gameplay
+
+### Floor Unlock Levels
+| Floor | Agility | Quest | Time | Coffins | Notable |
+|-------|---------|-------|------|---------|---------|
+| 1 | 52 | Sins | 2 min | 3-4 | Learning start |
+| 2 | 62 | Sins | 4 min | 3-4 | Still easy |
+| 3 | 72 | Sins | 6 min | 4-5 | **DIFFICULTY SPIKE** |
+| 4 | 82 | Sins | 8 min | 5-6 | Profit starts |
+| 5 | 92 | Sins | 10 min | 6-7 + Grand | Endgame |
+
+### Recommended Starting Agility
+
+| Actual Level | Pros | Cons |
+|---|---|---|
+| **52** | Earliest unlock | Tedious early floors, low HP/stamina |
+| **70-75** | Balanced difficulty | Skips easy levels, more engaging |
+| **80+** | Can reach profitability quickly | Jumps to hard content, steep learning |
+
+**Recommendation for Ironman:** Start at **70-75 Agility**. By then you'll have done substantial [Fishing](/skilling/fishing/) and [Agility](/skilling/agility/), giving you stamina management experience. Floors 1-2 feel tedious at this level but are quick passes (5-10 hours).
+
+---
+
+## Core Mechanics Explained
+
+### Timer System
+
+**How It Works:**
+- Floor 1 starts with 2 minutes on timer
+- Each floor descent adds 2 minutes (cumulative)
+- Time carries across floors (unused time on Floor 2 adds to Floor 3's timer)
+- After timer expires: Can complete current floor for XP but cannot loot coffins or progress
+
+**Example Timeline:**
+- Start Floor 1: 2:00 timer
+- Complete Floor 1 in 2:30 (oops, over): Use 2:30, carry 0:00 to Floor 2
+- Start Floor 2: 2:00 timer (refresh)
+- Complete Floor 2 in 1:45: Carry 0:15 forward
+- Start Floor 3: 2:15 timer total (2:00 base + 0:15 carried)
+
+**Time Extension:**
+- Hallowed Tokens extend timer by 1 minute each
+- Available via marks shop (cost: 10 marks per token)
+- Rarely needed if learning pacing is correct
+
+<Callout type="tip">
+In early learning phases, you'll exceed time limits. This is normal. Don't stress running out of time on first attempts. Focus on movement first, speed second.
+</Callout>
+
+### Coffin Looting System
+
+Coffins scattered throughout each floor contain Hallowed Marks and supplies. To loot a coffin, you must unlock it by solving skill obstacles:
+
+**Coffin Types:**
+- **Thieving Coffins** (65 Thieving minimum): Reward 10-15 marks
+- **Construction Coffins** (66 Construction minimum): Reward 10-15 marks
+- **Prayer Coffins** (54 Prayer minimum): Reward 5-10 marks
+- **Ranged Coffins** (62 Ranged minimum): Reward 10-15 marks
+- **Magic Coffins** (7 Magic minimum): Reward 5-10 marks
+- **Grand Hallowed Coffin** (Floor 5 only): 8-12 marks + rare drops + Ring of Endurance (1/200)
+
+**Supply Drops from Coffins:**
+- Stamina potions, super restores, prayer potions
+- Coins, teleport runes, gems
+- Seeds, herbs, alchables
+- Valuable for Ironmen (reduces supply grind)
+
+**Strategy:** Skip looting on Floors 1-3 (time waste). Selective loot Floors 4-5 (marks valuable, supplies valuable).
+
+### Hallowed Marks Currency
+
+Marks are Sepulchre's reward currency. **Value: ~885 GP per mark** (via Hallowed Sacks tradeable conversion).
+
+**Mark Earnings (per hour, looting):**
+- Floor 1: 10-15 marks
+- Floor 2: 15-20 marks
+- Floor 3: 40-50 marks
+- Floor 4: 80-100 marks
+- Floor 5: 100-120 marks (including 8-12 per Grand Coffin)
+
+**Mark Shop (Hallowed Merchant):**
+| Item | Cost | Use Case |
+|------|------|----------|
+| Hallowed Ring | 250 | Learning phase (prevents damage) |
+| Hallowed Grapple | 100 | Better pillar success (auto-climb) |
+| Hallowed Focus | 100 | Better portal success (auto-cast) |
+| Hallowed Symbol | 100 | Brazier efficiency (half cost) |
+| Hallowed Hammer | 250 | Nail never breaks on bridges |
+| Private Instance | 200 | Unlock consistent spawns |
+| Hallowed Tokens | 10 each | Extend timer (rarely needed) |
+
+**Buying Priority:**
+1. Hallowed Ring (250) - Confidence builder in early learning
+2. Hallowed Grapple (100) - Pillar success = less frustration
+3. Hallowed Focus (100) - Portal success = consistency
+4. Rest are optional (minimal impact)
+
+### Failure & Damage Mechanics
+
+**What Happens When You Fail:**
+- Hitting an active trap = knockback to obstacle start + 1-3 damage
+- Failures waste time and frustrate but don't kill you
+- Items held by Mysterious Stranger (can't actually die)
+
+**Damage Prevention:**
+- **Hallowed Ring** (250 marks): Negates damage AND reduces time penalty (huge for learning)
+- **Without ring**: Accumulate small damage; rarely an issue
+- Prayer flicking possible but unnecessary
+
+**Fail Rate Expectations:**
+- Floor 1: less than 5% after 20 runs
+- Floor 2: 5-10% after 30 runs
+- Floor 3: 30-50% first 100 runs (**NORMAL**), 5-10% eventually
+- Floor 4: 15-30% initially, 5-10% with practice
+- Floor 5: 10-25% initially, less than 5% mastered
+
+<Callout type="warning">
+Floor 3 fail rates of 30-50% are **not a sign of failure**. This is normal. Many players struggle here for 50-100 hours. Expect regression on every new floor. Push through.
+</Callout>
+
+---
+
+## Essential Gear & Inventory Setup
+
+### Core Requirement: Graceful Outfit
+
+You **need** the Graceful outfit from [rooftop Agility](/skilling/agility/). Without it:
+- Run energy depletes too fast
+- You'll spend more time running than learning
+- Stamina potion costs explode
+
+**Stats:**
+- -25kg weight reduction
+- +30% run energy restoration
+- Ironman can farm 260 marks at Canifis (13-16 hours)
+
+### Essential Tools
+
+| Tool | Why | Alternative |
+|------|-----|-------------|
+| Strange Old Lockpick | Infinite uses, speeds coffin opening | Regular lockpick (consumes charges) |
+| Hammer (any) | Repairs bridge nails | Hallowed Hammer (250 marks, never breaks) |
+| Saw (any) | Constructs planks for bridge | Standard saw fine |
+| Crossbow | Portal puzzle requirement | Dorgeshuun crossbow (lightest) |
+
+### Optimal Inventory (Beginner Learning Phase)
+
+```
+Graceful Outfit (worn):
+- Top, bottom, gloves, boots, hood, cape (-3.6kg)
+
+Inventory:
+- Lockpick (0.5kg)
+- Hammer (2kg)
+- Saw (1kg)
+- 5-8 Planks (2.5-4kg)
+- 10+ Nails (0kg)
+- Stamina Potions (4 sips = 1.6kg)
+- Antidote++ (0.4kg, if looting prayer coffins)
+- Saradomin Item (worn on body as spare requirement)
+- Empty slots for loot
+
+Target Weight: 0kg or below (negates stamina drain)
+```
+
+### Optional Gear (In Priority Order)
+
+1. **Hallowed Ring (250 marks)**
+   - Negates trap damage
+   - Teleports to obstacle start (saves time)
+   - **Buy first** if learning
+   - Improves confidence immensely
+
+2. **Hallowed Grapple (100 marks)**
+   - Pillars (bridge obstacles) have 2-3 attempts before impassable
+   - Grapple = 100% success (auto-climb)
+   - Removes pillar anxiety
+   - **Buy after Ring** for consistency
+
+3. **Hallowed Focus (100 marks)**
+   - Portals (magic obstacles) fail if you lack spell
+   - Focus = auto-cast required spell
+   - Nice consistency upgrade
+   - **Buy third** if focus budget
+
+4. **Hallowed Hammer (250 marks)**
+   - Bridge nails never break
+   - Only matters if looting heavily (rare failure point)
+   - Low priority (nails don't break often)
+
+5. **Hallowed Symbol (100 marks)**
+   - Brazier sacrifices (sacredness) cost half
+   - Only valuable if looting many prayer coffins
+   - Minimal efficiency gain
+   - Skip for Ironman
+
+6. **Private Instance (200 marks)**
+   - Unlocks consistent obstacle spawns
+   - After 200 marks collected, toggle on
+   - Lets you practice exact timing (no RNG)
+   - Quality-of-life, not essential
+
+---
+
+## Floor-by-Floor Deep Dive
+
+### Floor 1 (52 Agility)
+
+**Overview:** Introductory floor designed to teach basic pathing.
+
+**Specifications:**
+- **Agility Required:** 52
+- **Time:** 2 minutes
+- **XP per run:** 500 XP
+- **Marks available:** 3-4 coffins
+- **Realistic completion:** 2:00 time
+
+**Obstacles:**
+- Wizard statues (fire streams in waves)
+- Knight statues (moving swords)
+- Simple magical projectiles
+- Strange tiles (blue = forward, yellow = backward)
+
+**Coffins & Loot:**
+- 3 accessible coffins (thieving, ranged, magic mostly)
+- Looting each adds 1-2 minutes
+- Supply drops: Minor (potions, coins)
+
+**XP Rates:**
+- Skipping coffins: 30,000 XP/hr
+- With coffins: 15,000 XP/hr
+- Expected completions: 25-30/hour (2 min average)
+
+**Learning Phase (50-100 runs):**
+- First 10 runs: Expect 50%+ fail rate, 3-4 min runs
+- By run 50: 5-10% fail rate, consistent 2-2:30 timing
+- By run 100: less than 5% fail rate, sub-2 minute runs
+
+**Strategy:**
+- **Skip all coffins** — Learn pathing, not looting
+- Accept mistakes — Floor 1 is tutorial
+- Focus on: Wizard statue gaps, knight sword timing, tile usage
+- Don't rush to Floor 2 until sub-2 minutes consistently
+
+**Common Mistakes:**
+- Getting greedy with wizard fire gaps (fail on safe attempt)
+- Not using blue tiles for invincibility windows
+- Hesitating before knight sword gaps (wastes time more than failing)
+
+<Callout type="tip">
+Floor 1 feels slow when learning, but it's teaching pathing fundamentals that apply to all floors. Don't skip learning; treat it as investment.
+</Callout>
+
+**Progression Criteria for Floor 2:**
+- Less than 5% fail rate
+- Consistent sub-2 minute times
+- Comfortable with all three obstacle types
+- Ready in: 3-5 hours
+
+---
+
+### Floor 2 (62 Agility)
+
+**Overview:** Early progression floor; still forgiving but introduces new patterns.
+
+**Specifications:**
+- **Agility Required:** 62
+- **Time:** 4 minutes total (2 base + 2 from Floor 1)
+- **XP per run:** 850 XP
+- **Marks available:** 3-4 coffins
+- **Realistic completion:** 2:00-2:30
+
+**Obstacles:**
+- Knight statues (same as Floor 1 but faster patterns)
+- Priest statues (NEW: lightning in 3x3 zones)
+- Crossbowman statues (projectile attacks)
+- Strange tiles (expanded usage)
+
+**Coffins & Loot:**
+- 3-4 accessible coffins
+- Looting adds 1-2 minutes
+- Supply drops: Improving (stamina potions, runes)
+
+**XP Rates:**
+- Skipping coffins: 40,000 XP/hr
+- With coffins: 25,000 XP/hr
+- Expected completions: 25-30/hour
+
+**Learning Phase (30-50 runs):**
+- First 5 runs: Expect 30-40% fail rate
+- By run 20: 10-15% fail rate, 2-2:30 timing
+- By run 50: less than 5% fail rate, consistent 2:00 times
+
+**Strategy:**
+- **Skip coffins** — Still learning, speed > marks
+- Priest lightning: Stay out of 3x3 zones, use safe spots strategically
+- Crossbow bolts: Run away when bolts retract (opposite of intuition)
+- Blue tiles: Use for invincibility windows to skip sword mechanics
+
+**Common Mistakes:**
+- Running into priest lightning (looks avoidable but isn't)
+- Getting hit by crossbow bolts (stand too close to statue)
+- Losing time panicking after priests light zones
+
+**Progression Criteria for Floor 3:**
+- Less than 5% fail rate
+- 2:00-2:15 consistent times
+- Lightning zone mapping clear
+- Crossbow rhythm down
+- Ready in: 2-3 hours total
+
+---
+
+### Floor 3 (72 Agility) — THE SKILL WALL
+
+**⚠️ WARNING: This floor is infamous for difficulty. 30-50% fail rates are normal. 50-100 hours learning is typical. This is not abnormal; it's expected.**
+
+**Overview:** Significant difficulty jump. Final obstacle requires precise tile memorization. This is where most players struggle and decide whether Sepulchre is for them.
+
+**Specifications:**
+- **Agility Required:** 72
+- **Time:** 6 minutes total
+- **XP per run:** 1,525 XP
+- **Marks available:** 4-5 coffins
+- **Realistic completion:** 3:00-3:30 (learning)
+
+**Obstacles:**
+- Wizard statues (flame traps, faster patterns)
+- Knight statues (faster sword movement)
+- Priest statues (tighter lightning zones)
+- **Bridge construction** (NEW: requires hammering nails precisely)
+- **Final obstacle gauntlet** (Complex tile pattern memorization)
+
+**Critical Mechanic — Final Obstacle:**
+The final gauntlet is a puzzle requiring learning. **Patterns repeat identically every run** but are complex. You must memorize safe tile sequences. No shortcut.
+
+**Coffins & Loot:**
+- 4-5 accessible coffins
+- Looting adds 2-3 minutes
+- Supply drops: Valuable (stamina, runes, potions)
+
+**XP Rates (heavy variance):**
+- Pure run (no coffins, practiced): 60,000 XP/hr
+- With coffins: 40,000 XP/hr
+- Learning phase: 15,000-25,000 XP/hr (expected, you'll fail often)
+- Expected completions: 15-19/hour (4+ min runs)
+
+**Learning Phase (100-300 runs — 50-100 hours):**
+- First 50 runs: 40-50% fail rate, 4-6 min runs, utterly lost on final obstacle
+- Runs 50-100: Improving to 25-35% fail rate, 3:30-4:30 timing, starting to map final obstacle
+- Runs 100-200: 15-20% fail rate, 3:15-3:45 timing, final obstacle becoming pattern-clear
+- Runs 200-300: 5-10% fail rate, 3:00-3:30 timing, confidently executing final sequence
+
+**Strategy:**
+- **Start: Skip all coffins** — You're just trying to understand flow
+- **Middle (50+ runs): Selective looting** — Loot 1-2 coffins for marks/supplies while learning
+- **Mastered (150+ runs): Full loot** — Add 2-3 more coffins now that movement is rote
+- Bridge nails: Hit them correctly (fail = time waste, watch tutorial if stuck)
+- Final gauntlet: Memorize one safe path and execute it identically every run
+
+**Common Mistakes:**
+- Trying to loot heavily while learning (multi-tasking compounds mistakes)
+- Expecting to skip this floor or do it quickly (it takes time, accept it)
+- Getting frustrated after 50+ runs with 30% fail rate (this is normal)
+- Not memorizing final obstacle (instead free-winging it each time)
+
+**Burnout Warning:**
+Floor 3 is the primary burnout point. Solution: Rotate between activities (don't grind 8+ hours), take breaks between 2-3 hour sessions, find rhythm. Most players take 1-2 weeks of casual play to clear this.
+
+<Callout type="warning">
+**Do NOT skip Floor 3 or move to Floor 4 until comfortable.** Pushing too early = misery on Floor 4. Wait until you're hitting 3-3:30 consistently with less than 10% fail rate. Yes, it takes 50-100 hours. Yes, it's worth it.
+</Callout>
+
+**Progression Criteria for Floor 4:**
+- Less than 10% fail rate (or lower)
+- 3:15-3:30 consistent timing
+- Final obstacle executed reliably 3+ times in a row
+- Ready in: 50-100 hours total (normal range)
+
+---
+
+### Floor 4 (82 Agility)
+
+**Overview:** Mid-late game. Significantly harder than Floor 3 but at this point you've learned how to learn. Still demanding but shorter in duration.
+
+**Specifications:**
+- **Agility Required:** 82
+- **Time:** 8 minutes total
+- **XP per run:** 2,875 XP
+- **Marks available:** 5-6 coffins
+- **Realistic completion:** 4:00-5:00
+
+**Obstacles:**
+- Blue Flame Tile Puzzle (must step only on blue tiles to avoid damage)
+- Magical traps (complex patterns)
+- Crossbow bolts (familiar mechanic, faster)
+- **Dual-path route system** (can choose easier path or risk-reward path)
+
+**Coffins & Loot:**
+- 5-6 accessible coffins
+- All obtainable while beating timer
+- Supply drops: Excellent (stamina, runes, herbs)
+
+**XP Rates:**
+- Pure run: 73,000 XP/hr
+- With looting: 60,000 XP/hr
+- Expected completions: 12-15/hour (4-5 min)
+
+**Learning Phase (100-200 runs):**
+- First 20 runs: 30-40% fail rate, 5-6 min runs
+- Runs 20-100: 10-20% fail rate, 4:30-5:00 timing
+- Runs 100-200: 5-10% fail rate, 4:00-4:30 timing
+- Mastered: 95%+ success, under 4 minutes possible
+
+**Strategy:**
+- **Dual paths:** Easier path (straightforward) vs risky path (shortcuts)
+  - Learning: Take easy path
+  - Proficient: Risk shorter path
+- **Selective looting:** Can skip prayer coffin (low reward), loot everything else
+- **Blue tile puzzle:** Similar to Floor 3's final obstacle—memorize safe zones
+- **Route planning:** Can reach Floor 5 and return within 8 minute timer if rushed
+
+**Can I Do Floor 5 From Here?**
+Yes. If you finish Floor 4 in 3:30 or less, you have 4:30 for Floor 5. Possible but tight. Most players rest at Floor 4 until 90+ Agility, then push to Floor 5.
+
+**Common Mistakes:**
+- Overcommitting to risky paths while learning (safe first, shortcuts later)
+- Forgetting blue tile rules (only blue tiles are safe)
+- Looting too heavily while still learning movement
+
+**Progression Criteria for Floor 5:**
+- Less than 10% fail rate consistently
+- 4:00-4:30 average times (under 4 min possible)
+- Comfortable with blue tile logic
+- Ready for Floor 5 in: 30-50 hours of grinding
+
+---
+
+### Floor 5 (92 Agility) — THE RING FLOOR
+
+**Overview:** Final floor. Hardest mechanics, best XP rates, only source of Ring of Endurance. Tight timer demand; mistakes cascade hard.
+
+**Specifications:**
+- **Agility Required:** 92
+- **Time:** 10 minutes total
+- **XP per run:** 5,725 XP
+- **Marks available:** 6-7 + Grand Coffin
+- **Grand Coffin XP Bonus:** 3,575 XP (one-time reward, not repeatable per run)
+- **Realistic completion:** 2:30-4:00
+
+**Obstacles:**
+- Flame phase statues (faster than lower floors, 1 tick phase changes)
+- Complex magical traps
+- Single linear path (no route choice)
+- **Grand Hallowed Coffin** (solo, most valuable chest)
+
+**Grand Coffin Loot:**
+- Guaranteed: 8-12 Hallowed Marks (nearly doubled from 2024 update)
+- Loot table: 2 rolls on high-tier drops
+- Average value: 34,459 GP per open (excluding Ring)
+- **Ring of Endurance:** 1/200 drop rate, 63M value
+
+**Coffins & Loot:**
+- 6-7 regular coffins + Grand Coffin
+- All 100% obtainable (if timer managed correctly)
+- Looting: Add 1-2 minutes to run time
+
+**XP Rates:**
+- Pure run (no coffins): 98,500+ XP/hr (fastest possible)
+- Standard looting all: 85,000-95,000 XP/hr
+- Expected completions: 12-15/hour
+
+**Learning Phase (100+ runs):**
+- First 20 runs: High variance, 25-40% fail rate, 3-5 min runs
+- Runs 20-100: 10-20% fail rate, 2:45-3:30 timing improving
+- Runs 100+: less than 5% fail rate, 2:30-3:00 consistent times
+- Ring hunting: Usually happens during normal grind (1/200 drop)
+
+**Strategy:**
+- **Full loot always:** Grand Coffin profit + marks too valuable to skip
+- **Timer tight:** Optimize pathing; 2:30 runs possible with practice (4:00 comfortable start)
+- **Flame statue pattern:** Phases change 1 tick faster than Floor 4; requires precision clicking
+- **Grand Coffin:** Worth opening even if low on time (3.5k extra XP + marks)
+
+**Ring of Endurance: The Grind?**
+- Drop rate: 1/200 from Grand Coffin
+- Expected runs to ring: ~200 runs ≈ 40-50 hours at 92+
+- Value: 63M on main account; for Ironman = nice eventually, not hunt-priority
+- What to do if it drops: Alch or use for QoL (run energy efficiency)
+
+**Profit Potential:**
+- Marks: 100-120/hr @ 885 GP each = 88,500 GP/hr
+- Drops: 30,000-50,000 GP/hr average
+- **Combined: 120,000-140,000 GP/hr**
+- **With Ring (amortized 1/200):** 300,000+ GP/hr theoretical
+- Reality: Rings are rare; don't count on them
+
+**Common Mistakes:**
+- Trying pure XP routes before learning floor (skip coffins = less forgiving on errors)
+- Flame statue pattern clicking wrong (needs precision, watch tutorial)
+- Inefficient pathing to Grand Coffin (test routes beforehand)
+- Panic-opening Grand Coffin late in timer (costs XP, not worth it)
+
+<Callout type="tip">
+Ring farming doesn't mean only doing Floor 5. Normal 92-99 grind will eventually drop a Ring. If you see it: nice bonus. If you don't: you still got 99 Agility. Don't extend grind specifically hunting it.
+</Callout>
+
+**Progression Criteria:**
+- Less than 5% fail rate
+- Consistent 2:30-3:30 times
+- Fully confident opening Grand Coffin
+- Ready for grind-to-99 in: 30-50 hours practice
+
+---
+
+## Complete Learning Timeline
+
+### Realistic Progression Path
+
+**Phase 1: Floors 1-2 (5-10 hours)**
+- 70-75 Agility start
+- Run 50-100 times across both floors
+- Skip all looting
+- Result: 75-80 Agility, no marks
+- Time invested: 5-10 hours
+
+**Phase 2: Floor 3 (50-100 hours) — MAIN GRIND**
+- 80+ Agility at start
+- Run 100-300 times
+- Learn final obstacle (major skill investment)
+- Selective coffin looting (runs 50+)
+- Result: 85-90 Agility, 150-300 marks earned
+- Time invested: 50-100 hours total (large variance)
+
+**Phase 3: Floors 4-5 (40-60 hours)**
+- 90+ Agility at start
+- Floor 4: 50-100 runs (20 hours)
+- Floor 5: 100+ runs to 99 (20-40 hours)
+- Full coffin looting throughout
+- Result: 99 Agility, 400-600 marks earned
+- Time invested: 40-60 hours
+
+**Total Time to 99:** 145-170 hours from 52 Agility start
+
+### Agility Level at Each Phase
+
+| Phase | Hours In | Agility Level | Next Phase |
+|-------|----------|---------------|-----------|
+| Floors 1-2 | 0-10 | 70 → 80 | Ready for Floor 3 |
+| Floor 3 learning | 10-60 | 80 → 85 | Basic competency |
+| Floor 3 mastery | 60-110 | 85 → 90 | Can attempt Floor 4 |
+| Floor 4 / Floor 5 push | 110-170 | 90 → 99 | Completion |
+
+---
+
+## Loot Strategy: What to Prioritize
+
+### By Floor (When to Loot)
+
+**Floors 1-2: Skip Everything**
+- Looting adds 1-2 minutes for 10-20 marks
+- Low marks/minute ratio
+- Time better spent learning
+
+**Floor 3: Selective (Runs 50+)**
+- Loot 1-2 easier coffins per run
+- Skip grapple and prayer (low reward, time-intensive)
+- Marks/minute improves with practice
+- Supplies (potions, runes) becoming valuable
+
+**Floor 4: Most Coffins (Runs 100+)**
+- Loot 4-5 of 6 coffins
+- Skip prayer coffin (lowest value)
+- Marks valuable, supplies excellent
+- Still maintains respectable XP/hr (60-70k)
+
+**Floor 5: All Coffins + Grand**
+- Must open Grand Coffin (Ring source, marks doubled)
+- Open all regular coffins (80-100 marks/hr)
+- Grand Coffin = highest value loot in game
+- Best loot route is full-loot route
+
+### Marks Spending Progression
+
+**Early Game (First 150 marks):**
+1. Hallowed Ring (250 marks) — Confidence builder
+2. After 250 total marks earned: Hallowed Grapple (100 marks)
+3. After 350 total marks: Hallowed Focus (100 marks)
+
+**Mid Game (150-250 marks):**
+- You'll have ring + grapple + focus purchased
+- Remaining marks: accumulate or unlock private instance (200 marks)
+
+**Late Game (250+ marks):**
+- Private instances (toggle consistent spawns)
+- Extra tokens (10 each) — rarely needed
+- Save marks for future cosmetics
+
+**Buying Strategy:** Only buy what improves your success rate. Ring → Grapple → Focus, then stop. Cosmetics aren't efficiency gains.
+
+---
+
+## Advanced Techniques (Not Necessary But Helpful)
+
+### Tick-Perfect Clicking (1-2% Efficiency Gain)
+
+Sepulchre runs on 0.6-second game ticks. Clicking slightly before danger zones activate creates safe gaps.
+
+**Example:**
+- Knight sword moves every tick
+- Clicking move 1 tick before sword arrives = you pass as it swings away
+- Saves 0.6 seconds per gap, compiles over entire floor
+- Not required but reduces fail rate 10-20%
+
+**Recommendation for Ironman:** Skip tick manipulation initially. Learn basic pathing first (months of practice before even attempting).
+
+### The "Run Trick" (Advanced Pathing)
+
+Blue strange tiles grant temporary invincibility (~2-3 second window). Advanced players use this to bypass moving swords without waiting.
+
+**How it works:**
+- Blue tile = teleport forward + invincibility
+- Click tile while sword approaching
+- You teleport through obstacle while invulnerable
+- Saves 1-2 seconds per use
+
+**Risk:** Mistiming costs you damage + major time loss. Only master once you're doing Floor 3+ confidently.
+
+**Recommendation:** Don't attempt until 200+ Floor 3 runs completed.
+
+### Prayer Flicking (Unnecessary)
+
+1-tick prayer flicking eliminates prayer drain entirely. Useful if looting many prayer coffins.
+
+**Cost:** Complex input, high mental load, ~2% efficiency gain.
+
+**Recommendation:** Skip entirely. Prayer potions are cheap; mental energy better spent on movement.
+
+---
+
+## Common Mistakes & How to Avoid Them
+
+| Mistake | Why It Costs You | Solution |
+|---------|-----------------|----------|
+| Looting while learning | Loses focus on pathing | Skip looting first 50 runs |
+| Pushing to Floor 4 too early | High fail rate = frustration | Wait for less than 10% fail rate on Floor 3 |
+| Expecting Floor 3 to be quick | Difficulty spike surprises you | Budget 50-100 hours for Floor 3 |
+| Not using Hallowed Ring | Taking unnecessary damage stress | Buy Ring (250 marks) first |
+| Trying to memorize all patterns | Cognitive overload | Memorize one safe path, repeat it |
+| Skipping blue tile strategy | Wastes time fighting obstacles | Learn blue tile mechanics early |
+| Expecting zero fail rate while learning | Setting impossible standards | 20-30% fail rate is normal/healthy |
+| Grinding 8+ hour sessions | Mental fatigue = poor execution | 2-3 hour sessions max, then break |
+
+<Callout type="warning">
+**The biggest mistake:** Pushing Floor 4 before Floor 3 is learnable. If you're failing 40%+ on Floor 3 after 100 runs, you're likely at wrong Agility level or learning method is inefficient. Go back to Floors 1-2, rebuild foundations, then retry Floor 3.
+</Callout>
+
+---
+
+## FAQ
+
+**Q: Can I start at 52 Agility?**
+
+A: Technically yes. Practically? Better at 70+. At 52, Floors 1-2 feel eternally slow, and you lack stamina/HP buffer for comfortable learning.
+
+**Q: Do I need prayer to Sepulchre?**
+
+A: No. Prayer potions optional for coffin unlocking. Leave prayer gear at home; use stamina potions instead.
+
+**Q: How long does Floor 3 actually take?**
+
+A: 50-100 hours of grinding. This isn't exaggeration; it's notorious for difficulty. Most players spend 1-2 weeks of casual play mastering it.
+
+**Q: What if I hate Floor 3?**
+
+A: Rooftop courses are equally valid. 20% slower overall but completely viable. Don't force Sepulchre if you're miserable.
+
+**Q: Is Ring of Endurance worth hunting?**
+
+A: No. It's 1/200 (63M). You'll likely get one during natural 92-99 grind (40-50 hours of practice runs). Don't extend grind specifically hunting it.
+
+**Q: Can I do this AFK?**
+
+A: Absolutely not. Requires full attention every run. Distractions = failures.
+
+**Q: Should I use private instances?**
+
+A: After earning 200 marks (roughly 50 hours), yes. Toggles consistent spawns = eliminates RNG variance. Learning tool.
+
+**Q: Why do my fail rates spike on new floors?**
+
+A: Each floor teaches new mechanics. Expect 20-30% regression when moving up. This is normal progression.
+
+**Q: How profitable is Sepulchre for Ironman?**
+
+A: Floors 1-3: Modest (30-50k marks). Floors 4-5: Excellent (100-140k marks + supplies). Grand Coffin looting alone = 50,000+ GP/hr on average.
+
+---
+
+## Related Guides
+
+- [Main Agility Guide](/skilling/agility/) — Complete 1-99 progression overview; Sepulchre vs rooftops comparison
+- [Fishing Guide](/skilling/fishing/) — Barbarian method can be done simultaneously with Agility for dual training
+
