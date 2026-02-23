@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path((?!.*\\..*$).*)?",
+      "destination": "https://ironmanmeta.com/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.ironmanmeta.com"
+        }
+      ],
+      "permanent": true
+    }
+  ]
+}
