@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ironmanmeta.com/sitemap-index.xml
+Sitemap: https://ironmanmeta.com/sitemap-index.xml
