@@ -1,6 +1,6 @@
 ---
-title: "Ironman Smithing Guide OSRS: Blast Furnace & Giants' Foundry"
-description: "Complete OSRS ironman smithing guide. Blast Furnace gold for speed, Giants' Foundry for efficiency, shop buying routes, and where to get your bars."
+title: "OSRS Ironman Smithing: Blast Furnace vs Giants' Foundry 1-99"
+description: "Compare OSRS smithing methods: Blast Furnace (fastest 380k+ XP/hr) vs Giants' Foundry (efficient, cheaper). Learn gear, ores, progression."
 publishDate: 2026-01-26
 updatedDate: 2026-01-26
 category: skilling
@@ -10,6 +10,25 @@ quickAnswer: "Blast Furnace gold with Goldsmith Gauntlets is fastest (380-420k X
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const comparisonSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ComparisonChart',
+  name: 'Blast Furnace vs Giants Foundry Comparison',
+  itemsCompared: [
+    {
+      '@type': 'Thing',
+      name: 'Blast Furnace',
+      description: 'Fastest smithing method using gold bars'
+    },
+    {
+      '@type': 'Thing',
+      name: 'Giants Foundry',
+      description: 'Efficient minigame using various bars'
+    }
+  ]
+};
 
 Smithing on an ironman isn't just about XP — it's about where your bars come from and what you do with them.
 
