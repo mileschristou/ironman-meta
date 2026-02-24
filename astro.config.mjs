@@ -11,4 +11,9 @@ export default defineConfig({
       theme: 'github-dark',
     },
   },
+  vite: {
+    ssr: {
+      noExternal: ['@astrojs/mdx'],
+    },
+  },
 });
