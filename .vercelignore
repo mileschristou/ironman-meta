@@ -1,0 +1,3 @@
+# Don't ignore dist - we need it for deployment
+# This file can stay empty or just list things to ignore
+# but dist should NOT be ignored
