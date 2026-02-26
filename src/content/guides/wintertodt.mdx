@@ -1,0 +1,522 @@
+---
+title: "OSRS Wintertodt Guide for Ironmen: Reward Cart, Warmth Meter & Loot Strategy"
+description: "Complete Wintertodt guide for OSRS ironmen. Updated for the 2024 rework (Warmth Meter, Reward Cart). Solo for max loot rolls, skill-scale your rewards before searching, and unlock Tome of Fire & Pyromancer outfit."
+publishDate: 2026-02-26
+updatedDate: 2026-02-26
+category: guides
+subcategory: activities
+tags: ["wintertodt", "firemaking", "activities", "reward cart", "pyromancer outfit", "tome of fire", "warmth meter", "solo", "ironman"]
+quickAnswer: "Wintertodt is mandatory for ironmen — 50 Firemaking to start, brings herbs/seeds/ores/fish at scale. Since the Oct 2024 rework, old HP-rushing meta is dead (Warmth Meter kills you at 0%). Bank your reward cart and search it after training Herblore/Farming for better drops. Solo worlds = more loot rolls per hour. Get 4 free warm clothing pieces from Gilbert before you go."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Why is Wintertodt mandatory for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Wintertodt is the only profitable Firemaking method in the game, and it scales your rewards based on your other skills. At 50 FM with minimal gear, you can access hundreds of herbs, seeds, ores, gems, and fish that ironmen cannot obtain elsewhere. The reward cart system lets you bank these and search them later after training skills for better loot.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What changed in the October 2024 rework?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Three massive changes: (1) Warmth Meter replaced HP damage — reaching 0% Warmth kills you instantly regardless of HP level, killing the old low-HP rushing meta. (2) Supply Crates became Reward Cart — you bank your earned rolls and search them later. (3) Pyromancer healing was buffed from 30 to 75 points, making it actually worth doing.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How does the skill-scaling reward cart trick work?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Reward quality is determined when you search the cart, not when you earn the points. Bank your reward rolls (cart holds 8,000), then search after leveling Herblore/Farming. This unlocks Torstol at 64 Herblore, spirit seeds at 80 Farming, and other valuable drops you would miss at lower levels.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Solo or mass worlds for Wintertodt?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Mass worlds give ~350k FM XP/hr at 99 but fewer reward rolls/hr. Solo gives ~285k FM XP/hr but ~50% more reward rolls/hr and high Construction XP. Ironmen should choose solo if focused on supplies (herbs, seeds, ores), mass if racing to 99 FM.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the Tome of Fire and how rare is it?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tome of Fire is a best-in-slot Magic gear slot item that auto-casts Fire Bolt spells. Drop rate: 1/1,000 per reward roll. At ~2-3 rolls per round, expect to get it during your grind to 99 Firemaking. Crucial for efficient Magic training and mid-game bossing.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the free warm clothing items?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Before entering Wintertodt, get 4 free items from two sources: Rainbow scarf and rainbow jumper from Gilbert (southeast of Barbarian Village), and clue hunter gloves + clue hunter boots (north of Ardougne). These provide the Warmth Meter boost you need to stay alive. Pyromancer outfit pieces, once earned, are even better.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Wintertodt the fastest Firemaking method?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No — 1-tick firemaking with mahogany or magic logs can reach 500k+ XP/hr. However, Wintertodt is the ONLY profitable method and far less click-intensive. For ironmen, it is universally the recommended 50-99 FM path because the loot fuels multiple skills.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the Phoenix pet drop rate?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Phoenix pet drops at 1/5,000 per reward roll (~1/2,500 rounds on average). You will likely accumulate 1,000-1,500 rounds grinding to 99 FM, giving roughly a 33-45% chance of obtaining it. It is cosmetic and not worth grinding specifically for, but a nice bonus if you see it.'
+      }
+    }
+  ]
+};
+
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Complete Wintertodt Rounds for Firemaking & Supplies',
+  description: 'Complete guide to succeeding at Wintertodt, from gear preparation to maximizing reward rolls and loot scaling.',
+  totalTime: 'PT45M',
+  tool: [
+    { '@type': 'HowToTool', name: 'Axe (wield it to save inventory space)' },
+    { '@type': 'HowToTool', name: 'Knife (for fletching roots into kindling)' },
+    { '@type': 'HowToTool', name: 'Hammer (for repairing braziers)' },
+    { '@type': 'HowToTool', name: 'Tinderbox (for lighting braziers if not using Bruma Torch)' }
+  ],
+  supply: [
+    { '@type': 'HowToSupply', name: 'Food (baked potatoes, fish from crate)' },
+    { '@type': 'HowToSupply', name: 'Warm clothing (4 pieces: rainbow scarf/jumper, clue hunter gloves/boots)' }
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      name: 'Gather 4 Free Warm Clothing Pieces',
+      text: 'Before entering, obtain rainbow scarf and jumper from Gilbert (southeast of Barbarian Village), and clue hunter gloves + boots from north of Ardougne. Equip all 4 for maximum Warmth regen (+4% per minute total). These are your starter set.',
+      position: 1
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Enter the Prison and Start a Round',
+      text: 'Chat will show your warm clothing count (need 4). Bring an axe (wield), knife, hammer, tinderbox, and food. The goal is to survive 45-90 minutes as Wintertodt depletes from 100% to 0% energy. Minimum 500 points to earn rewards.',
+      position: 2
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Perform the Wintertodt Loop',
+      text: 'Chop bruma roots (Woodcutting) → optionally fletch into kindling (Fletching, better XP) → feed into lit braziers → repair broken braziers when Wintertodt breaks them → heal fallen pyromancers with rejuvenation potions made inside. Healing now gives 75 points and is worth doing. Aim for 1,000-1,500 points per round.',
+      position: 3
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Manage Your Warmth Meter',
+      text: 'Warmth restores at 8%/min baseline + 1% per warm clothing piece (4 pieces = 12%/min). Food restores 35% Warmth. Rejuvenation potions restore 30% per dose. You never actually need to bring food anymore if you use rejuvenation potions made inside.',
+      position: 4
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'End of Round: Bank and Search Rewards',
+      text: 'After the round ends, search the Reward Cart outside the prison entrance (near the bank). DO NOT search yet if Herblore/Farming are low—bank the rolls instead. The reward quality is determined at time of search, not earn.',
+      position: 5
+    },
+    {
+      '@type': 'HowToStep',
+      name: 'Train Skills Before Searching (Ironman Edge)',
+      text: 'Level Herblore and Farming between sessions. Once trained, search your banked rewards for Torstol (64 Herblore), spirit seeds (80 Farming), and other valuable scaled drops. This is the biggest ironman advantage at Wintertodt.',
+      position: 6
+    }
+  ]
+};
+
+Wintertodt is the **most important early-to-mid game activity for ironmen**. It is the only profitable Firemaking method in the entire game, provides skill-scaled resources (herbs, seeds, ores, gems, fish) that fuel other skills, and it is accessible at just 50 Firemaking with minimal gear requirements.
+
+The October 2024 rework dramatically changed Wintertodt's core mechanics. The old Supply Crate system is now a Reward Cart where you bank earned rewards and search them later. The HP-damage system was replaced with a Warmth Meter that kills you instantly at 0%, regardless of your HP level—this killed the old low-HP rushing meta completely. Understanding these changes is critical for success.
+
+**This guide assumes you're coming in fresh at 50 Firemaking and focusing on ironman-optimized strategy: solo for maximum reward rolls, and skill-scaling your rewards for the best loot.**
+
+---
+
+## Requirements & Initial Setup
+
+### Minimum Requirements
+- **50 Firemaking** (unboostable)
+- **Members only**
+- No combat required
+
+### Warm Clothing (4 Pieces Required)
+
+You need exactly **4 warm clothing items** equipped for maximum protection. More than 4 provides no additional benefit. A chat message tells you on entry if you have the right number.
+
+| Item | How to Get | Slot |
+|------|-----------|------|
+| **Rainbow scarf** | Free from Gilbert (SE of Barbarian Village) | Neck |
+| **Rainbow jumper** | Free from Gilbert | Body |
+| **Clue hunter gloves** | Free (N of Ardougne, near Fishing Guild) | Hands |
+| **Clue hunter boots** | Free location (N of Ardougne) | Feet |
+
+This is your starter set. Once you earn **Pyromancer outfit pieces** from Wintertodt's reward cart, those replace these items (they provide both warm clothing AND a 2.5% Firemaking XP boost).
+
+<Callout type="tip">
+**Stock up on Pyromancer pieces as you go.** Each piece counts as warm clothing and gives a total +2.5% FM XP when the full set is equipped. By the time you reach 99 Firemaking, you should have collected the hood, garb, robe, and boots.
+</Callout>
+
+### Optimal Inventory
+
+| Slot | Item | Why |
+|------|------|-----|
+| Weapon (main hand) | Axe | Wield it to save inventory space |
+| Offhand | Knife | For fletching roots into kindling |
+| Equipment | Hammer | For repairing broken braziers |
+| Equipment | Tinderbox | For lighting braziers (or use Bruma Torch if you have it) |
+| Inventory | Food | Baked potatoes or fish (optional—rejuvenation potions replace this) |
+| Rest | Empty | For chop/fletch/feed loop |
+
+---
+
+## The October 2024 Rework — What Changed
+
+If you've read older Wintertodt guides, **they are partially outdated**. The October 2024 rework (Poll 82: "Minigame Makeover") fundamentally changed the activity.
+
+### The Warmth Meter (Biggest Change)
+
+**Old system:** Wintertodt dealt direct Hitpoint damage. A player with 10 HP had 10 times less effective health than a player with 99 HP.
+
+**New system (2024):** Wintertodt drains a **Warmth Meter** (0-100%). When Warmth reaches 0%, you die **instantly**, regardless of your HP level.
+
+**Implications:**
+- The old "rush Wintertodt at low HP" meta is completely dead
+- All HP levels now have identical effective durability
+- Warmth regenerates naturally: **8% per minute baseline**
+- **+1% per minute for each warm clothing piece equipped** (4 pieces = 12%/min total)
+- Food heals **35% Warmth**
+- Rejuvenation potions restore **30% Warmth per dose**
+
+This change killed the entire "speedrunning with 10 HP" strategy. Everyone now participates on an equal playing field.
+
+### Supply Crates Replaced with Reward Cart
+
+**Old system:** Complete a round, receive a Supply Crate (random roll) immediately.
+
+**New system:** Complete a round, your reward rolls accumulate in a **Reward Cart** outside the prison. You search the cart between rounds (1 item per 1.8 seconds, or bulk search for 5 items per click).
+
+**Why this matters for ironmen:** Reward quality is determined **at the time you search**, not at the time you earn it. This is the biggest ironman edge.
+
+### Pyromancer Healing Buffed from 30 → 75 Points
+
+In the old system, healing a downed pyromancer gave 30 points—barely worth the action. In the new system, **healing gives 75 points**—making it genuinely valuable. If a round has 2-3 downed pyromancers, that's 150-225 bonus points.
+
+### Other Changes
+- **Fletching cooldown extended:** You are now guaranteed at least a few fletch actions before Wintertodt's attack can interrupt you
+- **Farming XP removed** from picking bruma herbs (preventing low-effort passive farming XP)
+- **Bruma Torch main/offhand variants:** Can switch between hands to free inventory space when paired with an axe
+- **Collection log added:** Tracks total rewards claimed
+- **Warm clothing indicator:** Chat tells you on entry how many pieces you're wearing
+
+---
+
+## How Wintertodt Works (The Core Loop)
+
+### The Setup
+
+Wintertodt is a prison in the Northern Tundra of Great Kourend, accessible after The Depth of Despair quest. A round lasts approximately **45-90 minutes**, with Wintertodt starting at **100% energy**. When it reaches 0%, the round ends, and all players with 500+ points earn rewards.
+
+### The Five Actions (Points Table)
+
+| Action | Skill Used | Points Earned | Purpose |
+|--------|-----------|----------------|---------|
+| Light a brazier | Firemaking | 25 pts | Activate a brazier to start feeding it |
+| Add bruma roots | Firemaking | 10 pts | Feed roots into a lit brazier |
+| Add bruma kindling | Firemaking | 25 pts | Feed optionally-fletched kindling (better XP) |
+| Repair a brazier | Construction | 25 pts | Fix a broken brazier after Wintertodt attacks |
+| Heal a pyromancer | Herblore | 75 pts | Restore a fallen NPC with rejuvenation potion |
+
+<Callout type="efficiency">
+**Healing is now worth doing.** At 75 points per heal, a single pyromancer heal is equivalent to nearly 2 cycles of feeding roots. If 2-3 pyromancers fall per round, that's 150-225 bonus points. This was buffed from 30 points in the 2024 update.
+</Callout>
+
+### The Loop in Practice
+
+1. **Chop bruma roots** from the ground (no Woodcutting level required, but faster at higher levels)
+2. **Optionally fletch roots into kindling** using your knife (grants Fletching XP)
+3. **Feed roots or kindling** into lit braziers (25 pts for kindling vs 10 for roots)
+4. **Repair braziers** when Wintertodt breaks them (Wintertodt periodically attacks and damages braziers to ~25% HP)
+5. **Heal pyromancers** when they fall (make rejuvenation potions from bruma herbs + unfinished potions inside)
+6. Repeat until Wintertodt energy = 0% → round ends
+
+### Warmth Meter Management
+
+Your Warmth Meter drains from Wintertodt's attacks and regenerates between hits.
+
+| Warmth Recovery Source | Recovery Amount/Rate |
+|---|---|
+| Natural regen (baseline) | +8%/min |
+| Each warm clothing piece | +1%/min (max 4 pieces = +4%/min) |
+| Food (4+ HP heal) | +35% instant |
+| Rejuvenation potion dose | +30% instant |
+| Regen bracelet | Continuous passive |
+| Hitpoints cape | +2% per second |
+| Redemption prayer | On-hit restore |
+
+**Modern strategy:** With 4 warm clothing pieces + natural regen, you recover 12%/min. You never actually need to bank food in modern Wintertodt—rejuvenation potions made inside the prison (from herbs and unfinished potions in crates) provide all the Warmth restoration you need.
+
+### Minimum Points for Rewards
+
+You must earn **500 points minimum** in a round to receive any rewards. Below 500 points, you earn nothing.
+
+---
+
+## Solo vs Mass: The Ironman Decision
+
+Wintertodt can be done on any world. Mass worlds (W2, W18, etc.) have 10+ players all working together. Solo worlds have just you.
+
+### Comparison
+
+| Factor | Mass World | Solo |
+|--------|-----------|------|
+| **Firemaking XP/hr** | ~350,000 | ~285,000 |
+| **Reward rolls/hr** | Fewer (~2-3 rolls/round) | More (~50% more rolls) |
+| **Construction XP** | Very low | High (you repair all 4 braziers) |
+| **Waiting/downtime** | Yes (rounds take longer) | None |
+| **Best for** | Pure FM XP grinding | Supplies + balanced XP |
+
+### Verdict for Ironmen
+
+**Solo is recommended** if you're focused on the loot (herbs, seeds, ores, gems, fish). Solo gives ~50% more reward rolls per hour, which translates directly to more resources.
+
+**Mass is acceptable** if you're trying to race to 99 Firemaking as quickly as possible, but most ironmen prefer the extra loot rolls.
+
+<Callout type="casual">
+Many ironmen do a mix: mass for the first 50 rolls to get some Pyromancer gear quickly, then switch to solo for the rest of the grind. Once you have warm clothing from the outfit, you can easily handle solo.
+</Callout>
+
+---
+
+## The Skill-Scaling Reward Cart Trick (Biggest Ironman Edge)
+
+This is the secret that separates efficient ironmen from inefficient ones.
+
+### How It Works
+
+**Reward quality is determined at the time you search the Reward Cart, NOT at the time you earn the points.**
+
+Example:
+- Round 1: You earn 1,000 points, add to Reward Cart
+- But your Herblore is only 20
+- DON'T search yet
+- Train Herblore to 64
+- Now search: you receive Torstol instead of worse herbs
+
+This applies to **all skill-scaled items:**
+- **Herbs:** Herblore level determines which herbs (Torstol requires 64 Herblore)
+- **Seeds:** Farming level determines which seeds (Spirit seeds require 80 Farming)
+- **Ores:** Mining level determines ore types
+- **Logs:** Woodcutting level determines log types
+- **Fish:** Fishing level determines fish types (up to raw sharks at 90+ Fishing)
+- **Gems:** Crafting level determines gem types
+
+### The Optimal Strategy for Ironmen
+
+1. **Early game (50-60 FM):** Do a few rounds solo, earn 500-1000 points
+2. **Bank the rewards** in the Reward Cart (it holds up to 8,000 items)
+3. **Continue other training:** Push Herblore to 64, Farming to 80, other skills
+4. **Come back and search:** Now your banked rewards give you Torstol, spirit seeds, and other valuable drops
+5. **Return to Wintertodt:** Repeat the process to 99 FM
+
+The Reward Cart holds **8,000 items**, so you can bank a LOT of rounds worth of loot.
+
+<Callout type="efficiency">
+**This is the biggest ironman advantage at Wintertodt.** The Reward Cart is a time-machine for resource scaling. Do not waste your rolls by searching too early. Bank them, level other skills, then search for the best possible loot.
+</Callout>
+
+---
+
+## Reward Cart Loot Table
+
+Each reward roll pulls from a two-tier system: unique items (rare), then resource tables (common).
+
+### Unique Item Drops
+
+| Item | Drop Rate | Notes |
+|------|-----------|-------|
+| **Phoenix pet** | 1/5,000 | Cosmetic follower, mid-tier rare |
+| **Dragon axe** | 1/10,000 | Best axe until Crystal axe drop |
+| **Tome of Fire** | 1/1,000 | BiS Magic gear slot, crucial unlock |
+| **Pyromancer outfit (hood/garb/robe/boots, each)** | 1/150 | Warm clothing + 2.5% FM XP bonus |
+| **Bruma torch** | 1/150 | Light source + warm clothing |
+| **Warm gloves** | 1/150 | Warm clothing item |
+| **Burnt page** | 1/45 | Filler/common drop |
+
+### Resource Tables (If No Unique Rolls)
+
+Rolls from this table are **skill-scaled at the time of search:**
+
+| Category | Drop Rate | Scaling Factor |
+|----------|-----------|-----------------|
+| **Logs** | 3/25 | Woodcutting level (Normal → Oak → Teak → ... → Redwood) |
+| **Gems** | 3/25 | Crafting level (Jade → Sapphire → ... → Onyx) |
+| **Ores** | 3/25 | Mining level (Copper → Iron → ... → Runite) |
+| **Herbs** | 3/25 | **Herblore level** (Guam → Marrentill → ... → **Torstol at 64**) |
+| **Seeds** | 3/25 | **Farming level** (Guam seed → Marrentill seed → ... → **Spirit seed at 80**) |
+| **Fish** | ~1/9 | Fishing level (Trout → Salmon → ... → Sharks at 90+) |
+| **Coins** | 5/25 | - |
+| **Saltpetre** | 1/25 | - |
+| **Dynamite** | 1/25 | - |
+
+### Points → Reward Rolls Conversion
+
+| Points Earned | Reward Rolls |
+|---------------|-------------|
+| 500-749 | 2 rolls |
+| 750-999 | 2 rolls + 50% chance at 3rd |
+| 1,000-1,499 | 3 rolls |
+| 1,500-1,999 | 3 rolls + bonus |
+| 2,000+ | 4+ rolls |
+| Max: 4,000 pts | 8 rolls |
+
+<Callout type="tip">
+Aim for 1,000-1,500 points per round if doing solo. This guarantees 3 reward rolls and gives you a steady stream of loot. Mass worlds often hit 500-750 due to split work.
+</Callout>
+
+### The 3-of-a-Kind Rule
+
+Once you've collected **3 Warm Gloves** OR **3 Bruma Torches** (counting items in inventory, bank, and POH magic wardrobe combined), further rolls on those items are instead redirected to **magic seeds or torstol seeds**. This is a built-in system to prevent item clutter while still giving valuable loot.
+
+---
+
+## Key Unlocks & Milestone Rewards
+
+### Priority Order for Ironmen
+
+#### 1. Pyromancer Outfit (Top Priority)
+
+| Piece | Drop Rate | Priority |
+|-------|-----------|----------|
+| Hood | 1/150 | Get first |
+| Garb (top) | 1/150 | Get second |
+| Robe | 1/150 | Get third |
+| Boots | 1/150 | Get last |
+
+**Why:** Counts as warm clothing (4 pieces total) AND grants +2.5% Firemaking XP bonus. This stacks multiplicatively with other XP bonuses and is worth collecting.
+
+#### 2. Tome of Fire (1/1,000 per roll)
+
+The most impactful drop after Pyromancer. A best-in-slot Magic gear item that auto-casts Fire Bolt spells on every attack. You will almost certainly receive this during your grind to 99 FM (it is crucial for Magic training mid-game).
+
+#### 3. Dragon Axe (1/10,000 per roll)
+
+Best axe in the game until the Crystal axe drop (requires 75 Construction + Priff). During your 1,000-1,500 rounds to 99 FM, you have roughly a 10-15% chance of seeing it. It is a nice bonus but not guaranteed.
+
+#### 4. Phoenix Pet (1/5,000 per roll)
+
+Cosmetic follower pet. At ~1/2,500 rounds on average, you have roughly a 33-45% chance of obtaining it during your grind to 99 FM. Worth celebrating if you see it, but not worth grinding specifically for.
+
+<Callout type="casual">
+**Don't stress the collection log.** Most players don't complete Wintertodt's log. Focus on 99 FM and the Pyromancer outfit first. Everything else is bonus.
+</Callout>
+
+---
+
+## Firemaking XP Rates
+
+### XP Per Hour by Strategy
+
+| Strategy | FM XP/Hour |
+|----------|------------|
+| Level 50 (any style) | ~160,000 |
+| Level 99, low attention | ~225,000 |
+| Level 99, no-fletch | ~285,000 |
+| Level 99, mass world | ~290,000-350,000 |
+| Level 99, Hoptodt (3-world rotation) | ~400,000 |
+| Level 99, Hoptodt (2-world rotation) | ~430,000 |
+
+<Callout type="efficiency">
+**Hoptodt** is a community speedrunning strategy of rotating between 2-3 worlds to maximize points/hour. It's not necessary for ironmen—regular solo or mass worlds are comfortable. Hoptodt is for pure XP racing.
+</Callout>
+
+### Is Wintertodt the Fastest Firemaking Method?
+
+**No.** 1-tick firemaking with mahogany or magic logs can exceed 500k XP/hr for skilled players. However:
+
+- Wintertodt is **the only profitable Firemaking method**
+- It is **far less click-intensive** (no 1-ticking required)
+- **For ironmen, it is universally the recommended path** because the loot funds other skills
+
+The trade-off is worth it. You don't race to 99 FM for the sake of it—you need the herbs, seeds, ores, and gems for other training.
+
+### Pyromancer Outfit XP Bonus
+
+Once you collect the full **Pyromancer outfit**, it grants **+2.5% Firemaking XP bonus**:
+- Hood: +0.4%
+- Garb: +0.6%
+- Robe: +0.6%
+- Boots: +0.2%
+- Full set bonus: +0.7%
+- **Total: +2.5%**
+
+This stacks multiplicatively with other XP sources (like Diary bonuses).
+
+---
+
+## Common Mistakes to Avoid
+
+**1. Not Getting 4 Warm Clothing Pieces Before Entering**
+
+Problem: Warmth meter drains fast without warm clothing pieces.
+Solution: Free items from Gilbert and Ardougne take 5 minutes to collect. Do it before your first round.
+
+**2. Searching the Reward Cart at Low Herblore/Farming**
+
+Problem: You miss out on Torstol and spirit seeds—the best skill-scaled drops.
+Solution: Bank your reward rolls. Come back after leveling Herblore (64) and Farming (80).
+
+**3. Ignoring Pyromancer Healing**
+
+Problem: Missing out on free points (now 75 pts per heal).
+Solution: Healing is now worth doing in the new system. Help out if pyromancers fall.
+
+**4. Rushing for the Low-HP Meta (Pre-2024)**
+
+Problem: Warmth Meter makes low HP irrelevant now.
+Solution: Come in with normal HP. All HP levels have identical durability in the new system.
+
+**5. Not Knowing About the Reward Cart Banking System**
+
+Problem: Searching rolls too early when skills are low-level.
+Solution: Always ask yourself: "Is Herblore 64+? Is Farming 80+?" If no, bank it.
+
+---
+
+## Timeline: 50-99 Firemaking at Wintertodt
+
+| Stage | Rounds | Hours | Focus | Reward Priorities |
+|-------|--------|-------|-------|-------------------|
+| **Early (50-60)** | 50-100 | 10-20 | Get Pyromancer pieces | Hood, garb, robe, boots |
+| **Mid (60-80)** | 100-300 | 25-50 | Accumulate herbs/seeds | Fletch for XP, bank rewards |
+| **Late (80-95)** | 300-450 | 50-80 | Push to 99, search rolls | Level skills, then search cart |
+| **Endgame (95-99)** | 450-500+ | 80-100+ | Complete to 99 | Enjoy loot, farm Tome of Fire/Dragon axe |
+
+**Total time to 99:** Approximately 80-100 hours depending on strategy and skill investment.
+
+---
+
+## Related Guides
+
+- [Ironman Firemaking Training Guide](/skilling/firemaking/) — All Firemaking methods 1-99
+- [Ironman Herblore Guide](/skilling/herblore/) — Use herbs from Wintertodt to train
+- [Ironman Farming Guide](/skilling/farming/) — Use seeds from Wintertodt
+- [Mid-Game Ironman Goals](/progression/mid-game-goals/) — Where Wintertodt fits in progression
+- [Varlamore Guide](/guides/varlamore/) — Other mid-game activities in Great Kourend
+- [OSRS Wintertodt Wiki](https://oldschool.runescape.wiki/w/Wintertodt) — Official wiki reference
+
+<Schema schema={[faqSchema, howToSchema]} />
