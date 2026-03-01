@@ -6,27 +6,34 @@ const pillars = [
     title: 'Progression',
     description: 'What to do at every stage of your account - from Tutorial Island to end-game goals.',
     href: '/progression/',
-    icon: '📈',
+    icon: 'progression',
   },
   {
     title: 'Skilling',
     description: 'Training methods that work without the GE. Practical guides for every skill.',
     href: '/skilling/',
-    icon: '⚒️',
+    icon: 'skilling',
   },
   {
     title: 'Supplies',
     description: 'GP methods, food sources, and gear acquisition. The ironman economy explained.',
     href: '/supplies/',
-    icon: '💰',
+    icon: 'supplies',
   },
   {
     title: 'Guides',
     description: 'Deep dives into regions, activities, and unlocks. Varlamore, Giants Foundry, and more.',
     href: '/guides/',
-    icon: '📖',
+    icon: 'guides',
   },
 ];
+
+const iconMap = {
+  progression: '<svg width="40" height="40" viewBox="0 0 64 64" fill="none"><path d="M 12 48 L 24 36 L 36 28 L 48 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="48" r="2.5" fill="currentColor"/><circle cx="24" cy="36" r="2.5" fill="currentColor"/><circle cx="36" cy="28" r="2.5" fill="currentColor"/><circle cx="48" cy="16" r="2.5" fill="currentColor"/><path d="M 52 12 L 54 10 M 52 10 L 54 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M 56 8 L 58 6 M 56 6 L 58 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
+  skilling: '<svg width="40" height="40" viewBox="0 0 64 64" fill="none"><g transform="translate(32, 32)"><path d="M -8 -12 L 0 12 M -6 -8 L -12 -14 M 6 -8 L 12 -14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M 8 -12 L 0 12 M 6 -8 L 14 -14 M -6 -8 L 0 -14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>',
+  supplies: '<svg width="40" height="40" viewBox="0 0 64 64" fill="none"><path d="M 20 28 Q 20 16 32 16 Q 44 16 44 28 L 44 40 Q 44 48 32 48 Q 20 48 20 40 Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="32" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="36" cy="36" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="32" cy="42" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M 24 28 Q 32 22 40 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  guides: '<svg width="40" height="40" viewBox="0 0 64 64" fill="none"><path d="M 18 20 L 18 44 Q 18 48 22 48 L 32 48 L 42 48 Q 46 48 46 44 L 46 20 Q 46 16 42 16 L 32 16 L 22 16 Q 18 16 18 20 Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="32" y1="16" x2="32" y2="48" stroke="currentColor" stroke-width="2"/><line x1="22" y1="24" x2="28" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="22" y1="30" x2="28" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="22" y1="36" x2="28" y2="36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="36" y1="24" x2="42" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="36" y1="30" x2="42" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="36" y1="36" x2="42" y2="36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
+};
 ---
 
 <BaseLayout
@@ -80,7 +87,7 @@ const pillars = [
 
             <div class="card-content">
               <div class="pillar-icon-wrapper">
-                <span class="pillar-icon">{pillar.icon}</span>
+                <span class="pillar-icon" set:html={iconMap[pillar.icon]}></span>
               </div>
               <h3 class="pillar-title">{pillar.title}</h3>
               <p class="pillar-description">{pillar.description}</p>
@@ -384,13 +391,23 @@ const pillars = [
   }
 
   .pillar-icon {
-    font-size: 2rem;
-    filter: grayscale(0.2);
-    transition: filter var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: var(--color-accent);
+    transition: all var(--transition-normal);
   }
 
-  .pillar-card:hover .pillar-icon {
-    filter: grayscale(0);
+  .pillar-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: currentColor;
+  }
+
+  .pillar-card:hover .pillar-icon svg {
+    filter: drop-shadow(0 0 8px var(--color-accent-glow));
   }
 
   .pillar-title {
