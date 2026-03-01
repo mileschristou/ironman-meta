@@ -10,6 +10,54 @@ quickAnswer: "GOTR is the ironman default - no essence consumed, passive Mining/
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best runecrafting method for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Guardians of the Rift (GOTR) is the best method for ironmen because it produces essence without consuming it - meaning zero bottleneck. XP rates scale from 20-70k/hr depending on level (higher with Colossal Pouch), and you gain passive Mining, Crafting, and Prayer XP on the side. Most ironmen use GOTR until 77 RC, then transition to Blood runes.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do ironmen get pure essence for runecrafting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pure essence comes passively from Slayer tasks (main source), Ardougne Diary dailies (100-250/day), Temple Trekking (random chance), and Soul Wars (secondary benefit). Do not grind essence specifically - let Slayer and dailies drip-feed your supply. GOTR eliminates the essence bottleneck by producing it during training.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I transition from GOTR to Blood runes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Once you reach 77 Runecrafting and have the Colossal Pouch and Raiments outfit from GOTR, transition to Blood runes at the Dark Altar. Blood runes are completely AFK, generate useful runes you will actually use, provide 37-45k XP/hr, and become self-sustaining for the grind to 99. Most ironmen finish Blood/Soul runes while doing other content.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Lava runes worth doing for runecrafting XP?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Lava runes are the fastest method (50-102k XP/hr) but consume essence rapidly - expect 1,000+ essence per hour. Only viable if you have 10,000+ essence stockpiled after hundreds of hours of Slayer. Use Lava runes as a bridge between GOTR and Blood runes only if you have a comfortable essence buffer. Otherwise, GOTR is more realistic.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are Wrath runes and when do I get them?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Wrath runes require 95 Runecrafting and Dragon Slayer II. They unlock God Spells, Sinister Offering (3x prayer XP on bones), and Demonic Offering (3x prayer XP on ashes). Wrath runes are the endgame unlock for magic-heavy content and enable passive prayer training during high-level Slayer. Treat them as a milestone, not a grinding method.'
+      }
+    }
+  ]
+};
 
 Runecraft is the gatekeeper to endgame PvM. God spells, Sinister Offering, Demonic Offering, and wrath runes for high-level magic content all require Runecrafting levels. The challenge for ironmen is pure essence - you can't buy it from the GE, so most training methods become bottlenecked by supply.
 
@@ -245,6 +293,8 @@ Train exclusively via Blood runes (77-90) and Soul runes (90-99), or:
 - **Get Wrath runes 95+** when you hit 95 and have Dragon Slayer II done
 
 The passive nature of Blood runes makes this phase completely painless - you can do it while doing other content.
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
