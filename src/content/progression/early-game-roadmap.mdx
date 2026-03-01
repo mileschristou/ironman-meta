@@ -10,6 +10,54 @@ quickAnswer: "Focus on Wintertodt to 85 FM, then quest for XP and unlocks. Prior
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Should I do Wintertodt first as a fresh ironman?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Wintertodt provides supply crates with seeds, logs, ores, gems, and herbs that fund early Farming, Construction, and Crafting. Since Firemaking has limited other uses, get it done early while you are still excited about your account. Stop at 85 Firemaking unless chasing the pet.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the most important early quests to prioritize?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Prioritize Fairy rings (Fairytale I and start of II) for teleports everywhere, Spirit trees (Tree Gnome Village) for more teleports, and unlock Graceful through rooftops to around 60 Agility. These three unlock systems that are essential for the rest of your early game. After that, do Bone Voyage to access Fossil Island.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I train a skill or quest for it?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'If you can reach 30+ in a skill through quests, quest instead of training. Waterfall Quest gets Attack/Strength to 30 without training. Witch\' s House gets Hitpoints. This approach is faster and gives quest unlocks as a bonus. After reaching base 40s through quests, transition to Slayer for combat training.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the most common early game mistakes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Training combat manually instead of questing to base 40s, skipping Bone Voyage (Fossil Island is essential), not getting Graceful early (every hour without it costs run energy), over-staying Wintertodt past 85 Firemaking, and not banking everything from supply crates. The biggest time-sink mistake is manual training when quests give both XP and unlocks.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When am I ready to move from early game to mid-game?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Once you have 85 Firemaking, fairy rings and spirit trees unlocked, Graceful equipped, and base 40s combat stats (from questing, not training), you are ready for mid-game. This typically takes 50-100 hours. At this point you can transition to Slayer for combat training and start pursuing bigger account goals.'
+      }
+    }
+  ]
+};
 
 Your first 50-100 hours as an ironman set the foundation for everything that follows. Get this right and you'll have a smooth ride into mid-game. Get it wrong and you'll be backtracking constantly.
 
@@ -84,6 +132,8 @@ Once you've got:
 - Base 40s combat from quests
 
 You're ready for [Mid-Game Goals](/progression/mid-game/) - where the real account building begins.
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
