@@ -10,6 +10,54 @@ quickAnswer: "Most secondaries are easy (buy from shops or farm). The annoying o
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the biggest bottleneck for herblore secondaries?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Snape grass for prayer potions. You will need hundreds of them and farming is the only reliable source (61 Farming). Start farming snape grass as early as possible - getting prayer pots is essential for almost all PvM and the supply bottleneck will hurt if you delay. This single secondary is more impactful than all others combined.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Where do I get wine of zamorak?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Telegrab at the Chaos Temple (slow but safe) or kill Chaos Fanatic (faster but Wilderness risk). Do not grind this early - wait until you actually need ranging potions. The grind is painful at low magic levels. Telegrab is approximately 100-150 wine per hour. Treat this as a later priority.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What secondaries should I farm?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Snape grass (61 Farming for prayer pots - most critical), white berries (59 or 83 Farming for super defence), and limpwurt root (26 Farming for strength pots). Combine farming with passive sources - bird houses produce crushed nests, Fossil Island gives volcanic ash, and rooftop courses produce amylase crystals. Farm the essentials, passively gather the rest.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get crushed nests passively?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Bird house runs. Start these immediately after Bone Voyage - only 5 minutes every 50 minutes for Hunter XP plus nests. Over time, you accumulate hundreds of nests passively. This is one of the best passive activities in the game. You can also kill Giant Mole or trade parts to Wyson the Gardener for nests.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which secondaries are most important to prioritize?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Snape grass (prayer pots for PvM survival), followed by crushed nests (saradomin brews for tanking), limpwurt (strength pots), and amylase crystals (stamina pots). Everything else is situational - eye of newt and chocolate dust are buy-able, and wine of zamorak can wait until you need ranging potions. Focus on the four above and you are set.'
+      }
+    }
+  ]
+};
 
 Getting the herbs is one thing - finding the secondaries is often the real bottleneck. Here's where to get everything you need for herblore training.
 
@@ -183,6 +231,8 @@ Bird houses are one of the best passive activities in the game. 5 minutes every 
 - **Forgetting volcanic ash** - ultracompost is essential for farming, grab it when you're on Fossil Island
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
