@@ -30,6 +30,53 @@ export const comparisonSchema = {
   ]
 };
 
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Should I do Blast Furnace or Giants\' Foundry?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Blast Furnace gold is fastest (380-420k XP/hr) but costs approximately 52M GP. Giants\' Foundry is often profitable at lower tiers and lets you recycle PvM drops. Most ironmen do Giants\' Foundry early for the Double Ammo Mould and Smith\'s Uniform unlocks, then switch to Blast Furnace gold if they want to rush 99.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the priority unlocks for Smithing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Goldsmith Gauntlets (Family Crest) for 2.5x XP per gold bar, Ice Gloves (kill Ice Queen) for grab-and-go bars, Coal Bag (MLM) for carrying extra coal, Double Ammo Mould (Giants\' Foundry 2,000 rep) for doubled cannonball speed, and Smith\'s Uniform (Giants\' Foundry 15,000 rep) for 20% faster actions. Ice Gloves especially - kill Ice Queen early.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I mine my own ores for Smithing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. It is much faster to make GP through thieving, agility pyramid, or other money-making methods, then buy ores from Ordan (Blast Furnace shop). One hour of Ardy Knights nets approximately 250k GP, which buys more ores than 5+ hours of MLM would produce. Mining is not worth the time opportunity cost.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Giants\' Foundry profitable at low levels?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, at lower Smithing levels (50-70). Steel + Mithril alloy Giants\' Foundry is profitable, giving approximately 10k+ GP per sword while training at 90-120k XP/hr. This makes it excellent for early account progression - you earn reputation toward Double Ammo Mould and Smith\'s Uniform while making money. Higher levels (85+) become expensive.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What should I buy first from Giants\' Foundry?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Double Ammo Mould (2,000 reputation) - it doubles your cannonball production speed forever. Cannonballs are essential ammunition for the Dwarf Multicannon during Slayer, and having a mould that cuts the grind in half is invaluable. After that, work toward Smith\'s Uniform (15,000 reputation total) for the 20% action speed boost.'
+      }
+    }
+  ]
+};
+
 Smithing on an ironman isn't just about XP - it's about where your bars come from and what you do with them.
 
 **At a glance:**
@@ -368,6 +415,8 @@ Yes, excellent mid-game. You get gold, mithril, and adamant ores/bars plus GP. G
 - **Ignoring Double Ammo Mould** - This is your first GF purchase. Doubles cannonball production forever.
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
