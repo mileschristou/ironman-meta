@@ -10,6 +10,54 @@ quickAnswer: "Do Sleeping Giants at 15 Smithing, earn 2,000 rep for the Double A
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What reward should I buy first from Giants Foundry?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Double Ammo Mould (2,000 rep) - it doubles your cannonball production forever. Cannonballs are critical for Slayer. This single unlock is worth the entire grind. Everything else is secondary.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much Smithing XP per hour can I get at Giants Foundry?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'XP rates scale with level: 15-30 Smithing (~50k/hr), 30-50 (~70k/hr), 50-70 (~90-120k/hr), 70-85 (~150-190k/hr), 85+ (~200-250k/hr with Smiths Uniform). The 19:9 Adamant/Rune ratio at 85+ achieves peak efficiency.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Where do ironmen get bars for Giants Foundry?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Early: Shop-bought warhammers (Cam Torum, Vigr). Mid: Blast Furnace Ore Seller (Ordan) buying ores and smelting. Late: Slayer drops (rune/adamant gear) feed directly into the crucible. Never smith bars into items yourself - you lose one bar per item.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Smiths Uniform worth the 15,000 reputation grind?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, if you use Giants Foundry as your main Smithing method. The +15% XP boost adds 22,500 XP/hr at 150k/hr baseline. Over 80 hours of GF, that is 1.8M bonus XP - significant at 99. But do not rush it - you earn rep passively while training.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I stop doing Giants Foundry for Smithing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Stop when you have Double Ammo Mould and can sustain your bar supply. Most ironmen finish 99 through a mix of Giants Foundry and Blast Furnace gold ore. Once you have the critical unlocks (Mould, Uniform if desired), transition to whichever method suits your resource flow best.'
+      }
+    }
+  ]
+};
 
 Giants' Foundry is the best Smithing XP per bar in the game. Every bar you feed into the crucible yields roughly 10x XP - an efficiency no other Smithing method can match. For ironmen, this is game-changing: since you can't buy bars from the GE, every bar is a scarce resource with an opportunity cost. Giants' Foundry extracts maximum value from each one.
 

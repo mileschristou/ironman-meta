@@ -10,6 +10,54 @@ quickAnswer: "GOTR is the ironman runecrafting method - no essence consumed. Min
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What reward should I buy first from GOTR with Abyssal Pearls?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Colossal Pouch (250 pearls) - it increases your essence capacity from 27 to 40, which is a massive efficiency upgrade that applies to all future runecrafting. This single item is worth the entire grind and should be your first purchase.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much Runecrafting XP per hour does GOTR give?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'XP rates scale with Runecrafting level: 20-30k XP/hr at 27-44 RC, 35-45k at 44-59 RC, 50-60k at 59-75 RC, and 60-70k at 75+ RC. With the Colossal Pouch at 85+ RC, you gain an additional 5-10k XP/hr by banking less and imbuing more.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I gain XP in other skills while doing GOTR?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes - GOTR gives free passive XP in Mining (approximately 10k/hr), Crafting (approximately 6k/hr), and Prayer (approximately 2k/hr). Over 200 hours of GOTR, that is 2M Mining XP, 1.2M Crafting XP, and RC levels - making GOTR even better value than raw XP/hr suggests.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the Raiments of the Eye outfit worth grinding for 2,500 pearls?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, if you plan to do runecrafting beyond 77 RC. The full set provides +60% rune production on all future runecrafting forever. While expensive (40+ hours of GOTR to farm), it is a permanent account upgrade. If you only do GOTR for the Colossal Pouch and transition to Blood/Soul runes at 77, you might skip it.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I leave GOTR and transition to other runecrafting methods?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Once you have the Colossal Pouch (250 pearls) and optionally the full Raiments outfit (2,500 pearls), you can transition out. Most ironmen transition at 77 Runecrafting to Blood runes, which are AFK and generate useful runes while providing XP. Blood/Soul runes become self-sustaining for training to 99.'
+      }
+    }
+  ]
+};
 
 Guardians of the Rift is the game-changer for ironman runecrafting. While other accounts grind essence constantly, GOTR produces it without consuming it - meaning ironmen train runecrafting at their own pace without hitting a bottleneck. It's also genuinely rewarding: you earn Abyssal Pearls for upgrades that improve all future runecrafting, plus passive Mining and Crafting XP on the side.
 
@@ -219,6 +267,8 @@ GOTR is a means to an end. Once you have these three items, you can transition t
 At 77+ RC, **Blood runes at the Dark Altar** become available. Blood runes are AFK, generate useful runes, and produce both XP and runes simultaneously. This is usually when ironmen transition out of GOTR.
 
 You can always return to GOTR for additional passive XP or if you decide to grind higher levels, but the core upgrades (Pouch + Raiments) are done at that point.
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
