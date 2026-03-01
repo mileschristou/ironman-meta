@@ -10,6 +10,54 @@ quickAnswer: "Get celestial ring first (2k stardust). MLM for prospector/coal ba
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What should I prioritize when starting Mining on ironman?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Get the Celestial Ring first (2,000 stardust from Shooting Stars, takes under 2 hours). Then grind Motherlode Mine for Prospector Kit (180 nuggets), Coal Bag (100 nuggets for Blast Furnace), and Gem Bag (100 nuggets). These unlocks compound across your entire account. Only after securing these should you focus on XP rates.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the best mining methods at different levels?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Early (45-70): Motherlode Mine for unlocks (30-50k XP/hr) or Sandstone for Crafting supplies (50-70k XP/hr). Mid (70-92): Volcanic Mine for XP (68-79k/hr), Gem Rocks for gems (50-70k/hr), or Shooting Stars for AFK (20-35k/hr). Late (92-99): Amethyst (20k XP/hr but essential for blowpipe/tbow ammo). Choose based on what you need, not just XP.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I do Amethyst to 99?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. While amethyst only gives 20k XP/hr, you will use thousands of amethyst darts at Zulrah and Hydra, plus thousands of arrows for tbow. Mining 92-99 produces approximately 27k amethyst - enough for thousands of hours of PvM. If you skip it now, you will eventually have to come back anyway. Get 99 here and you are set for endgame.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Shooting Stars worth doing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, absolutely. Get the Celestial Ring (2,000 stardust) - it provides +4 Mining boost and only takes 2 hours. After that, Shooting Stars remain viable as pure AFK content (20-35k XP/hr with 7+ minutes per layer). You can buy gem bags for Crafting XP while watching TV or working. True AFK content is valuable for long grinds.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is Mining actually used for on an ironman?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Resource farming, not XP. Motherlode Mine gives essential unlocks. Sandstone becomes 99 Crafting. Calcified rocks provide passive Prayer XP while getting bone shards. Gem rocks supply gems for jewellery crafting. Amethyst stocks blowpipe and tbow ammo. Mining is entirely about what you GET while training - focus on resource needs, not XP rates.'
+      }
+    }
+  ]
+};
 
 Mining training on an OSRS ironman isn't about XP rates - it's about what you get while training. Here's how to make every level count.
 
@@ -234,6 +282,8 @@ It's a ~5-6% speed increase over rune. Nice to have, not essential. If you're do
 Only if you want fast XP and don't care about secondary rewards. Most ironmen prefer methods that give useful resources (sandstone for Crafting, calcified rocks for Prayer, amethyst for ammo). Pure XP grinding is rarely the ironman way.
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
