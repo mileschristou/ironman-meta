@@ -10,6 +10,55 @@ quickAnswer: "Waterfall Quest instantly to 30, Gemstone Crabs 30-70 (50k XP/hr A
 ---
 
 import { Image } from 'astro:assets';
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How do I start melee training efficiently?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Do Waterfall Quest first - it takes 10-20 minutes and gives 13,750 Attack and 13,750 Strength XP, instantly reaching level 30. Safespot the Fire Giants with magic or ranged. This single quest skips 30 levels of grinding. After Waterfall, you are ready for Gemstone Crabs or Slayer depending on your goals.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I train with Gemstone Crabs or start Slayer early?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Gemstone Crabs 30-70 (50-60k XP/hr, pure AFK, no cost) if you want relaxed training. Start Slayer at 40 if you want gear unlocks, but XP rates are slower pre-70. At 70+ Slayer, the XP rates (60-90k/hr) match crabs while unlocking critical equipment. Most ironmen do crabs to 70, then commit to Slayer for the Abyssal Whip at 85.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When is the Abyssal Whip unlock worth it?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'At 85 Slayer you unlock the Abyssal Whip - arguably the best melee weapon in the game until 78 Rapier (requires Theatre of Blood). The whip is worth grinding for because you will use it constantly from 85 onwards. By 85 Slayer, you are also making profit (task drops offset food costs) and the XP rates are competitive with pure AFK methods.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the endgame melee training method?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sulphur Naguas 85-99 (110-140k XP/hr, completely AFK, 10+ minutes per session). This is the fastest melee XP method, but requires 85+ stats to be efficient. Alternative: continue Slayer 85-99 for continued gear drops and endgame content unlocks. Choose Sulphur Naguas for pure speed, Slayer for resource gathering.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is melee training expensive or profitable on ironman?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Early game (quests + crabs) costs nothing - zero supplies needed. At 70+ Slayer, training becomes profitable because task drops (bones, herbs, salvageable gear) generate more value than food costs. By 75+ Slayer, you are typically making net profit while training. This is the ironman advantage over normal accounts.'
+      }
+    }
+  ]
+};
 
 ## OSRS Ironman Melee Training – The Complete Strategy
 
@@ -469,6 +518,8 @@ A: Yes, but you'll miss equipment drops. For pure speed 1-99, skip Slayer and do
 A: Crabs: 500-1,000 food total (safety buffer). Slayer: Varies by task, but drops offset it. Sulphur Naguas: Essentially zero food.
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Summary: The Ironman Melee Path
 
