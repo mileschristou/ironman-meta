@@ -10,6 +10,54 @@ quickAnswer: "Vale Totems is now the best method - 420k XP/hr for free using log
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best Fletching method for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Vale Totems is the best method - 340-420k XP/hr completely free using logs you already have. It replaced broad arrows (fast but ~77M GP cost). Get the Fletching Knife (350 research points) early for a 30-50% XP boost. With magic logs and all unlocks, you reach 420k XP/hr. Previous guides recommending broad arrows are outdated.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What priority unlocks should I get for Fletching?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Get the Fletching Knife first (350 Vale Research points) - it reduces actions by 1 tick for a massive XP boost. Then get the Bow String Spool (250 points) to hold 250 bowstrings in one inventory slot, doubling AFK time. Log Basket from Forestry shop lets you carry more logs per trip. These three unlocks compound to reach 420k XP/hr.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much XP per hour can I get at different levels?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Vale Totems XP rates: Oak (20 Fletching) 29-36k/hr, Willow (35) 71-89k/hr, Maple (50) 120-150k/hr, Yew (65) 225-265k/hr, Magic (80+) 265-420k/hr depending on unlocks. With all three unlocks and magic logs, you reach 420k XP/hr - the fastest Fletching in the game. Total time 1-99 with magic logs is approximately 40-50 hours.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Fletching still a GP sink?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No, Vale Totems changed that completely. The method is free - you just need logs you would gather anyway from Woodcutting or Miscellania. This is a massive shift from the old days when you had to buy supplies. If you want to spend GP on broad arrows, that is optional for speed, but most ironmen just do Vale Totems for free fast XP.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I do Headless Arrows instead?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Headless arrows are best as a passive skill while doing other activities (Farming runs, Agility, Runecrafting). They are slow alone (under 100k XP/hr) but give free XP if you are making them alongside other content. For focused Fletching training, Vale Totems is significantly better - 3-4x the XP rate at higher levels.'
+      }
+    }
+  ]
+};
 
 Fletching used to be a GP sink. Now it's free - and faster than ever.
 
@@ -243,6 +291,8 @@ Yes, by making magic longbows and high alching them. It's slower than Vale Totem
 - **Forgetting the Log Basket** - From Forestry shop, makes Vale Totems much more efficient.
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
