@@ -10,6 +10,54 @@ quickAnswer: "Varlamore is a game-changer for ironmen. Hunter rumours provide fo
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Why is Varlamore important for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Varlamore fundamentally changes ironman progression by making prayer training accessible without Wilderness risk, providing the Hunters\' Sunlight Crossbow as an early-mid game upgrade, and offering Moons of Peril as modern-era Barrows-like gear. The region is game-changing for both efficiency and accessibility.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do ironmen train prayer without the Wilderness?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Combine blessed bone shards with blessed wine at the Teomat libation bowl for 5-6 prayer XP per shard with zero Wilderness risk. Blessed bone shards come from Hunter rumours (46+ Hunter), calcified deposits (41+ Mining AFK), or breaking down blessed bones. This replaces the old reliance on Wilderness chaos altar or slow Ectofuntus training.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the Hunters\' Sunlight Crossbow and is it worth getting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The Hunters\' Sunlight Crossbow (requires 72 Hunter, 74 Fletching, 66 Ranged) is a 3-tick weapon matching shortbow speed with crossbow defence mechanics. It significantly outclasses the magic shortbow and fills the gap between early ranged gear and late-game drops. Made from sunlight antelope drops via Hunter rumours, so you get it while training Hunter.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What does Moons of Peril offer for mid-game ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Moons of Peril (requires 75+ Combat) is modern Barrows - mid-game gear that bridges the gap between quest gear and endgame Slayer/raid drops. Three boss variants drop melee/magic/ranged armour sets and weapons, with reward scaling based on number of bosses defeated. Weapon diversity is rewarded since each Moon is weak to a specific melee style.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I do different Varlamore content?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Early game: Start Hunter rumours at 46 Hunter. Early-mid: Collect calcified deposits at 41 Mining. Mid game: Begin prayer training with blessed shards (30 Prayer) and attempt Moons of Peril (75+ Combat). Mid-late: Unlock Mixology rewards (60+ Herblore). Late game: Fortis Colosseum (80+ early, 95+ for completion). This progression ensures you get maximum value from each piece of content.'
+      }
+    }
+  ]
+};
 
 Varlamore fundamentally changes ironman progression. What used to require Wilderness risk or high-level Slayer for prayer training is now accessible through the Hunter's Guild and Teomat. Moons of Peril gives mid-game accounts gear that can carry them to endgame. If you're starting a fresh ironman, Varlamore content should be on your radar early.
 
@@ -235,6 +283,8 @@ This is true endgame content - don't worry about it until you're geared for raid
 - **Hunter cape teleport** - Direct to Hunter Guild
 - **Quetzal whistle** - Unlocked through Hunter rumours
 - **Pendant of Ates** - Teleport to Ralos' Rise (near Teomat)
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
