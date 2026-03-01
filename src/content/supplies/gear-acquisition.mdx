@@ -10,6 +10,54 @@ quickAnswer: "Early: Fighter Torso (Barbarian Assault), Dragon Defender (Warrior
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What gear should I prioritize farming first?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fighter Torso (Barbarian Assault, 3-5 hours) and Dragon Defender (Warriors\' Guild, 2-4 hours). Both are one-time grinds, completely free, and will carry you for 200+ hours of gameplay. Fighter Torso has the same +4 strength bonus as Bandos Chestplate but costs zero GP. Get these before anything else.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the Fighter Torso grind worth it?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Absolutely. 3-5 hours for a piece of gear with +4 strength (matching Bandos) is one of the best early grinds in the game. You will use Fighter Torso for 200+ hours of content. The grind is painless (just click and heal/attack teammates), and the payoff is enormous. Prioritize this over almost everything else early.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long is the Barrows Gloves grind?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Recipe for Disaster takes 4-6 hours total - it\'s a quest grind, not a boss grind. You complete subquests sequentially (level-gated), each one straightforward. Barrows gloves are the best gloves slot item for 200+ hours - you\'ll use them until Ferocious gloves at level 80. The grind is manageable and the payoff is worth it.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does Dragon Defender take?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Approximately 2-4 hours of Cyclopes killing in Warriors\' Guild, but drop rates are high variance (1/100 per token type). Safe-spot along the south wall of the basement. You will passively get Bronze and Iron defenders first, then trade up to Adamant, Rune, and finally Dragon. Some players get lucky in 1-2 hours, others take 4+.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What\'s the biggest gear acquisition mistake?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Attempting mid-game content (Slayer bosses, GWD) while undergeared because you skipped early grinds. Fighter Torso and Dragon Defender take 5-8 hours combined and enable 200+ hours of progression. Skipping them means fighting content 10-15% less efficiently. Always prioritize foundational gear before pushing hard content.'
+      }
+    }
+  ]
+};
 
 The ironman challenge isn't figuring out WHAT gear you need - the [Gear Progression](/progression/gear-progression/) guide handles that. The challenge is **getting it**.
 
@@ -523,6 +571,8 @@ Theatre of Blood kills players who show up undergeared. Do CoX first to learn ra
 Climbing boots, Obsidian cape, Ava's accumulator take minutes and give real bonuses.
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
