@@ -10,6 +10,54 @@ quickAnswer: "Quest to 43 Prayer for protection prayers. Train with blessed bone
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best prayer training method for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Blessed bone shards is the recommended method - safe, efficient (5-6 XP per shard), and you collect shards passively through Hunter rumours and calcified deposits. Chaos Altar is faster (7x effective multiplier) but carries Wilderness PKer risk. Most ironmen choose blessed bone shards for safety unless they specifically want maximum speed.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I reach 43 Prayer without training?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Complete prayer-granting quests. The Restless Ghost and Priest in Peril give 2,531 XP total. Add Holy Grail (11,000 XP with 20 Attack) and you are at level 30+. His Faithful Servants in Varlamore (20,000 XP, requires 30 Construction and Children of the Sun) gets you close to 43. Questing is the fastest path to protection prayers.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are blessed bone shards and where do I get them?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Blessed bone shards are a Varlamore method where you sacrifice shards at the Teomat for 5-6 prayer XP each. Get shards from Hunter rumours (46+ Hunter, passive), calcified deposits (41+ Mining AFK in Cam Torum, crush on anvil for 5-15 shards), or by blessing bones at the altar and chiseling them. Bless a jug of wine, then sacrifice up to 100 shards per action.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I grind dragons specifically for prayer bones?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. Let bones accumulate passively through Slayer tasks (dragon Slayer assignments), boss fights (Vorkath, Zulrah), and other PvM content. Grinding dragons specifically just for bones is inefficient time-wise. When you have large bone stacks, train prayer with blessed bone shards or Chaos Altar. This passive approach is faster overall than dedicated dragon farming.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is the Chaos Altar worth the Wilderness PKer risk?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Only if you want maximum XP speed (7x effective multiplier vs 5x shards). The Chaos Altar is roughly 40% faster but you will die occasionally to PKers - budget for losing some bones per trip. Most ironmen choose blessed bone shards for the safer 5-6x multiplier unless they are actively pushing prayer levels and accept the risk.'
+      }
+    }
+  ]
+};
 
 Prayer is one of the most impactful skills for ironmen. Protection prayers at 43 unlock safe-spottable content, and Piety at 70 is a massive DPS increase. The challenge isn't training - it's getting the bones.
 
@@ -253,6 +301,8 @@ At higher levels, only bother keeping high-tier ensouled heads (dragon, demon, e
 ### 70+ Prayer
 
 At this point you have Piety and can do most content. Continue collecting bones/shards through PvM and train when you have large stacks.
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
