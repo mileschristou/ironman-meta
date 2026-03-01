@@ -10,6 +10,54 @@ quickAnswer: "Eclipse Red wines at the Hunter Guild (290k/hr) is the best early 
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best early money making method?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Eclipse Red Wines (290k GP/hr) if you have Varlamore access via Children of the Sun quest. Pick spawns at the Hunter Guild, world hop to reset, sell to Moonrise Wines shop. No Varlamore? Use Agility Pyramid (150k GP/hr at 30+ Agility) or Ardy Knights (70-130k GP/hr at 55+ Thieving). Early GP is mainly for buyables, not millions.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Is Varlamore money making worth it compared to Agility Pyramid?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Eclipse wines are nearly 2x the GP/hr of Agility Pyramid (290k vs 150k). The trade-off is you need Children of the Sun quest. If you have Varlamore access, Eclipse wines is the clear choice. Agility Pyramid is the reliable fallback if you prefer no setup - no quests, no hopping, just run the course.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much early game GP do I actually need?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Surprisingly little. 5-10M covers most early buyables: Construction training, herb runs, kingdom coffers, and occasional shop purchases. You are not funding 99 Herblore or 200k wood planks early. Early money is specifically for progression gates, not end-game preparation. Most ironmen never grind more than 10-20M early.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I make money while training Crafting?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, gem cutting in Aldarin (225k GP/hr). Buy uncut gems from Toci\'s Gem Store, cut them, sell back for profit. You simultaneously train Crafting and earn GP - efficient use of time. Focus on emeralds and above for better margins. This is excellent if you need both GP and Crafting levels early.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which early money method is most AFK?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Eclipse Wines are the most AFK - just pick spawns and world hop occasionally. Wealthy Citizens in Varlamore are also very AFK (street urchins distract them every 84-99 seconds for 100% success windows). Agility Pyramid and Ardy Knights require constant attention. If you want relaxed grinding, Varlamore methods are superior for both GP and attention required.'
+      }
+    }
+  ]
+};
 
 Early ironman GP is for one thing: funding buyable skills. Construction planks, kingdom coffers, and the occasional shop purchase. You don't need millions - you need enough to keep progressing without stalling.
 
@@ -169,6 +217,8 @@ You don't need to grind money for hours. Do enough to fund your current goals, t
 | LMS | Varies | PvP skill | Only if you're good |
 
 **Recommendation:** If you have Varlamore access, do Eclipse wines. If not, Agility Pyramid until you unlock Varlamore. Gem cutting is great if you want to train Crafting at the same time.
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
