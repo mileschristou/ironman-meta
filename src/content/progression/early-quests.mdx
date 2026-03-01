@@ -10,6 +10,54 @@ quickAnswer: "Prioritise unlocks over XP. Fairy rings, spirit trees, and Ardougn
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Which quests should I prioritize first as a fresh ironman?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Prioritize unlocks over XP rewards. Fairy rings (Fairytale I and start of II) and Spirit trees (Tree Gnome Village) save thousands of hours over your account lifetime. After critical unlocks, do big XP quests like Waterfall, Witch\'s House, and Fight Arena. Unlocks that save time forever beat one-time XP rewards every time.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the most important early quest unlocks?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fairy rings (teleports to almost anywhere forever), Spirit trees (essential teleport network), and Ardougne Cloak 1 (unlimited monastery teleports). These three unlock systems compound over thousands of hours. Graceful (from Agility rooftops) is also critical for run energy. Get these before grinding XP quests.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How much combat XP can I get from quests without any training?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A significant amount. Waterfall Quest alone gives 13,750 Attack and Strength. Add Witch\'s House (6,325 HP), Fight Arena (12,175 Attack), Tree Gnome Village (11,450 Attack), The Grand Tree (18,400 Attack, 7,900 Agility), plus Vampire Slayer and Death Plateau, and you can reach 40+ Attack and 30+ Strength/HP without killing a single mob.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I follow an efficiency guide like Oziris?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Only if you want maximum efficiency. Oziris\' guide is optimized for Corrupted Gauntlet rushing, while BRUHSailer\'s guide is more up-to-date with current meta content. However, the critical unlocks (fairy rings, spirit trees) and big XP quests matter more than perfect quest order. After that, quest in whatever order keeps you engaged.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Which early quests should I avoid or delay?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'A Soul\'s Bane and Shadow of the Storm give combat XP - save these until you have specific level goals in mind. Dragon Slayer unlocks dragons for Slayer - only do when you are ready to Slay them. Cabin Fever starts getting Mos Le\'Harmless pirates as Slayer tasks. These rewards scale with account progress, so timing matters.'
+      }
+    }
+  ]
+};
 
 Knowing which early ironman quests to prioritise in OSRS makes a huge difference to your account's progression. They give massive XP at low levels, unlock essential content, and skip tedious early training. Get the order right and you'll have fairy rings, spirit trees, and base 40s combat without grinding a single mob.
 
@@ -140,6 +188,8 @@ This isn't prescriptive - adjust based on what you enjoy. But if you want a star
 9. **Start RFD chain:** Goblin subquest, Dwarf subquest, etc.
 
 From here, continue working toward quest cape while doing Slayer and skilling.
+
+<Schema schema={faqSchema} />
 
 ## Related Guides
 
