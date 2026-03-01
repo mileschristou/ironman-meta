@@ -10,6 +10,54 @@ quickAnswer: "Early: Eclipse Red wines (Varlamore) or cakes. Mid: Karambwans (TH
 ---
 
 import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What food should I use in early game?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Eclipse Red wines from Varlamore (Heal 16 HP, free spawn, also sell for 700 GP each). If no Varlamore access, steal cakes from Ardougne bakery (12 HP, zero cost) or buy jugs of wine from Draynor (11 HP, 1 GP each). Eclipse wines are the best early option because they fund your bank while feeding you.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'When should I switch to better food?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'At 65 Fishing and 30 Cooking, unlock karambwans after Tai Bwo Wannai Trio. This is the mid-game food transition point. Karambwans heal 18 HP and can combo eat (eat with other food in the same tick). They are THE ironman food and carry you through mid and late game. This single unlock massively improves combat efficiency.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best ironman food?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Karambwans (18 HP, combo-able with other food). They are the core ironman food for PvM because combo eating lets you alternate between karambwans and anglerfish/sharks in the same tick, effectively doubling your healing output during combat. No other food enables this strategy.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is combo eating and why does it matter?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Combo eating means consuming one karambwan + one other food (shark, manta ray, or anglerfish) in the same tick. Because karambwans have unique mechanics, you can eat them without the standard eat delay when paired with other foods. This doubles your healing capacity during boss fights and dangerous PvM content. Learn it for serious bossing.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Are Sunlight moth mixes useful?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, especially for specific combat achievements and fast kills. Sunlight moth mixes heal 8 HP and restore 6+ prayer points with no eat delay - you can heal during combat without interrupting your attacks. Less HP healing than karambwans, but the no-delay mechanic is valuable for speedrunning and combat challenges requiring sustained DPS.'
+      }
+    }
+  ]
+};
 
 Getting reliable food is one of the first challenges on an ironman. Here's what to use at each stage - and when to move on.
 
@@ -229,6 +277,8 @@ New to combo eating? Practice on low-stakes content first (Slayer tasks) before 
 | Cooked Moonlight Antelope | 26 (delayed) | 91 Hunter, 92 Cook | Max healing |
 
 ---
+
+<Schema schema={faqSchema} />
 
 ## Common Mistakes
 
