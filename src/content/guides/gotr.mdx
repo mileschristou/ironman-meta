@@ -37,7 +37,7 @@ export const faqSchema = {
       name: 'Do I gain XP in other skills while doing GOTR?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes - GOTR gives free passive XP in Mining (approximately 10k/hr), Crafting (approximately 6k/hr), and Prayer (approximately 2k/hr). Over 200 hours of GOTR, that is 2M Mining XP, 1.2M Crafting XP, and RC levels - making GOTR even better value than raw XP/hr suggests.'
+        text: 'Yes - GOTR gives free passive XP in Mining (approximately 10k/hr from mining guardian remains) and Crafting (approximately 6k/hr from crafting guardian essence). Over 200 hours of GOTR, that is 2M Mining XP, 1.2M Crafting XP, and RC levels - making GOTR even better value than raw XP/hr suggests.'
       }
     },
     {
@@ -66,8 +66,8 @@ Most ironmen spend 50-100 hours here and walk out with the Colossal Pouch and Ra
 ## Requirements
 
 - **27 Runecrafting** (hard requirement)
-- **Guardians of the Rift quest** (short intro quest, no combat)
-- **Location:** Temple of the Eye, accessed via Apprentice Tamara east of Salve Graveyard
+- **[Temple of the Eye](https://oldschool.runescape.wiki/w/Temple_of_the_Eye) quest** (short intro quest, no combat)
+- **Location:** Temple of the Eye, accessed via the portal in the Wizards' Tower basement
 - **No essence, no talisman needed** - just show up and start mining
 
 <Callout type="tip">
@@ -80,61 +80,49 @@ Each GOTR round lasts 10 minutes and cycles through three phases repeatedly. Und
 
 ### Phase 1: Mining Guardian Fragments
 
-Guardian Remains are scattered around the perimeter of the altar. Mine them to collect fragments.
+Guardian Remains are scattered around the perimeter of the temple. Mine them to collect guardian fragments.
 
-- **Two types:** Elemental fragments (Air, Earth, Fire, Water) and Catalytic fragments (higher-tier runes)
-- **Fragment tiers scale with RC level:**
-  - 27 RC: Weak elemental fragments
-  - 44 RC: Adept catalytic fragments unlock
-  - 59 RC: Expert catalytic fragments unlock
-  - 75 RC: Master catalytic fragments unlock (best for XP)
+- Fragments don't have tiers - all remains give the same fragments
+- Your **Runecrafting level** determines which altars you can use (higher altars = more XP)
+- The large guardian remains (east side, past the 56 Agility shortcut) give fragments faster
 
-Higher-tier fragments yield more XP when imbued, so prioritize mining the highest tier available at your level.
-
-**Strategy:** Mine just enough to have cells to imbue. Don't spend all phase mining - transition to Phase 2 quickly.
+**Strategy:** Mine enough fragments for a full inventory of essence. Don't spend all phase mining - transition to Phase 2 quickly.
 
 ### Phase 2: Crafting Essence
 
-Your mined fragments go to the Great Guardian in the centre of the altar.
+Take your mined fragments to the workbench to craft them into guardian essence.
 
-- **Craft fragments into Imbued Essence cells**
-- **Cell tiers:** Weak (27 RC) → Regular (44 RC) → Strong (59 RC) → Overcharged (75 RC)
-- **Rule:** Higher cells = more XP and Abyssal Pearls per imbue
+- **Craft fragments into guardian essence** at the workbench
+- **Cell tiers when charged:** Weak → Medium → Strong → Overcharged (higher tiers from higher-level altars)
+- **Rule:** Higher-level altars = better cells = more XP and Abyssal Pearls
 
-An alternative source of cells: **Use the essence chest near the entrance.** Pre-made cells are available here for free, meaning you don't have to craft every single cell yourself.
-
-**Strategy:** Grab cells from the chest first (saves time), supplement with your mined fragments if you need more. This is the fastest way to stay fed for Phase 3.
+**Strategy:** Craft all your fragments into essence quickly. The faster you get to Phase 3, the more XP you earn.
 
 ### Phase 3: Imbuing at Altars
 
 The active altars (marked by a yellow glow) are where you gain XP and Abyssal Pearls.
 
-- Run to an active altar with your imbued cells
-- Imbue cells at the altar
-- Get runecrafting XP + Abyssal Pearls
+- Run to an active portal with your guardian essence
+- Craft runes at the altar beyond the portal
+- Get runecrafting XP and contribute to your round score
 - Repeat as many times as possible during phase 3
 
-**Strategy:** This is the XP and pearl generation phase - prioritize imbuing. Run back and forth constantly. If you run out of cells, grab more from the chest, not mining.
+**Strategy:** This is the XP generation phase. Run back and forth constantly. If you run out of essence, return to mining immediately.
 
 ### Scoring & Abyssal Pearls
 
-Your round score (pearls earned) = sum of all imbues. Higher-tier cells = more pearls per imbue.
+Your round score determines how many pearls you earn. Higher-level altars contribute more to your score.
 
-- Weak cells: ~5 pearls
-- Regular cells: ~10 pearls
-- Strong cells: ~20 pearls
-- Overcharged cells: ~40 pearls
-
-A good round at high levels earns 300-500 Abyssal Pearls (10-minute game).
+Abyssal Pearls are awarded as random loot when you search the Rewards Guardian after each game (14-16 pearls per roll when you hit the pearl drop).
 
 ## XP Rates
 
 | RC Level | XP/hr | Notes |
 |----------|-------|-------|
-| 27-44 | ~20-30k | Early levels, weak cells only |
-| 44-59 | ~35-45k | Adept catalysts available |
-| 59-75 | ~50-60k | Expert catalysts |
-| 75+ | ~60-70k | Master catalysts, peak efficiency |
+| 27-44 | ~20-30k | Low-tier altars only |
+| 44-59 | ~35-45k | Mid-tier altars available |
+| 59-75 | ~50-60k | Higher-tier altars unlock |
+| 75+ | ~60-70k | Best altars available, peak efficiency |
 | 85+ | ~65-70k | Colossal Pouch further boosts by reducing banking |
 
 These are realistic active play rates. AFK clicking (not recommended) is significantly slower.
@@ -149,9 +137,8 @@ GOTR isn't just runecrafting - you gain XP in other skills passively while train
 
 | Skill | Source | Approx Rate |
 |-------|--------|------------|
-| Mining | Mining Guardian Remains | ~10k XP/hr |
-| Crafting | Crafting imbued cells | ~6k XP/hr |
-| Prayer | Praying at the Great Guardian (minor) | ~2k XP/hr |
+| Mining | Mining guardian remains | ~10k XP/hr |
+| Crafting | Crafting guardian essence | ~6k XP/hr |
 
 **Real example:** 200 hours of GOTR = 2M Mining XP + 1.2M Crafting XP + RC levels. This free skill progress means GOTR is even better value than the raw XP/hr suggests.
 
@@ -163,27 +150,26 @@ If you're low on Mining or Crafting levels early in your account, GOTR is a fant
 
 ### Before the Round Starts
 
-- **Check the essence chest** - grab 10-15 cells if available
-- **Position yourself** near the richest fragment cluster for your level
+- **Position yourself** near guardian remains ready to mine
+- Check if any portals are already active from the previous round
 
 ### During Phase 1 (Mining)
 
-- Mine the **highest-tier fragments available** at your RC level
-- Aim to collect 10-20 fragments; don't grind more than necessary
+- Mine guardian remains - use the large remains (east side, past 56 Agility shortcut) if accessible
+- Aim for a full inventory of fragments; don't grind more than necessary
 - Transition to Phase 2 as soon as you have enough
 
 ### During Phase 2 (Crafting)
 
-1. **Check the essence chest first** - grab any pre-made cells
-2. Craft your mined fragments into cells
-3. If you have excess inventory space, grab more cells from the chest
+1. Craft your mined fragments into guardian essence at the workbench
+2. Fill your inventory - you want as much essence as possible for Phase 3
 
 ### During Phase 3 (Imbuing)
 
-- **Constant motion:** Run to active altars (yellow glow), imbue, run back for more cells
-- **Cell priority:** Use Overcharged cells first (highest XP), then Strong, then Regular
-- **Barrier avoidance:** Barriers occasionally block paths; click through portals to navigate around them
-- **Never idle:** If you run out of cells, grab more from the chest or return to mining
+- **Constant motion:** Run to active portals (yellow glow), craft runes at the altar, run back
+- **Altar priority:** Use the highest-level altar available at your RC level for maximum XP
+- **Barrier management:** Place charged cells in the cell tiles to power barriers that protect the Great Guardian
+- **Never idle:** If you run out of essence, return to mining immediately
 
 ### Team vs Solo
 
@@ -245,7 +231,7 @@ Spend your abyssal pearls at the Temple Supplies shop:
 4. **Cordelia pouch repair** (25 pearls) - cheap alternative to Lunar spellbook repairs
 
 <Callout type="tip">
-The Raiments outfit costs 1,350 pearls total. At 300-500 pearls per game at high levels, that's roughly 30-45 games (5-8 hours). Much faster than you'd think.
+The Raiments outfit costs 1,350 pearls total. You'll accumulate pearls naturally while training RC - most ironmen have enough by the time they've spent 30-50 hours in GOTR.
 </Callout>
 
 ## When to Leave GOTR
