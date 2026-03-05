@@ -1,0 +1,254 @@
+---
+title: "Kingdom of Miscellania Guide for OSRS Ironmen (2026): Worker Setup & Optimal Allocation"
+description: "Complete Miscellania guide for OSRS ironmen. Optimal worker allocation by account stage, coffer management, approval rating, and what resources to collect for herbs, construction, and bird nests."
+publishDate: 2026-03-05
+updatedDate: 2026-03-05
+category: guides
+subcategory: activities
+tags: ["miscellania", "kingdom", "managing miscellania", "royal trouble", "worker allocation", "passive resources", "herbs", "mahogany", "teak", "bird nests", "ironman"]
+quickAnswer: "Complete Royal Trouble ASAP for 15 workers and 75k/day max. Keep coffers above 750k GP. Early game: 10 maple / 5 herbs (nests + fletching GP). Mid game: 10 herbs / 5 teak or 10 teak / 5 herbs depending on priority. Late game: 10 mahogany / 5 herbs. Check approval every few days — it only decays 1%/day after Royal Trouble."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best Miscellania setup for ironmen?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'It depends on your account stage. Early game: 10 workers on maple logs and 5 on herbs — maples give the most bird nests (8-9/day) and can be fletched into longbows for alching GP. Mid game: shift to 10 herbs / 5 teak (or inverse) for herblore supplies and construction planks. Late game: 10 mahogany / 5 herbs for 99 construction materials. Always keep coffers above 750,000 GP.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does Kingdom of Miscellania cost per day?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The kingdom deducts 10% of your coffer balance daily, up to 75,000 GP/day (after Royal Trouble). To hit maximum efficiency, keep at least 750,000 GP in coffers at all times. That works out to about 525,000 GP per week or 2.25M per month. For ironmen, the passive herbs and logs are worth far more than the GP cost.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I raise my approval rating in Miscellania?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Rake weeds on the herb/flax patches in Miscellania — weeds regrow so you can rake indefinitely. Each weed gives +1% approval. After Royal Trouble, approval only decays 1% per day, so you only need to visit every few days. Keeping approval above 95% is good enough — the yield difference is negligible.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How many bird nests does Miscellania give?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'With 10 workers on maple logs, you get roughly 8-9 bird nests per day (1 per 100 logs). Hardwood trees give far fewer — about 0.6-0.8 nests/day from teak or mahogany (1 per 350 logs). If you specifically need nests for crushed nests (Saradomin brews), maple is significantly better.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need Royal Trouble for Miscellania?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes, Royal Trouble is essential. It increases workers from 10 to 15, raises the daily coffer cap from 50k to 75k (50% more resources), reduces approval decay from 2.5% to 1% per day, and unlocks teak and mahogany log collection. Complete it as soon as you have 40 Agility and 40 Slayer.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I put workers on herbs or logs in Miscellania?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Both. The standard split is 10 workers on your primary resource and 5 on your secondary. Herbs are always worth having some workers on — Herblore is one of the hardest ironman skills and every passive herb helps. Your primary should be maples early (for nests and GP), teak mid-game (for construction), and mahogany late game (for 99 construction).",
+      },
+    },
+  ],
+};
+
+Kingdom of Miscellania is one of the most impactful passive activities for ironmen. For the cost of 75,000 GP per day, you get free herbs, logs, and bird nests delivered daily — resources that would take hours to farm actively. Set it up once, check in every few days, and let it run for the entire life of your account.
+
+Most ironmen set it up and forget about it, but getting the setup **right** matters. The wrong worker allocation wastes months of passive resources. This guide covers quest requirements, optimal setups by account stage, coffer management, and when to switch your allocation.
+
+## 1. Requirements & Setup
+
+You need two quests to fully unlock Kingdom of Miscellania:
+
+**Throne of Miscellania** (initial unlock):
+- Quest chain: The Fremennik Trials → Heroes' Quest → Throne of Miscellania
+- Unlocks: 10 workers, 50k/day max coffer deduction, 5M coffer cap
+- Approval decay: 2.5%/day
+
+**Royal Trouble** (essential upgrade):
+- Requirements: 40 Agility, 40 Slayer
+- Unlocks: 15 workers (+5), 75k/day max coffer deduction, 7.5M coffer cap, teak and mahogany log collection, Etceteria activities for approval
+- Approval decay reduced to 1%/day
+
+<Callout type="tip">
+Complete Royal Trouble as early as possible. The jump from 10 to 15 workers and 50k to 75k/day is massive — delaying it costs you resources every single day.
+</Callout>
+
+## 2. How the Kingdom Works
+
+### Coffers
+
+The kingdom deducts **10% of your current coffer balance** daily at midnight UTC, up to a maximum of **75,000 GP/day** (after Royal Trouble). To hit maximum resource output, keep at least **750,000 GP** in coffers at all times.
+
+- Maximum coffer capacity: 7.5M GP
+- Put in 5-7.5M at once as a buffer so you don't need to check daily
+- If your balance drops below 750k, you get reduced output proportionally
+
+### Workers
+
+You have **15 workers** after Royal Trouble, with a maximum of **10 on any single resource**. The standard split is 10 workers on your primary resource and 5 on a secondary.
+
+<Callout type="warning">
+Worker allocation is applied at the moment you **collect**, not when you assign them. If you've had 10 on herbs for months but switch to mahogany right before collecting, you get mahogany. This works in your favour — you can retroactively change your mind.
+</Callout>
+
+### Approval Rating
+
+Your approval rating ranges from 25% to 100% and directly multiplies your resource yields. After Royal Trouble, it decays just **1% per day**.
+
+**How to raise approval:**
+- **Fastest method:** Rake weeds on herb/flax patches in Miscellania — weeds regrow indefinitely, each one gives +1%
+- Visit every 3-5 days and rake back to 100% — takes about 2 minutes
+- Fremennik Medium diary gives a 10% chance approval doesn't decay each day
+
+<Callout type="casual">
+Don't stress about approval. Even at 95% you're only losing 5% of your resources. Visiting once a week is perfectly fine.
+</Callout>
+
+## 3. Resource Output
+
+All yields below assume 10 workers assigned, 100% approval, and 75k/day coffers (post-Royal Trouble):
+
+| Resource | Daily Yield (10 workers) | Bird Nests/Day | Primary Use |
+|----------|------------------------|----------------|-------------|
+| **Herbs** | ~61 grimy herbs | — | Herblore (tarromin through dwarf weed) |
+| **Maple logs** | ~892 logs | ~8-9 | Fletching (longbows → alch GP), arrow shafts |
+| **Teak logs** | ~301 logs | ~0.86 | Construction (Mahogany Homes, teak planks) |
+| **Mahogany logs** | ~223 logs | ~0.64 | Construction (mahogany tables/capes) |
+| **Coal** | ~546 coal | — | Smithing (cannonballs, bars) |
+| **Fish** | ~440 tuna + 132 swordfish | — | Cooking (not recommended — better sources exist) |
+| **Seeds** | ~481 various seeds | — | Farming (allotment + tree seeds) |
+| **Flax** | ~1,250 flax | — | Crafting (bowstrings — not recommended) |
+
+<Callout type="tip">
+At 5 workers, expect roughly half the 10-worker yield. For example, 5 workers on herbs gives ~30 herbs/day — roughly 210 per week.
+</Callout>
+
+**Herb distribution:** Kingdom herbs range from tarromin to dwarf weed. No guam, marrentill, toadflax, snapdragon, or torstol. The distribution is weighted toward lower-level herbs, but ranarr and above appear regularly. Every herb counts for ironmen — even harralanders make energy potions and compost potions.
+
+## 4. Optimal Worker Allocation by Stage
+
+This is where it matters. Your allocation should change as your account progresses.
+
+### Early Game — Building GP & Seeds
+
+| Workers | Resource | Why |
+|---------|----------|-----|
+| 10 | Maple logs | Best nest rate (8-9/day for tree seeds), fletch into longbows → alch for GP |
+| 5 | Herbs | Passive herblore supply from day one |
+
+<Callout type="efficiency">
+The maple → longbow → alch pipeline is one of the best early ironman GP sources. 892 maple logs/day can produce ~445 longbows, worth roughly 360k GP/day in alch value. This more than pays for the Kingdom's 75k/day cost.
+</Callout>
+
+### Mid Game — Construction & Herblore Push
+
+**Option A — Herblore priority:**
+
+| Workers | Resource | Why |
+|---------|----------|-----|
+| 10 | Herbs | Maximize passive herb income (~61/day) for the Herblore grind |
+| 5 | Teak logs | Cheaper planks (500 GP each) for Mahogany Homes |
+
+**Option B — Construction priority:**
+
+| Workers | Resource | Why |
+|---------|----------|-----|
+| 10 | Teak logs | 301 teak/day for Mahogany Homes — cost-effective Construction XP |
+| 5 | Herbs | Maintain passive herb income |
+
+<Callout type="tip">
+Teak planks (500 GP each) are much cheaper than mahogany planks (1,500 GP each) and Mahogany Homes gives excellent XP with teaks. Unless you're specifically going for mahogany tables or mounted mythical capes, teak is the better mid-game choice.
+</Callout>
+
+### Late Game — 99 Construction & Passive Maintenance
+
+| Workers | Resource | Why |
+|---------|----------|-----|
+| 10 | Mahogany logs | 223/day for mahogany tables or mounted mythical capes — best Construction XP/plank |
+| 5 | Herbs | Herbs never stop being useful (super combats, brews, restores) |
+
+<Callout type="casual">
+These are guidelines, not rules. If you're done with Construction but still need Herblore levels, put 10 on herbs. If you need bird nests for Saradomin brews, switch back to maples temporarily. Adapt to what your account needs right now.
+</Callout>
+
+## 5. Bird Nests from Kingdom
+
+Bird nests are a major side benefit of putting workers on any log type. The rates vary dramatically:
+
+| Log Type | Nest Rate | Nests/Day (10 workers) | Nests/Week |
+|----------|-----------|----------------------|------------|
+| Maple | 1 per 100 logs | ~8-9 | ~60 |
+| Teak | 1 per 350 logs | ~0.86 | ~6 |
+| Mahogany | 1 per 350 logs | ~0.64 | ~4.5 |
+
+Kingdom nests use the same drop table as woodcutting and birdhouse nests:
+- **Seed nests** — tree and fruit tree seeds (magic seed ~1/202, yew seed ~1/37)
+- **Ring nests** — gold or gem rings
+- **Egg nests** — red, blue, or green bird eggs
+- **Empty nests** — crush into crushed nests for Saradomin brews
+
+<Callout type="tip">
+If you need crushed nests for Saradomin brews, 10 workers on maple logs produces roughly **60 nests per week** — a meaningful supplement to birdhouse runs. Switching to maples temporarily for a brew stockpile is a valid strategy.
+</Callout>
+
+## 6. Coffer Funding Strategy
+
+The 75k/day cost works out to about **525k GP per week** or **2.25M per month**. Here's how to fund it at each stage:
+
+| Stage | Weekly Cost | How to Fund |
+|-------|-------------|-------------|
+| Early game | ~525k GP | Alch maple longbows from Kingdom, Agility alchables, Thieving |
+| Mid game | ~525k GP | Slayer drops, alchables from bossing, shop runs |
+| Late game | ~525k GP | Trivial — GP is no longer a bottleneck |
+
+Put in 5-7.5M at once as a buffer so you can forget about coffers for months. The resources you receive are worth far more than the GP cost at every account stage — this is one of the best investments an ironman can make.
+
+## 7. Common Mistakes
+
+- **Not completing Royal Trouble** — you're missing 5 extra workers and 50% more resources every day
+- **Letting coffers run dry** — if your balance drops below 750k, output drops proportionally. Top up before it empties
+- **Never changing allocation** — your needs change as your account progresses. Re-evaluate every few months
+- **Forgetting approval** — a 2-minute visit once a week keeps yields near maximum
+- **Collecting too frequently** — there's no benefit to daily collection. Let resources accumulate for weeks or months and collect when you need them
+- **Putting workers on flax or fish** — better sources exist for both. Stick to herbs + logs
+
+## 8. When to Set Up & Collect
+
+**Set up immediately** after completing Royal Trouble. Every day without Kingdom running is wasted passive resources — even if you can barely afford the coffers early on, the herbs and logs compound massively over months.
+
+**Collect when you need resources**, not on a schedule:
+- Before a Construction grind — collect your log stockpile
+- Before Herblore training — collect your herb bank
+- When you need Saradomin brews — collect nests from a maple period
+- There's no decay or expiry on accumulated resources
+
+<Callout type="tip">
+The earlier you set up Kingdom, the more you benefit. An ironman who sets up Kingdom at month 1 has thousands more herbs and logs than one who waits until month 6. Start early, even if funding is tight.
+</Callout>
+
+## Related Guides
+
+- [Construction Guide](/skilling/construction/) — Primary use of teak and mahogany logs from Kingdom
+- [Herblore Guide](/skilling/herblore/) — Passive herbs are essential for ironman Herblore
+- [Farming Guide](/skilling/farming/) — Tree seeds from bird nests fuel Farming XP
+- [Fletching Guide](/skilling/fletching/) — Maple longbows for alching GP
+- [Secondaries Guide](/skilling/secondaries/) — Crushed nests from Kingdom for Saradomin brews
+- [Early Money Guide](/supplies/early-money/) — Funding your Kingdom coffers
+
+<Schema schema={faqSchema} />
