@@ -1,16 +1,17 @@
 ---
 title: "OSRS Ironman Death's Coffer Guide (2026): Best Items by Stage"
-description: "Complete Death's Coffer guide for OSRS ironmen. Mature kegs, Barrows dupes, raid uniques - what to sacrifice at every stage. Alch vs coffer math, trap items, and how much to keep."
+description: "Complete Death's Coffer guide for OSRS ironmen. Mature kegs, Barrows dupes, Zulrah, Vorkath, raid uniques - what to sacrifice at every stage. Alch vs coffer math, gravestone vs Death's Office fees, trap items, and how much to keep."
 publishDate: 2026-02-28
-updatedDate: 2026-02-28
+updatedDate: 2026-03-09
 category: supplies
 subcategory: money-making
-tags: ["death coffer", "dupes", "barrows", "raid uniques", "mature ale", "ironman money", "death fees"]
-quickAnswer: "Sacrifice tradeable items worth 10,000+ GE for 105% of GE price in locked coffer credit. Ironmen get a 50% discount on reclaim fees (2.5% instead of 5%). Best items: Barrows dupes, DK ring dupes, mature kegs (Moonlight mead kegs ~175k each), Cerberus boot dupes, and raid uniques. One raid dupe funds your coffer for years."
+tags: ["death coffer", "dupes", "barrows", "raid uniques", "mature ale", "ironman money", "death fees", "zulrah", "vorkath", "nightmare", "nex"]
+quickAnswer: "Sacrifice tradeable items worth 10,000+ GE for 105% of GE price in locked coffer credit. Ironmen get a 50% discount on reclaim fees (2.5% instead of 5%). Best items: Barrows dupes, Zulrah uniques, DK ring dupes, mature kegs (Moonlight mead kegs ~175k each), Cerberus boot dupes, and raid uniques. One raid dupe funds your coffer for years."
 ---
 
 import Callout from '../../components/Callout.astro';
 import Schema from '../../components/Schema.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
 
 export const faqSchema = {
   '@context': 'https://schema.org',
@@ -29,7 +30,7 @@ export const faqSchema = {
       name: 'What items can ironmen put in Death\'s Coffer?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Any tradeable item worth 10,000+ GP on the Grand Exchange, including noted items and stackable items (if the per-unit price is 10,000+). Ineligible: untradeable items (imbued gear), bonds, recently released items (post-Aug 2024 blacklist), and Leagues/Deadman/Grid Master rewards. Best items: Barrows dupes, boss unique dupes (DK rings, Cerberus boots, Hydra organs), raid unique dupes, and mature ale kegs.'
+        text: 'Any tradeable item worth 10,000+ GP on the Grand Exchange, including noted items and stackable items (if the per-unit price is 10,000+). Ineligible: untradeable items (imbued gear), bonds, recently released items (post-Aug 2024 blacklist), and Leagues/Deadman/Grid Master rewards. Best items: Barrows dupes, boss unique dupes (DK rings, Cerberus boots, Zulrah uniques, Hydra organs), raid unique dupes, and mature ale kegs.'
       }
     },
     {
@@ -63,22 +64,42 @@ export const faqSchema = {
         '@type': 'Answer',
         text: 'Mature kegs are brewed ales with a mature variant (higher value, 1+ bonus HP). Moonlight mead kegs are worth ~175k GE each, yielding ~184k in coffer credit. Requires "the Stuff" from Trouble Brewing minigame (64% maturation chance vs 5% without). Trouble Brewing is simple to farm weekly, making mature ales a reliable early/mid-game coffer feeder: ~1.5M/week possible.'
       }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between gravestone and Death\'s Office fees?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Gravestone fees are much cheaper - capped at 500k total (250k for ironmen) regardless of gear value. You have 15 minutes to reclaim from your gravestone. If the timer expires, items move to Death\'s Office where fees jump to 2.5% per item for ironmen (5% for mains). A 500M setup costs around 125k at the gravestone but 12.5M from Death\'s Office. Always try to get back to your gravestone within 15 minutes.'
+      }
     }
   ]
 };
 
 Death's Coffer is the ironman's secret weapon for funding item recovery. Unlike main accounts (who flip the GE for profit), ironmen have no way to sell unwanted tradeable drops. High Alchemy yields only 60-75% of GE value. Death's Coffer pays 105% - a massive gap that grows with every dupe you earn.
 
-The coffer isn't just a bank account; it's a locked pool of credit for one purpose: paying death fees and private boss instances. For ironmen with a 50% discount on reclaim fees (2.5% instead of 5%), coffer credit is exceptionally durable. One raid dupe can fund your coffer for life.
+<TableOfContents items={[
+  { label: "How Death's Coffer Works", href: "#how-deaths-coffer-works" },
+  { label: "Gravestone vs Death's Office", href: "#gravestone-vs-deaths-office" },
+  { label: "The Alch vs Coffer Rule", href: "#the-alch-vs-coffer-rule" },
+  { label: "How Much to Keep", href: "#how-much-to-keep" },
+  { label: "Early Game Items", href: "#early-game-what-to-sacrifice-base-50s--quest-cape" },
+  { label: "Mid Game Dupes", href: "#mid-game-dupes-start-flowing" },
+  { label: "Late Game Raid Dupes", href: "#late-game-raid-dupes---coffer-for-life" },
+  { label: "Niche Items", href: "#niche-items-ironmen-often-miss" },
+  { label: "Trap Items", href: "#trap-items---dont-waste-your-time" },
+  { label: "Private Instances", href: "#private-instances---when-to-buy-them" },
+  { label: "FAQ", href: "#faq" },
+]} />
 
 ---
 
 ## How Death's Coffer Works
 
-Death's Coffer is a chest in Death's Office, accessible from anywhere via your gravestone after death.
+Death's Coffer is a chest inside Death's Office. You can visit Death's Office at any time through tombstone entrances around the map - the fastest way in is an amulet of glory teleport to Edgeville (10 tiles from the entrance).
 
 **Core mechanics:**
-- Sacrifice any **tradeable item worth 10,000+ GP** → receive **105% of its GE price** as locked coffer credit
+- Sacrifice any **tradeable item worth 10,000+ GP** - receive **105% of its GE price** as locked coffer credit
 - Credit cannot be withdrawn, ever - only used for death fees and private instances
 - Maximum coffer balance: 2,147,483,647 coins (integer limit)
 - New items released after August 2024 are **blacklisted until their GE price settles** (prevents exploits)
@@ -88,7 +109,7 @@ Death's Coffer is a chest in Death's Office, accessible from anywhere via your g
 - Hardcore Ironmen ✅
 - Ultimate Ironmen ❌ (different death mechanic)
 
-**Payment priority:** When you die, reclaim fees are deducted from your coffer first. If the balance is insufficient, the remainder comes from your bank.
+**Payment priority:** When you reclaim items, fees are deducted from your coffer first. If the balance is insufficient, the remainder comes from your bank.
 
 <Callout type="tip">
 **Hardcore Ironmen:** Death's Coffer is essential for you. It funds item recovery if you die in dangerous content but survive to retrieve items from Death's Office.
@@ -96,13 +117,46 @@ Death's Coffer is a chest in Death's Office, accessible from anywhere via your g
 
 ---
 
+## Gravestone vs Death's Office
+
+This is the most important thing to understand about death costs. There are two fee tiers and they're massively different.
+
+### Gravestone (first 15 minutes)
+
+When you die, your items go to a gravestone at your death location. You have **15 minutes** to run back and reclaim them. The timer pauses while logged out or idle for 10+ seconds.
+
+Gravestone fees are cheap and capped:
+
+| Item Value | Fee Per Item | Ironman Fee (50% off) |
+|-----------|-------------|----------------------|
+| Under 100k | Free | Free |
+| 100k - 1M | 1,000 | 500 |
+| 1M - 10M | 10,000 | 5,000 |
+| 10M+ | 100,000 | 50,000 |
+| **Max total fee** | **500,000** | **~250,000** |
+
+### Death's Office (after 15 minutes)
+
+If you don't make it back in time, items transfer to Death's Office automatically. They're stored **indefinitely** but the fees jump dramatically:
+
+- **Mains:** 5% of each item's GE value
+- **Ironmen:** 2.5% of each item's GE value
+
+**The difference in practice:** A late-game setup worth 500M costs ~125-250k to reclaim from the gravestone but **~12.5M** from Death's Office. Always try to get back to your gravestone.
+
+<Callout type="warning">
+If you die again while you have an active gravestone, your new items are added to the existing grave and the 15-minute timer resets. You don't lose anything, but now all your items are at the new death location.
+</Callout>
+
+### Protect Item Prayer
+
+Always use **Protect Item** (25 Prayer) during dangerous PvM. It lets you keep 4 items on death instead of 3. Since the kept item is typically your most valuable piece, this massively reduces reclaim fees. For example, keeping a scythe of vitur (~700M) on death saves you 17.5M in Death's Office fees at the ironman rate.
+
+---
+
 ## The Alch vs Coffer Rule
 
-This is the decision framework no other guide shows. For ironmen, it's simple.
-
-**Rule:** `If 105% of GE price > high alch value → coffer it`
-
-**Formula:** `Coffer credit = GE price × 1.05`
+**Rule:** `If 105% of GE price > high alch value - coffer it`
 
 | Item | GE Price | Coffer Value | High Alch | Winner |
 |------|----------|-------------|-----------|--------|
@@ -112,7 +166,7 @@ This is the decision framework no other guide shows. For ironmen, it's simple.
 | Rune platebody | 40,000 | 42,000 | 37,800 | Coffer (+11%) |
 | Granite maul | 25,000 | 26,250 | 7,500 | Coffer (+250%) |
 
-**For ironmen specifically:** You're comparing coffer value against high alchemy, never against actual GE sale (which you can't do). The coffer wins almost every time for items worth 10k+. The only exception is items where the high alch value somehow exceeds 105% of GE price - extremely rare, but happens when items crash and the GE guide price lags reality.
+For ironmen, the coffer wins almost every time for items worth 10k+. The only exception is items where the high alch value somehow exceeds 105% of GE price - extremely rare, but happens when items crash and the GE guide price hasn't caught up.
 
 <Callout type="efficiency">
 Items that alch low but sell high are the best coffer candidates. Cosmetic drops (Gilded gear, 3rd Age pieces, decorative clue rewards) have massive GE prices but alch for peanuts. Coffer them immediately.
@@ -120,17 +174,24 @@ Items that alch low but sell high are the best coffer candidates. Cosmetic drops
 
 ---
 
-## The Real Cost of Deaths
+## How Much to Keep
 
-The 50% ironman discount makes reclaim costs shockingly cheap. Don't overthink coffer balance.
+| Stage | Coffer Target | Why |
+|-------|-------------|-----|
+| Early game (pre-70s) | 2-5M | Deaths are cheap, gear is cheap |
+| Mid game (Slayer/bossing) | 10-20M | You're wearing 10-50M in gear |
+| Late game (raiding) | 30-50M | Raid gear pushes 100M+ setups |
+| Endgame (tbow/scythe) | 50-100M | One bad death at Death's Office costs 10M+ |
+
+**Quick formula:** Take your most expensive wearable loadout, multiply by 0.025 (ironman 2.5% rate) = cost of one death at Death's Office. Keep enough for 10-20 bad deaths.
 
 <Callout type="casual">
-A full Barrows set worth 3M costs only 75,000 coins to reclaim. A BiS melee setup worth 100M costs only 2.5M. Your coffer stretches incredibly far - just sacrifice items passively and let it build naturally.
+Don't stress about coffer balance early. The 50% ironman discount makes deaths very cheap. A full Barrows set worth 3M costs only 75k to reclaim from Death's Office. Just sacrifice items passively and let it build naturally.
 </Callout>
 
 ---
 
-## Early Game: What to Sacrifice (Base 50s → Quest Cape)
+## Early Game: What to Sacrifice (Base 50s - Quest Cape)
 
 Before Slayer and bossing dupes start flowing, these items fund your early coffer.
 
@@ -183,34 +244,49 @@ This is where your coffer fills itself naturally through PvM.
 
 After 100-200 Barrows runs, every piece has duplicates.
 
-- **Average piece value:** 500k-2M → 525k-2.1M in coffer
+- **Average piece value:** 500k-2M - 525k-2.1M in coffer
 - **Priority:** Keep one of each piece you actually need (Ahrim's for magic DPS, Dharok's for NMZ/training). Sacrifice everything else.
 - **Typical coffer gain:** 100-200 runs = 50M-100M into coffer (if you sacrifice all non-essentials)
+
+### Zulrah Duplicates
+
+After you have your blowpipe, magic fang, and serpentine helm, every Zulrah unique is a coffer deposit.
+
+| Item | GE Price | Coffer Credit |
+|------|----------|--------------|
+| **Tanzanite fang** | ~11M | ~11.5M |
+| **Serpentine visage** | ~3.8M | ~4M |
+| **Magic fang** | ~3.8M | ~4M |
+| Uncut onyx | ~2.6M | ~2.7M |
+
+Tanzanite fang dupes are the big ones at ~11.5M each. Most ironmen end up with multiple fang dupes over a Zulrah grind.
+
+### Vorkath Duplicates
+
+Vorkath's uniques are rare but valuable coffer items.
+
+| Item | GE Price | Coffer Credit | Drop Rate |
+|------|----------|--------------|-----------|
+| **Skeletal visage** | ~17M | ~17.8M | 1/5,000 |
+| **Draconic visage** | ~3.9M | ~4.1M | 1/5,000 |
+| Dragonbone necklace | ~85k | ~89k | 1/1,000 |
+
+After you've made your dragonfire ward, every visage dupe is a solid coffer deposit. Dragonbone necklaces are common enough that you'll stack up multiples - they meet the 10k minimum.
 
 ### Dagannoth Kings Ring Dupes
 
 Farming all 3 DK kings produces inevitable ring dupes.
 
-- **Berserker ring / Archer ring:** ~4M each → ~4.2M in coffer
+- **Berserker ring / Archer ring:** ~4M each - ~4.2M in coffer
 - **Seers ring:** Lower value (~2-3M) - still worth sacrificing
 - **How long:** Farming all 3 rings consistently for 100+ KC = guaranteed dupes
-- **Impact:** Ring dupes add up and fund your mid-game coffer steadily
 
 ### Hydra Organ Dupes (Alchemical Hydra, 95 Slayer)
 
 Eye, Fang, Heart drop in order. After you have the Brimstone ring, subsequent organs are dupes.
 
-- **Value per organ:** ~60k GE → ~63k coffer
+- **Value per organ:** ~60k GE - ~63k coffer
 - **Not huge individually** but adds up at high KC
-
-### Farming Seeds - Post-99 Contracts
-
-For ironmen who continue Farming Contracts after 99, seed dupes become a steady coffer feeder.
-
-- **Dragonfruit tree seeds:** ~175k each → ~184k in coffer
-- **Other tree seeds:** Vary widely depending on rarity
-- **How you get them:** Farming Contracts (post-99), passive drops while doing other content
-- **Not a primary source** but a nice bonus for dedicated farmers
 
 ### Cerberus Boot Dupes (91 Slayer)
 
@@ -226,14 +302,22 @@ Primordial, Pegasian, Eternal boots - 25-45M each.
 - **Armadyl pieces:** 5-30M each
 - Once you have the set, dupes go straight to Death
 
+### Farming Seeds - Post-99 Contracts
+
+For ironmen who continue Farming Contracts after 99, seed dupes become a steady coffer feeder.
+
+- **Dragonfruit tree seeds:** ~175k each - ~184k in coffer
+- **Other tree seeds:** Vary widely depending on rarity
+- **Not a primary source** but a nice bonus for dedicated farmers
+
 ---
 
 ## Late Game: Raid Dupes - Coffer for Life
 
-Raid dupes fund your coffer passively. Even modest duplicates add up quickly.
+Raid dupes fund your coffer forever. Even a single mid-tier unique dupe is years of death fees.
 
 <Callout type="efficiency">
-Practical example: A Fang dupe (~30M) generates ~31.5M in coffer credit. Get 2-3 Fang dupes and you've funded your reclaim costs for years. Multiple Lightbearers, Ancestral pieces, or mid-tier uniques will keep your coffer topped off forever.
+A Fang dupe (~30M) generates ~31.5M in coffer credit. Get 2-3 Fang dupes and you've funded your reclaim costs for years. Multiple Lightbearers, Ancestral pieces, or mid-tier uniques will keep your coffer topped off forever.
 </Callout>
 
 ### Chambers of Xeric Dupes
@@ -241,12 +325,10 @@ Practical example: A Fang dupe (~30M) generates ~31.5M in coffer credit. Get 2-3
 | Item | GE Price (approx) | Coffer Credit |
 |------|------------------|--------------|
 | **Twisted bow** | ~1.5B | ~1.575B |
-| Scythe of vitur | ~700M | ~735M |
-| Sanguinesti staff | ~500M | ~525M |
 | Dragon claws | ~70M | ~73.5M |
-| Twisted buckler | ~30M | ~31.5M |
 | Kodai insignia | ~60M | ~63M |
 | Ancestral pieces (per piece) | ~30-80M | ~31.5-84M |
+| Twisted buckler | ~30M | ~31.5M |
 
 ### Theatre of Blood Dupes
 
@@ -262,9 +344,11 @@ Practical example: A Fang dupe (~30M) generates ~31.5M in coffer credit. Get 2-3
 | Item | GE Price (approx) | Coffer Credit |
 |------|------------------|--------------|
 | **Tumeken's shadow** | ~800M | ~840M |
-| Osmumten's fang | ~30M | ~31.5M |
 | Masori pieces (per piece) | ~20-80M | ~21-84M |
 | Elidinis' ward | ~70M | ~73.5M |
+| Osmumten's fang | ~30M | ~31.5M |
+
+By this stage, any boss unique dupe you don't need goes straight to the coffer. Nightmare, Nex, and other endgame drops are worth tens to hundreds of millions each - you won't need a table to tell you to sacrifice them.
 
 Note: GE prices fluctuate. Values are approximate for illustration.
 
@@ -295,38 +379,40 @@ Short-list of underrated coffer items that accumulate naturally.
 
 These look like they should work but the coffer won't accept them:
 
-- Imbued rings (Berserker ring (i), Seers ring (i), Archer ring (i), Seers ring (i))
+- Imbued rings (Berserker ring (i), Seers ring (i), Archer ring (i))
 - Slayer helm (i)
 - God capes (charged cape)
 - Any item that's been imbued at Nightmare Zone
+- Tanzanite/Magma mutagens from Zulrah (untradeable cosmetics)
+- Vorkath's head (untradeable)
 
 ### Blocked by Jagex
 
 - **Bonds** - explicitly blocked
-- **Leagues/Deadman/Grid Master rewards** - exploit prevention (players were farming cosmetics, dumping them, reclaiming them for free)
-- **Recently released items** (post-August 2024) - blacklisted until GE price settles (prevents buying underpriced items on launch for inflated coffer value)
+- **Leagues/Deadman/Grid Master rewards** - exploit prevention
+- **Recently released items** (post-August 2024) - blacklisted until GE price settles
 
 ### Items Where High Alch Actually Beats Coffer
 
 Extremely rare. Check: if 105% of GE price < high alch value, alch it instead. This happens when items crash and the GE guide price hasn't caught up.
 
 <Callout type="warning">
-Don't assume every high-GE item is worth cofferring. Always check the alch value first using Alchemy Calculator or the formula. The answer is usually coffer, but not always.
+Don't assume every high-GE item is worth coffering. Always check the alch value first using Alchemy Calculator or the formula. The answer is usually coffer, but not always.
 </Callout>
 
 ---
 
 ## Private Instances - When to Buy Them
 
-Your coffer credit also pays for private boss room instances. Quick breakdown of what's worth it.
+Your coffer credit also pays for private boss room instances. Combat Achievements reduce GWD instance costs.
 
-| Boss | Instance Cost | Worth It For Ironmen? | Notes |
-|------|-------------|----------------------|--------|
-| Kraken | 25,000 | Yes | On-task, no competition, safe spotting freedom |
-| Grotesque Guardians | 50,000 | Sometimes | If you're getting KO'd by other players in multi |
-| **GWD bosses** | **75-150k** | **Yes (once you farm consistently)** | **Reduced with Combat Achievements** |
-| Corporeal Beast | 200,000 | Only if farming for spirit shields | Very expensive; mainly a collection log grind |
-| Nex | 100,000 | Yes | Worth it for consistent dupes |
+| Boss | Base Cost | With Hard CA | With Elite CA | Worth It? |
+|------|----------|-------------|--------------|-----------|
+| Kraken | 25,000 | - | - | Yes - no competition, safe spot freedom |
+| Grotesque Guardians | 50,000 | - | - | Sometimes - if multi-combat is a problem |
+| **GWD bosses** | **150,000** | **125,000** | **100,000** | **Yes once you farm consistently** |
+| Corporeal Beast | 200,000 | - | - | Only if farming spirit shields |
+| Nex | 100,000 | - | - | Yes - consistent dupes |
 
 <Callout type="casual">
 Private instances have zero benefit if you're not consistently getting the kill. Learn the boss in multi (or mass) first, then buy instances once you're confident. Wasting coffer credit on learning is inefficient.
@@ -334,11 +420,28 @@ Private instances have zero benefit if you're not consistently getting the kill.
 
 ---
 
+## FAQ
+
+### What's the best AFK way to fill my coffer early?
+
+The Trouble Brewing method. One 20-minute game gets you "The Stuff" for 2 brewing batches. With The Stuff, you have a 64% chance of maturing each batch. Moonlight Mead kegs are worth ~175k each (~184k in coffer). Set up brews and collect passively while doing other content.
+
+### Should I always coffer boss dupes instead of alching?
+
+Almost always yes. Boss uniques have high GE values but terrible alch values. A Barrows piece worth 1M GE gives 1.05M in the coffer vs ~120k from alching. The only exception is if the GE price has crashed well below the alch value, which is extremely rare for boss uniques.
+
+### How do gravestone fees compare to Death's Office fees?
+
+Gravestone fees are capped at ~250k total for ironmen regardless of gear value. Death's Office charges 2.5% per item. A 500M setup costs ~125-250k at the gravestone but ~12.5M from Death's Office. Always try to reclaim from your gravestone within 15 minutes.
+
+---
+
+<Schema schema={faqSchema} />
+
 ## Related Guides
 
 - [Farming Guide](/skilling/farming/) - Herb runs passively fund the coffer
 - [Slayer Guide](/skilling/slayer/) - Source of most mid-game coffer dupes
 - [Gear Acquisition](/supplies/gear-acquisition/) - Context for when boss farming starts generating dupes
 - [Early Ironman Money Making](/supplies/early-money/) - GP for other uses
-
-<Schema schema={faqSchema} />
+- [Achievement Diary Guide](/guides/achievement-diaries/) - Diary rewards that affect PvM efficiency
