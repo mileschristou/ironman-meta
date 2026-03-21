@@ -12,6 +12,51 @@ quickAnswer: "Do Sleeping Giants at 15 Smithing, earn 2,000 rep for the Double A
 import Callout from '../../components/Callout.astro';
 import Schema from '../../components/Schema.astro';
 
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: "How to Complete a Giants' Foundry Commission",
+  description: "The 4-step commission loop for Giants' Foundry: get a commission, select moulds, smelt, then refine the preform for maximum Smithing XP.",
+  totalTime: 'PT15M',
+  supply: [
+    { '@type': 'HowToSupply', name: 'Ice Gloves (or bucket of water)' },
+    { '@type': 'HowToSupply', name: 'Pickaxe (any)' },
+    { '@type': 'HowToSupply', name: 'Metal bars or weapons to melt (two different metal types for alloy bonus)' }
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Get a sword commission from Kovac',
+      text: "Talk to Kovac at Giants' Foundry to receive a commission. He assigns two descriptor words (e.g. 'Narrow' and 'Spiked') that tell you which mould shapes score bonus points for this commission."
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Select moulds and load the crucible',
+      text: 'Visit the Mould Library and pick three moulds (one Forte, one Blade, one Tip) that best match your commission words for the highest Mould Score. Load the crucible with 28 bars using two different metal types — alloys always outscore single-metal loads.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Smelt the crucible into a preform',
+      text: 'Pour the crucible contents into the mould. The metal casts and you receive a hot preform to work on. Use Ice Gloves or a bucket of water to handle it without taking damage.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Refine the preform using the correct tool for each temperature',
+      text: 'Shape each section using Trip Hammer (hot), Grindstone (medium), or Polishing Wheel (cold). Manage temperature at the Lava Pool (heats) and Waterfall (cools). Using the wrong tool costs -10 quality per mistake, so match the tool to the temperature zone precisely.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Hit sweet spots for bonus progress and quality recovery',
+      text: 'Watch for the thick gold border that flashes around the HUD 2-3 times per commission. Click once during this 6-second window for +5% bonus progress. Sweet spots also recover quality lost from earlier mistakes, so do not give up on a sloppy run.'
+    }
+  ]
+};
+
 export const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -273,3 +318,5 @@ Giants' Foundry and Blast Furnace aren't competitors - most ironmen use both str
 - [Slayer Guide](/skilling/slayer/) - Primary source of late-game bar drops (rune/adamant gear)
 - [Mining Guide](/skilling/mining/) - Ore sources for BF → GF pipeline
 - [Early Ironman Money Making](/supplies/early-money/) - GP for shop-buying bars
+
+<Schema schema={[faqSchema, howToSchema]} />

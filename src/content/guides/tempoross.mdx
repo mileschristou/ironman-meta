@@ -12,6 +12,52 @@ quickAnswer: "Tempoross is a 35 Fishing minigame with no combat. Solo with Cryst
 import Callout from '../../components/Callout.astro';
 import Schema from '../../components/Schema.astro';
 
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Complete Tempoross as an Ironman',
+  description: 'Step-by-step guide to defeating Tempoross for Fishing XP and the Tome of Water.',
+  totalTime: 'PT15M',
+  supply: [
+    { '@type': 'HowToSupply', name: 'Crystal Harpoon (or Dragon/Infernal)' },
+    { '@type': 'HowToSupply', name: "Spirit Angler's Outfit (or rope)" },
+    { '@type': 'HowToSupply', name: '6-7 Water Buckets' },
+    { '@type': 'HowToSupply', name: 'Imcando Hammer' }
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Set up your gear',
+      text: "Equip Spirit Angler's Outfit to replace the rope requirement. Bring Crystal Harpoon for XP or Infernal Harpoon for more reward points. Pack 6-7 water buckets and an Imcando Hammer."
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: "Phase 1: Drain Tempoross's energy",
+      text: 'Run to the double fishing spot on the island and fill your inventory with raw harpoonfish. Load them into the ammunition crate on the boat to fire at Tempoross. Repeat until energy reaches 0%.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Manage special attacks',
+      text: 'When a wave appears, tether to a totem or mast with your rope before it hits. Extinguish fires immediately with water buckets (40 points each). If a torrent stuns your cannon, switch to the other one.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: "Phase 2: Drain Tempoross's essence",
+      text: "Once energy hits 0%, run to the harbor dock and fish at the spirit pool. No special attacks occur here. Drain essence to 0% before energy regenerates to complete the round."
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Collect your rewards',
+      text: 'After victory, use your reward permits at the reward pool. Ironmen should prioritise the Tome of Water (infinite water runes at 50 Magic) for long-term prayer and magic training efficiency.'
+    }
+  ]
+};
+
 export const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -551,4 +597,4 @@ You've "done" Tempoross when:
 - [Early Ironman Money Making](/supplies/early-money/) - Funding Tempoross supplies
 - [OSRS Official Discord](https://discord.gg/OSRS) - Community events & organized masses
 
-<Schema schema={faqSchema} />
+<Schema schema={[faqSchema, howToSchema]} />

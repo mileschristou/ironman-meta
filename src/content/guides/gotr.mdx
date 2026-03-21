@@ -12,6 +12,51 @@ quickAnswer: "GOTR is the ironman runecrafting method - no essence consumed. Min
 import Callout from '../../components/Callout.astro';
 import Schema from '../../components/Schema.astro';
 
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Play Guardians of the Rift as an Ironman',
+  description: 'The GOTR gameplay loop for ironman runecrafting: mine fragments, craft essence, and imbue at altars each round.',
+  totalTime: 'PT10M',
+  supply: [
+    { '@type': 'HowToSupply', name: '27 Runecrafting' },
+    { '@type': 'HowToSupply', name: 'Temple of the Eye quest completed' },
+    { '@type': 'HowToSupply', name: 'Essence pouches (small, medium, large, giant)' }
+  ],
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Position near guardian remains before the round starts',
+      text: 'Stand ready by the guardian remains. Use the large remains on the east side of the temple (past the 56 Agility shortcut if accessible) — they give fragments faster than the standard remains.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Phase 1: Mine guardian fragments',
+      text: 'Mine the guardian remains to collect fragments. Fill your inventory and pouches, then move to the workbench immediately. Do not over-mine — getting to Phase 3 quickly is more important than a full stack.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Phase 2: Craft fragments into guardian essence',
+      text: 'Use the workbench to craft your fragments into guardian essence. Fill all your pouches and inventory slots. Higher-level altars produce better cell tiers, so use the highest altar your Runecrafting level unlocks.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Phase 3: Imbue runes at active portals',
+      text: 'Run to portals marked with a yellow glow and craft runes at the altar inside for XP and Abyssal Pearls. Place charged cells in the barrier cell tiles to protect the Great Guardian. Return and repeat as many times as possible before the round ends.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Search the Rewards Guardian after each game',
+      text: "After every game, search the Rewards Guardian for drops. You're hunting the Abyssal Needle (1/300) to craft the Colossal Pouch, and accumulating Abyssal Pearls toward the full Raiments of the Eye outfit (1,350 pearls total for +60% rune production)."
+    }
+  ]
+};
+
 export const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -246,7 +291,7 @@ At 77+ RC, **Blood runes at the Dark Altar** become available. Blood runes are A
 
 You can always return to GOTR for additional passive XP or if you decide to grind higher levels, but the core upgrades (Pouch + Raiments) are done at that point.
 
-<Schema schema={faqSchema} />
+<Schema schema={[faqSchema, howToSchema]} />
 
 ## Related Guides
 
