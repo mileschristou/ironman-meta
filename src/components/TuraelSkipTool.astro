@@ -1,0 +1,776 @@
+---
+// Turael Skip Tool - Interactive teleport recommender
+---
+
+<div class="turael-tool" id="turaelTool">
+  <!-- Setup Panel -->
+  <div class="setup-panel">
+    <h3 class="panel-title">Your Setup</h3>
+
+    <!-- Spellbook -->
+    <div class="unlock-group">
+      <h4 class="group-title">Spellbook</h4>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" name="spellbook" value="normal" checked />
+          <span>Normal</span>
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="spellbook" value="lunar" />
+          <span>Lunar (NPC Contact)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Teleport Items -->
+    <div class="unlock-group">
+      <h4 class="group-title">Teleport Items</h4>
+      <div class="checkbox-grid">
+        <label class="check-label"><input type="checkbox" data-unlock="games_necklace" checked /><span>Games Necklace</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="ring_of_dueling" checked /><span>Ring of Dueling</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="glory" checked /><span>Amulet of Glory</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="combat_bracelet" /><span>Combat Bracelet</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="skills_necklace" /><span>Skills Necklace</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="slayer_ring" /><span>Slayer Ring</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="xerics_talisman" /><span>Xeric's Talisman</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="ectophial" /><span>Ectophial</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="skull_sceptre" /><span>Skull Sceptre</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="digsite_pendant" /><span>Digsite Pendant</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="royal_seed_pod" /><span>Royal Seed Pod</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="chronicle" /><span>Chronicle</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="cowbell_amulet" /><span>Cowbell Amulet</span></label>
+      </div>
+    </div>
+
+    <!-- Access & Diaries -->
+    <div class="unlock-group">
+      <h4 class="group-title">Access & Diaries</h4>
+      <div class="checkbox-grid">
+        <label class="check-label"><input type="checkbox" data-unlock="fairy_rings" /><span>Fairy Rings</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="no_dramen" /><span>No Dramen Staff Needed</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="house_tabs" /><span>House Tabs</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="poh_jewellery_box" /><span>POH Jewellery Box</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="poh_fairy_ring" /><span>POH Fairy Ring</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="ardougne_cloak" /><span>Ardougne Cloak 1+</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="desert_amulet_4" /><span>Desert Amulet 4</span></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Panel -->
+  <div class="results-panel">
+    <!-- Recommended Inventory -->
+    <div class="inventory-section">
+      <h3 class="panel-title">Recommended Inventory</h3>
+      <div class="inventory-list" id="inventoryList"></div>
+      <div class="inventory-note" id="inventoryNote"></div>
+    </div>
+
+    <!-- Task Reference -->
+    <div class="task-section">
+      <h3 class="panel-title">Task Quick Reference</h3>
+      <div class="task-table-wrapper">
+        <table class="task-table" id="taskTable">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Speed</th>
+              <th>Best Teleport</th>
+              <th>Alternate</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="taskTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .turael-tool {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 900px) {
+    .turael-tool {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .panel-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    color: var(--color-accent, #d4a574);
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-bg-elevated, #1a1612);
+  }
+
+  /* Setup Panel */
+  .setup-panel {
+    background: var(--color-bg-secondary, #121212);
+    border: 1px solid var(--color-bg-elevated, #1a1612);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+    align-self: start;
+    position: sticky;
+    top: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    .setup-panel {
+      position: static;
+    }
+  }
+
+  .unlock-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .unlock-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .group-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8a7a6a);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .radio-label,
+  .check-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--color-text, #e5d5c0);
+    transition: background-color 0.15s ease;
+  }
+
+  .radio-label:hover,
+  .check-label:hover {
+    background-color: var(--color-bg-elevated, #1a1612);
+  }
+
+  .checkbox-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .check-label input,
+  .radio-label input {
+    accent-color: var(--color-accent, #d4a574);
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Results Panel */
+  .results-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .inventory-section {
+    background: var(--color-bg-secondary, #121212);
+    border: 1px solid var(--color-bg-elevated, #1a1612);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .inventory-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .inv-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    background: linear-gradient(135deg, #2d2419 0%, #1a1612 100%);
+    border: 1px solid #3d2f1f;
+    border-radius: 0.375rem;
+    font-size: 0.8rem;
+    color: var(--color-text, #e5d5c0);
+    font-weight: 500;
+  }
+
+  .inv-item.essential {
+    border-color: var(--color-accent, #d4a574);
+    color: var(--color-accent, #d4a574);
+  }
+
+  .inv-slot {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #8a7a6a);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .inventory-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8a7a6a);
+    line-height: 1.5;
+  }
+
+  /* Task Table */
+  .task-section {
+    background: var(--color-bg-secondary, #121212);
+    border: 1px solid var(--color-bg-elevated, #1a1612);
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .task-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .task-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+
+  .task-table th {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    background-color: var(--color-bg-elevated, #1a1612);
+    color: var(--color-accent, #d4a574);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.7rem;
+    border-bottom: 2px solid #3d2f1f;
+    white-space: nowrap;
+  }
+
+  .task-table td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-bg-elevated, #1a1612);
+    color: var(--color-text, #e5d5c0);
+    vertical-align: top;
+  }
+
+  .task-table tbody tr:hover {
+    background-color: var(--color-bg-elevated, #1a1612);
+  }
+
+  .task-name {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .task-name .slayer-req {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #8a7a6a);
+    font-weight: 400;
+  }
+
+  .teleport-text {
+    color: var(--color-accent-bright, #e8c294);
+    font-weight: 500;
+  }
+
+  .teleport-alt {
+    color: var(--color-text-muted, #8a7a6a);
+  }
+
+  .task-note {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8a7a6a);
+  }
+
+  .task-note.warning {
+    color: #e57373;
+  }
+
+  .no-teleport {
+    color: #8a7a6a;
+    font-style: italic;
+  }
+
+  .speed-badge {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .speed-fast {
+    background: #2d2010;
+    color: #d4a574;
+  }
+
+  .speed-medium {
+    background: #1a2620;
+    color: #7ab894;
+  }
+
+  .speed-slow {
+    background: #2a1818;
+    color: #e57373;
+  }
+</style>
+
+<script>
+  // ============================================================
+  // TURAEL TASK DATA — 24 verified tasks from OSRS Wiki
+  // ============================================================
+  const TASKS = [
+    {
+      id: 'banshees', name: 'Banshees', slayerReq: 15, combatReq: 20, speed: 'medium',
+      amount: [15, 30], weight: 8, notes: 'Earmuffs or Slayer helm',
+      location: 'Slayer Tower',
+      teleports: [
+        { label: 'Slayer ring \u2192 Slayer Tower', requires: ['slayer_ring'] },
+        { label: 'Fairy ring CKS \u2192 run west', requires: ['fairy_rings'] },
+        { label: 'Varrock tele \u2192 run east', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'bats', name: 'Bats', slayerReq: 0, combatReq: 5, speed: 'medium',
+      amount: [15, 30], weight: 7, notes: '',
+      location: 'Slayer Tower entrance or Great Kourend',
+      teleports: [
+        { label: 'Slayer ring \u2192 Slayer Tower', requires: ['slayer_ring'] },
+        { label: "Xeric's talisman \u2192 Xeric's Heart", requires: ['xerics_talisman'] },
+        { label: 'Fairy ring CKS \u2192 Canifis area', requires: ['fairy_rings'] },
+        { label: 'Varrock tele \u2192 run east', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'bears', name: 'Bears', slayerReq: 0, combatReq: 13, speed: 'slow',
+      amount: [10, 20], weight: 7, notes: '',
+      location: 'South of Varrock or east of Ardougne',
+      teleports: [
+        { label: 'Fairy ring BLR \u2192 Legends\u2019 Guild area', requires: ['fairy_rings'] },
+        { label: 'Ardougne tele \u2192 run east', requires: ['standard_spellbook'] },
+        { label: 'Varrock tele \u2192 walk south', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'birds', name: 'Birds', slayerReq: 0, combatReq: 0, speed: 'fast',
+      amount: [15, 30], weight: 6, notes: 'Chickens are fastest',
+      location: 'Seth Groats\u2019 farm (near cows) or Champions\u2019 Guild',
+      teleports: [
+        { label: 'Cowbell amulet \u2192 cow field \u2192 chickens next door', requires: ['cowbell_amulet'] },
+        { label: 'Combat bracelet \u2192 Champions\u2019 Guild', requires: ['combat_bracelet'] },
+        { label: "Xeric's talisman \u2192 Xeric's Glade", requires: ['xerics_talisman'] },
+        { label: 'Chronicle \u2192 Champions\u2019 Guild', requires: ['chronicle'] },
+        { label: 'Lumbridge tele \u2192 walk north', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'cave_bugs', name: 'Cave Bugs', slayerReq: 7, combatReq: 0, speed: 'medium',
+      amount: [10, 30], weight: 8, notes: 'Light source required',
+      location: 'Lumbridge Swamp Caves',
+      teleports: [
+        { label: 'Fairy ring AJQ \u2192 cave entrance', requires: ['fairy_rings'] },
+        { label: 'Lumbridge tele \u2192 run south to swamp', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'cave_crawlers', name: 'Cave Crawlers', slayerReq: 10, combatReq: 10, speed: 'medium',
+      amount: [15, 30], weight: 8, notes: 'Antipoison recommended',
+      location: 'Fremennik Slayer Dungeon',
+      teleports: [
+        { label: 'Slayer ring \u2192 Fremennik Slayer Dungeon', requires: ['slayer_ring'] },
+        { label: 'Fairy ring AJR \u2192 Rellekka Slayer cave', requires: ['fairy_rings'] },
+        { label: 'Fairy ring AJQ \u2192 Lumbridge Swamp Caves', requires: ['fairy_rings'] },
+      ]
+    },
+    {
+      id: 'cave_slime', name: 'Cave Slime', slayerReq: 17, combatReq: 15, speed: 'medium',
+      amount: [10, 20], weight: 8, notes: 'Light source required; bring antipoison',
+      location: 'Lumbridge Swamp Caves',
+      teleports: [
+        { label: 'Fairy ring AJQ \u2192 cave entrance', requires: ['fairy_rings'] },
+        { label: 'Lumbridge tele \u2192 run south to swamp', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'cows', name: 'Cows', slayerReq: 0, combatReq: 0, speed: 'fast',
+      amount: [15, 30], weight: 8, notes: 'Very fast task',
+      location: 'Lumbridge cow field',
+      teleports: [
+        { label: 'Cowbell amulet \u2192 Lumbridge cow field', requires: ['cowbell_amulet'] },
+        { label: 'Lumbridge tele \u2192 run NE', requires: ['standard_spellbook'] },
+        { label: 'Skills necklace \u2192 Crafting Guild cows', requires: ['skills_necklace'] },
+        { label: 'Glory \u2192 Draynor \u2192 walk east', requires: ['glory'] },
+      ]
+    },
+    {
+      id: 'crawling_hands', name: 'Crawling Hands', slayerReq: 5, combatReq: 20, speed: 'medium',
+      amount: [15, 30], weight: 8, notes: 'Kill level 7 ones (16 HP)',
+      location: 'Slayer Tower',
+      teleports: [
+        { label: 'Slayer ring \u2192 Slayer Tower', requires: ['slayer_ring'] },
+        { label: 'Fairy ring CKS \u2192 run west', requires: ['fairy_rings'] },
+        { label: 'Varrock tele \u2192 run east', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'dogs', name: 'Dogs', slayerReq: 0, combatReq: 15, speed: 'slow',
+      amount: [15, 30], weight: 7, notes: 'Jackals are closest to tele',
+      location: 'Jackals south of Nardah',
+      teleports: [
+        { label: 'Fairy ring DLQ \u2192 jackals nearby', requires: ['fairy_rings'] },
+        { label: 'Glory \u2192 Al Kharid \u2192 run south', requires: ['glory'] },
+      ]
+    },
+    {
+      id: 'dwarves', name: 'Dwarves', slayerReq: 0, combatReq: 6, speed: 'medium',
+      amount: [10, 25], weight: 7, notes: '',
+      location: 'Dwarven Mine or White Wolf tunnel',
+      teleports: [
+        { label: 'Games necklace \u2192 Burthorpe \u2192 run west', requires: ['games_necklace'] },
+        { label: 'Skills necklace \u2192 Mining Guild', requires: ['skills_necklace'] },
+        { label: 'Falador tele \u2192 run to Dwarven Mine', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'ghosts', name: 'Ghosts', slayerReq: 0, combatReq: 13, speed: 'medium',
+      amount: [15, 30], weight: 7, notes: 'Multicombat in Catacombs',
+      location: 'Catacombs of Kourend',
+      teleports: [
+        { label: "Xeric's talisman \u2192 Xeric's Heart", requires: ['xerics_talisman'] },
+        { label: 'Kourend Castle tele', requires: ['standard_spellbook'] },
+        { label: 'Fairy ring CIS \u2192 run to Catacombs', requires: ['fairy_rings'] },
+      ]
+    },
+    {
+      id: 'goblins', name: 'Goblins', slayerReq: 0, combatReq: 0, speed: 'fast',
+      amount: [15, 30], weight: 7, notes: 'Very fast task',
+      location: 'East of Lumbridge (River Lum area)',
+      teleports: [
+        { label: 'Cowbell amulet \u2192 cow field \u2192 goblins east across river', requires: ['cowbell_amulet'] },
+        { label: 'Lumbridge tele \u2192 run east', requires: ['standard_spellbook'] },
+        { label: 'Glory \u2192 Draynor Village', requires: ['glory'] },
+      ]
+    },
+    {
+      id: 'icefiends', name: 'Icefiends', slayerReq: 0, combatReq: 20, speed: 'medium',
+      amount: [15, 20], weight: 8, notes: '',
+      location: 'Ice Mountain',
+      teleports: [
+        { label: 'Combat bracelet \u2192 Monastery \u2192 run north', requires: ['combat_bracelet'] },
+        { label: 'Ardougne cloak \u2192 Monastery', requires: ['ardougne_cloak'] },
+        { label: 'Falador tele \u2192 run north', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'kalphites', name: 'Kalphites', slayerReq: 0, combatReq: 15, speed: 'medium',
+      amount: [15, 30], weight: 6, notes: '',
+      location: 'Kalphite Lair south of Shantay Pass',
+      teleports: [
+        { label: 'Desert amulet 4 \u2192 Kalphite Cave', requires: ['desert_amulet_4'] },
+        { label: 'Fairy ring BIQ \u2192 Kalphite Hive', requires: ['fairy_rings'] },
+        { label: 'Glory \u2192 Al Kharid \u2192 Shantay Pass', requires: ['glory'] },
+      ]
+    },
+    {
+      id: 'lizards', name: 'Lizards', slayerReq: 22, combatReq: 0, speed: 'slow',
+      amount: [15, 30], weight: 8, notes: 'Ice coolers REQUIRED',
+      location: 'SE of Shantay Pass',
+      teleports: [
+        { label: 'Fairy ring DLQ \u2192 directly at lizards', requires: ['fairy_rings'] },
+        { label: 'Glory \u2192 Al Kharid \u2192 run south', requires: ['glory'] },
+      ]
+    },
+    {
+      id: 'minotaurs', name: 'Minotaurs', slayerReq: 0, combatReq: 7, speed: 'medium',
+      amount: [10, 20], weight: 7, notes: '',
+      location: 'Stronghold of Security floor 1',
+      teleports: [
+        { label: 'Skull sceptre \u2192 Stronghold entrance', requires: ['skull_sceptre'] },
+        { label: 'Varrock tele \u2192 run west to Barbarian Village', requires: ['standard_spellbook'] },
+        { label: 'Games necklace \u2192 Burthorpe (long run)', requires: ['games_necklace'] },
+      ]
+    },
+    {
+      id: 'monkeys', name: 'Monkeys', slayerReq: 0, combatReq: 0, speed: 'medium',
+      amount: [15, 30], weight: 6, notes: '',
+      location: 'Karamja',
+      teleports: [
+        { label: 'Fairy ring CKR \u2192 south Tai Bwo Wannai', requires: ['fairy_rings'] },
+        { label: 'Glory \u2192 Karamja (Musa Point)', requires: ['glory'] },
+        { label: 'Royal seed pod \u2192 Gnome Glider', requires: ['royal_seed_pod'] },
+      ]
+    },
+    {
+      id: 'rats', name: 'Rats', slayerReq: 0, combatReq: 0, speed: 'fast',
+      amount: [15, 30], weight: 7, notes: 'Very fast task',
+      location: 'Ferox Enclave or Varrock Sewers',
+      teleports: [
+        { label: 'Ring of dueling \u2192 Ferox Enclave', requires: ['ring_of_dueling'] },
+        { label: 'Varrock tele \u2192 sewers', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'scorpions', name: 'Scorpions', slayerReq: 0, combatReq: 7, speed: 'medium',
+      amount: [15, 30], weight: 7, notes: '',
+      location: 'Al Kharid Mine',
+      teleports: [
+        { label: 'Ring of dueling \u2192 Emir\u2019s Arena \u2192 run north', requires: ['ring_of_dueling'] },
+        { label: 'Glory \u2192 Al Kharid', requires: ['glory'] },
+        { label: 'Skills necklace \u2192 Mining Guild', requires: ['skills_necklace'] },
+      ]
+    },
+    {
+      id: 'skeletons', name: 'Skeletons', slayerReq: 0, combatReq: 15, speed: 'medium',
+      amount: [15, 30], weight: 7, notes: '',
+      location: 'Edgeville Dungeon or Senntisten Dungeon',
+      teleports: [
+        { label: 'Digsite pendant \u2192 Digsite (use winch)', requires: ['digsite_pendant'] },
+        { label: 'Glory \u2192 Edgeville \u2192 dungeon entrance', requires: ['glory'] },
+        { label: 'Fairy ring DKR \u2192 Edgeville', requires: ['fairy_rings'] },
+        { label: 'Varrock tele \u2192 run west', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'spiders', name: 'Spiders', slayerReq: 0, combatReq: 0, speed: 'medium',
+      amount: [15, 30], weight: 6, notes: '',
+      location: 'Wizard\u2019s Tower or Lumbridge',
+      teleports: [
+        { label: 'Fairy ring DIS \u2192 Wizard\u2019s Tower', requires: ['fairy_rings'] },
+        { label: 'Lumbridge tele \u2192 walk', requires: ['standard_spellbook'] },
+      ]
+    },
+    {
+      id: 'wolves', name: 'Wolves', slayerReq: 0, combatReq: 20, speed: 'medium',
+      amount: [15, 30], weight: 7, notes: '',
+      location: 'White Wolf Mountain',
+      teleports: [
+        { label: 'Games necklace \u2192 Burthorpe \u2192 run SW', requires: ['games_necklace'] },
+        { label: 'Ring of dueling \u2192 Castle Wars (long)', requires: ['ring_of_dueling'] },
+      ]
+    },
+    {
+      id: 'zombies', name: 'Zombies', slayerReq: 0, combatReq: 10, speed: 'medium',
+      amount: [15, 30], weight: 7, notes: 'Undead cows = fastest',
+      location: 'Alice\u2019s Farm west of Ectofuntus',
+      teleports: [
+        { label: 'Ectophial \u2192 run west', requires: ['ectophial'] },
+        { label: 'Fairy ring ALQ \u2192 Haunted Woods', requires: ['fairy_rings'] },
+        { label: 'Varrock tele \u2192 long walk', requires: ['standard_spellbook'] },
+      ]
+    },
+  ];
+
+  // ============================================================
+  // INVENTORY ITEM DEFINITIONS
+  // ============================================================
+  const INVENTORY_ITEMS = [
+    { id: 'rune_pouch', name: 'Rune Pouch', essential: true, always: true, note: 'NPC Contact runes (Lunar) or spellbook teles (Normal)' },
+    { id: 'house_tabs', name: 'House Tabs', essential: true, requires: ['house_tabs'], note: 'POH hub access' },
+    { id: 'ice_coolers', name: 'Ice Coolers', essential: true, always: true, note: 'Required for Lizards task' },
+    { id: 'light_source', name: 'Light Source', essential: false, always: true, note: 'Cave Bugs and Cave Slime' },
+    { id: 'games_necklace', name: 'Games Necklace', essential: false, requires: ['games_necklace'], excludedBy: 'poh_jewellery_box', note: 'Burthorpe return + Wolves/Dwarves' },
+    { id: 'ring_of_dueling', name: 'Ring of Dueling', essential: false, requires: ['ring_of_dueling'], excludedBy: 'poh_jewellery_box', note: 'Rats (Ferox) + Scorpions' },
+    { id: 'glory', name: 'Amulet of Glory', essential: false, requires: ['glory'], excludedBy: 'poh_jewellery_box', note: 'Edgeville, Al Kharid, Draynor, Karamja' },
+    { id: 'combat_bracelet', name: 'Combat Bracelet', essential: false, requires: ['combat_bracelet'], excludedBy: 'poh_jewellery_box', note: 'Birds + Icefiends' },
+    { id: 'skills_necklace', name: 'Skills Necklace', essential: false, requires: ['skills_necklace'], excludedBy: 'poh_jewellery_box', note: 'Mining Guild, Crafting Guild' },
+    { id: 'slayer_ring', name: 'Slayer Ring', essential: false, requires: ['slayer_ring'], note: 'Slayer Tower + Fremennik Dungeon' },
+    { id: 'xerics_talisman', name: "Xeric's Talisman", essential: false, requires: ['xerics_talisman'], note: 'Ghosts (Catacombs) + Bats' },
+    { id: 'ectophial', name: 'Ectophial', essential: false, requires: ['ectophial'], note: 'Zombies' },
+    { id: 'skull_sceptre', name: 'Skull Sceptre', essential: false, requires: ['skull_sceptre'], note: 'Minotaurs' },
+    { id: 'digsite_pendant', name: 'Digsite Pendant', essential: false, requires: ['digsite_pendant'], note: 'Skeletons' },
+    { id: 'royal_seed_pod', name: 'Royal Seed Pod', essential: false, requires: ['royal_seed_pod'], note: 'Monkeys (Gnome Glider)' },
+    { id: 'chronicle', name: 'Chronicle', essential: false, requires: ['chronicle'], note: "Birds (Champions' Guild)" },
+    { id: 'cowbell_amulet', name: 'Cowbell Amulet', essential: false, requires: ['cowbell_amulet'], note: 'Cows, Birds (chickens), and Goblins — three tasks from one tele' },
+    { id: 'ardougne_cloak', name: 'Ardougne Cloak', essential: false, requires: ['ardougne_cloak'], note: 'Icefiends (Monastery)' },
+    { id: 'desert_amulet_4', name: 'Desert Amulet 4', essential: false, requires: ['desert_amulet_4'], note: 'Kalphites' },
+    { id: 'dramen_staff', name: 'Dramen Staff', essential: false, requiresFairyNoStaff: true, note: 'Fairy ring access (weapon slot)' },
+  ];
+
+  // ============================================================
+  // STATE & LOGIC
+  // ============================================================
+  function getUnlocks() {
+    const unlocks = new Set();
+    const spellbook = document.querySelector('input[name="spellbook"]:checked') as HTMLInputElement;
+    if (spellbook) {
+      if (spellbook.value === 'normal') unlocks.add('standard_spellbook');
+      if (spellbook.value === 'lunar') unlocks.add('lunar_spellbook');
+    }
+    document.querySelectorAll('[data-unlock]').forEach(el => {
+      const input = el as HTMLInputElement;
+      if (input.checked) unlocks.add(input.dataset.unlock);
+    });
+    // POH jewellery box implies all jewellery
+    if (unlocks.has('poh_jewellery_box')) {
+      unlocks.add('games_necklace');
+      unlocks.add('ring_of_dueling');
+      unlocks.add('glory');
+      unlocks.add('combat_bracelet');
+      unlocks.add('skills_necklace');
+    }
+    // POH fairy ring implies no dramen needed
+    if (unlocks.has('poh_fairy_ring')) {
+      unlocks.add('fairy_rings');
+      unlocks.add('no_dramen');
+    }
+    return unlocks;
+  }
+
+  function getBestTeleport(task, unlocks) {
+    // If on Lunar, POH-based teleports work via house tabs
+    const hasHouseAccess = unlocks.has('house_tabs') || unlocks.has('standard_spellbook');
+
+    for (const tp of task.teleports) {
+      const met = tp.requires.every(req => {
+        if (req === 'standard_spellbook') {
+          // On Lunar, Standard teles still work via POH Portal Nexus or house tabs
+          return unlocks.has('standard_spellbook') || (unlocks.has('lunar_spellbook') && unlocks.has('house_tabs') && unlocks.has('poh_jewellery_box'));
+        }
+        return unlocks.has(req);
+      });
+      if (met) return tp;
+    }
+    return null;
+  }
+
+  function getAlternateTeleport(task, unlocks, bestTp) {
+    for (const tp of task.teleports) {
+      if (tp === bestTp) continue;
+      const met = tp.requires.every(req => {
+        if (req === 'standard_spellbook') {
+          return unlocks.has('standard_spellbook') || (unlocks.has('lunar_spellbook') && unlocks.has('house_tabs') && unlocks.has('poh_jewellery_box'));
+        }
+        return unlocks.has(req);
+      });
+      if (met) return tp;
+    }
+    return null;
+  }
+
+  function buildInventory(unlocks) {
+    const items = [];
+    for (const item of INVENTORY_ITEMS) {
+      // Dramen staff: only if fairy rings AND no dramen-free access
+      if (item.requiresFairyNoStaff !== undefined) {
+        if (unlocks.has('fairy_rings') && !unlocks.has('no_dramen') && !unlocks.has('poh_fairy_ring')) {
+          items.push(item);
+        }
+        continue;
+      }
+
+      // Always-include items
+      if (item.always) {
+        items.push(item);
+        continue;
+      }
+
+      // Check requires
+      if (item.requires) {
+        const hasAll = item.requires.every(r => unlocks.has(r));
+        if (!hasAll) continue;
+      }
+
+      // Check excludedBy (e.g., POH jewellery box replaces individual pieces)
+      if (item.excludedBy && unlocks.has(item.excludedBy)) continue;
+
+      items.push(item);
+    }
+    return items;
+  }
+
+  function render() {
+    const unlocks = getUnlocks();
+
+    // Build inventory
+    const inventory = buildInventory(unlocks);
+    const listEl = document.getElementById('inventoryList');
+    const noteEl = document.getElementById('inventoryNote');
+    if (listEl) {
+      listEl.innerHTML = inventory.map((item, i) => {
+        const cls = item.essential ? 'inv-item essential' : 'inv-item';
+        return `<div class="${cls}"><span class="inv-slot">${i + 1}.</span> <span>${item.name}</span></div>`;
+      }).join('');
+    }
+
+    const remaining = 28 - inventory.length;
+    if (noteEl) {
+      const spellbookNote = unlocks.has('lunar_spellbook')
+        ? 'Lunar: Rune pouch holds Air, Astral, Cosmic for NPC Contact.'
+        : 'Normal: Rune pouch holds Law, Air, + Earth/Water/Fire for teleport spells.';
+      noteEl.innerHTML = `${inventory.length} slots used - ${remaining} free for combat gear and food.<br>${spellbookNote}`;
+    }
+
+    // Build task table
+    const tbody = document.getElementById('taskTableBody');
+    if (tbody) {
+      tbody.innerHTML = TASKS.map(task => {
+        const best = getBestTeleport(task, unlocks);
+        const alt = getAlternateTeleport(task, unlocks, best);
+        const slayerTag = task.slayerReq ? ` <span class="slayer-req">(${task.slayerReq} Slay)</span>` : '';
+        const noteClass = task.notes && (task.notes.toLowerCase().includes('required') || task.notes.toLowerCase().includes('poison')) ? 'task-note warning' : 'task-note';
+
+        const speedLabel = task.speed === 'fast' ? 'Fast' : task.speed === 'slow' ? 'Slow' : 'Medium';
+        const speedClass = `speed-badge speed-${task.speed}`;
+
+        return `<tr>
+          <td><span class="task-name">${task.name}${slayerTag}</span></td>
+          <td><span class="${speedClass}">${speedLabel}</span></td>
+          <td>${best ? `<span class="teleport-text">${best.label}</span>` : '<span class="no-teleport">No teleport available</span>'}</td>
+          <td>${alt ? `<span class="teleport-alt">${alt.label}</span>` : '<span class="teleport-alt">-</span>'}</td>
+          <td>${task.notes ? `<span class="${noteClass}">${task.notes}</span>` : ''}</td>
+        </tr>`;
+      }).join('');
+    }
+  }
+
+  // ============================================================
+  // EVENT LISTENERS
+  // ============================================================
+  document.querySelectorAll('#turaelTool input').forEach(input => {
+    input.addEventListener('change', render);
+  });
+
+  // Auto-check fairy_rings when poh_fairy_ring is checked
+  const pohFairyEl = document.querySelector('[data-unlock="poh_fairy_ring"]') as HTMLInputElement;
+  pohFairyEl?.addEventListener('change', () => {
+    if (pohFairyEl.checked) {
+      const fairyEl = document.querySelector('[data-unlock="fairy_rings"]') as HTMLInputElement;
+      if (fairyEl) fairyEl.checked = true;
+      const dramenEl = document.querySelector('[data-unlock="no_dramen"]') as HTMLInputElement;
+      if (dramenEl) dramenEl.checked = true;
+    }
+  });
+
+  // Auto-check fairy_rings when no_dramen is checked
+  const noDramenEl = document.querySelector('[data-unlock="no_dramen"]') as HTMLInputElement;
+  noDramenEl?.addEventListener('change', () => {
+    if (noDramenEl.checked) {
+      const fairyEl = document.querySelector('[data-unlock="fairy_rings"]') as HTMLInputElement;
+      if (fairyEl) fairyEl.checked = true;
+    }
+  });
+
+  // Initial render
+  render();
+</script>

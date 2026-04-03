@@ -116,6 +116,11 @@ const readingTime = Math.ceil(wordCount / 200);
     margin: var(--space-lg) 0;
   }
 
+  /* Allow the Turael tool to break out of the 48rem prose column, left-aligned with text */
+  .guide-content :global(.turael-tool) {
+    width: min(calc(var(--site-max-width) - 2 * var(--space-md)), calc(100vw - 2 * var(--space-md)));
+  }
+
   /* Related guides section styling */
   .guide-content :global(.related-guides) {
     background-color: var(--color-bg-secondary);

@@ -1,0 +1,206 @@
+---
+title: "OSRS Ironman Turael Skipping Guide: Optimal Inventory & Teleports"
+description: "Interactive Turael skipping tool for OSRS Ironmen. Personalised inventory and teleport recommendations based on your unlocks. Normal vs Lunar spellbook comparison, task-by-task routing, and optimal setup."
+publishDate: 2026-03-18
+updatedDate: 2026-03-18
+category: guides
+subcategory: activities
+tags: ["turael skipping", "slayer", "teleports", "inventory", "turael", "burthorpe", "npc contact"]
+quickAnswer: "Turael skipping is how ironmen farm Slayer points efficiently. The loop: do 9 tasks from Turael (0 points, fast kills), get your 10th task from Konar for the 5x point boost, then immediately return to Turael and repeat the 9+1 cycle. Each Turael task is extremely rapid - cows, goblins, and rats are the fastest. The Cowbell amulet (from The Ides of Milk quest, no requirements) is the best single teleport item: it lands you at the Lumbridge cow field, putting Cows, Birds (Seth Groats' chickens next door), and Goblins (just east) all within steps. Always carry ice coolers (Lizards), a light source (Cave Bugs/Slime), and a Games necklace for Burthorpe. Switch to Lunar spellbook at 67 Magic for NPC Contact, which eliminates the Burthorpe return trip entirely."
+---
+
+import Callout from '../../components/Callout.astro';
+import Schema from '../../components/Schema.astro';
+import TuraelSkipTool from '../../components/TuraelSkipTool.astro';
+
+export const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is Turael skipping in OSRS?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Turael skipping is a method where you get a task from Turael (the lowest Slayer master in Burthorpe), complete it quickly, then return to your preferred higher-level Slayer master for a new task. This resets your current task without losing your streak if done at the right point, or lets you burn through tasks cheaply to reach a streak milestone like every 10th/50th task from a higher master.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I use Normal or Lunar spellbook for Turael skipping?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Lunar spellbook is better once you have NPC Contact (67 Magic + Lunar Diplomacy) and house tabs. NPC Contact lets you get a new task from Turael without physically travelling to Burthorpe, saving ~15 seconds per skip. Normal spellbook is better if you lack house tabs or jewellery to cover your teleport needs, since you lose access to direct Lumbridge/Varrock/Ardougne teleports on Lunar.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I get back to Turael quickly?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The fastest method is NPC Contact on the Lunar spellbook. Cast it from anywhere to contact Turael remotely with zero travel time. If on Normal spellbook, use a Games necklace teleport to Burthorpe Games Room and run east to Turael. If you have a POH Ornate Jewellery Box, use a house tab then Games Necklace: Burthorpe from the box.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the fastest Turael tasks to complete?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cows, Goblins, Rats, and Birds are the fastest due to very low HP and clustered spawns. These three are especially quick together if you have the Cowbell amulet. It teleports to the Lumbridge cow field, putting cows, the adjacent chicken coop (birds), and the goblin village just east all within a short run. Bats at the Slayer Tower entrance with a Slayer ring are also quick. The slowest tasks are Dogs (scattered spawns), Bears (spread out), and Lizards (require ice coolers to finish each kill).'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What items do I always need for Turael skipping?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Always bring: a rune pouch (for spellbook teleports or NPC Contact runes), ice coolers (for Lizards task), a light source (for Cave Bugs and Cave Slime), and a Games necklace (for quick Burthorpe return). If you have the Cowbell amulet (from The Ides of Milk quest), bring it - it covers Cows, Birds, and Goblins from one destination. Beyond that, the optimal loadout depends on your specific teleport unlocks. Use the interactive tool in this guide to build a personalised inventory.'
+      }
+    }
+  ]
+};
+
+## What Is Turael Skipping?
+
+Turael is the lowest-level Slayer master, located in **Burthorpe**. He assigns easy tasks (cows, goblins, bats, etc.) with 15-30 kills each.
+
+"Turael skipping" means getting a task from Turael, blitzing through it, then going back to your real Slayer master (Duradel, Konar, Nieve) for a new assignment. You do this to:
+
+- **Reset an unwanted task** without spending 30 Slayer points on a skip
+- **Build streak milestones** - every 10th, 50th, 100th, etc. task from a high-level master gives bonus points, and Turael tasks count toward the streak
+- **Target specific tasks** - keep skipping until Duradel gives you the boss task or assignment you want
+
+<Callout type="tip">
+Turael tasks give **0 Slayer points** and no meaningful XP. The only goal is speed. Complete the task as fast as possible and move on.
+</Callout>
+
+## Interactive Inventory Builder
+
+Select your available teleports and unlocks below. The tool recommends your optimal inventory and shows the best teleport for every possible task.
+
+<TuraelSkipTool />
+
+## Normal vs Lunar Spellbook
+
+The biggest decision for Turael skipping is your spellbook. Here's when each one wins.
+
+### Normal Spellbook
+
+**Best when:** You're early-mid game, don't have house tabs, or lack jewellery coverage.
+
+You keep direct teleports to Lumbridge (cows, goblins, spiders), Varrock (minotaurs, rats), Falador (icefiends, dwarves), and Ardougne (bears). You physically travel to Turael after each task via Games necklace → Burthorpe.
+
+**Cost per skip:** ~15 seconds of travel time to Burthorpe after each task.
+
+### Lunar Spellbook
+
+**Best when:** You have 67 Magic, Lunar Diplomacy completed, house tabs, and enough jewellery or fairy ring access to cover your teleport needs.
+
+The key spell is **NPC Contact** (67 Magic, 2 Air + 1 Astral + 1 Cosmic). Right-click → "Last NPC (Turael)" to get a new task from anywhere. No return trip needed.
+
+**Cost per skip:** 0 seconds of travel time. You lose Standard teleports but replace them with house tabs → POH hub → jewellery box / fairy ring / portal nexus.
+
+<Callout type="efficiency">
+**The threshold:** Lunar becomes strictly better once you have NPC Contact + house tabs + a Games necklace (or POH Jewellery Box). That setup covers every task location while eliminating the Burthorpe return trip entirely.
+</Callout>
+
+### Lunar Becomes Dominant With POH
+
+At **91 Construction** (Ornate Jewellery Box) and **85 Construction** (POH Fairy Ring), your house becomes a teleport hub that covers every destination in the game. The loop becomes:
+
+1. Complete task
+2. Cast NPC Contact → get new task
+3. House tab → POH → Jewellery Box or Fairy Ring → next task location
+4. Repeat
+
+This is the endgame Turael skipping setup. No jewellery charges consumed, no rune costs beyond NPC Contact.
+
+## Task Overview
+
+Turael assigns **24 different tasks** with a total weight of 172. The most common tasks (weight 8) are: Banshees, Cave Bugs, Cave Crawlers, Cave Slime, Cows, Crawling Hands, Icefiends, and Lizards.
+
+### Special Requirements
+
+Some tasks need specific items in your inventory:
+
+- **Lizards**: Ice coolers required (buy from any Slayer master, or unlock the Reptile Freezer perk for 10 points to automate)
+- **Cave Bugs / Cave Slime**: Light source required (Kandarin headgear works and never extinguishes)
+- **Banshees**: Earmuffs or Slayer helmet required
+- **Cave Crawlers / Cave Slime**: Antipoison recommended
+
+### Fastest Tasks
+
+When you get these, celebrate. Done in under a minute:
+- **Cows**: Cowbell amulet to Lumbridge cow field (direct), or Lumbridge tele + run NE
+- **Goblins**: Cowbell amulet to cow field, then goblins just east across River Lum, or Lumbridge tele
+- **Birds**: Cowbell amulet to cow field, then Seth Groats' chicken coop immediately adjacent, or Combat bracelet to Champions' Guild
+- **Rats**: Ring of dueling to Ferox Enclave, 1-2 HP each
+
+<Callout type="tip">
+The **Cowbell amulet** (reward from "The Ides of Milk" quest) is exceptional for Turael skipping. It teleports directly to the Lumbridge cow field with 1,000 charges (recharged cheaply with air runes), and covers three of the fastest tasks: Cows, Birds (chickens at Seth Groats' coop next door), and Goblins (just east across the river). The quest is F2P with no skill requirements.
+</Callout>
+
+### Slowest Tasks
+
+These take the longest due to travel or mechanics:
+- **Dogs**: Scattered spawns, desert travel if doing jackals
+- **Lizards**: Must use ice coolers on each kill below 4 HP
+- **Bears**: Spread across wide areas
+
+## What About Mazchna Skipping?
+
+Mazchna (Canifis) gives **6 points per task** after his August 2025 buff (up from 2). This raises the question: is doing 49 Mazchna tasks and using Konar only for the 50th more efficient than Turael?
+
+**The maths per 50-task cycle:**
+
+| Method | Points |
+|---|---|
+| Turael ×49 + Konar at every 10th (standard) | 630 pts |
+| Mazchna ×49 + Konar at 50th only | 660 pts |
+
+Mazchna edges ahead by 30 points per cycle because his 6 pts per task adds up across the 45 non-milestone tasks, partially offsetting the weaker milestone payouts (Mazchna at 10th/20th/30th/40th gives 30 pts each vs Konar's 90 pts each).
+
+**But Turael wins on points per hour.** Mazchna tasks run 30–50 kills vs Turael's 10–30. You'll also get slower assignments (Killerwatts, Catablepon, Vampyres) that take real time to finish. Mazchna also requires **Priest in Peril** to access Canifis.
+
+<Callout type="efficiency">
+**Verdict:** Standard Turael (9 tasks + Konar at every 10th) remains optimal for dedicated point farming. Mazchna 49+1 is worth doing if you're already grinding Mazchna for early XP. Just swap your 50th task to Konar and you get 660 pts for free.
+</Callout>
+
+## Krystilia Skipping (Wilderness Slayer)
+
+Krystilia, located in the Wilderness Resource Area, assigns wilderness-only tasks and gives **25 points per task base** - one of the highest rates in the game. The catch is you need to survive the wilderness to complete each task.
+
+The trick: if Krystilia gives you an unwanted task, skip it with Turael. This resets your Krystilia-specific task streak but leaves your main slayer streak (built with Nieve, Konar, or Duradel) completely intact.
+
+### Tasks Worth Keeping From Krystilia
+
+- **Revenants** - the primary target. Revenant emblems, dragon items, and high GP drops. By far the best wilderness Slayer task for ironmen
+- **Bears / Spiders / Skeletons** - fast kills, good for Wilderness Slayer experience, overlap with Wilderness bosses area
+- **Boss tasks** (Chaos Fanatic, Crazy Archaeologist, Scorpia, Venenatis, Vet'ion) - unique drops and good XP
+- **Barrageable tasks** - if you have an accursed sceptre, any large multicombat wilderness task becomes very fast XP
+
+### Tasks Worth Skipping
+
+Anything that requires deep wilderness travel without meaningful reward. Hellhounds, Ankou, and Spiritual creatures can be done outside the wilderness on a normal task - getting them from Krystilia just adds unnecessary risk.
+
+<Callout type="warning">
+Krystilia skipping is high-commitment. Every skip costs a Turael task (30-90 seconds) plus the travel time to the Wilderness Resource Area. Only worth it if you're specifically farming revenant emblems or targeting wilderness boss uniques.
+</Callout>
+
+## Tips for Efficient Skipping
+
+1. **Right-click "Last NPC"** on NPC Contact to skip the interface. Goes straight to Turael with no menu
+2. **Bring a cannon** for outdoor multicombat tasks like goblins and rats (Varrock Sewers). Can't be used inside dungeons, but great for outdoor spawns
+3. **Keep your rune pouch stocked** - running out of NPC Contact runes mid-session is painful
+4. **Bank at Ferox Enclave** (Ring of dueling) between tasks if you need supplies. It has a bank and a restoration pool
+5. **Don't overthink slow tasks** - even the worst Turael task takes under 3 minutes. Just finish it and move on
+
+<Schema schema={faqSchema} />
+
+## Related Guides
+
+- [Slayer Guide](/skilling/slayer/) - What you're actually training between Turael skips
+- [Achievement Diary Guide](/guides/achievement-diaries/) - Diary rewards that unlock key teleports
+- [Gear Acquisition Guide](/supplies/gear-acquisition/) - Combat gear for Slayer tasks
+- [Mid-Game Ironman Goals](/progression/mid-game-goals/) - Where Slayer fits in your progression
+- [Construction Guide](/skilling/construction/) - POH upgrades for the endgame Turael setup
