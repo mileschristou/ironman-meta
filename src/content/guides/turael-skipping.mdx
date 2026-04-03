@@ -13,6 +13,45 @@ import Callout from '../../components/Callout.astro';
 import Schema from '../../components/Schema.astro';
 import TuraelSkipTool from '../../components/TuraelSkipTool.astro';
 
+export const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How to Turael Skip for Slayer Points (9+1 Method)',
+  description: 'Farm Slayer points efficiently on an OSRS ironman using the 9+1 Turael skipping cycle.',
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Get a task from Turael',
+      text: 'Travel to Burthorpe and speak to Turael, or use NPC Contact on the Lunar spellbook to contact him remotely. He assigns easy tasks worth 0 Slayer points.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Complete the task as fast as possible',
+      text: 'Teleport to the task location using your best available teleport. Kill the required monsters quickly. Cows, goblins, rats, and birds are the fastest tasks and take under 60 seconds.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Repeat steps 1 and 2 nine times',
+      text: 'Do 9 consecutive tasks from Turael. These earn 0 points each but build your overall task streak count toward the next milestone.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Get your 10th task from Konar for the 5x milestone bonus',
+      text: 'On every 10th task, go to Konar quo Maten on Mount Karuulm instead of Turael. The 10th task milestone gives 5x points (90 points from Konar vs the normal 18). At every 50th task the bonus is 15x (270 points), so always save that slot for Konar too.'
+    },
+    {
+      '@type': 'HowToStep',
+      position: 5,
+      name: 'Complete the Konar task and repeat the cycle',
+      text: 'Finish Konar\'s task, then return to Turael to begin the next 9+1 cycle. This generates 630 Slayer points per 50 tasks and is the fastest points-per-hour method available to ironmen.'
+    }
+  ]
+};
+
 export const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -195,6 +234,7 @@ Krystilia skipping is high-commitment. Every skip costs a Turael task (30-90 sec
 4. **Bank at Ferox Enclave** (Ring of dueling) between tasks if you need supplies. It has a bank and a restoration pool
 5. **Don't overthink slow tasks** - even the worst Turael task takes under 3 minutes. Just finish it and move on
 
+<Schema schema={howToSchema} />
 <Schema schema={faqSchema} />
 
 ## Related Guides
