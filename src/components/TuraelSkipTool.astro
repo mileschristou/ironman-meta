@@ -745,10 +745,46 @@
   }
 
   // ============================================================
+  // LOCALSTORAGE PERSISTENCE
+  // ============================================================
+  const STORAGE_KEY = 'turael-tool-config';
+
+  function saveConfig() {
+    try {
+      const spellbook = (document.querySelector('input[name="spellbook"]:checked') as HTMLInputElement)?.value || 'normal';
+      const checkboxes: Record<string, boolean> = {};
+      document.querySelectorAll('[data-unlock]').forEach(el => {
+        const input = el as HTMLInputElement;
+        checkboxes[input.dataset.unlock!] = input.checked;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ spellbook, checkboxes }));
+    } catch (e) {}
+  }
+
+  function loadConfig() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) return;
+      const config = JSON.parse(stored);
+      if (config.spellbook) {
+        const radio = document.querySelector(`input[name="spellbook"][value="${config.spellbook}"]`) as HTMLInputElement;
+        if (radio) radio.checked = true;
+      }
+      if (config.checkboxes) {
+        document.querySelectorAll('[data-unlock]').forEach(el => {
+          const input = el as HTMLInputElement;
+          const key = input.dataset.unlock!;
+          if (config.checkboxes[key] !== undefined) input.checked = config.checkboxes[key];
+        });
+      }
+    } catch (e) {}
+  }
+
+  // ============================================================
   // EVENT LISTENERS
   // ============================================================
   document.querySelectorAll('#turaelTool input').forEach(input => {
-    input.addEventListener('change', render);
+    input.addEventListener('change', () => { render(); saveConfig(); });
   });
 
   // Auto-check fairy_rings when poh_fairy_ring is checked
@@ -771,6 +807,7 @@
     }
   });
 
-  // Initial render
+  // Load saved config then render
+  loadConfig();
   render();
 </script>
