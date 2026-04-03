@@ -38,6 +38,7 @@
         <label class="check-label"><input type="checkbox" data-unlock="digsite_pendant" /><span>Digsite Pendant</span></label>
         <label class="check-label"><input type="checkbox" data-unlock="royal_seed_pod" /><span>Royal Seed Pod</span></label>
         <label class="check-label"><input type="checkbox" data-unlock="chronicle" /><span>Chronicle</span></label>
+        <label class="check-label"><input type="checkbox" data-unlock="cowbell_amulet" /><span>Cowbell Amulet</span></label>
       </div>
     </div>
 
@@ -73,6 +74,7 @@
           <thead>
             <tr>
               <th>Task</th>
+              <th>Speed</th>
               <th>Best Teleport</th>
               <th>Alternate</th>
               <th>Notes</th>
@@ -88,7 +90,7 @@
 <style>
   .turael-tool {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 260px 1fr;
     gap: 1.5rem;
     margin: 1.5rem 0;
   }
@@ -308,6 +310,30 @@
     color: #8a7a6a;
     font-style: italic;
   }
+
+  .speed-badge {
+    display: inline-block;
+    padding: 0.15rem 0.45rem;
+    border-radius: 0.25rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .speed-fast {
+    background: #2d2010;
+    color: #d4a574;
+  }
+
+  .speed-medium {
+    background: #1a2620;
+    color: #7ab894;
+  }
+
+  .speed-slow {
+    background: #2a1818;
+    color: #e57373;
+  }
 </style>
 
 <script>
@@ -316,7 +342,7 @@
   // ============================================================
   const TASKS = [
     {
-      id: 'banshees', name: 'Banshees', slayerReq: 15, combatReq: 20,
+      id: 'banshees', name: 'Banshees', slayerReq: 15, combatReq: 20, speed: 'medium',
       amount: [15, 30], weight: 8, notes: 'Earmuffs or Slayer helm',
       location: 'Slayer Tower',
       teleports: [
@@ -326,7 +352,7 @@
       ]
     },
     {
-      id: 'bats', name: 'Bats', slayerReq: 0, combatReq: 5,
+      id: 'bats', name: 'Bats', slayerReq: 0, combatReq: 5, speed: 'medium',
       amount: [15, 30], weight: 7, notes: '',
       location: 'Slayer Tower entrance or Great Kourend',
       teleports: [
@@ -337,7 +363,7 @@
       ]
     },
     {
-      id: 'bears', name: 'Bears', slayerReq: 0, combatReq: 13,
+      id: 'bears', name: 'Bears', slayerReq: 0, combatReq: 13, speed: 'slow',
       amount: [10, 20], weight: 7, notes: '',
       location: 'South of Varrock or east of Ardougne',
       teleports: [
@@ -347,10 +373,11 @@
       ]
     },
     {
-      id: 'birds', name: 'Birds', slayerReq: 0, combatReq: 0,
+      id: 'birds', name: 'Birds', slayerReq: 0, combatReq: 0, speed: 'fast',
       amount: [15, 30], weight: 6, notes: 'Chickens are fastest',
-      location: 'Champions\u2019 Guild chickens or Hosidius',
+      location: 'Seth Groats\u2019 farm (near cows) or Champions\u2019 Guild',
       teleports: [
+        { label: 'Cowbell amulet \u2192 cow field \u2192 chickens next door', requires: ['cowbell_amulet'] },
         { label: 'Combat bracelet \u2192 Champions\u2019 Guild', requires: ['combat_bracelet'] },
         { label: "Xeric's talisman \u2192 Xeric's Glade", requires: ['xerics_talisman'] },
         { label: 'Chronicle \u2192 Champions\u2019 Guild', requires: ['chronicle'] },
@@ -358,7 +385,7 @@
       ]
     },
     {
-      id: 'cave_bugs', name: 'Cave Bugs', slayerReq: 7, combatReq: 0,
+      id: 'cave_bugs', name: 'Cave Bugs', slayerReq: 7, combatReq: 0, speed: 'medium',
       amount: [10, 30], weight: 8, notes: 'Light source required',
       location: 'Lumbridge Swamp Caves',
       teleports: [
@@ -367,7 +394,7 @@
       ]
     },
     {
-      id: 'cave_crawlers', name: 'Cave Crawlers', slayerReq: 10, combatReq: 10,
+      id: 'cave_crawlers', name: 'Cave Crawlers', slayerReq: 10, combatReq: 10, speed: 'medium',
       amount: [15, 30], weight: 8, notes: 'Antipoison recommended',
       location: 'Fremennik Slayer Dungeon',
       teleports: [
@@ -377,8 +404,8 @@
       ]
     },
     {
-      id: 'cave_slime', name: 'Cave Slime', slayerReq: 17, combatReq: 15,
-      amount: [10, 20], weight: 8, notes: 'Light source required, poisons',
+      id: 'cave_slime', name: 'Cave Slime', slayerReq: 17, combatReq: 15, speed: 'medium',
+      amount: [10, 20], weight: 8, notes: 'Light source required; bring antipoison',
       location: 'Lumbridge Swamp Caves',
       teleports: [
         { label: 'Fairy ring AJQ \u2192 cave entrance', requires: ['fairy_rings'] },
@@ -386,17 +413,18 @@
       ]
     },
     {
-      id: 'cows', name: 'Cows', slayerReq: 0, combatReq: 0,
+      id: 'cows', name: 'Cows', slayerReq: 0, combatReq: 0, speed: 'fast',
       amount: [15, 30], weight: 8, notes: 'Very fast task',
       location: 'Lumbridge cow field',
       teleports: [
+        { label: 'Cowbell amulet \u2192 Lumbridge cow field', requires: ['cowbell_amulet'] },
         { label: 'Lumbridge tele \u2192 run NE', requires: ['standard_spellbook'] },
         { label: 'Skills necklace \u2192 Crafting Guild cows', requires: ['skills_necklace'] },
         { label: 'Glory \u2192 Draynor \u2192 walk east', requires: ['glory'] },
       ]
     },
     {
-      id: 'crawling_hands', name: 'Crawling Hands', slayerReq: 5, combatReq: 20,
+      id: 'crawling_hands', name: 'Crawling Hands', slayerReq: 5, combatReq: 20, speed: 'medium',
       amount: [15, 30], weight: 8, notes: 'Kill level 7 ones (16 HP)',
       location: 'Slayer Tower',
       teleports: [
@@ -406,7 +434,7 @@
       ]
     },
     {
-      id: 'dogs', name: 'Dogs', slayerReq: 0, combatReq: 15,
+      id: 'dogs', name: 'Dogs', slayerReq: 0, combatReq: 15, speed: 'slow',
       amount: [15, 30], weight: 7, notes: 'Jackals are closest to tele',
       location: 'Jackals south of Nardah',
       teleports: [
@@ -415,7 +443,7 @@
       ]
     },
     {
-      id: 'dwarves', name: 'Dwarves', slayerReq: 0, combatReq: 6,
+      id: 'dwarves', name: 'Dwarves', slayerReq: 0, combatReq: 6, speed: 'medium',
       amount: [10, 25], weight: 7, notes: '',
       location: 'Dwarven Mine or White Wolf tunnel',
       teleports: [
@@ -425,7 +453,7 @@
       ]
     },
     {
-      id: 'ghosts', name: 'Ghosts', slayerReq: 0, combatReq: 13,
+      id: 'ghosts', name: 'Ghosts', slayerReq: 0, combatReq: 13, speed: 'medium',
       amount: [15, 30], weight: 7, notes: 'Multicombat in Catacombs',
       location: 'Catacombs of Kourend',
       teleports: [
@@ -435,16 +463,17 @@
       ]
     },
     {
-      id: 'goblins', name: 'Goblins', slayerReq: 0, combatReq: 0,
+      id: 'goblins', name: 'Goblins', slayerReq: 0, combatReq: 0, speed: 'fast',
       amount: [15, 30], weight: 7, notes: 'Very fast task',
-      location: 'East of Lumbridge',
+      location: 'East of Lumbridge (River Lum area)',
       teleports: [
+        { label: 'Cowbell amulet \u2192 cow field \u2192 goblins east across river', requires: ['cowbell_amulet'] },
         { label: 'Lumbridge tele \u2192 run east', requires: ['standard_spellbook'] },
         { label: 'Glory \u2192 Draynor Village', requires: ['glory'] },
       ]
     },
     {
-      id: 'icefiends', name: 'Icefiends', slayerReq: 0, combatReq: 20,
+      id: 'icefiends', name: 'Icefiends', slayerReq: 0, combatReq: 20, speed: 'medium',
       amount: [15, 20], weight: 8, notes: '',
       location: 'Ice Mountain',
       teleports: [
@@ -454,7 +483,7 @@
       ]
     },
     {
-      id: 'kalphites', name: 'Kalphites', slayerReq: 0, combatReq: 15,
+      id: 'kalphites', name: 'Kalphites', slayerReq: 0, combatReq: 15, speed: 'medium',
       amount: [15, 30], weight: 6, notes: '',
       location: 'Kalphite Lair south of Shantay Pass',
       teleports: [
@@ -464,7 +493,7 @@
       ]
     },
     {
-      id: 'lizards', name: 'Lizards', slayerReq: 22, combatReq: 0,
+      id: 'lizards', name: 'Lizards', slayerReq: 22, combatReq: 0, speed: 'slow',
       amount: [15, 30], weight: 8, notes: 'Ice coolers REQUIRED',
       location: 'SE of Shantay Pass',
       teleports: [
@@ -473,7 +502,7 @@
       ]
     },
     {
-      id: 'minotaurs', name: 'Minotaurs', slayerReq: 0, combatReq: 7,
+      id: 'minotaurs', name: 'Minotaurs', slayerReq: 0, combatReq: 7, speed: 'medium',
       amount: [10, 20], weight: 7, notes: '',
       location: 'Stronghold of Security floor 1',
       teleports: [
@@ -483,7 +512,7 @@
       ]
     },
     {
-      id: 'monkeys', name: 'Monkeys', slayerReq: 0, combatReq: 0,
+      id: 'monkeys', name: 'Monkeys', slayerReq: 0, combatReq: 0, speed: 'medium',
       amount: [15, 30], weight: 6, notes: '',
       location: 'Karamja',
       teleports: [
@@ -493,7 +522,7 @@
       ]
     },
     {
-      id: 'rats', name: 'Rats', slayerReq: 0, combatReq: 0,
+      id: 'rats', name: 'Rats', slayerReq: 0, combatReq: 0, speed: 'fast',
       amount: [15, 30], weight: 7, notes: 'Very fast task',
       location: 'Ferox Enclave or Varrock Sewers',
       teleports: [
@@ -502,7 +531,7 @@
       ]
     },
     {
-      id: 'scorpions', name: 'Scorpions', slayerReq: 0, combatReq: 7,
+      id: 'scorpions', name: 'Scorpions', slayerReq: 0, combatReq: 7, speed: 'medium',
       amount: [15, 30], weight: 7, notes: '',
       location: 'Al Kharid Mine',
       teleports: [
@@ -512,7 +541,7 @@
       ]
     },
     {
-      id: 'skeletons', name: 'Skeletons', slayerReq: 0, combatReq: 15,
+      id: 'skeletons', name: 'Skeletons', slayerReq: 0, combatReq: 15, speed: 'medium',
       amount: [15, 30], weight: 7, notes: '',
       location: 'Edgeville Dungeon or Senntisten Dungeon',
       teleports: [
@@ -523,7 +552,7 @@
       ]
     },
     {
-      id: 'spiders', name: 'Spiders', slayerReq: 0, combatReq: 0,
+      id: 'spiders', name: 'Spiders', slayerReq: 0, combatReq: 0, speed: 'medium',
       amount: [15, 30], weight: 6, notes: '',
       location: 'Wizard\u2019s Tower or Lumbridge',
       teleports: [
@@ -532,7 +561,7 @@
       ]
     },
     {
-      id: 'wolves', name: 'Wolves', slayerReq: 0, combatReq: 20,
+      id: 'wolves', name: 'Wolves', slayerReq: 0, combatReq: 20, speed: 'medium',
       amount: [15, 30], weight: 7, notes: '',
       location: 'White Wolf Mountain',
       teleports: [
@@ -541,7 +570,7 @@
       ]
     },
     {
-      id: 'zombies', name: 'Zombies', slayerReq: 0, combatReq: 10,
+      id: 'zombies', name: 'Zombies', slayerReq: 0, combatReq: 10, speed: 'medium',
       amount: [15, 30], weight: 7, notes: 'Undead cows = fastest',
       location: 'Alice\u2019s Farm west of Ectofuntus',
       teleports: [
@@ -572,6 +601,7 @@
     { id: 'digsite_pendant', name: 'Digsite Pendant', essential: false, requires: ['digsite_pendant'], note: 'Skeletons' },
     { id: 'royal_seed_pod', name: 'Royal Seed Pod', essential: false, requires: ['royal_seed_pod'], note: 'Monkeys (Gnome Glider)' },
     { id: 'chronicle', name: 'Chronicle', essential: false, requires: ['chronicle'], note: "Birds (Champions' Guild)" },
+    { id: 'cowbell_amulet', name: 'Cowbell Amulet', essential: false, requires: ['cowbell_amulet'], note: 'Cows, Birds (chickens), and Goblins — three tasks from one tele' },
     { id: 'ardougne_cloak', name: 'Ardougne Cloak', essential: false, requires: ['ardougne_cloak'], note: 'Icefiends (Monastery)' },
     { id: 'desert_amulet_4', name: 'Desert Amulet 4', essential: false, requires: ['desert_amulet_4'], note: 'Kalphites' },
     { id: 'dramen_staff', name: 'Dramen Staff', essential: false, requiresFairyNoStaff: true, note: 'Fairy ring access (weapon slot)' },
@@ -688,7 +718,7 @@
       const spellbookNote = unlocks.has('lunar_spellbook')
         ? 'Lunar: Rune pouch holds Air, Astral, Cosmic for NPC Contact.'
         : 'Normal: Rune pouch holds Law, Air, + Earth/Water/Fire for teleport spells.';
-      noteEl.innerHTML = `${inventory.length} slots used \u2014 ${remaining} free for combat gear and food.<br>${spellbookNote}`;
+      noteEl.innerHTML = `${inventory.length} slots used - ${remaining} free for combat gear and food.<br>${spellbookNote}`;
     }
 
     // Build task table
@@ -700,10 +730,14 @@
         const slayerTag = task.slayerReq ? ` <span class="slayer-req">(${task.slayerReq} Slay)</span>` : '';
         const noteClass = task.notes && (task.notes.toLowerCase().includes('required') || task.notes.toLowerCase().includes('poison')) ? 'task-note warning' : 'task-note';
 
+        const speedLabel = task.speed === 'fast' ? 'Fast' : task.speed === 'slow' ? 'Slow' : 'Medium';
+        const speedClass = `speed-badge speed-${task.speed}`;
+
         return `<tr>
           <td><span class="task-name">${task.name}${slayerTag}</span></td>
+          <td><span class="${speedClass}">${speedLabel}</span></td>
           <td>${best ? `<span class="teleport-text">${best.label}</span>` : '<span class="no-teleport">No teleport available</span>'}</td>
-          <td>${alt ? `<span class="teleport-alt">${alt.label}</span>` : '<span class="teleport-alt">\u2014</span>'}</td>
+          <td>${alt ? `<span class="teleport-alt">${alt.label}</span>` : '<span class="teleport-alt">-</span>'}</td>
           <td>${task.notes ? `<span class="${noteClass}">${task.notes}</span>` : ''}</td>
         </tr>`;
       }).join('');
