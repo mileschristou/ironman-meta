@@ -62,7 +62,7 @@
     <!-- Recommended Inventory -->
     <div class="inventory-section">
       <h3 class="panel-title">Recommended Inventory</h3>
-      <div class="inventory-list" id="inventoryList"></div>
+      <div class="inv-grid" id="inventoryGrid"></div>
       <div class="inventory-note" id="inventoryNote"></div>
     </div>
 
@@ -196,35 +196,54 @@
     padding: 1.25rem;
   }
 
-  .inventory-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .inv-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.375rem 0.75rem;
-    background: linear-gradient(135deg, #2d2419 0%, #1a1612 100%);
-    border: 1px solid #3d2f1f;
-    border-radius: 0.375rem;
-    font-size: 0.8rem;
-    color: var(--color-text, #e5d5c0);
-    font-weight: 500;
-  }
-
-  .inv-item.essential {
-    border-color: var(--color-accent, #d4a574);
-    color: var(--color-accent, #d4a574);
+  .inv-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 44px);
+    gap: 2px;
+    background: #241810;
+    border: 3px solid #5a4020;
+    border-radius: 6px;
+    padding: 5px;
+    width: fit-content;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
   }
 
   .inv-slot {
-    font-size: 0.7rem;
-    color: var(--color-text-muted, #8a7a6a);
-    font-weight: 600;
-    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: #130c04;
+    border: 1px solid #2a1c0a;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .inv-slot.filled {
+    cursor: help;
+    background: #1a1008;
+  }
+
+  .inv-slot.filled.essential {
+    box-shadow: inset 0 0 0 1px var(--color-accent, #d4a574);
+  }
+
+  .inv-slot img {
+    max-width: 36px;
+    max-height: 36px;
+    object-fit: contain;
+    image-rendering: pixelated;
+  }
+
+  .inv-slot.no-img::after {
+    content: attr(data-name);
+    font-size: 0.45rem;
+    color: #b8986f;
+    text-align: center;
+    line-height: 1.2;
+    padding: 2px;
+    word-break: break-word;
   }
 
   .inventory-note {
@@ -585,26 +604,26 @@
   // INVENTORY ITEM DEFINITIONS
   // ============================================================
   const INVENTORY_ITEMS = [
-    { id: 'rune_pouch', name: 'Rune Pouch', essential: true, always: true, note: 'NPC Contact runes (Lunar) or spellbook teles (Normal)' },
-    { id: 'house_tabs', name: 'House Tabs', essential: true, requires: ['house_tabs'], note: 'POH hub access' },
-    { id: 'ice_coolers', name: 'Ice Coolers', essential: true, always: true, note: 'Required for Lizards task' },
-    { id: 'light_source', name: 'Light Source', essential: false, always: true, note: 'Cave Bugs and Cave Slime' },
-    { id: 'games_necklace', name: 'Games Necklace', essential: false, requires: ['games_necklace'], excludedBy: 'poh_jewellery_box', note: 'Burthorpe return + Wolves/Dwarves' },
-    { id: 'ring_of_dueling', name: 'Ring of Dueling', essential: false, requires: ['ring_of_dueling'], excludedBy: 'poh_jewellery_box', note: 'Rats (Ferox) + Scorpions' },
-    { id: 'glory', name: 'Amulet of Glory', essential: false, requires: ['glory'], excludedBy: 'poh_jewellery_box', note: 'Edgeville, Al Kharid, Draynor, Karamja' },
-    { id: 'combat_bracelet', name: 'Combat Bracelet', essential: false, requires: ['combat_bracelet'], excludedBy: 'poh_jewellery_box', note: 'Birds + Icefiends' },
-    { id: 'skills_necklace', name: 'Skills Necklace', essential: false, requires: ['skills_necklace'], excludedBy: 'poh_jewellery_box', note: 'Mining Guild, Crafting Guild' },
-    { id: 'slayer_ring', name: 'Slayer Ring', essential: false, requires: ['slayer_ring'], note: 'Slayer Tower + Fremennik Dungeon' },
-    { id: 'xerics_talisman', name: "Xeric's Talisman", essential: false, requires: ['xerics_talisman'], note: 'Ghosts (Catacombs) + Bats' },
-    { id: 'ectophial', name: 'Ectophial', essential: false, requires: ['ectophial'], note: 'Zombies' },
-    { id: 'skull_sceptre', name: 'Skull Sceptre', essential: false, requires: ['skull_sceptre'], note: 'Minotaurs' },
-    { id: 'digsite_pendant', name: 'Digsite Pendant', essential: false, requires: ['digsite_pendant'], note: 'Skeletons' },
-    { id: 'royal_seed_pod', name: 'Royal Seed Pod', essential: false, requires: ['royal_seed_pod'], note: 'Monkeys (Gnome Glider)' },
-    { id: 'chronicle', name: 'Chronicle', essential: false, requires: ['chronicle'], note: "Birds (Champions' Guild)" },
-    { id: 'cowbell_amulet', name: 'Cowbell Amulet', essential: false, requires: ['cowbell_amulet'], note: 'Cows, Birds (chickens), and Goblins — three tasks from one tele' },
-    { id: 'ardougne_cloak', name: 'Ardougne Cloak', essential: false, requires: ['ardougne_cloak'], note: 'Icefiends (Monastery)' },
-    { id: 'desert_amulet_4', name: 'Desert Amulet 4', essential: false, requires: ['desert_amulet_4'], note: 'Kalphites' },
-    { id: 'dramen_staff', name: 'Dramen Staff', essential: false, requiresFairyNoStaff: true, note: 'Fairy ring access (weapon slot)' },
+    { id: 'rune_pouch', name: 'Rune Pouch', img: 'Rune_pouch.png', essential: true, always: true, note: 'NPC Contact runes (Lunar) or spellbook teles (Normal)' },
+    { id: 'house_tabs', name: 'House Tabs', img: 'Teleport_to_house.png', essential: true, requires: ['house_tabs'], note: 'POH hub access' },
+    { id: 'ice_coolers', name: 'Ice Coolers', img: 'Ice_cooler.png', essential: true, always: true, note: 'Required for Lizards task' },
+    { id: 'light_source', name: 'Light Source', img: 'Bullseye_lantern.png', essential: false, always: true, note: 'Cave Bugs and Cave Slime' },
+    { id: 'games_necklace', name: 'Games Necklace', img: 'Games_necklace(8).png', essential: false, requires: ['games_necklace'], excludedBy: 'poh_jewellery_box', note: 'Burthorpe return + Wolves/Dwarves' },
+    { id: 'ring_of_dueling', name: 'Ring of Dueling', img: 'Ring_of_dueling(8).png', essential: false, requires: ['ring_of_dueling'], excludedBy: 'poh_jewellery_box', note: 'Rats (Ferox) + Scorpions' },
+    { id: 'glory', name: 'Amulet of Glory', img: 'Amulet_of_glory(6).png', essential: false, requires: ['glory'], excludedBy: 'poh_jewellery_box', note: 'Edgeville, Al Kharid, Draynor, Karamja' },
+    { id: 'combat_bracelet', name: 'Combat Bracelet', img: 'Combat_bracelet(6).png', essential: false, requires: ['combat_bracelet'], excludedBy: 'poh_jewellery_box', note: 'Birds + Icefiends' },
+    { id: 'skills_necklace', name: 'Skills Necklace', img: 'Skills_necklace(6).png', essential: false, requires: ['skills_necklace'], excludedBy: 'poh_jewellery_box', note: 'Mining Guild, Crafting Guild' },
+    { id: 'slayer_ring', name: 'Slayer Ring', img: 'Slayer_ring(8).png', essential: false, requires: ['slayer_ring'], note: 'Slayer Tower + Fremennik Dungeon' },
+    { id: 'xerics_talisman', name: "Xeric's Talisman", img: "Xeric%27s_talisman.png", essential: false, requires: ['xerics_talisman'], note: 'Ghosts (Catacombs) + Bats' },
+    { id: 'ectophial', name: 'Ectophial', img: 'Ectophial.png', essential: false, requires: ['ectophial'], note: 'Zombies' },
+    { id: 'skull_sceptre', name: 'Skull Sceptre', img: 'Skull_sceptre(i).png', essential: false, requires: ['skull_sceptre'], note: 'Minotaurs' },
+    { id: 'digsite_pendant', name: 'Digsite Pendant', img: 'Digsite_pendant(5).png', essential: false, requires: ['digsite_pendant'], note: 'Skeletons' },
+    { id: 'royal_seed_pod', name: 'Royal Seed Pod', img: 'Royal_seed_pod.png', essential: false, requires: ['royal_seed_pod'], note: 'Monkeys (Gnome Glider)' },
+    { id: 'chronicle', name: 'Chronicle', img: 'Chronicle.png', essential: false, requires: ['chronicle'], note: "Birds (Champions' Guild)" },
+    { id: 'cowbell_amulet', name: 'Cowbell Amulet', img: 'Cowbell_amulet.png', essential: false, requires: ['cowbell_amulet'], note: 'Cows, Birds (chickens), and Goblins - three tasks from one tele' },
+    { id: 'ardougne_cloak', name: 'Ardougne Cloak', img: 'Ardougne_cloak_1.png', essential: false, requires: ['ardougne_cloak'], note: 'Icefiends (Monastery)' },
+    { id: 'desert_amulet_4', name: 'Desert Amulet 4', img: 'Desert_amulet_4.png', essential: false, requires: ['desert_amulet_4'], note: 'Kalphites' },
+    { id: 'dramen_staff', name: 'Dramen Staff', img: 'Dramen_staff.png', essential: false, requiresFairyNoStaff: true, note: 'Fairy ring access (weapon slot)' },
   ];
 
   // ============================================================
@@ -704,13 +723,21 @@
 
     // Build inventory
     const inventory = buildInventory(unlocks);
-    const listEl = document.getElementById('inventoryList');
+    const gridEl = document.getElementById('inventoryGrid');
     const noteEl = document.getElementById('inventoryNote');
-    if (listEl) {
-      listEl.innerHTML = inventory.map((item, i) => {
-        const cls = item.essential ? 'inv-item essential' : 'inv-item';
-        return `<div class="${cls}"><span class="inv-slot">${i + 1}.</span> <span>${item.name}</span></div>`;
-      }).join('');
+    if (gridEl) {
+      const wikiBase = 'https://oldschool.runescape.wiki/images/';
+      const slots = inventory.map(item => {
+        const cls = `inv-slot filled${item.essential ? ' essential' : ''}`;
+        return `<div class="${cls}" title="${item.name}" data-name="${item.name}">
+          <img src="${wikiBase}${item.img}" alt="${item.name}"
+               onerror="this.parentElement.classList.add('no-img'); this.remove();" />
+        </div>`;
+      });
+      for (let i = inventory.length; i < 28; i++) {
+        slots.push('<div class="inv-slot empty"></div>');
+      }
+      gridEl.innerHTML = slots.join('');
     }
 
     const remaining = 28 - inventory.length;
