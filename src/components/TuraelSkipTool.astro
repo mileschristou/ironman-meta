@@ -199,6 +199,7 @@
   .inv-grid {
     display: grid;
     grid-template-columns: repeat(4, 44px);
+    grid-auto-rows: 44px;
     gap: 2px;
     background: #241810;
     border: 3px solid #5a4020;
@@ -218,6 +219,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
   }
 
   .inv-slot.filled {
@@ -227,6 +229,30 @@
 
   .inv-slot.filled.essential {
     box-shadow: inset 0 0 0 1px var(--color-accent, #d4a574);
+  }
+
+  /* CSS tooltip on hover */
+  .inv-slot.filled::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2d2419;
+    color: #e5d5c0;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    padding: 3px 7px;
+    border-radius: 3px;
+    border: 1px solid #5a4020;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    z-index: 20;
+  }
+
+  .inv-slot.filled:hover::before {
+    opacity: 1;
   }
 
   .inv-slot img {
@@ -729,7 +755,7 @@
       const wikiBase = 'https://oldschool.runescape.wiki/images/';
       const slots = inventory.map(item => {
         const cls = `inv-slot filled${item.essential ? ' essential' : ''}`;
-        return `<div class="${cls}" title="${item.name}" data-name="${item.name}">
+        return `<div class="${cls}" data-tooltip="${item.name}" data-name="${item.name}">
           <img src="${wikiBase}${item.img}" alt="${item.name}"
                onerror="this.parentElement.classList.add('no-img'); this.remove();" />
         </div>`;
